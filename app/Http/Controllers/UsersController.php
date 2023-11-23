@@ -17,7 +17,7 @@ class UsersController extends Controller
     {
         $users = User::get();
 
-        return view('users.index', [
+        return view('Users.index', [
             'users' => $users
         ]);
     }
@@ -40,7 +40,7 @@ class UsersController extends Controller
     {
         $user = User::find($request->id);
 
-        return view('users.Edit.index', [
+        return view('Users.Edit.index', [
             'user' => $user
         ]);
     }
