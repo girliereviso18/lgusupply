@@ -17,7 +17,13 @@
                     </div>
                     <div class="form-group">
                         <label for="fund_cluster">Fund Cluster:</label>
-                        <input type="text" name="fund_cluster" class="form-control" value="{{ $requisition->fund_cluster }}" readonly>
+                         <label type="text" name="fund_cluster" class="form-control" value="{{ $requisition->office_id }}" readonly>
+                        @if($departments = App\Models\department::get())
+                             @foreach($departments as $department)
+                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+                            @endforeach
+                          @endif
+                      </label>
                     </div>
                     <div class="form-group">
                         <label for="division_id">Division:</label>
@@ -25,8 +31,14 @@
                     </div>
                     <div class="form-group">
                         <label for="rc_code">RC Code:</label>
-                        <input type="text" name="rc_code" class="form-control" value="{{ $requisition->rc_code }}" readonly>
-                    </div>
+                       <label type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>
+                        @if($departments = App\Models\department::get())
+                             @foreach($departments as $department)
+                              <option value="{{ $department->id }}"> {{ $department->department_user }}-{{ $department->responsibility_code }}</option>
+                            @endforeach
+                          @endif
+                      </label>
+                      </div>
                     <div class="form-group">
                         <label for="office_id">Office:</label>
                         <label type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>
@@ -86,15 +98,40 @@
                     </div>
                    <div class="form-group">
                         <label for="stock_no">Stock No:</label>
-                        <input type="text" name="stock_no[]" class="form-control" value="{{ $requisition->stock_no }}" readonly>
+                        <label name="stock_no" class="form-control" readonly>
+                    @if($supplies = App\Models\Supply::with('item')->get())
+                        @foreach($supplies as $supply)
+                            <option value="{{ $supply->id }}"> 
+                                {{ $supply->stock_number }} 
+                            </option>
+                        @endforeach
+                    @endif
+                </select>
                     </div>
                    <div class="form-group">
                         <label for="unit_id">Unit Id:</label>
-                        <input type="text" name="unit_id[]" class="form-control" value="{{ $requisition->unit_id }}" readonly>
+                        <label name="unit" id="unit" class="form-control" readonly>
+                            @if($units = App\Models\unit::get())
+                                @foreach($units as $unit)
+                                  <option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>
+                                @endforeach
+                            @endif> name="unit" id="unit" class="form-control" required>
+                            @if($units = App\Models\unit::get())
+                                @foreach($units as $unit)
+                                  <option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>
+                                @endforeach
+                            @endif
+                       </label>
                     </div>
                     <div class="form-group">
                         <label for="item_id">Item Id:</label>
-                        <input type="text" name="item_id" class="form-control" value="{{ $requisition->item_id }}" readonly>
+                        <label type="" name="item" class="form-control" readonly>
+                          @if($items = App\Models\Item::get())
+                              @foreach($items as $item)
+                                  <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
+                              @endforeach
+                          @endif
+                      </label>
                     </div>
                    <div class="form-group">
                         <label for="qty">Quantity:</label>
@@ -113,10 +150,6 @@
                         <input type="text" name="remarks" class="form-control" value="{{ $requisition->remarks }}" readonly>
                     </div>
 
-                    <div class="form-group">
-                        <label for="isapproved">Is Approved:</label>
-                        <input type="text" name="isapproved" class="form-control" value="{{ $requisition->isapproved }}" readonly>
-                    </div>
                    
                 </form>
                 <a href="{{ route('requisitions.index') }}" class="btn btn-primary">Back</a>
