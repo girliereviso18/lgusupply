@@ -21,7 +21,6 @@ class UsersController extends Controller
             'users' => $users
         ]);
     }
-
     public function store(Request $request)
     {
         $userSave = new User(); // Corrected the model name from Supplier to User
@@ -35,7 +34,6 @@ class UsersController extends Controller
             return redirect()->route('users.index')->with('success', 'Successfully added!');
         }
     }
-
     public function editusers(Request $request)
     {
         $user = User::find($request->id);
