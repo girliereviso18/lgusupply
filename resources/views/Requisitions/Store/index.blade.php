@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                             <label for="fund_cluster">Fund Cluster:</label>
-                            <input type="text" name="fund_cluster" class="form-control" required>
+                            <input type="text" name="fund_cluster" class="form-control">
                         </div>
                         
                         <div class="form-group">
@@ -75,7 +75,7 @@
                       </div>
                       <div>
                         <label for="requested_signature">Signature:</label>
-                        <input type="text" name="requested_signature" id="requested_signature" required>
+                        <input type="text" name="requested_signature" id="requested_signature">
                         
                         <div class="form-group">
                            <label for="requested_printed_name">Printed Name:</label>
@@ -115,7 +115,7 @@
                       </select>
                       </div>
                         <label for="approved_signature">Signature:</label>
-                        <input type="text" name="approved_signature" id="approved_signature" required>
+                        <input type="text" name="approved_signature" id="approved_signature">
                         <div class="form-group">
 
                         <label for="approved_printed_name">Printed Name:</label>
@@ -157,7 +157,7 @@
                       </div>
                        <div>
                         <label for="issued_signature">Signature:</label>
-                        <input type="text" name="issued_signature" id="issued_signature" required>
+                        <input type="text" name="issued_signature" id="issued_signature">
                         <div class="form-group"> 
                          <label for="issued_printed_name">Printed Name:</label>
                              <select type="" name="requested_by" class="form-control" required>
@@ -202,7 +202,7 @@
                       </div>
                       <div class="form-group">
                         <label for="received_signature">Signature:</label>
-                        <input type="text" name="received_signature" id="received_signature" required>
+                        <input type="text" name="received_signature" id="received_signature">
                         <div>
                         <label for="received_printed_name">Printed Name:</label>
                         <select type="" name="requested_by" class="form-control" required>
@@ -232,7 +232,7 @@
 
                         <div class="form-group">
                             <label for="isapproved">Is Approved:</label>
-                            <input type="number" name="isapproved" class="form-control" required>
+                            <input type="number" name="isapproved" class="form-control">
                         </div>
                     </div>
 
@@ -250,13 +250,37 @@
         </tr>
     </thead>
     <tbody id="requisition-items-container">
-        <tr>
-            <td><input type="text" name="requisition_items[0][stock_no]" class="form-control" required></td>
-            <td><input type="text" name="requisition_items[0][unit_id]" class="form-control" required></td>
-            <td><input type="text" name="requisition_items[0][item_id]" class="form-control" required></td>
-            <td><input type="text" name="requisition_items[0][qty]" class="form-control" required></td>
-            <td><input type="text" name="requisition_items[0][isAvailable]" class="form-control" required></td>
-            <td><input type="text" name="requisition_items[0][issued_qty]" class="form-control" required></td>
+        <td> <select name="stock_no" class="form-control" required>
+                    <!-- <option value="" disabled selected>Select Stock No.</option> -->
+                    @if($supplies = App\Models\Supply::with('item')->get())
+                        @foreach($supplies as $supply)
+                            <option value="{{ $supply->id }}"> 
+                                {{ $supply->stock_number }} 
+                            </option>
+                        @endforeach
+                    @endif
+                </select>
+            </td>
+            <td><select name="unit" id="unit" class="form-control" required>
+                            <option value="" disabled selected>Select Unit Name</option>
+                            @if($units = App\Models\unit::get())
+                                @foreach($units as $unit)
+                                  <option value="{{ $unit->id }}"selected> {{ $unit->unit_name }}</option>
+                                @endforeach
+                            @endif
+                        </select></td>
+            <td> <select type="" name="item" class="form-control" required>
+              <!-- <option value="" disabled selected>Select Dep</option> -->
+              @if($items = App\Models\Item::get())
+                  @foreach($items as $item)
+                      <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
+                  @endforeach
+              @endif
+          </select>
+            </td>
+            <td><input type="number" name="requisition_items[0][qty]" class="form-control" required></td>
+            <td><input type="number" name="requisition_items[0][isAvailable]" class="form-control" required></td>
+            <td><input type="number" name="requisition_items[0][issued_qty]" class="form-control" required></td>
             <td><input type="text" name="requisition_items[0][remarks]" class="form-control" required></td>
             <td><button type="button" class="btn btn-sm btn-danger delete-row-button">Delete</button></td>
         </tr>

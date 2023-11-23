@@ -1,7 +1,7 @@
 @extends('layouts.auth-master')
 
 @section('content')
-    <form method="post" action="{{ route('register.perform') }}">
+    <!-- <form method="post" action="{{ route('register.perform') }}"> -->
 
        <center><input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <img class="mb-4" src="{!! url('images/Logo.png') !!}" alt="" width="200" height="100">

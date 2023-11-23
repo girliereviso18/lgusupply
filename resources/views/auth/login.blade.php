@@ -95,8 +95,13 @@
                          <span class="text-danger text-left">{{ $errors->first('password_confirmation') }}</span>
                      @endif
                  </div>
-         
-                 
+                <div class="form-group form-floating mb-3">
+                 <label for="role">Role</label>
+                    <input type="role" class="form-control" name="role" value="{{ old('role') }}" placeholder="Role" required="required">
+                    @if ($errors->has('role'))
+                        <span class="text-danger text-left">{{ $errors->first('role') }}</span>
+                    @endif
+                </div>      
              
         </div>
   

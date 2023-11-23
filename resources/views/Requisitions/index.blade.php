@@ -37,11 +37,17 @@
                                                    <td>{{ $requisition->rc_code }}</td>
                                                    <td>{{ $requisition->office_id }}</td>
                                                    <td>{{ $requisition->purpose}}</td>
-                                                  <td class="text-center">
-    <a class="btn btn-sm btn-success" href="{{ url('/requisitions/edit').'/'.$requisition->id}}"><i class="fa fa-edit"></i> Update</a>
-    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/requisitions/delete').'/'.$requisition->id}}"><i class="fa fa-trash-alt"></i> Delete</a>
-    <a class="btn btn-sm btn-primary view_data" href="{{ url('/requisitions/view').'/'.$requisition->id}}"><i class="fa fa-eye"></i> View</a>
-</td>
+                                                   <td class="text-center">
+                                                    <a class="btn btn-sm btn-success" href="{{ url('/requisitions/edit').'/'.$requisition->id}}">
+                                                        <i class="fa fa-edit"></i> Update
+                                                    </a>
+                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/requisitions/delete').'/'.$requisition->id}}">
+                                                        <i class="fa fa-trash-alt"></i> Delete
+                                                    </a>
+                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('/requisitions/view').'/'.$requisition->id}}">
+                                                        <i class="fa fa-eye"></i> View
+                                                    </a>
+                                                </td>
                                                 </tr>
                                             @endforeach
                                         @endif
