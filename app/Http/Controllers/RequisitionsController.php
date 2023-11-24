@@ -18,7 +18,7 @@ class RequisitionsController extends Controller
     {
         $requisitions = Requisition::get();
 
-        return view('requisitions.index', ['requisitions' => $requisitions]);
+        return view('Requisitions.index', ['requisitions' => $requisitions]);
     }
 
 
@@ -89,7 +89,7 @@ class RequisitionsController extends Controller
 
     public function addrequisitions()
     {
-        return view('requisitions.store.index');
+        return view('Requisitions.Store.index');
     }
 
     public function editrequisitions(Request $request)
@@ -98,7 +98,7 @@ class RequisitionsController extends Controller
         $requisition_items = Requisitions_item::where('requisitions_id', $request->id)
                                             ->get();
 
-        return view('requisitions.Edit.index', [
+        return view('Requisitions.Edit.index', [
             'requisition' => $requisition,
             'requisition_items' => $requisition_items
         ]);
@@ -189,7 +189,7 @@ public function deleterequisitions(Request $request)
     {
         $requisition = Requisition::where('id', $request->id)->first();
             
-        return view('requisitions.view', [
+        return view('Requisitions.view', [
             'requisition' => $requisition
         ]);
     }
@@ -199,7 +199,7 @@ public function deleterequisitions(Request $request)
         $requisition = Requisition::where('id', $request->id)->first();
         $requisitionitems = Requisitions_item::where('id', $request->id)->get();
             
-        return view('requisitions.print.index', [
+        return view('Requisitions.print.index', [
             'requisition' => $requisition,
             'requisitionitems' => $requisitionitems
         ]);
@@ -208,7 +208,7 @@ public function deleterequisitions(Request $request)
         $requisition = Requisition::find($id);
         $requisitionItems = $requisition->requisitionItems; 
 
-        return view('requisitions.view', ['requisition' => $requisition, 'requisitionItems' => $requisitionItems]);
+        return view('Requisitions.view', ['requisition' => $requisition, 'requisitionItems' => $requisitionItems]);
 
 
     }

@@ -18,7 +18,7 @@ class RequisitionsController extends Controller
     {
         $requisitions = Requisition::get();
 
-        return view('employee.requisition.index', ['requisitions' => $requisitions]);
+        return view('Employee.requisition.index', ['requisitions' => $requisitions]);
     }
 
 
@@ -34,31 +34,53 @@ class RequisitionsController extends Controller
         $requisition->office_id = $request->office_id;
         $requisition->purpose = $request->purpose;
         $requisition->requested_by = $request->requested_by;
-        $requisition->date_requested = $request->date_requested;
         $requisition->approved_by = $request->approved_by;
-        $requisition->approved_date = $request->approved_date;
         $requisition->issued_by = $request->issued_by;
-        $requisition->issued_date = $request->issued_date;
         $requisition->received_by = $request->received_by;
-        $requisition->received_date = $request->received_date;
         $requisition->isApproved = $request->isapproved;
 
-        if ($requisition->save()) {
-            
-            $requisitionItemsData = $request->requisition_items; 
+         // Add information for "Requested by:"
+        $requisition->requested_signature = $request->requested_signature;
+        $requisition->requested_printed_name = $request->requested_printed_name;
+        $requisition->requested_designation = $request->requested_designation;
+        $requisition->requested_date = $request->requested_date;
 
-            foreach ($requisitionItemsData as $itemsData) { 
-                $requisitions_items = new Requisitions_item();
-                $requisitions_items->requisitions_id = $requisition->id; 
-                $requisitions_items->stock_no = $itemsData['stock_no']; 
-                $requisitions_items->unit_id = $itemsData['unit_id']; 
-                $requisitions_items->item_id = $itemsData['item_id']; 
-                $requisitions_items->qty = $itemsData['qty']; 
-                $requisitions_items->isavailable = $itemsData['isAvailable']; 
-                $requisitions_items->issued_qty = $itemsData['issued_qty']; 
-                $requisitions_items->remarks = $itemsData['remarks']; 
+        // Add information for "Approved by:"
+        $requisition->approved_signature = $request->approved_signature;
+        $requisition->approved_printed_name = $request->approved_printed_name;
+        $requisition->approved_designation = $request->approved_designation;
+        $requisition->approved_date = $request->approved_date;
 
-                if ($requisitions_items->save()) {
+        // Add information for "Issued by:"
+        $requisition->issued_signature = $request->issued_signature;
+        $requisition->issued_printed_name = $request->issued_printed_name;
+        $requisition->issued_designation = $request->issued_designation;
+        $requisition->issued_date = $request->issued_date;
+
+        // Add information for "Received by:"
+        $requisition->received_signature = $request->received_signature;
+        $requisition->received_printed_name = $request->received_printed_name;
+        $requisition->received_designation = $request->received_designation;
+        $requisition->received_date = $request->received_date;
+
+
+    if ($requisition->save()) {
+        $requisitionItemsData = $request->requisition_items;
+
+        foreach ($requisitionItemsData as $itemsData) {
+            $requisitions_items = new Requisitions_item();
+            $requisitions_items->requisitions_id = $requisition->id;
+            $requisitions_items->stock_no = $itemsData['stock_no'];
+            $requisitions_items->unit_id = $itemsData['unit_id'];
+            $requisitions_items->item_id = $itemsData['item_id'];
+            $requisitions_items->qty = $itemsData['qty'];
+            $requisitions_items->isavailable = $itemsData['isAvailable'];
+            $requisitions_items->issued_qty = $itemsData['issued_qty'];
+            $requisitions_items->remarks = $itemsData['remarks'];
+
+            $requisitions_items->save();
+        }
+ {
                     return redirect()->route('employee.requisitions.index')->with('success', 'Successfully added!');
             
                 }
@@ -71,7 +93,7 @@ class RequisitionsController extends Controller
 
     public function addrequisitions()
     {
-        return view('employee.requisition.store.index');
+        return view('Employee.requisition.Store.index');
     }
 
     public function editrequisitions(Request $request)
@@ -80,7 +102,7 @@ class RequisitionsController extends Controller
         $requisition_items = Requisitions_item::where('requisitions_id', $request->id)
                                             ->get();
 
-        return view('requisitions.Edit.index', [
+        return view('Employee.requisition.Edit.index', [
             'requisition' => $requisition,
             'requisition_items' => $requisition_items
         ]);
@@ -88,21 +110,40 @@ class RequisitionsController extends Controller
 
   public function updaterequisitions(Request $request)
 {
-            $requisition = Requisition::find($request->id);
+              $requisition = Requisition::find($request->id);
             $requisition->entity_name = $request->entity_name;
             $requisition->fund_cluster = $request->fund_cluster;
             $requisition->division_id = $request->division_id;
             $requisition->rc_code = $request->rc_code;
             $requisition->office_id = $request->office_id;
             $requisition->purpose = $request->purpose;
+            //  resquestedby
+
             $requisition->requested_by = $request->requested_by;
-            $requisition->date_requested = $request->date_requested;
+            $requisition->requested_signature= $request->requested_signature;
+            $requisition->requested_printed_name = $request->requested_printed_name;
+            $requisition->requested_designation= $request->requested_designation;
+            $requisition->requested_date= $request->requested_date;
+            
             $requisition->approved_by = $request->approved_by;
-            $requisition->approved_date = $request->approved_date;
+            $requisition->approved_signature= $request->approved_signature;
+            $requisition->approved_printed_name= $request->approved_printed_name;
+             $requisition->approved_designation= $request->approved_designation;
+              $requisition->approved_date= $request->approved_date;
+        
+            
             $requisition->issued_by = $request->issued_by;
+            $requisition->issued_signature = $request->issued_signature;
+            $requisition->issued_printed_name = $request->issued_printed_name;
+            $requisition->issued_designation = $request->issued_designation;
             $requisition->issued_date = $request->issued_date;
+            
             $requisition->received_by = $request->received_by;
+            $requisition->received_signature = $request->received_signature;
+            $requisition->received_printed_name = $request->received_printed_name;
+            $requisition->received_designation = $request->received_designation;
             $requisition->received_date = $request->received_date;
+
             $requisition->isApproved = $request->isapproved;
             if ($requisition->save()) {
                 // Update requisitions_items
@@ -152,7 +193,7 @@ public function deleterequisitions(Request $request)
     {
         $requisition = Requisition::where('id', $request->id)->first();
             
-        return view('employee.requisitions.view', [
+        return view('Employee.requisition.view', [
             'requisition' => $requisition
         ]);
     }
@@ -162,7 +203,7 @@ public function deleterequisitions(Request $request)
         $requisition = Requisition::where('id', $request->id)->first();
         $requisitionitems = Requisitions_item::where('id', $request->id)->get();
             
-        return view('employee.requisitions.print.index', [
+        return view('Employee.requisitions.print.index', [
             'requisition' => $requisition,
             'requisitionitems' => $requisitionitems
         ]);
@@ -171,7 +212,7 @@ public function deleterequisitions(Request $request)
         $requisition = Requisition::find($id);
         $requisitionItems = $requisition->requisitionItems; 
 
-        return view('employee.requisitions.view', ['requisition' => $requisition, 'requisitionItems' => $requisitionItems]);
+        return view('Employee.requisitions.view', ['requisition' => $requisition, 'requisitionItems' => $requisitionItems]);
 
 
     }

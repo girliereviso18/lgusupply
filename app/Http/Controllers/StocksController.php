@@ -17,7 +17,7 @@ class StocksController extends Controller
     {
     	$supplies = Supply::with('item')->get();
 
-        return view('stocks.index',[
+        return view('Stocks.index',[
             'supplies' => $supplies
         ]);
 
@@ -42,7 +42,7 @@ class StocksController extends Controller
     }
     public function addstocks() 
     {
-        return view('stocks.Store.index',[
+        return view('Stocks.Store.index',[
             // 'stocks' => $stocks
         ]);
     }
@@ -50,7 +50,7 @@ class StocksController extends Controller
     {
         $stock = Supply::where('id', $request->id)->first();
 
-        return view('stocks.Edit.index', ['stock' => $stock]);
+        return view('Stocks.Edit.index', ['stock' => $stock]);
     }
 
     public function updatestocks(Request $request)

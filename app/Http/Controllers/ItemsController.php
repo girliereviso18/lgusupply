@@ -16,7 +16,7 @@ class ItemsController extends Controller
     {
     	$items = Item::with('category')->get();
 
-        return view('items.index',[
+        return view('Items.index',[
             'items' => $items
         ]);
 
@@ -34,14 +34,14 @@ class ItemsController extends Controller
     }
      public function additem() 
     {
-         return view('items.Additem.index',[
+         return view('Items.Additem.index',[
          
         ]);
      }
     public function edititems(Request $request){
         $item=Item::where('id',$request->id)->first();
         
-        return view('items.Edit.index',[
+        return view('Items.Edit.index',[
             'item' => $item
         ]);
     } 

@@ -16,7 +16,7 @@ class SuppliersController extends Controller
     {
         $suppliers = Supplier::get();
 
-        return view('suppliers.index', [
+        return view('Suppliers.index', [
             'suppliers' => $suppliers
         ]);
     }
@@ -38,7 +38,7 @@ class SuppliersController extends Controller
     {
         $supplier = Supplier::find($request->id);
 
-        return view('suppliers.Edit.index', [
+        return view('Suppliers.Edit.index', [
             'supplier' => $supplier
         ]);
     }

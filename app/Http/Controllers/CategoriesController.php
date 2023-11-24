@@ -15,7 +15,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::get();
-        return view('categories.index', [
+        return view('Categories.index', [
             'categories' => $categories
         ]);
     }
@@ -32,14 +32,14 @@ class CategoriesController extends Controller
 
     public function addcategories()
     {
-        return view('categories.store.index');
+        return view('Categories.Store.index');
     }
 
     public function editcategories(Request $request)
     {
         $category = Category::where('id', $request->id)->first();
 
-        return view('categories.Edit.index', [
+        return view('Categories.Edit.index', [
             'category' => $category
         ]);
     }

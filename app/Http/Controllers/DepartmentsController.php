@@ -17,7 +17,7 @@ class DepartmentsController extends Controller
     {
         $departments = Department::get();
 
-        return view('departments.index', [
+        return view('Departments.index', [
             'departments' => $departments
         ]);
     }
@@ -39,14 +39,14 @@ class DepartmentsController extends Controller
 
     public function adddepartments()
     {
-        return view('departments.store.index', []);
+        return view('Departments.Store.index', []);
     }
 
     public function editdepartments(Request $request)
     {
         $department = Department::where('id', $request->id)->first();
 
-        return view('departments.Edit.index', [
+        return view('Departments.Edit.index', [
             'department' => $department
         ]);
     }

@@ -17,7 +17,7 @@ class ReportsController extends Controller
     {
         $reports = Report::get();
 
-        return view('reports.index', [
+        return view('Reports.index', [
             'reports' => $reports
         ]);
     }
@@ -45,14 +45,14 @@ class ReportsController extends Controller
 
     public function addreports()
     {
-        return view('reports.store.index', []);
+        return view('Reports.store.index', []);
     }
 
     public function editreports(Request $request)
     {
         $report = Report::where('id', $request->id)->first();
 
-        return view('reports.Edit.index', [
+        return view('Reports.Edit.index', [
             'report' => $report
         ]);
     }
@@ -89,9 +89,9 @@ class ReportsController extends Controller
     }
    public function viewreports(Request $request)
     {
-        $requisition = Requisition::where('id', $request->id)->first();
+        $report = Report::where('id', $request->id)->first();
             
-        return view('reports.view', [
+        return view('Reports.view', [
             'report' => $report
         ]);
     }
@@ -100,7 +100,7 @@ class ReportsController extends Controller
     {
         $report = Report::where('id', $request->id)->first();
 
-        return view('reports.print.index', [
+        return view('Reports.print.index', [
             'report' => $report,
             
         ]);
@@ -108,7 +108,7 @@ class ReportsController extends Controller
     public function show($id) {
         $report = Report::find($id); 
 
-        return view('reports.view', ['reports' => $requisition]);
+        return view('Reports.view', ['reports' => $report]);
 
 
     }

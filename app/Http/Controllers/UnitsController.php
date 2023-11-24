@@ -18,7 +18,7 @@ class UnitsController extends Controller
      {
     	$units = Unit::get();
 
-        return view('units.index',[
+        return view('Units.index',[
             'units' => $units
         ]);
 
@@ -40,7 +40,7 @@ class UnitsController extends Controller
      public function editunits(Request $request){
         $unit= Unit::where('id',$request->id)->first();
         
-        return view('units.Edit.index',[
+        return view('Units.Edit.index',[
             'unit' => $unit
         ]);
     } 
