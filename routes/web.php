@@ -160,13 +160,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/user/requisitions/add', 'User\RequisitionsController@addrequisitions')->name('employee.requisition.add');
         Route::post('/user/requisitions/store', 'User\RequisitionsController@store')->name('employee.requisition.store');
 
-        Route::get('/user/requisitions/edit/{id}', 'user\RequisitionsController@editrequisitions')->name('employee.requisition.edit');
-        Route::post('/user/requisitions/edit/save', 'user\RequisitionsController@updaterequisitions')->name('employee.requisition.edit.save')
+        Route::get('/user/requisitions/edit/{id}', 'User\RequisitionsController@editrequisitions')->name('employee.requisition.edit');
+        Route::post('/user/requisitions/edit/save', 'User\RequisitionsController@updaterequisitions')->name('employee.requisition.edit.save')
         ;
 
         Route::get('/user/requisitions/delete/{id}', 'User\RequisitionsController@deleterequisitions')->name('employee.requisition.delete');
         Route::get('/user/requisitions/view/{id}', 'User\RequisitionsController@viewrequisitions')->name('employee.requisition.view');
-        Route::post('/user/requisitions/view', 'User\RequisitionsController@dviewrequisitions')->name('employee.requisition.edit.view');
+        Route::post('/user/requisitions/view', 'User\RequisitionsController@viewrequisitions')->name('employee.requisition.edit.view');
         Route::get('/user/requisitions/print/{id}', 'User\RequisitionsController@requisitionsprint')->name('employee.requisition.print');
 
           Route::get('/user/pendings', 'PendingsController@index')->name('employee.pendings.index');

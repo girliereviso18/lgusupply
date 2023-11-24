@@ -80,16 +80,12 @@ class RequisitionsController extends Controller
 
             $requisitions_items->save();
         }
- {
-                    return redirect()->route('employee.requisitions.index')->with('success', 'Successfully added!');
-            
-                }
 
-            }
-        }else{
-            return redirect()->route('employee.requisition.index')->with('error', 'Failed to create requisition.');
-        }
+        return redirect()->route('Employee.requisition.index')->with('success', 'Successfully added!');
+    } else {
+        return redirect()->route('Employee.requisition.index')->with('error', 'Failed to create requisition.');
     }
+}
 
     public function addrequisitions()
     {
