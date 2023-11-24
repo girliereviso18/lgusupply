@@ -45,7 +45,7 @@ class ReportsController extends Controller
 
     public function addreports()
     {
-        return view('Reports.store.index', []);
+        return view('Reports.Store.index', []);
     }
 
     public function editreports(Request $request)

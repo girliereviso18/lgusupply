@@ -81,7 +81,7 @@
 
           <div class="card-body">
             <label for="days_to_consume">Days to Consume</label>
-            <input type="text" id="days_to_consume" name="days_to_consume" class="form-control" required="required">
+            <input type="text" id="days_to_consume" name="days_to_consume" class="form-control">
           </div>
 
           <div class="card-footer py-1 text-center">
