@@ -142,6 +142,8 @@
                         <label for="approved_date">Date:</label>
                         <input type="date" name="approved_date" id="approved_date" required> 
                     </div>
+                    <br>
+                    <br>
 
                         
                         <div class="form-group">
@@ -304,7 +306,7 @@
             fields.forEach((field) => {
                 const cell = newRow.insertCell();
                 
-                // Check if the field should be a select element
+                
                 if (field === "stock_no" || field === "unit_id" || field === "item_id") {
                     const select = document.createElement("select");
                     select.name = `requisition_items[${container.rows.length - 1}][${field}]`;
@@ -313,20 +315,20 @@
 
                     cell.appendChild(select);
 
-                    // Add options based on your data (I'm using a placeholder here)
-            
-                } else if (field === "stock_no" || field === "unit_id" || field === "item_id") {
+                   
+                
+               
+                 } else if (field === "stock_no" || field === "unit_id" || field === "item_id") {
+
                     const option = document.createElement("option");
                     option.name = `requisition_items[${container.rows.length - 1}][${field}]`;
                     option.className = "form-control";
                     option.required = true;
-                    fetchOptions(field, option);
-
     
                     cell.appendChild(option);
 
                 } else {
-                    // For other fields, create text inputs
+                    
                     const input = document.createElement("input");
                     input.type = "text";
                     input.name = `requisition_items[${container.rows.length - 1}][${field}]`;

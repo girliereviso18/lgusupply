@@ -103,14 +103,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         
         //suppliers 
 
-         Route::get('/suppliers', 'suppliersController@index')->name('suppliers.index');
-        Route::get('/suppliers/addsuppliers', 'suppliersController@addsuppliers')->name('addsuppliers.index');
-        Route::post('/suppliers/store', 'suppliersController@store')->name('suppliers.store');
+         Route::get('/suppliers', 'SuppliersController@index')->name('suppliers.index');
+        Route::get('/suppliers/addsuppliers', 'SuppliersController@addsuppliers')->name('addsuppliers.index');
+        Route::post('/suppliers/store', 'SuppliersController@store')->name('suppliers.store');
 
-        Route::get('/suppliers/edit/{id}', 'suppliersController@editsuppliers')->name('suppliers.edit');
-        Route::post('/suppliers/edit/save', 'suppliersController@updatesuppliers')->name('suppliers.edit.save');
+        Route::get('/suppliers/edit/{id}', 'SuppliersController@editsuppliers')->name('suppliers.edit');
+        Route::post('/suppliers/edit/save', 'SuppliersController@updatesuppliers')->name('suppliers.edit.save');
 
-        Route::get('/suppliers/delete/{id}', 'suppliersController@deletesuppliers')->name('suppliers.delete');
+        Route::get('/suppliers/delete/{id}', 'SuppliersController@deletesuppliers')->name('suppliers.delete');
         //users
 
         Route::get('/users', 'UsersController@index')->name('users.index');

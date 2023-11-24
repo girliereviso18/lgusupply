@@ -38,7 +38,7 @@
                             <label>Unit of Measurement</label>
                              <select name="unit_of_measurement" id="unit_of_measurement" class="form-control" required="required">
                              <option value="" disabled selected>Select Unit Name</option>
-                             @if($units = App\Models\unit::get())
+                             @if($units = App\Models\Unit::get())
                              @foreach($units as $unit)
                               <option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>
                             @endforeach
