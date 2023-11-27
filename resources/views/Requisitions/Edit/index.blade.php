@@ -266,7 +266,6 @@
                             @endif
                         </select></td>
             <td> <select type="" name="item" class="form-control" required>
-              <!-- <option value="" disabled selected>Select Dep</option> -->
               @if($items = App\Models\Item::get())
                   @foreach($items as $item)
                       <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>

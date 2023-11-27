@@ -98,7 +98,7 @@
                       </select>
                   </div>
                         <label for="requested_date">Date:</label>
-                        <input type="date" name="requested_date" id="requested_date" required>
+                        <input type="date" name="requested_date" id="requested_date" class="form-control">
                          <div class="form-group">
                             <label for="approved_by">Approved by:</label>
                             <select type="" name="approved_by" class="form-control" required>
@@ -178,7 +178,7 @@
                     <div class="form-group">
 
                         <label for="issued_date">Date:</label>
-                        <input type="date" name="issued_date" id="issued_date" required>
+                        <input type="date" name="issued_date" id="issued_date" required="required" >
                     </div>
                        
                       

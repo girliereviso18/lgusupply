@@ -29,11 +29,10 @@ class StocksController extends Controller
         $Supplysave->item_id = $request->item_id;
         $Supplysave->qty = $request->qty;
         $Supplysave->unit_of_measurement= $request->unit_of_measurement;
-        $Supplysave->supplier_id = $request->supplier_id;
+        $Supplysave->supplier_id = $request->suppliers_name;
         $Supplysave->price_per_unit = $request->price_per_unit;
         $Supplysave->date_of_purchase = $request->date_of_purchase;
         $Supplysave->expiration_date = $request->expiration_date;
-        $Supplysave->location = $request->location;
         $Supplysave->status = $request->status;
      
         if($Supplysave->save()){
@@ -64,7 +63,6 @@ class StocksController extends Controller
         $Editsave->price_per_unit = $request->price_per_unit;
         $Editsave->date_of_purchase = $request->date_received;
         $Editsave->expiration_date = $request->expiration_date;
-        $Editsave->location = $request->location;
         $Editsave->status = $request->status;
 
         if ($Editsave->save()) {

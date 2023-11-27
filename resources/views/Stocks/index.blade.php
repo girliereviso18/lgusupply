@@ -42,7 +42,7 @@
                                                    <td>{{ $supply->item->items_name}}</td>
                                                    <td>{{ $supply->qty }}</td>
                                                    <td>{{ $supply->unit_of_measurement }}</td>
-                                                   <td>{{ $supply->supplier_id }}</td>
+                                                   <td>{{ $supply->supplier_id}}</td>
                                                    <td>{{ $supply->price_per_unit}}</td>
                                                    <td>{{ $supply->date_of_purchase}}</td>
                                                    <td>{{ $supply->expiration_date }}</td>

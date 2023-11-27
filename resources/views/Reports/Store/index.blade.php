@@ -15,7 +15,6 @@
            <input type="hidden" name="id" value="item">
            <label for="item">Item</label>
           <select type="" name="item" class="form-control" required>
-              <!-- <option value="" disabled selected>Select Dep</option> -->
               @if($items = App\Models\Item::get())
                   @foreach($items as $item)
                       <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
@@ -31,7 +30,6 @@
           <div class="card-body">
     <label for="stock_no">Stock No.</label>
     <select name="stock_no" class="form-control" required>
-        <!-- <option value="" disabled selected>Select Stock No.</option> -->
         @if($supplies = App\Models\Supply::with('item')->get())
             @foreach($supplies as $supply)
                 <option value="{{ $supply->id }}"> 

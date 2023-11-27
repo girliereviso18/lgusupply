@@ -48,7 +48,7 @@ return new class extends Migration
             $table->integer('received_designation')->nullable();
             $table->date('received_date')->nullable();
 
-            $table->integer('isapproved');
+            $table->enum('status', ['approved', 'disapproved', 'pending'])->default('pending');
             $table->timestamps();
         });
     }

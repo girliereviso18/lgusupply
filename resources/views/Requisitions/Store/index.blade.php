@@ -229,11 +229,13 @@
                         <input type="date" name="received_date" id="received_date" required>
                     </div>
                        
-
-                        <div class="form-group">
-                            <label for="isapproved">Is Approved:</label>
-                            <input type="number" name="isapproved" class="form-control">
-                        </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select name="status" class="form-control" required>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="disapproved">Disapproved</option>
+                        </select>
                     </div>
 
 <!-- Requisition Items Table -->

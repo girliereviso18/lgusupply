@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label for="division_id">Division:</label>
                             <select type="" name="division_id" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
+                            <option value="" disabled selected>Select Division</option>
                              @if($departments = App\Models\department::get())
                              @foreach($departments as $department)
                               <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
@@ -99,8 +99,9 @@
                           @endif
                       </select>
                   </div>
+                    <div class="form-group">
                         <label for="requested_date">Date:</label>
-                        <input type="date" name="requested_date" id="requested_date" required class="form-control">
+                        <input type="date" name="requested_date" id="requested_date">
                     </div>
 
                         <div class="form-group">

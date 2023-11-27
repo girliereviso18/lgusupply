@@ -57,9 +57,9 @@
                                                     <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/reports/delete').'/'.$report->id}}">
                                                         <i class="fa fa-trash-alt"></i> Delete
                                                     </a>
-                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('/reports/view').'/'.$report->id}}">
-                                                        <i class="fa fa-eye"></i> View
-                                                    </a>
+                                                   <a class="btn btn-sm btn-warning print_data" href="{{ url('/reports/print').'/'.$report->id }}">
+                                                    <i class="fa fa-print"></i> Print
+                                                  </a>
                                                 </td>
                                                   
                                                 </tr>

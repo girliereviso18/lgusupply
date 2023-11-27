@@ -17,9 +17,7 @@ class ReportsController extends Controller
     {
         $reports = Report::get();
 
-        return view('Reports.index', [
-            'reports' => $reports
-        ]);
+        return view('Reports.index', ['reports' => $reports]);
     }
 
     public function store(Request $request)
@@ -35,8 +33,6 @@ class ReportsController extends Controller
         $Reportsave->office = $request->office;
         $Reportsave->balance = $request->balance;
         $Reportsave->days_to_consume = $request->days_to_consume;
-
-
 
         if ($Reportsave->save()) {
             return redirect()->route('reports.index')->withErrors('Successfully added!');
@@ -64,15 +60,12 @@ class ReportsController extends Controller
         $Editsave->description = $request->description;
         $Editsave->stock_no = $request->stock_no;
         $Editsave->date = $request->date;
-        $Editsave->reference = $reference->item;
+        $Editsave->reference = $request->reference;
         $Editsave->receipt_qty = $request->receipt_qty;
         $Editsave->issuance_qty = $request->issuance_qty;
         $Editsave->office = $request->office;
         $Editsave->balance = $request->balance;
         $Editsave->days_to_consume = $request->days_to_consume;
-
-
-
 
         if ($Editsave->update()) {
             return redirect()->route('reports.index')->withErrors('Updated!');
@@ -87,7 +80,8 @@ class ReportsController extends Controller
             return redirect()->back()->withErrors('Delete!');
         }
     }
-   public function viewreports(Request $request)
+
+    public function viewreports(Request $request)
     {
         $report = Report::where('id', $request->id)->first();
             
@@ -95,22 +89,19 @@ class ReportsController extends Controller
             'report' => $report
         ]);
     }
-    
+
     public function reportsprint(Request $request)
     {
         $report = Report::where('id', $request->id)->first();
 
         return view('Reports.print.index', [
             'report' => $report,
-            
         ]);
     }
+
     public function show($id) {
         $report = Report::find($id); 
 
         return view('Reports.view', ['reports' => $report]);
-
-
     }
-
 }

@@ -37,13 +37,14 @@
                     </div>
 
                     <!-- Stock Number Selection -->
-                    <div class="form-group">
-                        <label for="stock_no">Stock Number</label>
-                        <select name="stock_no" id="stock_no" class="form-control" required>
-                            <option value="" disabled selected>Select Stock Number</option>
-                            @if($stocknumbers = App\Models\Supply::get())
-                                @foreach($stockNumbers as $stockNumber)
-                                    <option value="{{ $stockNumber->id }}" selected>{{ $stockNumber->stock_number }}</option>
+                     <div class="form-group">
+                        <label for="stock_no">Stock No.</label>
+                        <select name="stock_no" class="form-control" required>
+                            @if($supplies = App\Models\Supply::with('item')->get())
+                                @foreach($supplies as $supply)
+                                    <option value="{{ $supply->id }}"> 
+                                        {{ $supply->stock_number }} 
+                                    </option>
                                 @endforeach
                             @endif
                         </select>

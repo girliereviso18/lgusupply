@@ -193,7 +193,7 @@
                          <li class="nav-form dropdown">
                           <li class="nav-form">
                             <a href="{{ route('employee.pendings.index')}}" class="nav-link nav-form">
-                            <i class="fas fa-file" style="margin-left: 10px;"></i>
+                            <i class="fas fa-clock" style="margin-left: 10px;"></i>
                               <p>
                              Pending
                              </p>

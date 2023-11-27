@@ -141,10 +141,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/reports/edit/save', 'ReportsController@updatereports')->name('reports.edit.save')
         ;
 
-        Route::get('/reports/delete/{id}', 'ReportsControlle@deletereports')->name('reports.delete');
-        Route::get('/reports/view/{id}', 'ReportsControlle@viewreportss')->name('reports.view');
+        Route::get('/reports/delete/{id}', 'ReportsController@deletereports')->name('reports.delete');
+        Route::get('/reports/view/{id}', 'ReportsController@viewreports')->name('reports.view');
         Route::post('/reports/view', 'ReportsController@viewreports')->name('reports.edit.view');
-        Route::get('/reports/print/{id}', 'ReportsControlle@reportsprint')->name('reports.print');
+        Route::get('/reports/print/{id}', 'ReportsController@reportsprint')->name('reports.print');
     });
 
     // USER
@@ -168,6 +168,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/user/requisitions/view/{id}', 'User\RequisitionsController@viewrequisitions')->name('employee.requisition.view');
         Route::post('/user/requisitions/view', 'User\RequisitionsController@viewrequisitions')->name('employee.requisition.edit.view');
         Route::get('/user/requisitions/print/{id}', 'User\RequisitionsController@requisitionsprint')->name('employee.requisition.print');
+
+        // PENDING
 
           Route::get('/user/pendings', 'PendingsController@index')->name('employee.pendings.index');
         Route::get('/user/pendings/addpendings', 'PendingsController@addpendings')->name('employee.addpendings.index');

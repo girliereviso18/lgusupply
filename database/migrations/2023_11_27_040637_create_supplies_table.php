@@ -17,11 +17,10 @@ return new class extends Migration
             $table->integer('item_id');
             $table->integer('qty');
             $table->string('unit_of_measurement');
-            $table->integer('supplier_id');
+            $table->integer('supplier_id')->nullable();
             $table->integer('price_per_unit');
             $table->date('date_of_purchase')->nullable();
             $table->date('expiration_date')->nullable();
-            $table->string('location')->nullable();
             $table->integer('status')->nullable();
             $table->timestamps();
         });
