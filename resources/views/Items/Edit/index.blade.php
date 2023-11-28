@@ -11,7 +11,7 @@
                     <p class="card-title">Edit Items</p></br>
                 </div>
                 <div class="card-body"> 
-                    <form action="{{route('items.edit.save')}}" method="POST">
+                    <form action="{{route('admin.items.edit.save')}}" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <div class="form-group">

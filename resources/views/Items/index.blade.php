@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Item Lists</h3>
                     <div class="card-tools">
-                    <a href="{{route('additem.index')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Items</a>
+                    <a href="{{route('admin.additem.index')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Items</a>
                 </div>
                 </div>
                 <div class="card-body">

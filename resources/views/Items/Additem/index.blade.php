@@ -11,7 +11,7 @@
                     <p class="card-title">Add Items</p></br>
                 </div>
                 <div class="card-body"> 
-                    <form action="{{route('items.store')}}" method="POST">
+                    <form action="{{route('admin.items.store')}}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Item Name and Brand</label>

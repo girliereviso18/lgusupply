@@ -42,7 +42,11 @@
                                                    <td>{{ $supply->item->items_name}}</td>
                                                    <td>{{ $supply->qty }}</td>
                                                    <td>{{ $supply->unit->unit_name }}</td>
-                                                   <td>{{ $supply->supplier->suppliers_name}}</td>
+                                                   <td>
+                                                 @if(isset($$supply->supplier->suppliers_name))
+                                                    {{ $supply->supplier->suppliers_name}}
+                                                @endif
+                                                </td>
                                                    <td>{{ $supply->price_per_unit}}</td>
                                                    <td>{{ $supply->date_of_purchase}}</td>
                                                    <td>{{ $supply->expiration_date }}</td>
