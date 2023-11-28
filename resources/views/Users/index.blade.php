@@ -17,6 +17,17 @@
                             <input type="text" name="name" class="form-control" required="required">
                         </div>
                         <div class="form-group">
+                            <label>Department</label>
+                             <select type="" name="department_id" class="form-control" required>
+                                    <option value="" disabled selected>Select Department</option>
+                                     @if($departments = App\Models\department::get())
+                                     @foreach($departments as $department)
+                                      <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+                                    @endforeach
+                                  @endif
+                           </select>
+                       </div>
+                        <div class="form-group">
                             <label>Email</label>
                             <input type="text" name="email" class="form-control" required="required">
                         </div>
@@ -52,6 +63,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
+                                            <th>Department</th>
                                             <th>Email</th>
                                             <th>Username</th>
                                             <th>Role</th>              
@@ -65,12 +77,17 @@
                                                  <tr>
                                                    <td>{{$count++}}</td>
                                                    <td>{{ $user->name }}</td>
+                                                   <td>
+                                                    @if(isset($user->office->department_user))
+                                                        {{ $user->office->department_user }}
+                                                    @endif
+                                                    </td>
                                                    <td>{{ $user->email }}</td>
                                                    <td>{{ $user->username }}</td>
                                                    <td>{{ $user->role}}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-sm btn-success" href="{{ url('/users/edit').'/'.$user->id}}" ><i class="fa fa-edit"></i> Update</a>
-                                                        <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/users/delete').'/'.$user->id}})"><i class="fa fa-trash-alt"></i> Delete</a></td>
+                                                        <a class="btn btn-sm btn-success" href="{{ url('/admin/users/edit').'/'.$user->id}}" ><i class="fa fa-edit"></i> Update</a>
+                                                        <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/users/delete').'/'.$user->id}})"><i class="fa fa-trash-alt"></i> Delete</a></td>
                                                 </tr>
                                             @endforeach
                                         @endif

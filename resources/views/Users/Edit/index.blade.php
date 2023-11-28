@@ -8,13 +8,28 @@
                 <h3 class="card-title">Update Users</h3> 
             </div>
               <div class="card-body">
-                <form action="{{ route('users.edit.save') }}" method="POST">
+                <form action="{{ route('admin.users.edit.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{$user->id}}"> 
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" value="{{ $user->name}}" required="required" class="form-control">                 
                     </div>
+                     <div class="form-group">
+                            <label>Department</label>
+                             <select type="" name="department_id" class="form-control" required>
+                                    <option value="" disabled selected>Select Department</option>
+                                     @if($departments = App\Models\department::get())
+                                         @foreach($departments as $department)
+                                          <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+
+                                          @if($department->id==$user->department_id)
+                                            <option value="{{ $department->id }}" selected> {{ $department->department_user }}</option>
+                                          @endif
+                                        @endforeach
+                                      @endif
+                           </select>
+                       </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" name="email" value="{{ $user->email}}" required="required" class="form-control">                 

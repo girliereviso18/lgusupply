@@ -30,7 +30,7 @@ class SuppliersController extends Controller
         $supplierSave->status = $request->status;
 
         if ($supplierSave->save()) {
-            return redirect()->route('suppliers.index')->with('success', 'Successfully added!');
+            return redirect()->route('admin.suppliers.index')->with('success', 'Successfully added!');
         }
     }
 
@@ -52,7 +52,7 @@ class SuppliersController extends Controller
         $editSave->status = $request->status;
 
         if ($editSave->save()) {
-            return redirect()->route('suppliers.index')->with('success', 'Updated!');
+            return redirect()->route('admin.suppliers.index')->with('success', 'Updated!');
         }
     }
 
@@ -61,7 +61,7 @@ class SuppliersController extends Controller
         $deleteSave = Supplier::find($request->id);
 
         if ($deleteSave->delete()) {
-            return redirect()->route('suppliers.index')->with('success', 'Deleted!');
+            return redirect()->route('admin.suppliers.index')->with('success', 'Deleted!');
         }
     }
 }

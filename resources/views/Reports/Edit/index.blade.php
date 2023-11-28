@@ -8,7 +8,7 @@
                 <h3 class="card-title">Edit Report</h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('reports.edit.save') }}" method="POST">
+                <form action="{{ route('admin.reports.edit.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{ $report->id }}">
 

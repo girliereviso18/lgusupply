@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Requisition Lists</h3>
                     <div class="card-tools">
-                    <a href="{{route('requisitions.addrequisitions')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Requisitions</a>
+                    <a href="{{route('admin.requisitions.addrequisitions')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Requisitions</a>
                 </div>
                 </div>
                 <div class="card-body">
@@ -34,17 +34,17 @@
                                                    <td>{{ $requisition->entity_name }}</td>
                                                    <td>{{ $requisition->fund_cluster}}</td>
                                                    <td>{{ $requisition->division_id }}</td>
-                                                   <td>{{ $requisition->rc_code }}</td>
-                                                   <td>{{ $requisition->office_id }}</td>
+                                                   <td>{{ $requisition->office->responsibility_code }}</td>
+                                                   <td>{{ $requisition->office->department_user }}</td>
                                                    <td>{{ $requisition->purpose}}</td>
                                                    <td class="text-center">
-                                                    <a class="btn btn-sm btn-success" href="{{ url('/requisitions/edit').'/'.$requisition->id}}">
+                                                    <a class="btn btn-sm btn-success" href="{{ url('/admin/requisitions/edit').'/'.$requisition->id}}">
                                                         <i class="fa fa-edit"></i> Update
                                                     </a>
-                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/requisitions/delete').'/'.$requisition->id}}">
+                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/requisitions/delete').'/'.$requisition->id}}">
                                                         <i class="fa fa-trash-alt"></i> Delete
                                                     </a>
-                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('/requisitions/view').'/'.$requisition->id}}">
+                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/requisitions/view').'/'.$requisition->id}}">
                                                         <i class="fa fa-eye"></i> View
                                                     </a>
                                                 </td>

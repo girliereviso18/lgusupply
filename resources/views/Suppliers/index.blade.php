@@ -10,7 +10,7 @@
                     <h3 class="card-title">Add Suppliers</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('suppliers.store')}}" method="POST">
+                    <form action="{{route('admin.suppliers.store')}}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Supplier's Name</label>
@@ -38,7 +38,7 @@
         <div class="col-sm-7">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Unit Lists</h3>
+                    <h3 class="card-title">Supplier Lists</h3>
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">
@@ -64,8 +64,8 @@
                                                    <td>{{ $supplier->address}}</td>
                                                    <td>{{ $supplier->status }}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-sm btn-success" href="{{ url('/suppliers/edit').'/'.$supplier->id}}" ><i class="fa fa-edit"></i> Update</a>
-                                                        <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/suppliers/delete').'/'.$supplier->id}})"><i class="fa fa-trash-alt"></i> Delete</a></td>
+                                                        <a class="btn btn-sm btn-success" href="{{ url('/admin/suppliers/edit').'/'.$supplier->id}}" ><i class="fa fa-edit"></i> Update</a>
+                                                        <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/suppliers/delete').'/'.$supplier->id}})"><i class="fa fa-trash-alt"></i> Delete</a></td>
                                                 </tr>
                                             @endforeach
                                         @endif

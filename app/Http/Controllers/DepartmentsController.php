@@ -33,7 +33,7 @@ class DepartmentsController extends Controller
         $Departmentsave->email_address = $request->email_address;
 
         if ($Departmentsave->save()) {
-            return redirect()->route('departments.index')->withErrors('Successfully added!');
+            return redirect()->route('admin.departments.index')->withErrors('Successfully added!');
         }
     }
 
@@ -65,7 +65,7 @@ class DepartmentsController extends Controller
 
 
         if ($Editsave->update()) {
-            return redirect()->route('departments.index')->withErrors('Updated!');
+            return redirect()->route('admin.departments.index')->withErrors('Updated!');
         }
     }
 

@@ -28,7 +28,7 @@ class UnitsController extends Controller
         $Unitsave->unit_name = $request->unit_name;
   
         if($Unitsave->save()){
-            return redirect()->route('units.index')->withErrors('Sucessfully added!');
+            return redirect()->route('admin.units.index')->withErrors('Sucessfully added!');
         }
         } 
     public function addunits() 
@@ -49,7 +49,7 @@ class UnitsController extends Controller
         $Editsave->unit_name = $request->unit_name;
        
         if($Editsave->update()){
-            return redirect()->route('units.index')->withErrors('Updated!');
+            return redirect()->route('admin.units.index')->withErrors('Updated!');
         }
     } 
     public function deleteunits(Request $request){

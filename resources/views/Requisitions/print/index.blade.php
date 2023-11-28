@@ -1699,7 +1699,7 @@ td
    <tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
     <td class="xl122" height="37.50" style='height:22.50pt;' x:str>Signature :</td>
     <td class="xl123"></td>
-    <td class="xl124">{{$requisition->requested_by }}</td>
+    <td class="xl124">{{$requisition->user->name }}</td>
     <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{$requisition->approved_by }}</td>
     <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{$requisition->issued_by }}</td>
    <td class="xl126" style="text-align: center;">{{$requisition->received_by}}</td>

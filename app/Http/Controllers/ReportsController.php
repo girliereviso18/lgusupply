@@ -35,7 +35,7 @@ class ReportsController extends Controller
         $Reportsave->days_to_consume = $request->days_to_consume;
 
         if ($Reportsave->save()) {
-            return redirect()->route('reports.index')->withErrors('Successfully added!');
+            return redirect()->route('admin.reports.index')->withErrors('Successfully added!');
         }
     }
 
@@ -68,7 +68,7 @@ class ReportsController extends Controller
         $Editsave->days_to_consume = $request->days_to_consume;
 
         if ($Editsave->update()) {
-            return redirect()->route('reports.index')->withErrors('Updated!');
+            return redirect()->route('admin.reports.index')->withErrors('Updated!');
         }
     }
 

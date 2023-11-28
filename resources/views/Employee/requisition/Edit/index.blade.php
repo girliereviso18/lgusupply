@@ -98,7 +98,7 @@
                       </select>
                   </div>
                         <label for="requested_date">Date:</label>
-                        <input type="date" name="requested_date" id="requested_date" class="form-control">
+                        <input type="date" name="requested_date" id="requested_date" required>
                          <div class="form-group">
                             <label for="approved_by">Approved by:</label>
                             <select type="" name="approved_by" class="form-control" required>
@@ -178,7 +178,7 @@
                     <div class="form-group">
 
                         <label for="issued_date">Date:</label>
-                        <input type="date" name="issued_date" id="issued_date" required="required" >
+                        <input type="date" name="issued_date" id="issued_date" required>
                     </div>
                        
                       
@@ -266,7 +266,6 @@
                             @endif
                         </select></td>
             <td> <select type="" name="item" class="form-control" required>
-              <!-- <option value="" disabled selected>Select Dep</option> -->
               @if($items = App\Models\Item::get())
                   @foreach($items as $item)
                       <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>

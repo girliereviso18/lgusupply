@@ -14,4 +14,13 @@ class Requisition extends Model
     {
         return $this->hasMany(RequisitionItem::class);
     }
+    // Define the relationship to Requisition Items
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'requested_by','id');
+    }
+    public function office()
+    {
+        return $this->belongsTo(Department::class, 'office_id','id');
+    }
 }

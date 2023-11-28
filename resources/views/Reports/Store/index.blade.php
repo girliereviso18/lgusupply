@@ -10,7 +10,7 @@
       </div>
 
       <div class="card-body">
-        <form action="{{ route('reports.store') }}" method="POST">
+        <form action="{{ route('admin.reports.store') }}" method="POST">
           @csrf
            <input type="hidden" name="id" value="item">
            <label for="item">Item</label>

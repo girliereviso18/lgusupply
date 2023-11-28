@@ -81,9 +81,9 @@ class RequisitionsController extends Controller
             $requisitions_items->save();
         }
 
-        return redirect()->route('requisitions.index')->with('success', 'Successfully added!');
+        return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
     } else {
-        return redirect()->route('requisitions.index')->with('error', 'Failed to create requisition.');
+        return redirect()->route('admin.requisitions.index')->with('error', 'Failed to create requisition.');
     }
 }
 
@@ -166,9 +166,9 @@ class RequisitionsController extends Controller
             $requisitions_items->save();
         }
 
-        return redirect()->route('requisitions.index')->with('success', 'Updated!');
+        return redirect()->route('admin.requisitions.index')->with('success', 'Updated!');
     } else {
-        return redirect()->route('requisitions.index')->with('error', 'Failed to update requisition.');
+        return redirect()->route('admin.requisitions.index')->with('error', 'Failed to update requisition.');
     }
 }
 

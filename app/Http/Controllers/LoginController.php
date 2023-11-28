@@ -40,7 +40,7 @@ class LoginController extends Controller
 
         if (Auth::user() && Auth::user()->role == 1) {
             // Admin user
-            return redirect('/');
+            return redirect('/admin');
         } elseif (Auth::user() && Auth::user()->role == 2) {
             // Regular user
             return redirect('/employee');

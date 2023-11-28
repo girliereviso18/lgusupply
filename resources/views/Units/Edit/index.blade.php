@@ -8,7 +8,7 @@
                 <h3 class="card-title">Update Units</h3> 
             </div>
               <div class="card-body">
-                <form action="{{ route('units.edit.save') }}" method="POST">
+                <form action="{{ route('admin.units.edit.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{$unit->id}}"> 
                     <div class="form-group">

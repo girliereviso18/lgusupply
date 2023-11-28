@@ -36,7 +36,7 @@ class StocksController extends Controller
         $Supplysave->status = $request->status;
      
         if($Supplysave->save()){
-        return redirect()->route('stocks.index')->withErrors('Succesfully Added!');
+        return redirect()->route('admin.stocks.index')->withErrors('Succesfully Added!');
         }
     }
     public function addstocks() 
@@ -66,7 +66,7 @@ class StocksController extends Controller
         $Editsave->status = $request->status;
 
         if ($Editsave->save()) {
-            return redirect()->route('stocks.index')->withErrors('Updated!');
+            return redirect()->route('admin.stocks.index')->withErrors('Updated!');
         }
     
     } 

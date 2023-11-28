@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Stock Lists</h3>
                     <div class="card-tools">
-                    <a href="{{ route('stocks.addstocks') }}" class="btn btn-flat btn-primary" target="_blank">
+                    <a href="{{ route('admin.stocks.addstocks') }}" class="btn btn-flat btn-primary" target="_blank">
                         <span class="fas fa-plus"></span> Add Stocks
                     </a>
 
@@ -41,15 +41,15 @@
                                                    <td>{{ $supply->stock_number }}</td>
                                                    <td>{{ $supply->item->items_name}}</td>
                                                    <td>{{ $supply->qty }}</td>
-                                                   <td>{{ $supply->unit_of_measurement }}</td>
-                                                   <td>{{ $supply->supplier_id}}</td>
+                                                   <td>{{ $supply->unit->unit_name }}</td>
+                                                   <td>{{ $supply->supplier->suppliers_name}}</td>
                                                    <td>{{ $supply->price_per_unit}}</td>
                                                    <td>{{ $supply->date_of_purchase}}</td>
                                                    <td>{{ $supply->expiration_date }}</td>
                                                     <td class="text-center">
-                                          <a class="btn btn-sm btn-success" href="{{ url('/stocks/edit').'/'.$supply->id}}" ><i
+                                          <a class="btn btn-sm btn-success" href="{{ url('/admin/stocks/edit').'/'.$supply->id}}" ><i
                                          class="fa fa-edit"></i> Update</a>
-                                         <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/stocks/delete').'/'.$supply->id}})"><i
+                                         <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/stocks/delete').'/'.$supply->id}})"><i
                                          class="fa fa-trash-alt"></i> Delete</a></td>
                                                   
                                                 </tr>

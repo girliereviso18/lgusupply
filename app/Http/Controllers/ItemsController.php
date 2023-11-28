@@ -29,7 +29,7 @@ class ItemsController extends Controller
         $Itemsave->description=$request->description;
 
         if($Itemsave->save()){
-            return redirect()->route('items.index')->withErrors('Succesfully Added!');
+            return redirect()->route('admin.items.index')->withErrors('Succesfully Added!');
         }
     }
      public function additem() 
@@ -53,7 +53,7 @@ class ItemsController extends Controller
         $Editsave->description=$request->description;
 
         if($Editsave->update()){
-            return redirect()->route('items.index')->withErrors('Updated!');
+            return redirect()->route('admin.items.index')->withErrors('Updated!');
         }
     } 
     public function deleteitems(Request $request){

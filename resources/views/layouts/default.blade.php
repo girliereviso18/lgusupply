@@ -126,7 +126,7 @@
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" role="menu">
-                    <a class="dropdown-item" href="{{ route('users.index')}}"><span class="fa fa-user"></span> My Account</a>
+                    <a class="dropdown-item" href="{{ route('admin.users.index')}}"><span class="fa fa-user"></span> My Account</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{route('logout.perform')}}"><span class="fas fa-sign-out-alt"></span> Logout</a>
                   </div>
@@ -187,7 +187,7 @@
                       <div class="collapse" id="stocksCollapse">
                         <ul class="nav flex-column">
                           <li class="nav-item ">
-                          <a href="{{ route('stocks.index')}}" class="nav-link nav-items" style="margin-left: 35px;">
+                          <a href="{{ route('admin.stocks.index')}}" class="nav-link nav-items" style="margin-left: 35px;">
                             <i class="nav-icon fas fa-table"></i> 
                             
                               <p>
@@ -196,7 +196,7 @@
                             </a>
                            </li>
                           <li class="nav-item">
-                            <a href="{{route('stocks.index')}}" class="nav-link">
+                            <a href="{{route('admin.stocks.index')}}" class="nav-link">
 
                           </a>
                         </li>
@@ -206,7 +206,7 @@
                     <li class="nav-header">Maintenance</li>
                     <li class="nav-item dropdown">
                         <li class="nav-item">
-                          <a href="{{ route('items.index')}}" class="nav-link nav-items">
+                          <a href="{{ route('admin.items.index')}}" class="nav-link nav-items">
                           <i class="nav-icon fas fa-box"></i>
                             <p>
                               Items
@@ -214,7 +214,7 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="{{ route('units.index')}}" class="nav-link nav-items">
+                          <a href="{{ route('admin.units.index')}}" class="nav-link nav-items">
                             <i class="nav-icon fas fa-ruler"></i>
                             <p>
                               Unit
@@ -223,7 +223,7 @@
                         </li>
                     </li>
                       <li class="nav-item">
-                          <a href="{{ route('categories.index')}}" class="nav-link nav-items">
+                          <a href="{{ route('admin.categories.index')}}" class="nav-link nav-items">
                             <i class="nav-icon fas fa-toolbox"></i>
                             <p>
                               Categories
@@ -232,7 +232,7 @@
                         </li>
                     </li>
                      <li class="nav-item">
-                          <a href="{{ route('suppliers.index')}}" class="nav-link nav-items">
+                          <a href="{{ route('admin.suppliers.index')}}" class="nav-link nav-items">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                               Supplier
@@ -243,7 +243,7 @@
                     <li class="nav-header">Forms</li>
                     <li class="nav-form dropdown">
                         <li class="nav-form">
-                          <a href="{{ route('requisitions.index')}}" class="nav-link nav-form">
+                          <a href="{{ route('admin.requisitions.index')}}" class="nav-link nav-form">
                            <i class="fas fa-file" style="margin-left: 10px;"></i>
                             <p>
                               Requisition Form
@@ -253,7 +253,7 @@
 
                         <li class="nav-header">Users</li>
                         <li class="nav-form">
-                          <a href="{{ route('users.index')}}" class="nav-link nav-form">
+                          <a href="{{ route('admin.users.index')}}" class="nav-link nav-form">
                            <i class="fas fa-user" style="margin-left: 10px;"></i>
                             <p>
                               User lists
@@ -261,7 +261,7 @@
                           </a>
                         </li>
                         <li class="nav-form">
-                          <a href="{{ route('departments.index')}}" class="nav-link nav-form">
+                          <a href="{{ route('admin.departments.index')}}" class="nav-link nav-form">
                           <i class="fas fa-users" style="margin-left: 10px;"></i>
                             <p>
                               Department Users
@@ -270,7 +270,7 @@
                         </li>
                    
                      <li class="nav-form">
-                          <a href="{{ route('reports.index')}}" class="nav-link nav-form">
+                          <a href="{{ route('admin.reports.index')}}" class="nav-link nav-form">
                           <i class="fas fa-file" style="margin-left: 10px;"></i>
                             <p>
                               Reports

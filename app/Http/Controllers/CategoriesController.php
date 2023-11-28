@@ -26,7 +26,7 @@ class CategoriesController extends Controller
         $Categorysave->category_name = $request->category_name;
 
         if ($Categorysave->save()) {
-            return redirect()->route('categories.index')->withErrors('Successfully added!');
+            return redirect()->route('admin.categories.index')->withErrors('Successfully added!');
         }
     }
 
@@ -50,7 +50,7 @@ class CategoriesController extends Controller
         $EditCategory->category_name = $request->category_name;
 
         if ($EditCategory->update()) {
-            return redirect()->route('categories.index')->withErrors('Updated!');
+            return redirect()->route('admin.categories.index')->withErrors('Updated!');
         }
     }
 

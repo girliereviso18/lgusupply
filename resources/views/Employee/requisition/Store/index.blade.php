@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label for="division_id">Division:</label>
                             <select type="" name="division_id" class="form-control" required>
-                            <option value="" disabled selected>Select Division</option>
+                            <option value="" disabled selected>Select Department</option>
                              @if($departments = App\Models\department::get())
                              @foreach($departments as $department)
                               <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
@@ -75,7 +75,7 @@
                       </div>
                       <div>
                         <label for="requested_signature">Signature:</label>
-                        <input type="text" name="requested_signature" id="requested_signature" class="form-control">
+                        <input type="text" name="requested_signature" id="requested_signature">
                         
                         <div class="form-group">
                            <label for="requested_printed_name">Printed Name:</label>
@@ -99,9 +99,8 @@
                           @endif
                       </select>
                   </div>
-                    <div class="form-group">
                         <label for="requested_date">Date:</label>
-                        <input type="date" name="requested_date" id="requested_date">
+                        <input type="date" name="requested_date" id="requested_date" required>
                     </div>
 
                         <div class="form-group">
@@ -116,7 +115,7 @@
                       </select>
                       </div>
                         <label for="approved_signature">Signature:</label>
-                        <input type="text" name="approved_signature" id="approved_signature" class="form-control">
+                        <input type="text" name="approved_signature" id="approved_signature">
                         <div class="form-group">
 
                         <label for="approved_printed_name">Printed Name:</label>
@@ -141,10 +140,8 @@
                   </div>
 
                         <label for="approved_date">Date:</label>
-                        <input type="date" name="approved_date" id="approved_date" required> 
+                        <input type="date" name="approved_date" id="approved_date" required>
                     </div>
-                    <br>
-                    <br>
 
                         
                         <div class="form-group">
@@ -232,11 +229,13 @@
                         <input type="date" name="received_date" id="received_date" required>
                     </div>
                        
-
-                        <div class="form-group">
-                            <label for="isapproved">Is Approved:</label>
-                            <input type="number" name="isapproved" class="form-control">
-                        </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select name="status" class="form-control" required>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="disapproved">Disapproved</option>
+                        </select>
                     </div>
 
 <!-- Requisition Items Table -->
@@ -255,7 +254,7 @@
     <tbody id="requisition-items-container">
         <td> <select name="stock_no" class="form-control" required>
                     <!-- <option value="" disabled selected>Select Stock No.</option> -->
-                    @if($supplies = App\Models\Supply::get())
+                    @if($supplies = App\Models\Supply::with('item')->get())
                         @foreach($supplies as $supply)
                             <option value="{{ $supply->id }}"> 
                                 {{ $supply->stock_number }} 
@@ -306,37 +305,12 @@
             
             fields.forEach((field) => {
                 const cell = newRow.insertCell();
-                
-                
-                if (field === "stock_no" || field === "unit_id" || field === "item_id") {
-                    const select = document.createElement("select");
-                    select.name = `requisition_items[${container.rows.length - 1}][${field}]`;
-                    select.className = "form-control";
-                    select.required = true;
-
-                    cell.appendChild(select);
-
-                   
-                
-               
-                 } else if (field === "stock_no" || field === "unit_id" || field === "item_id") {
-
-                    const option = document.createElement("option");
-                    option.name = `requisition_items[${container.rows.length - 1}][${field}]`;
-                    option.className = "form-control";
-                    option.required = true;
-    
-                    cell.appendChild(option);
-
-                } else {
-                    
-                    const input = document.createElement("input");
-                    input.type = "text";
-                    input.name = `requisition_items[${container.rows.length - 1}][${field}]`;
-                    input.className = "form-control";
-                    input.required = true;
-                    cell.appendChild(input);
-                }
+                const input = document.createElement("input");
+                input.type = "text";
+                input.name = `requisition_items[${container.rows.length - 1}][${field}]`;
+                input.className = "form-control";
+                input.required = true;
+                cell.appendChild(input);
             });
 
             const deleteButton = document.createElement("button");
@@ -351,5 +325,4 @@
         });
     });
 </script>
-
 @endsection

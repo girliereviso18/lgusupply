@@ -25,13 +25,14 @@ class UsersController extends Controller
     {
         $userSave = new User(); // Corrected the model name from Supplier to User
         $userSave->name = $request->name;
+        $userSave->department_id = $request->department_id;
         $userSave->email = $request->email;
         $userSave->username = $request->username;
         $userSave->email_verified_at= $request->email_verified_at;
-       $userSave->password= Hash::make($request->password);
+        $userSave->password= Hash::make($request->password);
         $userSave->role= 2;
         if ($userSave->save()) {
-            return redirect()->route('users.index')->with('success', 'Successfully added!');
+            return redirect()->route('admin.users.index')->with('success', 'Successfully added!');
         }
     }
     public function editusers(Request $request)
@@ -47,13 +48,14 @@ class UsersController extends Controller
       // return json_encode($request->all());
         $Editsave=User::where('id',$request->id)->first();
         $Editsave->name = $request->name;
+        $Editsave->department_id = $request->department_id;
         $Editsave->email = $request->email;
         $Editsave->username = $request->username;
         $Editsave->email_verified_at = $request->email_verified_at;
         $Editsave->password= Hash::make($request->password);
         $Editsave->role = 2;
         if($Editsave->update()){
-            return redirect()->route('users.index')->withErrors('Updated!');
+            return redirect()->route('admin.users.index')->withErrors('Updated!');
         }
     } 
     public function deleteusers(Request $request){

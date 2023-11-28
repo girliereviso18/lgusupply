@@ -30,6 +30,7 @@ class RegisterController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'department_id' => 'required',
             'username' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
@@ -39,7 +40,7 @@ class RegisterController extends Controller
 
         $check = $this->create($data);
 
-        return redirect("login")->withSuccess('You have signed-up');
+        return redirect()->back()->withSuccess('You have signed-up');
     }
 
     public function create(array $data)

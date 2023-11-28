@@ -8,7 +8,7 @@
                 <h3 class="card-title">Add Requisition</h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('requisitions.store') }}" method="POST">
+                <form action="{{ route('admin.requisitions.store') }}" method="POST">
                     @csrf
                     <div class="container">
                         <h1>Requisition Slip</h1>
@@ -65,10 +65,10 @@
                          <div class="form-group">
                             <label for="requested_by">Requested by:</label>
                             <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+                            <option value="" disabled selected>Select Requestor</option>
+                             @if($users = App\Models\user::get())
+                             @foreach($users as $user)
+                              <option value="{{ $user->id }}"> {{ $user->name }} {{ $user->name }}</option>
                             @endforeach
                           @endif
                       </select>

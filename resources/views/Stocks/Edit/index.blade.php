@@ -8,7 +8,7 @@
                 <h3 class="card-title">Update Stocks</h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('stocks.edit.save') }}" method="POST">
+                <form action="{{ route('admin.stocks.edit.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{ $stock->id }}">
                     <div class="form-group">

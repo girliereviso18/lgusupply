@@ -55,7 +55,7 @@
                     </div>
                    <div class="form-group">
                         <label for="requested_by">Requested By:</label>
-                        <input type="text" name="requested_by" class="form-control" value="{{ $requisition->requested_by }}" readonly>
+                        <input type="text" name="requested_by" class="form-control" value="{{ $requisition->user->name }}" readonly>
                     </div>
                    <div class="form-group">
                         <label for="date_requested">Date Requested:</label>

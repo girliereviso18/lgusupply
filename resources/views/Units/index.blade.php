@@ -10,7 +10,7 @@
                     <h3 class="card-title">Add Units</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('units.store')}}" method="POST">
+                    <form action="{{route('admin.units.store')}}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Unit Name</label>
@@ -46,8 +46,8 @@
                                                    <td>{{$count++}}</td>
                                                    <td>{{ $unit->unit_name }}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-sm btn-success" href="{{ url('/units/edit').'/'.$unit->id}}" ><i class="fa fa-edit"></i> Update</a>
-                                                        <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/units/delete').'/'.$unit->id}})"><i class="fa fa-trash-alt"></i> Delete</a></td>
+                                                        <a class="btn btn-sm btn-success" href="{{ url('/admin/units/edit').'/'.$unit->id}}" ><i class="fa fa-edit"></i> Update</a>
+                                                        <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/units/delete').'/'.$unit->id}})"><i class="fa fa-trash-alt"></i> Delete</a></td>
                                                 </tr>
                                             @endforeach
                                         @endif

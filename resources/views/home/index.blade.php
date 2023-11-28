@@ -87,7 +87,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-cyan elevation-1"><i class="fas fa-file"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('employee.requisition.index') }}" target="_blank"><span class="info-box-text">Requisitions</span></a>
+                    <a href="{{ route('requisitions.index') }}" target="_blank"><span class="info-box-text">Requisitions</span></a>
                     @if($nOrequisition=App\Models\Requisition::count())
                     <span class="info-box-number">
                     {{ $nOrequisition }}
@@ -102,7 +102,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-green elevation-1"><i class="fas fa-user"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('users.index') }}" target="_blank"><span class="info-box-text">Users</span></a>
+                    <a href="{{ route('admin.users.index') }}" target="_blank"><span class="info-box-text">Users</span></a>
                     @if($nOuser=App\Models\User::count())
                     <span class="info-box-number">
                     {{ $nOuser }}
@@ -120,6 +120,20 @@
                     @if($nOdepartment=App\Models\Department::count())
                     <span class="info-box-number">
                     {{ $nOdepartment }}
+                    </span>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+         <div class="col-4 col-sm-4 col-md-3">
+            <div class="info-box bg-light shadow">
+                <span class="info-box-icon bg-black elevation-1"><i class="fas fa-file"></i></span>
+                    <div class="info-box-content">
+                    <a href="{{ route('reports.index') }}" target="_blank"><span class="info-box-text">Reportss</span></a>
+                    @if($nOreport=App\Models\Report::count())
+                    <span class="info-box-number">
+                    {{ $nOreport }}
                     </span>
                     @endif
                 </div>

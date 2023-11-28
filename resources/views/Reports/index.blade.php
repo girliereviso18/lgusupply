@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Report Lists</h3>
                     <div class="card-tools">
-                    <a href="{{ route('reports.addreports') }}" class="btn btn-flat btn-primary" target="_blank">
+                    <a href="{{ route('admin.reports.addreports') }}" class="btn btn-flat btn-primary" target="_blank">
                         <span class="fas fa-plus"></span> Add Report
                     </a>
 
@@ -51,13 +51,13 @@
                                                    <td>{{ $report->balance }}</td>
                                                     <td>{{ $report->days_to_consume }}</td>
                                                   <td class="text-center">
-                                                    <a class="btn btn-sm btn-success" href="{{ url('/reports/edit').'/'.$report->id}}">
+                                                    <a class="btn btn-sm btn-success" href="{{ url('/admin/reports/edit').'/'.$report->id}}">
                                                         <i class="fa fa-edit"></i> Update
                                                     </a>
-                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/reports/delete').'/'.$report->id}}">
+                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/reports/delete').'/'.$report->id}}">
                                                         <i class="fa fa-trash-alt"></i> Delete
                                                     </a>
-                                                   <a class="btn btn-sm btn-warning print_data" href="{{ url('/reports/print').'/'.$report->id }}">
+                                                   <a class="btn btn-sm btn-warning print_data" href="{{ url('/admin/reports/print').'/'.$report->id }}">
                                                     <i class="fa fa-print"></i> Print
                                                   </a>
                                                 </td>
