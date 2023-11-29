@@ -16,7 +16,7 @@
                 <div class="info-box bg-light shadow">
                     <span class="info-box-icon bg-yellow elevation-1"><i class="fas fa-table"></i></span>
                     <div class="info-box-content">
-                    <a href="{{route('stocks.index')}}" target="_blank"><span class="info-box-text">Stock Lists</span></a>
+                    <a href="{{route('admin.stocks.index')}}" target="_blank"><span class="info-box-text">Stock Lists</span></a>
                     @if($nOsupply=App\Models\Supply::count())
                     <span class="info-box-number">
                     {{$nOsupply}}
@@ -30,7 +30,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-red elevation-1"><i class="fas fa-box"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('items.index') }}" target="_blank"><span class="info-box-text">Items</span></a>
+                    <a href="{{ route('admin.items.index') }}" target="_blank"><span class="info-box-text">Items</span></a>
                     @if($nOitem=App\Models\Item::count())
                     <span class="info-box-number">
                     {{ $nOitem }}
@@ -47,7 +47,7 @@
                 <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-gray elevation-1"><i class="fas fa-ruler"></i></span>
                     <div class="info-box-content">
-                    <a href="{{route('units.index')}}" target="_blank"><span class="info-box-text">Units</span></a>
+                    <a href="{{route('admin.units.index')}}" target="_blank"><span class="info-box-text">Units</span></a>
                      @if($nOunit=App\Models\Unit::count())
                     <span class="info-box-number">
                     {{$nOunit}}
@@ -61,7 +61,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-blue elevation-1"><i class="fas fa-toolbox"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('categories.index') }}" target="_blank"><span class="info-box-text">Categories</span></a>
+                    <a href="{{ route('admin.categories.index') }}" target="_blank"><span class="info-box-text">Categories</span></a>
                     @if($nOcategory=App\Models\Category::count())
                     <span class="info-box-number">
                     {{ $nOcategory }}
@@ -74,7 +74,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-pink elevation-1"><i class="fas fa-users"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('suppliers.index') }}" target="_blank"><span class="info-box-text">Suppliers</span></a>
+                    <a href="{{ route('admin.suppliers.index') }}" target="_blank"><span class="info-box-text">Suppliers</span></a>
                     @if($nOsupplier=App\Models\Supplier::count())
                     <span class="info-box-number">
                     {{ $nOsupplier }}
@@ -87,7 +87,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-cyan elevation-1"><i class="fas fa-file"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('requisitions.index') }}" target="_blank"><span class="info-box-text">Requisitions</span></a>
+                    <a href="{{ route('admin.requisitions.index') }}" target="_blank"><span class="info-box-text">Requisitions</span></a>
                     @if($nOrequisition=App\Models\Requisition::count())
                     <span class="info-box-number">
                     {{ $nOrequisition }}
@@ -116,7 +116,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-orange elevation-1"><i class="fas fa-users"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('departments.index') }}" target="_blank"><span class="info-box-text">Departments</span></a>
+                    <a href="{{ route('admin.departments.index') }}" target="_blank"><span class="info-box-text">Departments</span></a>
                     @if($nOdepartment=App\Models\Department::count())
                     <span class="info-box-number">
                     {{ $nOdepartment }}
@@ -130,7 +130,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-black elevation-1"><i class="fas fa-file"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('reports.index') }}" target="_blank"><span class="info-box-text">Reportss</span></a>
+                    <a href="{{ route('admin.reports.index') }}" target="_blank"><span class="info-box-text">Reportss</span></a>
                     @if($nOreport=App\Models\Report::count())
                     <span class="info-box-number">
                     {{ $nOreport }}
