@@ -130,7 +130,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-black elevation-1"><i class="fas fa-file"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('admin.reports.index') }}" target="_blank"><span class="info-box-text">Reportss</span></a>
+                    <a href="{{ route('admin.reports.index') }}" target="_blank"><span class="info-box-text">Reports</span></a>
                     @if($nOreport=App\Models\Report::count())
                     <span class="info-box-number">
                     {{ $nOreport }}

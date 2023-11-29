@@ -17,11 +17,12 @@
                     </div>
                     <div class="form-group">
                         <label for="fund_cluster">Fund Cluster:</label>
-                         <label type="text" name="fund_cluster" class="form-control" value="{{ $requisition->office_id }}" readonly>
+                        <input type="text" name="fund_cluster" class="form-control" value="{{ $requisition->office_id }}" readonly>
+                        
                         @if($departments = App\Models\department::get())
                              @foreach($departments as $department)
                               <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                            @endforeach
+                        @endforeach
                           @endif
                       </label>
                     </div>
@@ -31,7 +32,7 @@
                     </div>
                     <div class="form-group">
                         <label for="rc_code">RC Code:</label>
-                       <label type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>
+                       <input type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>
                         @if($departments = App\Models\department::get())
                              @foreach($departments as $department)
                               <option value="{{ $department->id }}"> {{ $department->department_user }}-{{ $department->responsibility_code }}</option>
@@ -41,7 +42,7 @@
                       </div>
                     <div class="form-group">
                         <label for="office_id">Office:</label>
-                        <label type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>
+                        <input type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>
                         @if($departments = App\Models\department::get())
                              @foreach($departments as $department)
                               <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
@@ -95,7 +96,7 @@
 
                      <div class="form-group">
                         <label for="stock_no">Stock No:</label>
-                        <label type="text" name="stock_no" class="form-control" value="{{ $requisition_item->stock_no }}" readonly>
+                        <input type="text" name="stock_no" class="form-control" value="{{ $requisition_item->stock_no }}" readonly>
                         @if($supplies = App\Models\Supply::get())
                              @foreach($supplies as $supply)
                               <option value="{{ $supply->id }}">{{ $supply->stock_number }}</option>
@@ -105,7 +106,7 @@
                     </div>
                    <div class="form-group">
                         <label for="unit_id">Unit Id:</label>
-                        <label name="unit" id="unit" class="form-control" readonly>
+                        <input type=""> name="unit" id="unit" class="form-control" readonly>
                             @if($units = App\Models\unit::get())
                                 @foreach($units as $unit)
                                   <option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>
@@ -120,7 +121,7 @@
                     </div>
                     <div class="form-group">
                         <label for="item_id">Item Id:</label>
-                        <label type="" name="item" class="form-control" readonly>
+                        <input type="" name="item" class="form-control" readonly>
                           @if($items = App\Models\Item::get())
                               @foreach($items as $item)
                                   <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
@@ -149,8 +150,9 @@
 
                    
                 </form>
-                <a href="{{ route('requisitions.index') }}" class="btn btn-primary">Back</a>
-                 <a href="#" class="btn btn-success" onclick="print('{{ route('requisition.print', ['id'=>$requisition->id])}}')">Print</a>
+                <a href="{{ route('admin.requisitions.index') }}" class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-success" onclick="print('{{ route('admin.requisition.print', ['id' => $requisition->id]) }}')">Print</a>
+
             </div>
         </div>
     </div>

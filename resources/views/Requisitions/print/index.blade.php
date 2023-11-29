@@ -1653,7 +1653,7 @@ td
     <td class="xl97"></td>
     <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
+   <!-- <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
     <td class="xl94" height="43.50" style='height:26.10pt;'></td>
     <td class="xl95"></td>
     <td class="xl96"></td>
@@ -1663,7 +1663,7 @@ td
     <td class="xl98"></td>
     <td class="xl97"></td>
     <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
+   </tr> -->
    
    <tr height="1.25" style='height:0.75pt;mso-height-source:userset;mso-height-alt:15;'>
     <td class="xl104" height="1.25" style='height:0.75pt;'></td>
@@ -1700,9 +1700,9 @@ td
     <td class="xl122" height="37.50" style='height:22.50pt;' x:str>Signature :</td>
     <td class="xl123"></td>
     <td class="xl124">{{$requisition->user->name }}</td>
-    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{$requisition->approved_by }}</td>
-    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{$requisition->issued_by }}</td>
-   <td class="xl126" style="text-align: center;">{{$requisition->received_by}}</td>
+    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{ $department->designation }}</td>
+    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{ $department->department_user }}</td>
+   <td class="xl126" style="text-align: center;">{{$requisition->user->name }}</td>
     <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="37.83" style='height:22.70pt;mso-height-source:userset;mso-height-alt:454;'>

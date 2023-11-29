@@ -74,8 +74,8 @@
                       </select>
                       </div>
                       <div>
-                        <label for="requested_signature">Signature:</label>
-                        <input type="text" name="requested_signature" id="requested_signature">
+                        <!-- <label for="requested_signature">Signature:</label>
+                        <input type="text" name="requested_signature" id="requested_signature"> -->
                         
                         <div class="form-group">
                            <label for="requested_printed_name">Printed Name:</label>
@@ -99,8 +99,8 @@
                           @endif
                       </select>
                   </div>
-                        <label for="requested_date">Date:</label>
-                        <input type="date" name="requested_date" id="requested_date" required>
+                        <!-- label for="requested_date">Date:</label>
+                        <input type="date" name="requested_date" id="requested_date" required> -->
                     </div>
 
                         <div class="form-group">
@@ -114,9 +114,9 @@
                           @endif
                       </select>
                       </div>
-                        <label for="approved_signature">Signature:</label>
+                        <!-- <label for="approved_signature">Signature:</label>
                         <input type="text" name="approved_signature" id="approved_signature">
-                        <div class="form-group">
+                        <div class="form-group"> -->
 
                         <label for="approved_printed_name">Printed Name:</label>
                         <select type="" name="requested_by" class="form-control" required>
@@ -139,9 +139,9 @@
                       </select>
                   </div>
 
-                        <label for="approved_date">Date:</label>
-                        <input type="date" name="approved_date" id="approved_date" required>
-                    </div>
+                        <!-- <label for="approved_date">Date:</label>
+                        <input type="date" name="approved_date" id="approved_date" required> -->
+                    
 
                         
                         <div class="form-group">
@@ -155,9 +155,9 @@
                           @endif
                       </select>
                       </div>
-                       <div>
-                        <label for="issued_signature">Signature:</label>
-                        <input type="text" name="issued_signature" id="issued_signature">
+                       
+                        <!-- <label for="issued_signature">Signature:</label>
+                        <input type="text" name="issued_signature" id="issued_signature"> -->
                         <div class="form-group"> 
                          <label for="issued_printed_name">Printed Name:</label>
                              <select type="" name="requested_by" class="form-control" required>
@@ -184,8 +184,8 @@
                   </div>
                     <div class="form-group">
 
-                        <label for="issued_date">Date:</label>
-                        <input type="date" name="issued_date" id="issued_date" required>
+                        <!-- <label for="issued_date">Date:</label>
+                        <input type="date" name="issued_date" id="issued_date" required> -->
                     </div>
                        
                       
@@ -201,8 +201,8 @@
                       </select>
                       </div>
                       <div class="form-group">
-                        <label for="received_signature">Signature:</label>
-                        <input type="text" name="received_signature" id="received_signature">
+                        <!-- <label for="received_signature">Signature:</label>
+                        <input type="text" name="received_signature" id="received_signature"> -->
                         <div>
                         <label for="received_printed_name">Printed Name:</label>
                         <select type="" name="requested_by" class="form-control" required>
@@ -225,8 +225,8 @@
                           @endif
                       </select>
                      </div>
-                        <label for="received_date">Date:</label>
-                        <input type="date" name="received_date" id="received_date" required>
+                        <!-- <label for="received_date">Date:</label>
+                        <input type="date" name="received_date" id="received_date" required> -->
                     </div>
                        
                     <div class="form-group">

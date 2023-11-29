@@ -22,14 +22,14 @@
                     <div class="form-group">
                         <label for="address">Address</label>
                         <input type="text" name="address" value="{{ $supplier->address}}" required="required" class="form-control">                 
-                    </div>
-                     <div class="form-group">
-                        <label for="status">Status</label>
-                       <select name="status" id="status" class="form-control">
-                             <option value="0">Inactive</option>
-                             <option value="1" selected>Active</option>
+                  <div class="form-group">
+                    <label for="status">Status</label>
+                        <select name="status" id="status" class="form-control">
+                            <option value="0">Inactive</option>
+                            <option value="1">Active</option>
                         </select>
-                      </div>
+                    </div>
+
 
 
                     <div class="card-footer py-1 text-center">

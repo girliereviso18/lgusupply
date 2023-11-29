@@ -4,13 +4,13 @@
 <div class="container" style="margin-top: 52px;">
      @include('layouts.partials.messages')
     <div class="row p-1"> 
-        <div class="col-sm-5">
+        <div class="col-sm-15">
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Add Department</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('departments.store')}}" method="POST">
+                    <form action="{{route('admin.departments.store')}}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Department</label>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-8">
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Department Lists</h3>
@@ -91,7 +91,7 @@
     </div>
 </div>
  <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
-<script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script>
+<script src="{{asset('modalalert/jquery-ui.min.js')}}"></script>
 <script>
     $(document).ready(function(){
         $('.delete_data').click(function(e){
@@ -145,28 +145,7 @@
         $('.table').dataTable();
     })
 
-    // function delete_receiving($id){
-    //     start_loader();
-    //     $.ajax({
-    //         url:_base_url_+"classes/Master.php?f=delete_receiving",
-    //         method:"POST",
-    //         data:{id: $id},
-    //         dataType:"json",
-    //         error:err=>{
-    //             console.log(err)
-    //             alert_toast("An error occured.",'error');
-    //             end_loader();
-    //         },
-    //         success:function(resp){
-    //             if(typeof resp== 'object' && resp.status == 'success'){
-    //                 location.reload();
-    //             }else{
-    //                 alert_toast("An error occured.",'error');
-    //                 end_loader();
-    //             }
-    //         }
-    //     })
-    // }
+  
 </script>
 
 @endsection

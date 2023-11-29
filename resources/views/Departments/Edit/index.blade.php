@@ -8,34 +8,34 @@
                 <h3 class="card-title">Update Department</h3> 
             </div>
               <div class="card-body">
-                <form action="{{ route('departments.edit.save') }}" method="POST">
+                <form action="{{ route('admin.departments.edit.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{$department->id}}"> 
                     <div class="form-group">
                         <label for="department">Department</label>
-                        <input type="text" name="department_user" value="{{ $department->department_user}}" required="required">                 
+                        <input type="text" name="department_user" value="{{ $department->department_user}}" required="required" class="form-control" >                 
                     </div>
 
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" name="name" value="{{ $department->name}}" required="required">                 
+                        <input type="text" name="name" value="{{ $department->name}}" required="required" class="form-control" >                 
                     </div>
                      <div class="form-group">
                         <label for="responsibility_code">Responsibility Code</label>
-                        <input type="text" name="responsibility_code" value="{{ $department->responsibility_code}}" required="required">                 
+                        <input type="text" name="responsibility_code" value="{{ $department->responsibility_code}}" required="required" class="form-control" >                 
                     </div>
                      <div class="form-group">
                         <label for="contact_number">Designation</label>
-                        <input type="text" name="designation" value="{{ $department->designation}}" required="required">                 
+                        <input type="text" name="designation" value="{{ $department->designation}}" required="required" class="form-control" >                 
                     </div>
 
                     <div class="form-group">
                         <label for="contact_number">Contact No.</label>
-                        <input type="text" name="contact_number" value="{{ $department->contact_number}}" required="required">                 
+                        <input type="text" name="contact_number" value="{{ $department->contact_number}}" required="required" class="form-control" >                  
                     </div>
                      <div class="form-group">
                         <label for="email_address">Email Address</label>
-                        <input type="text" name="email_address" value="{{ $department->email_address}}" required="required">                 
+                        <input type="text" name="email_address" value="{{ $department->email_address}}" required="required" class="form-control" >                 
                     </div>
 
                     <div class="card-footer py-1 text-center">

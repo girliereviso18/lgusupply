@@ -8,7 +8,7 @@
                 <h3 class="card-title">Update Category</h3> 
             </div>
               <div class="card-body">
-                <form action="{{ route('categories.edit.save') }}" method="POST">
+                <form action="{{ route('admin.categories.edit.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{$category->id}}"> 
                     <div class="form-group">

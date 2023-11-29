@@ -25,9 +25,14 @@
                             <input type="text" name="address" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Status</label>
-                            <input type="text" name="status" class="form-control" required="required">
-                        </div>
+                        <label>Status</label>
+                        <select name="status" class="form-control" required="required">
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                            
+                        </select>
+                    </div>
+
                         <div class="form-group">
                             <button class="btn btn-sm btn-outline-primary" type="submit">Save</button>
                         </div>

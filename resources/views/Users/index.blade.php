@@ -41,8 +41,12 @@
                         </div>
                         <div class="form-group">
                             <label>Role</label>
-                            <input type="text" name="role" class="form-control" required="required">
+                            <select name="role" class="form-control" required="required">
+                                <option value="1">Admin</option>
+                                <option value="2">User</option>
+                            </select>
                         </div>
+
                         <div class="form-group">
                             <button class="btn btn-sm btn-outline-primary" type="submit">Save</button>
                         </div>
@@ -84,7 +88,13 @@
                                                     </td>
                                                    <td>{{ $user->email }}</td>
                                                    <td>{{ $user->username }}</td>
-                                                   <td>{{ $user->role}}</td>
+                                                   <td>
+                                                        @if($user->role == 1)
+                                                        <span style="color: green;">Admin</span>
+                                                        @elseif($user->role == 2)
+                                                        <span style="color: blue;">User</span>
+                                                        @endif
+                                                   </td>
                                                     <td class="text-center">
                                                         <a class="btn btn-sm btn-success" href="{{ url('/admin/users/edit').'/'.$user->id}}" ><i class="fa fa-edit"></i> Update</a>
                                                         <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/users/delete').'/'.$user->id}})"><i class="fa fa-trash-alt"></i> Delete</a></td>
