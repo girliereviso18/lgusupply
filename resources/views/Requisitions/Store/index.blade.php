@@ -25,7 +25,7 @@
                             <label for="division_id">Division:</label>
                            <select type="" name="division_id" class="form-control" required>
                             <option value="" disabled selected>Select Division</option>
-                             @if($divisions = App\Models\division::get())
+                             @if($divisions = App\Models\Division::get())
                              @foreach($divisions as $division)
                               <option value="{{ $division->id }}"> {{ $division->division_name }}</option>
                             @endforeach
