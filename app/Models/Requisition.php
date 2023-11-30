@@ -23,4 +23,8 @@ class Requisition extends Model
     {
         return $this->belongsTo(Department::class, 'office_id','id');
     }
+    public function division()
+    {
+        return $this->belongsTo(Division::class, 'division_id','id');
+    }
 }

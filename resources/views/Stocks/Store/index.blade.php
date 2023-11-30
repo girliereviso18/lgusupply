@@ -8,7 +8,7 @@
                     <h3 class="card-title">Add Stocks</h3>
                   </div>
                   <div class="card-body">
-                    <form action="{{ route('stocks.store') }}" method="POST">
+                    <form action="{{ route('admin.stocks.store') }}" method="POST">
                       @csrf
                       <input type="hidden" name="item_number" value="">
                       <div class="form-group">

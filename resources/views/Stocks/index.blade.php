@@ -43,7 +43,7 @@
                                                    <td>{{ $supply->qty }}</td>
                                                    <td>{{ $supply->unit->unit_name }}</td>
                                                    <td>
-                                                 @if(isset($$supply->supplier->suppliers_name))
+                                                 @if(isset($supply->supplier->suppliers_name))
                                                     {{ $supply->supplier->suppliers_name}}
                                                 @endif
                                                 </td>

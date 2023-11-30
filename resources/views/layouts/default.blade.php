@@ -261,6 +261,15 @@
                           </a>
                         </li>
                         <li class="nav-form">
+                          <a href="{{ route('admin.divisions.index')}}" class="nav-link nav-form">
+                          <i class="fas fa-users" style="margin-left: 10px;"></i>
+                            <p>
+                              Divisions
+                            </p>
+                          </a>
+                        </li>
+                   
+                        <li class="nav-form">
                           <a href="{{ route('admin.departments.index')}}" class="nav-link nav-form">
                           <i class="fas fa-users" style="margin-left: 10px;"></i>
                             <p>

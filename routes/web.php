@@ -147,6 +147,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/reports/view/{id}', 'ReportsController@viewreports')->name('admin.reports.view');
         Route::post('/reports/view', 'ReportsController@viewreports')->name('admin.reports.edit.view');
         Route::get('/reports/print/{id}', 'ReportsController@reportsprint')->name('admin.reports.print');
+
+
+         Route::get('/divisions', 'DivisionsController@index')->name('admin.divisions.index');
+        Route::get('/divisions/adddivisions', 'DivisionsController@adddivisions')->name('admin.adddivisions.index');
+        Route::post('/divisions/store', 'DivisionsController@store')->name('admin.divisions.store');
+
+        Route::get('/divisions/edit/{id}', 'DivisionsController@editdivisions')->name('admin.divisions.edit');
+        Route::post('/divisions/edit/save', 'DivisionsController@updatedivisions')->name('admin.divisions.edit.save');
+
+        Route::get('/divisions/delete/{id}', 'DivisionsController@deletedivisions')->name('admin.divisions.delete');
+        Route::get('/divisions/view/{id}', 'DivisionsController@viewdivisions')->name('admin.divisions.view');
+        Route::post('/divisions/view', 'DivisionsController@viewdivisions')->name('admin.divisions.edit.view');
     });
 
     // USER

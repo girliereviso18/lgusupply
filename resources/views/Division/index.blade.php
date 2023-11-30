@@ -1,53 +1,62 @@
 @extends('layouts.default')
 
 @section('content')
-
-  <div class="container" style="margin-top: 52px;">
-        <div class="col-sm-12">
-               <div class="card card-outline card-primary">
+<div class="container" style="margin-top: 52px;">
+     @include('layouts.partials.messages')
+    <div class="row p-1"> 
+        <div class="col-sm-5">
+            <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Requisition Lists</h3>
-                    <div class="card-tools">
-                    <a href="{{route('admin.requisitions.addrequisitions')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Requisitions</a>
+                    <h3 class="card-title">Add Division</h3>
                 </div>
+                <div class="card-body">
+                    <form action="{{route('admin.divisions.store')}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label>Division</label>
+                            <input type="text" name="division_name" class="form-control" required="required">
+                        </div>
+                       <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" name="description" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-outline-primary" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="card card-outline card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Division Lists</h3>
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">
                         <div class="container-fluid">
                             <table class="table table-bordered table-stripped"> 
-                                            <thead>
+                                    <thead>
                                         <tr>
-                                            <th>Entity Name</th>
-                                            <th>Fund Cluster </th>
-                                            <th>Divison Id</th>
-                                            <th>RC Code</th>
-                                            <th>Office</th>
-                                            <th>Purpose</th>
-                                            <th>Actions</th>
-                                           
+                                            <th>#</th>
+                                            <th>Division</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        @if(isset($requisitions))
-                                            @foreach($requisitions as $requisition)
+                                    <tbody class="{{$count=1}}">
+                                        @if(isset($divisions))
+                                            @foreach($divisions as $division)
                                                  <tr>
-                                                   <td>{{ $requisition->entity_name }}</td>
-                                                   <td>{{ $requisition->fund_cluster}}</td>
-                                                   <td>{{ $requisition->division->division_name }}</td>
-                                                   <td>{{ $requisition->office->responsibility_code }}</td>
-                                                   <td>{{ $requisition->office->department_user }}</td>
-                                                   <td>{{ $requisition->purpose}}</td>
-                                                   <td class="text-center">
-                                                    <a class="btn btn-sm btn-success" href="{{ url('/admin/requisitions/edit').'/'.$requisition->id}}">
-                                                        <i class="fa fa-edit"></i> Update
-                                                    </a>
-                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/requisitions/delete').'/'.$requisition->id}}">
-                                                        <i class="fa fa-trash-alt"></i> Delete
-                                                    </a>
-                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/requisitions/view').'/'.$requisition->id}}">
+                                                   <td>{{$count++}}</td>
+                                                   <td>{{ $division->division_name }}</td>
+                                                   <td>{{ $division->description }}</td>
+                                                    <td class="text-center">
+                                                        <a class="btn btn-sm btn-success" href="{{ url('/admin/divisions/edit').'/'.$division->id}}" ><i class="fa fa-edit"></i> Update</a>
+                                                        <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/divisions/delete').'/'.$division->id}})"><i class="fa fa-trash-alt"></i> Delete</a>
+                                                        <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/divisions/view').'/'.$division->id}}">
                                                         <i class="fa fa-eye"></i> View
-                                                    </a>
-                                                </td>
+                                                    </a></td>
                                                 </tr>
                                             @endforeach
                                         @endif

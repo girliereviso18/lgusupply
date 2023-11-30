@@ -1578,7 +1578,13 @@ td
     <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
-    <td class="xl73" height="37.50" colspan="3" style='height:22.50pt;mso-ignore:colspan;' x:str>Division :<u>{{$requisition->division_id }}</u></td>
+    <td class="xl73" height="37.50" colspan="3" style='height:22.50pt;mso-ignore:colspan;' x:str><label> Division :</label> <label id="division_id" name="division_id" style="display: inline-block;">
+            @if($divisions = App\Models\Division::get())
+                @foreach($divisions as $division)
+                    <option value="{{ $division->id }}">{{ $division->division_name }}</option>
+                @endforeach
+            @endif
+        </label></u></td>
     <td class="xl74"></td>
     <td class="xl75"></td>
     <td class="xl73" colspan="3" style='mso-ignore:colspan;border-right:1.0pt solid windowtext;border-bottom:none;' x:str>

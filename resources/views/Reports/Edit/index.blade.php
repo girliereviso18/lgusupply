@@ -13,22 +13,17 @@
                     <input type="hidden" name="id" value="{{ $report->id }}">
 
                     <!-- Item Selection -->
-                    <div class="form-group">
-                        <label for="item">Item</label>
-                        <select name="item" required="required" class="form-control">
-                            <option value="" disabled selected>Select Item code</option>
-                            @if($items = App\Models\Item::get())
-                                @foreach($items as $item)
-                                    @if($item->id==$report->item)
-                                        <option value="{{ $item->id }}" selected> {{ $report->item }} - {{ $item->id }}</option>
-                                    @else
-                                        <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->items_number }}</option>
-                                    @endif
-                                @endforeach
-                            @endif
+                     <div class="form-group">
+                       <label for="item">Item</label>
+                          <select type="" name="item" class="form-control" required>
+                             @if($items = App\Models\Item::get())
+                                  @foreach($items as $item)
+                                   <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
+                                 @endforeach
+                             @endif
                         </select>
-                    </div>
-
+                   </div>
+                  
                     <!-- Description -->
                     <input type="hidden" name="description" value="">
                     <div class="form-group">
@@ -65,13 +60,13 @@
                     <!-- Receipt Quantity -->
                     <div class="form-group">
                         <label for="receipt_qty">Receipt Qty</label>
-                        <input type="date" name="receipt_qty" class="form-control" value="{{ $report->receipt_qty }}">
+                        <input type="number" name="receipt_qty" class="form-control" value="{{ $report->receipt_qty }}">
                     </div>
 
                     <!-- Issuance Quantity -->
                     <div class="form-group">
                         <label for="issuance_qty">Issuance Qty</label>
-                        <input type="date" name="issuance_qty" class="form-control" value="{{ $report->issuance_qty }}">
+                        <input type="number" name="issuance_qty" class="form-control" value="{{ $report->issuance_qty }}">
                     </div>
 
                     <!-- Office Selection -->
@@ -90,13 +85,13 @@
                     <!-- Balance -->
                     <div class="form-group">
                         <label for="balance">Balance</label>
-                        <input type="text" name="balance" class="form-control" value="{{ $report->balance }}">
+                        <input type="number" name="balance" class="form-control" value="{{ $report->balance }}">
                     </div>
 
                     <!-- Days to Consume -->
                     <div class="form-group">
                         <label for="days_to_consume">Days to Consume</label>
-                        <input type="text" name="days_to_consume" class="form-control" value="{{ $report->days_to_consume }}">
+                        <input type="date" name="days_to_consume" class="form-control" value="{{ $report->days_to_consume }}">
                     </div>
 
                     <!-- Save Button -->

@@ -18,18 +18,16 @@
                     <div class="form-group">
                         <label for="fund_cluster">Fund Cluster:</label>
                         <input type="text" name="fund_cluster" class="form-control" value="{{ $requisition->office_id }}" readonly>
-                        
-                        @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                        @endforeach
-                          @endif
-                      </label>
                     </div>
-                    <div class="form-group">
-                        <label for="division_id">Division:</label>
-                        <input type="text" name="division_id" class="form-control" value="{{ $requisition->division_id }}" readonly>
-                    </div>
+                  <div class="form-group">
+                <label for="division_id">Division:</label>
+                 @if($divisions = App\Models\Division::get())
+                @foreach($divisions as $division)
+                    <option value="{{ $division->id }}">{{ $division->division_name }}</option>
+                @endforeach
+            @endif
+        </label>
+            
                     <div class="form-group">
                         <label for="rc_code">RC Code:</label>
                        <input type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>

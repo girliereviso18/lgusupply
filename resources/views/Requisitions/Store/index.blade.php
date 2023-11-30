@@ -23,15 +23,15 @@
                         
                         <div class="form-group">
                             <label for="division_id">Division:</label>
-                            <select type="" name="division_id" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+                           <select type="" name="division_id" class="form-control" required>
+                            <option value="" disabled selected>Select Division</option>
+                             @if($divisions = App\Models\division::get())
+                             @foreach($divisions as $division)
+                              <option value="{{ $division->id }}"> {{ $division->division_name }}</option>
                             @endforeach
                           @endif
                       </select>
-                      </div>
+                        
                         
                         <div class="form-group">
                             <label for="rc_code">RC Code:</label>
