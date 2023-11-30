@@ -74,7 +74,7 @@
                         <label for="office">Office</label>
                         <select type="" name="office" class="form-control" required>
                             <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
+                             @if($departments = App\Models\Department::get())
                              @foreach($departments as $department)
                               <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
                             @endforeach

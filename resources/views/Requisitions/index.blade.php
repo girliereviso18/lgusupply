@@ -48,8 +48,8 @@
                                                     </a>
                                                     <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/requisitions/view').'/'.$requisition->id}}">
                                                         <i class="fa fa-eye"></i> View
-                                                    </a>
-                                                                                                          {{-- Add buttons for "Approved" and "Disapproved" --}}
+                                                     </a>
+                                                         {{-- Add buttons for "Approved" and "Disapproved" --}}
                                                          <a class="btn btn-sm btn-info" href="{{ url('/admin/requisitions/approve').'/'.$requisition->id }}">
                                                             <i class="fa fa-check"></i> Approve
                                                         </a>
