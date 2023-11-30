@@ -98,6 +98,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/requisitions/view/{id}', 'RequisitionsController@viewrequisitions')->name('admin.requisitions.view');
         Route::post('/requisitions/view', 'RequisitionsController@dviewrequisitions')->name('admin.requisitions.edit.view');
         Route::get('/requisitions/print/{id}', 'RequisitionsController@requisitionsprint')->name('admin.requisition.print');
+        Route::get('/requisitions/approve/{id}', 'RequisitionsController@approve')->name('admin.requisitions.approve');
+        Route::get('/requisitions/disapprove/{id}', 'RequisitionsController@disapprove')->name('admin.requisitions.disapprove');;
 
         // Route::post('/requisitions-items/save', 'RequisitionsController@save')->name('requisitions_items.save');
 

@@ -240,17 +240,28 @@
                           </a>
                         </li>
                     </li>
-                    <li class="nav-header">Forms</li>
-                    <li class="nav-form dropdown">
-                        <li class="nav-form">
-                          <a href="{{ route('admin.requisitions.index')}}" class="nav-link nav-form">
-                           <i class="fas fa-file" style="margin-left: 10px;"></i>
+                     <li class="nav-item">
+                        <a href="#requisitionsCollapse" class="nav-link nav-requisitions" data-toggle="collapse" aria-expanded="false">
+                            <i class="nav-icon fas fa-file"></i>
                             <p>
-                              Requisition Form
+                                Requisitions
+                                <i class="fas fa-caret-down"></i>
                             </p>
-                          </a>
-                        </li>
-
+                        </a>
+                        <div class="collapse" id="requisitionsCollapse">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.requisitions.index') }}" class="nav-link nav-form" style="margin-left: 35px;">
+                                        <i class="fas fa-pencil-alt" style="margin-left: 10px;"></i>
+                                        <p>
+                                            Requisition Form
+                                        </p>
+                                    </a>
+                                </li>
+                              
+                            </ul>
+                        </div>
+                    </li>
                         <li class="nav-header">Users</li>
                         <li class="nav-form">
                           <a href="{{ route('admin.users.index')}}" class="nav-link nav-form">
@@ -262,7 +273,7 @@
                         </li>
                         <li class="nav-form">
                           <a href="{{ route('admin.divisions.index')}}" class="nav-link nav-form">
-                          <i class="fas fa-users" style="margin-left: 10px;"></i>
+                          <i class="fas fa-folder" style="margin-left: 10px;"></i>
                             <p>
                               Divisions
                             </p>

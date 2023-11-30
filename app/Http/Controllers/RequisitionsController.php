@@ -212,6 +212,26 @@ public function deleterequisitions(Request $request)
 
 
     }
+    
+    public function approve($id) {
+        $requisition = Requisition::find($id);
+        
+        // Assuming you have a 'status' column to track the approval status
+        $requisition->status = 'approved';
+        $requisition->save();
+
+        return redirect()->back()->with('success', 'Requisition Approved Successfully');
+    }
+
+    public function disapprove($id) {
+        $requisition = Requisition::find($id);
+
+        // Assuming you have a 'status' column to track the approval status
+        $requisition->status = 'disapproved';
+        $requisition->save();
+
+        return redirect()->back()->with('success', 'Requisition Disapproved Successfully');
+    }
 
 }
 

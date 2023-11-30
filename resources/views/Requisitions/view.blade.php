@@ -18,25 +18,16 @@
                     <div class="form-group">
                         <label for="fund_cluster">Fund Cluster:</label>
                         <input type="text" name="fund_cluster" class="form-control" value="{{ $requisition->office_id }}" readonly>
-                    </div>
+                 
                   <div class="form-group">
-                <label for="division_id">Division:</label>
-                 @if($divisions = App\Models\Division::get())
-                @foreach($divisions as $division)
-                    <option value="{{ $division->id }}">{{ $division->division_name }}</option>
-                @endforeach
-            @endif
-        </label>
+                        <label>Division:</label>
+                        <p>{{ $requisition->division->division_name }}</p>
+                    </div>
             
                     <div class="form-group">
-                        <label for="rc_code">RC Code:</label>
-                       <input type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>
-                        @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}-{{ $department->responsibility_code }}</option>
-                            @endforeach
-                          @endif
-                      </label>
+                         <label>RC Code:</label>
+                        <p>{{ $requisition->office->responsibility_code }}</p>
+                       
                       </div>
                     <div class="form-group">
                         <label for="office_id">Office:</label>
@@ -150,6 +141,11 @@
                 </form>
                 <a href="{{ route('admin.requisitions.index') }}" class="btn btn-primary">Back</a>
                 <a href="#" class="btn btn-success" onclick="print('{{ route('admin.requisition.print', ['id' => $requisition->id]) }}')">Print</a>
+                <a class="btn btn-sm btn-info" href="{{ route('admin.requisitions.approve', ['id' => $requisition->id]) }}">
+                    <i class="fa fa-check"></i> Approve</a>
+
+                <a class="btn btn-sm btn-warning" href="{{ route('admin.requisitions.disapprove', ['id' => $requisition->id]) }}">
+                    <i class="fa fa-times"></i> Disapprove</a>
 
             </div>
         </div>

@@ -25,7 +25,9 @@
                                             <th>Purpose</th>
                                             <th>Actions</th>
                                            
-                                        </tr>
+                                        </tr> @if(isset($supply->supplier->suppliers_name))
+                                                    {{ $supply->supplier->suppliers_name}}
+                                                @endif
                                     </thead>
                                     <tbody>
                                         @if(isset($requisitions))
@@ -34,7 +36,7 @@
                                                    <td>{{ $requisition->entity_name }}</td>
                                                    <td>{{ $requisition->fund_cluster}}</td>
                                                    <td>{{ $requisition->division->division_name }}</td>
-                                                   <td>{{ $requisition->office->responsibility_code }}</td>
+                                                   <td>{{ $requisition->office->responsibility_code}}</td>
                                                    <td>{{ $requisition->office->department_user }}</td>
                                                    <td>{{ $requisition->purpose}}</td>
                                                    <td class="text-center">
@@ -47,6 +49,15 @@
                                                     <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/requisitions/view').'/'.$requisition->id}}">
                                                         <i class="fa fa-eye"></i> View
                                                     </a>
+                                                                                                          {{-- Add buttons for "Approved" and "Disapproved" --}}
+                                                         <a class="btn btn-sm btn-info" href="{{ url('/admin/requisitions/approve').'/'.$requisition->id }}">
+                                                            <i class="fa fa-check"></i> Approve
+                                                        </a>
+                                                        
+                                                        <a class="btn btn-sm btn-warning" href="{{ url('/admin/requisitions/disapprove').'/'.$requisition->id }}">
+                                                            <i class="fa fa-times"></i> Disapprove
+                                                        </a>
+                                                    </td>
                                                 </td>
                                                 </tr>
                                             @endforeach
