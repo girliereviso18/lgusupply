@@ -20,7 +20,7 @@
                             <label>Department</label>
                              <select type="" name="department_id" class="form-control" required>
                                     <option value="" disabled selected>Select Department</option>
-                                     @if($departments = App\Models\department::get())
+                                     @if($departments = App\Models\Department::get())
                                      @foreach($departments as $department)
                                       <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
                                     @endforeach

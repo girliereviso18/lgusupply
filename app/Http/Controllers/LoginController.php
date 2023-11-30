@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -27,9 +28,9 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-       
+        // return Hash::make($request['password']);
         $credentials = [
-            'name' => $request['username'],
+            'username' => $request['username'],
             'password' => $request['password'],
         ];
 
