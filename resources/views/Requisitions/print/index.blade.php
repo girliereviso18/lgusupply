@@ -1547,44 +1547,36 @@ td
     <td class="xl65" width="82.25" style='width:49.35pt;'></td>
     <td class="xl65" width="82.25" style='width:49.35pt;'></td>
    </tr>
-   <tr height="41.25" style='height:24.75pt;mso-height-source:userset;mso-height-alt:495;'>
-    <td class="xl65" height="41.25" colspan="7" style='height:24.75pt;mso-ignore:colspan;'></td>
-    <td class="xl66" x:str>Appendix 63<br/></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="22" style='height:13.20pt;'>
-    <td class="xl65" height="22" colspan="8" style='height:13.20pt;mso-ignore:colspan;'></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="43.75" style='height:26.25pt;mso-height-source:userset;mso-height-alt:525;'>
-    <td class="xl67" height="43.75" colspan="8" style='height:26.25pt;border-right:none;border-bottom:none;' x:str>REQUISITION AND ISSUE SLIP<span style='mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="23.75" style='height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
-    <td class="xl68" height="23.75" colspan="8" style='height:14.25pt;mso-ignore:colspan;'></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
-    <td class="xl69" height="37.50" colspan="3" style='height:22.50pt;mso-ignore:colspan;' x:str>Entity Name : <u>{{$requisition->entity_name }}</u></td>
-    <td class="xl70"></td>
-    <td class="xl70"></td>
-    <td class="xl70"></td>
-    <td class="xl69" colspan="2" style='mso-ignore:colspan;border-right:none;border-bottom:none;' x:str>Fund Cluster : <u>{{$requisition->fund_cluster }}</u></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="7.50" style='height:4.50pt;mso-height-source:userset;mso-height-alt:90;'>
+  <tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
+    <td class="xl69" height="37.50" colspan="3" style='height:22.50pt;mso-ignore:colspan;' x:str>
+        <label>Entity Name :</label> 
+        <u>{{ $requisition->entity_name }}</u>
+    </td>
+    <td class="xl70" colspan="5"></td> <!-- Adjusted colspan to fill the missing cells -->
+    <td class="xl69" colspan="2" style='mso-ignore:colspan;border-right:none;border-bottom:none;' x:str>
+        <label>Fund Cluster :</label> 
+        <u>{{ $requisition->fund_cluster }}</u>
+    </td>
+</tr>
+<tr height="7.50" style='height:4.50pt;mso-height-source:userset;mso-height-alt:90;'>
     <td class="xl72" height="7.50" style='height:4.50pt;'></td>
     <td class="xl68" colspan="7" style='mso-ignore:colspan;'></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
-    <td class="xl73" height="37.50" colspan="3" style='height:22.50pt;mso-ignore:colspan;' x:str><label> Division :</label> <label id="division_id" name="division_id" style="display: inline-block;">
-            @if($divisions = App\Models\Division::get())
-                @foreach($divisions as $division)
-                    <option value="{{ $division->id }}">{{ $division->division_name }}</option>
-                @endforeach
+    <td class="xl65" colspan="8" style='mso-ignore:colspan;'></td>
+</tr>
+<tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
+    <td class="xl73" height="37.50" colspan="3" style='height:22.50pt;mso-ignore:colspan;' x:str>
+        <label>Division :</label> 
+        <u>
+            @if($requisition->division)
+                {{ $requisition->division->division_name }}
             @endif
-        </label></u></td>
+        </u>
+    </td>
+    <td class="xl70" colspan="6"></td> <!-- Adjusted colspan to fill the missing cells -->
+</tr>
+
+
+
     <td class="xl74"></td>
     <td class="xl75"></td>
     <td class="xl73" colspan="3" style='mso-ignore:colspan;border-right:1.0pt solid windowtext;border-bottom:none;' x:str>
@@ -1659,7 +1651,7 @@ td
     <td class="xl97"></td>
     <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
    </tr>
-   <!-- <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
+   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
     <td class="xl94" height="43.50" style='height:26.10pt;'></td>
     <td class="xl95"></td>
     <td class="xl96"></td>
@@ -1669,7 +1661,7 @@ td
     <td class="xl98"></td>
     <td class="xl97"></td>
     <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr> -->
+   </tr>
    
    <tr height="1.25" style='height:0.75pt;mso-height-source:userset;mso-height-alt:15;'>
     <td class="xl104" height="1.25" style='height:0.75pt;'></td>

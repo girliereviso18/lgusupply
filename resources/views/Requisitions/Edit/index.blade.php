@@ -6,228 +6,138 @@
     <div class="col-sm-12">
         <div class="card card-outline card-primary">
             <div class="card-header">
-               <p class="card-title">Edit Requisition</p></br>
+                <p class="card-title">Edit Requisition</p></br>
             </div>
             <div class="card-body">
-                </div>
-                <div class="card-body"> 
-                    <form action="{{route('admin.requisitions.edit.save')}}" method="POST">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $requisition->id }}">
-                        <div class="form-group">
-                            <label>Entity Name</label>
-                            <input type="text" class="form-control" name="entity_name" value="{{ $requisition->entity_name}}" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Fund Cluster</label>
-                            <input type="text" class="form-control" name="fund_cluster" value="{{ $requisition->fund_cluster}}">
-                        </div>
-                        <div class="form-group">
-                            <label>Division</label>
-                              <select type="" name="division_id" class="form-control" required>
-                            <option value="" disabled selected>Select Division</option>
-                             @if($divisions = App\Models\division::get())
-                             @foreach($divisions as $division)
-                              <option value="{{ $division->id }}"> {{ $division->division_name }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                       </div>
-                          <div class="form-group">
-                            <label>RC</label>
-                           <select type="" name="rc_code" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}-{{ $department->responsibility_code }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                        </div>
-                          <div class="form-group">
-                            <label>Office</label>
-                            <select type="" name="office_id" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Purpose</label>
-                            <input type="text" class="form-control" name="purpose" value="{{ $requisition->purpose}}" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Requested by</label>
-                            <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                      </div>
-                      <div>
-                        <label for="requested_signature">Signature:</label>
-                        <input type="text" name="requested_signature" id="requested_signature">
-                    </div>
-                        
-                        <div class="form-group">
-                           <label for="requested_printed_name">Printed Name:</label>
-                            <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->name }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                  </div>
-                         <div class="form-group">
-                        <label for="requested_designation">Designation:</label>
-                         <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->designation }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                  </div>
-                        <label for="requested_date">Date:</label>
-                        <input type="date" name="requested_date" id="requested_date" required>
-                         <div class="form-group">
-                            <label for="approved_by">Approved by:</label>
-                            <select type="" name="approved_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                      </div>
-                        <label for="approved_signature">Signature:</label>
-                        <input type="text" name="approved_signature" id="approved_signature" >
-                        <div class="form-group">
+                <form action="{{ route('admin.requisitions.edit.save') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $requisition->id }}">
 
+                    <div class="form-group">
+                        <label for="requested_designation">Designation:</label>
+                        <select type="" name="requested_by" class="form-control" required>
+                            <option value="" disabled selected>Select Department</option>
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->designation }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="approved_by">Approved by:</label>
+                        <select type="" name="approved_by" class="form-control" required>
+                            <option value="" disabled selected>Select Department</option>
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->department_user }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="approved_printed_name">Printed Name:</label>
                         <select type="" name="requested_by" class="form-control" required>
                             <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->name }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                  </div>
-                        <div class="form-group"> <label for="approved_designation">Designation:</label>
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="approved_designation">Designation:</label>
                         <select type="" name="requested_by" class="form-control" required>
                             <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->designation }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                  </div>
-
-                        <label for="approved_date">Date:</label>
-                        <input type="date" name="approved_date" id="approved_date" required>
-                      <div class="form-group">
-                            <label for="issued_by">Issued by:</label>
-                             <select type="" name="issued_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                      </div>
-                       <div>
-                        <label for="issued_signature">Signature:</label>
-                        <input type="text" name="issued_signature" id="issued_signature" >
-                        <div class="form-group"> 
-                         <label for="issued_printed_name">Printed Name:</label>
-                             <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->name }}</option>
-                            @endforeach
-                          @endif
-                      </select>
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->designation }}</option>
+                                @endforeach
+                            @endif
+                        </select>
                     </div>
-                       
 
-                       <div class="form-group">
-                        <label for="issued_designation">Designation:</label>
-                         <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->designation }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                  </div>
                     <div class="form-group">
-
-                        <label for="issued_date">Date:</label>
-                        <input type="date" name="issued_date" id="issued_date" required>
-                    </div>
-                       
-                      
-                         <div class="form-group">
-                            <label for="received_by">Received by:</label>
-                            <select type="" name="received_by" class="form-control" required>
+                        <label for="issued_by">Issued by:</label>
+                        <select type="" name="issued_by" class="form-control" required>
                             <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="received_signature">Signature:</label>
-                        <input type="text" name="received_signature" id="received_signature">
-                        <div>
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->department_user }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issued_printed_name">Printed Name:</label>
+                        <select type="" name="requested_by" class="form-control" required>
+                            <option value="" disabled selected>Select Department</option>
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issued_designation">Designation:</label>
+                        <select type="" name="requested_by" class="form-control" required>
+                            <option value="" disabled selected>Select Department</option>
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->designation }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="received_by">Received by:</label>
+                        <select type="" name="received_by" class="form-control" required>
+                            <option value="" disabled selected>Select Department</option>
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->department_user }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="received_printed_name">Printed Name:</label>
                         <select type="" name="requested_by" class="form-control" required>
                             <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->name }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                     </div>
-                        <div class="form-group">
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="received_designation">Designation:</label>
                         <select type="" name="requested_by" class="form-control" required>
                             <option value="" disabled selected>Select Department</option>
-                             @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->designation }}</option>
-                            @endforeach
-                          @endif
-                      </select>
-                     </div>
-                        <label for="received_date">Date:</label>
-                        <input type="date" name="received_date" id="received_date" required>
-                    </div>
-                       
-
+                            @if($departments = App\Models\department::get())
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->designation }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                     
                         <div class="form-group">
                             <label for="isapproved">Is Approved:</label>
                             <input type="number" name="isapproved" class="form-control">
                         </div>
-                    </div>
+                    
+
 
 <!-- Requisition Items Table -->
 <table class="table table-bordered">

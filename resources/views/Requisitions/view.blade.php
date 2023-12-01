@@ -13,11 +13,11 @@
                     <h1>Requisition Form</h1>
                     <div class="form-group">
                         <label for="entity_name">Entity Name:</label>
-                        <input type="text" name="entity_name" class="form-control" value="{{ $requisition->entity_name }}" readonly>
+                        <p>{{ $requisition->entity_name }}</p>
                     </div>
                     <div class="form-group">
                         <label for="fund_cluster">Fund Cluster:</label>
-                        <input type="text" name="fund_cluster" class="form-control" value="{{ $requisition->office_id }}" readonly>
+                        <p>{{ $requisition->office_id }}</p>
                  
                   <div class="form-group">
                         <label>Division:</label>
@@ -27,57 +27,51 @@
                     <div class="form-group">
                          <label>RC Code:</label>
                         <p>{{ $requisition->office->responsibility_code }}</p>
-                       
-                      </div>
+                    </div>
                     <div class="form-group">
-                        <label for="office_id">Office:</label>
-                        <input type="text" name="office_id" class="form-control" value="{{ $requisition->office_id }}" readonly>
-                        @if($departments = App\Models\department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                            @endforeach
-                          @endif
-                      </label>
+                        <label for="">Office:</label>
+                        <p>{{ $requisition->office_id }}</p>
                     </div>
                     <div class="form-group">
                         <label for="purpose">Purpose:</label>
-                        <input type="text" name="purpose" class="form-control" value="{{ $requisition->purpose }}" readonly>
+                        <p>{{ $requisition->purpose }}</p>
                     </div>
                    <div class="form-group">
                         <label for="requested_by">Requested By:</label>
-                        <input type="text" name="requested_by" class="form-control" value="{{ $requisition->user->name }}" readonly>
+                        <p>{{ $requisition->user->name }}</p>
                     </div>
                    <div class="form-group">
                         <label for="date_requested">Date Requested:</label>
-                        <input type="text" name="date_requested" class="form-control" value="{{ $requisition->date_requested }}" readonly>
+                        <p>{{ $requisition->date_requested }}</p>
                     </div>
                    <div class="form-group">
                         <label for="approved_by">Approved By:</label>
-                        <input type="text" name="approved_by" class="form-control" value="{{ $requisition->approved_by }}" readonly>
+                        <p>{{ $requisition->approved_by }}</p>
                     </div>
                    <div class="form-group">
                         <label for="approved_date">Approved Date:</label>
-                        <input type="text" name="approved_date" class="form-control" value="{{ $requisition->approved_date }}" readonly>
+                        <p>{{ $requisition->approved_date }}</p>
                     </div>
                     <div class="form-group">
                         <label for="issued_by">Issued By:</label>
-                        <input type="text" name="issued_by" class="form-control" value="{{ $requisition->issued_by }}" readonly>
+                        <p>{{ $requisition->issued_by }}</p>
                     </div>
                     <div class="form-group">
                         <label for="issued_date">Issued Date:</label>
-                        <input type="text" name="issued_date" class="form-control" value="{{ $requisition->issued_date }}" readonly>
+                        <p>{{ $requisition->issued_date }}</p>
                     </div>
                    <div class="form-group">
                         <label for="received_by">Receieved By:</label>
-                        <input type="text" name="received_by" class="form-control" value="{{ $requisition->received_by }}" readonly>
+                        <p>{{ $requisition->received_by }}</p>
                     </div>
                     <div class="form-group">
                         <label for="received_date">Received Date:</label>
-                        <input type="text" name="received_date" class="form-control" value="{{ $requisition->received_date }}" readonly>
+                        <p>{{ $requisition->received_date }}</p>
                     </div>
+                    
                     <div class="form-group">
                         <label for="isapproved">Is Approved:</label>
-                        <input type="text" name="isapproved" class="form-control" value="{{ $requisition->isapproved }}" readonly>
+                        <p>{{ $requisition->isapproved }}</p>                   
                     </div>
 
                      @if(isset($requisition_items))
