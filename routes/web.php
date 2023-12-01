@@ -103,6 +103,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
         // Route::post('/requisitions-items/save', 'RequisitionsController@save')->name('requisitions_items.save');
 
+         Route::get('/approved-requisitions', 'ApprovedRequisitionsController@index')->name('admin.approved.index');
+
 
         
         //suppliers 

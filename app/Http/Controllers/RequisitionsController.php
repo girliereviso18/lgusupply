@@ -212,17 +212,17 @@ public function deleterequisitions(Request $request)
 
 
     }
-    
-    public function approve($id) {
-        $requisition = Requisition::find($id);
+    public function approve($id)
+{
+   $requisition = Requisition::find($id);
         
-        // Assuming you have a 'status' column to track the approval status
         $requisition->status = 'approved';
         $requisition->save();
 
-        return redirect()->back()->with('success', 'Requisition Approved Successfully');
-    }
-
+    return redirect()->route('admin.approved.index', ['requisition_id' => $id])
+                     ->with('success', 'Requisition approved successfully.');
+}
+   
     public function disapprove($id) {
         $requisition = Requisition::find($id);
 

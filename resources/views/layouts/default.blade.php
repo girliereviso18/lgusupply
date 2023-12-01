@@ -258,7 +258,14 @@
                                         </p>
                                     </a>
                                 </li>
-                              
+                                 <li class="nav-item">
+                                    <a href="{{ route('admin.approved.index') }}" class="nav-link" style="margin-left: 35px;">
+                                        <i class="fas fa-check" style="margin-left: 10px;"></i>
+                                        <p>
+                                            Approve Requisition
+                                        </p>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
