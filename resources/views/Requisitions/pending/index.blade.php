@@ -6,12 +6,9 @@
         <div class="col-sm-12">
                <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Stock Lists</h3>
+                    <h3 class="card-title">Requisition Pending Lists</h3>
                     <div class="card-tools">
-                    <a href="{{ route('admin.stocks.addstocks') }}" class="btn btn-flat btn-primary" target="_blank">
-                        <span class="fas fa-plus"></span> Add Stocks
-                    </a>
-
+                    <a href="{{route('admin.requisitions.addrequisitions')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Requisitions</a>
                 </div>
                 </div>
                 <div class="card-body">
@@ -20,42 +17,47 @@
                             <table class="table table-bordered table-stripped"> 
                                             <thead>
                                         <tr>
-                                           <!--  <th>#</th> -->
-                                            <th>Stock Number</th>
-                                            <th>Item </th>
-                                            <th>Quantity</th>
-                                            <th>Unit_of Measurement</th>
-                                            <th>Supplier_Id</th>
-                                            <th>Price_per_Unit</th>
-                                            <th>Date of Purchase</th>
-                                            <th>Expiration Date</th>
-                                            <th>Action</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody class="{{$count=1}}">
-                                        @if(isset($supplies))
-                                            @foreach($supplies as $supply)
-                                                 <tr>
-                                                   <!-- <td>{{$count++}}</td> -->
-                                                   <td>{{ $supply->stock_number }}</td>
-                                                   <td>{{ $supply->item->items_name}}</td>
-                                                   <td>{{ $supply->qty }}</td>
-                                                   <td>{{ $supply->unit->unit_name }}</td>
-                                                   <td>
-                                                 @if(isset($supply->supplier->suppliers_name))
+                                            <th>Entity Name</th>
+                                            <th>Fund Cluster </th>
+                                            <th>Divison Id</th>
+                                            <th>RC Code</th>
+                                            <th>Office</th>
+                                            <th>Purpose</th>
+                                            <th>Actions</th>
+                                           
+                                        </tr> @if(isset($supply->supplier->suppliers_name))
                                                     {{ $supply->supplier->suppliers_name}}
                                                 @endif
+                                    </thead>
+                                    <tbody>
+                                        @if(isset($requisitions))
+                                            @foreach($requisitions as $requisition)
+                                                 <tr>
+                                                   <td>{{ $requisition->entity_name }}</td>
+                                                   <td>{{ $requisition->fund_cluster}}</td>
+                                                   <td>{{ $requisition->division->division_name }}</td>
+                                                   <td>{{ $requisition->office->responsibility_code}}</td>
+                                                   <td>{{ $requisition->office->department_user }}</td>
+                                                   <td>{{ $requisition->purpose}}</td>
+                                                   <td class="text-center">
+                                                    <a class="btn btn-sm btn-success" href="{{ url('/admin/requisitions/edit').'/'.$requisition->id}}">
+                                                        <i class="fa fa-edit"></i> Update
+                                                    </a>
+                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/requisitions/delete').'/'.$requisition->id}}">
+                                                        <i class="fa fa-trash-alt"></i> Delete
+                                                    </a>
+                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/requisitions/view').'/'.$requisition->id}}">
+                                                        <i class="fa fa-eye"></i> View
+                                                     </a>
+                                                         <a class="btn btn-sm btn-info" href="{{ route('admin.approved.index', ['id' => $requisition->id]) }}">
+                                                            <i class="fa fa-check"></i> Approve
+                                                        </a>
+                                                        
+                                                        <a class="btn btn-sm btn-warning" href="{{ route('admin.disapprove.index', ['id' => $requisition->id]) }}">
+                                                            <i class="fa fa-times"></i> Disapprove
+                                                        </a>
+                                                    </td>
                                                 </td>
-                                                   <td>{{ $supply->price_per_unit}}</td>
-                                                   <td>{{ $supply->date_of_purchase}}</td>
-                                                   <td>{{ $supply->expiration_date }}</td>
-                                                    <td class="text-center">
-                                          <a class="btn btn-sm btn-success" href="{{ url('/admin/stocks/edit').'/'.$supply->id}}" ><i
-                                         class="fa fa-edit"></i> Update</a>
-                                         <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/stocks/delete').'/'.$supply->id}})"><i
-                                         class="fa fa-trash-alt"></i> Delete</a></td>
-                                                  
                                                 </tr>
                                             @endforeach
                                         @endif

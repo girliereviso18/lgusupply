@@ -1,17 +1,13 @@
-@extends('layouts.default')
+@extends('layouts.user')
 
 @section('content')
 
-  <div class="container" style="margin-top: 52px; max-width: 1400px;">
+  <div class="container" style="margin-top: 52px; max-width: 1400px">
         <div class="col-sm-12">
                <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Stock Lists</h3>
+                    <h3 class="card-title">Requisition Disapprove Lists</h3>
                     <div class="card-tools">
-                    <a href="{{ route('admin.stocks.addstocks') }}" class="btn btn-flat btn-primary" target="_blank">
-                        <span class="fas fa-plus"></span> Add Stocks
-                    </a>
-
                 </div>
                 </div>
                 <div class="card-body">
@@ -20,42 +16,24 @@
                             <table class="table table-bordered table-stripped"> 
                                             <thead>
                                         <tr>
-                                           <!--  <th>#</th> -->
-                                            <th>Stock Number</th>
-                                            <th>Item </th>
-                                            <th>Quantity</th>
-                                            <th>Unit_of Measurement</th>
-                                            <th>Supplier_Id</th>
-                                            <th>Price_per_Unit</th>
-                                            <th>Date of Purchase</th>
-                                            <th>Expiration Date</th>
-                                            <th>Action</th>
-
+                                            <th>Entity Name</th>
+                                            <th>Fund Cluster </th>
+                                            <th>Divison Id</th>
+                                            <th>RC Code</th>
+                                            <th>Office</th>
+                                            <th>Purpose</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="{{$count=1}}">
-                                        @if(isset($supplies))
-                                            @foreach($supplies as $supply)
+                                    <tbody>
+                                        @if(isset($requisitions))
+                                            @foreach($requisitions as $requisition)
                                                  <tr>
-                                                   <!-- <td>{{$count++}}</td> -->
-                                                   <td>{{ $supply->stock_number }}</td>
-                                                   <td>{{ $supply->item->items_name}}</td>
-                                                   <td>{{ $supply->qty }}</td>
-                                                   <td>{{ $supply->unit->unit_name }}</td>
-                                                   <td>
-                                                 @if(isset($supply->supplier->suppliers_name))
-                                                    {{ $supply->supplier->suppliers_name}}
-                                                @endif
-                                                </td>
-                                                   <td>{{ $supply->price_per_unit}}</td>
-                                                   <td>{{ $supply->date_of_purchase}}</td>
-                                                   <td>{{ $supply->expiration_date }}</td>
-                                                    <td class="text-center">
-                                          <a class="btn btn-sm btn-success" href="{{ url('/admin/stocks/edit').'/'.$supply->id}}" ><i
-                                         class="fa fa-edit"></i> Update</a>
-                                         <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/stocks/delete').'/'.$supply->id}})"><i
-                                         class="fa fa-trash-alt"></i> Delete</a></td>
-                                                  
+                                                   <td>{{ $requisition->entity_name }}</td>
+                                                   <td>{{ $requisition->fund_cluster}}</td>
+                                                   <td>{{ $requisition->division_id }}</td>
+                                                   <td>{{ $requisition->rc_code }}</td>
+                                                   <td>{{ $requisition->office_id }}</td>
+                                                   <td>{{ $requisition->purpose}}</td>
                                                 </tr>
                                             @endforeach
                                         @endif

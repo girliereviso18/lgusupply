@@ -178,13 +178,13 @@
                    <br></br>
               
                      <div>
-                        <li class="nav-header">Forms</li>
+                        <li class="nav-header" margin-buttom: 10px;>Requisition</li>
                          <li class="nav-form dropdown">
                           <li class="nav-form">
-                            <a href="{{ route('employee.requisition.index')}}" class="nav-link nav-form">
-                            <i class="fas fa-file" style="margin-left: 10px;"></i>
+                            <a href="{{ route('employee.requisition.add')}}" class="nav-link nav-form">
+                            <i class="fas fa-plus" style="margin-left: 10px;"></i>
                               <p>
-                              Requisition Form
+                                Add Requisition
                              </p>
                           </a>
                         </li>
@@ -192,10 +192,42 @@
                       <div>
                          <li class="nav-form dropdown">
                           <li class="nav-form">
-                            <a href="{{ route('employee.pendings.index')}}" class="nav-link nav-form">
+                            <a href="{{ route('employee.requisition.pending')}}" class="nav-link nav-form">
                             <i class="fas fa-clock" style="margin-left: 10px;"></i>
                               <p>
                              Pending
+                             </p>
+                          </a>
+                        </li>
+                      </div>
+                      <div>
+                         <li class="nav-form dropdown">
+                          <li class="nav-form">
+                            <a href="{{ route('employee.requisition.approved')}}" class="nav-link nav-form">
+                            <i class="fas fa-check" style="margin-left: 10px;"></i>
+                              <p>
+                                Approved
+                             </p>
+                          </a>
+                        </li>
+                      </div>
+                      <div>
+                         <li class="nav-form dropdown">
+                          <li class="nav-form">
+                            <a href="{{ route('employee.requisition.disapproved')}}" class="nav-link nav-form">
+                            <i class="fas fa-times" style="margin-left: 10px;"></i>
+                              <p>
+                                Disapproved
+                             </p>
+                          </a>
+                        </li>
+                      </div>
+                      <div>
+                        <li class="nav-header" style="padding: 0;margin-top: 10px;">
+                          <a href="{{ route('employee.stockCard.index')}}" style="padding: 0;" class="nav-link nav-form">
+                            <i class="fas fa-archive" style="margin-left: 10px;"></i>
+                              <p>
+                               Stock List
                              </p>
                           </a>
                         </li>

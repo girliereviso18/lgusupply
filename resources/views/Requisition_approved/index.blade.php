@@ -8,7 +8,7 @@
                     <div class="card-header">Approved Requisitions</div>
 
                     <div class="card-body">
-                        @if($approvedRequisitions->isEmpty())
+                        <!-- @if($approvedRequisitions->isEmpty())
                             <p>No approved requisitions available.</p>
                         @else
                             <table class="table">
@@ -27,7 +27,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                        @endif
+                        @endif -->
                     </div>
                 </div>
             </div>

@@ -27,6 +27,7 @@ class RequisitionsController extends Controller
 
         // First, save the Requisition record
         $requisition = new Requisition();
+        $requisition->user_id = session('user_id');
         $requisition->entity_name = $request->entity_name;
         $requisition->fund_cluster = $request->fund_cluster;
         $requisition->division_id = $request->division_id;
@@ -37,59 +38,54 @@ class RequisitionsController extends Controller
         $requisition->approved_by = $request->approved_by;
         $requisition->issued_by = $request->issued_by;
         $requisition->received_by = $request->received_by;
-        $requisition->isApproved = $request->isapproved;
+         $requisition->status = $request->status;
 
          // Add information for "Requested by:"
-        $requisition->requested_signature = $request->requested_signature;
         $requisition->requested_printed_name = $request->requested_printed_name;
         $requisition->requested_designation = $request->requested_designation;
         $requisition->requested_date = $request->requested_date;
 
         // Add information for "Approved by:"
-        $requisition->approved_signature = $request->approved_signature;
         $requisition->approved_printed_name = $request->approved_printed_name;
         $requisition->approved_designation = $request->approved_designation;
         $requisition->approved_date = $request->approved_date;
 
         // Add information for "Issued by:"
-        $requisition->issued_signature = $request->issued_signature;
         $requisition->issued_printed_name = $request->issued_printed_name;
         $requisition->issued_designation = $request->issued_designation;
         $requisition->issued_date = $request->issued_date;
 
         // Add information for "Received by:"
-        $requisition->received_signature = $request->received_signature;
         $requisition->received_printed_name = $request->received_printed_name;
         $requisition->received_designation = $request->received_designation;
         $requisition->received_date = $request->received_date;
 
+        if ($requisition->save()) {
 
-    if ($requisition->save()) {
-        $requisitionItemsData = $request->requisition_items;
-
-        foreach ($requisitionItemsData as $itemsData) {
-            $requisitions_items = new Requisitions_item();
-            $requisitions_items->requisitions_id = $requisition->id;
-            $requisitions_items->stock_no = $itemsData['stock_no'];
-            $requisitions_items->unit_id = $itemsData['unit_id'];
-            $requisitions_items->item_id = $itemsData['item_id'];
-            $requisitions_items->qty = $itemsData['qty'];
-            $requisitions_items->isavailable = $itemsData['isAvailable'];
-            $requisitions_items->issued_qty = $itemsData['issued_qty'];
-            $requisitions_items->remarks = $itemsData['remarks'];
-
-            $requisitions_items->save();
+            $length = $request->index;
+            for($i = 0; $i <= $length; $i++){
+                $requisitions_items = new Requisitions_item();
+    
+                $requisitions_items->requisitions_id = $requisition->id;
+                $requisitions_items->stock_no = $request->stock_no[$i];
+                $requisitions_items->unit_id = $request->unit_id[$i];
+                $requisitions_items->item_id = $request->item_id[$i];
+                $requisitions_items->qty = $request->qty[$i];
+                $requisitions_items->isavailable = $request->isAvailable[$i];;
+                $requisitions_items->issued_qty = $request->issued_qty[$i];;
+                $requisitions_items->remarks = $request->remarks[$i];
+    
+                $requisitions_items->save();
+            }
+            return redirect()->route('employee.requisition.index')->with('success', 'Successfully added!');
+        } else {
+            return redirect()->route('employee.requisition.add')->with('error', 'Failed to create requisition.');
         }
-
-        return redirect()->route('Employee.requisition.index')->with('success', 'Successfully added!');
-    } else {
-        return redirect()->route('Employee.requisition.index')->with('error', 'Failed to create requisition.');
-    }
 }
 
     public function addrequisitions()
     {
-        return view('Employee.requisition.Store.index');
+        return view('Employee.requisition.add');
     }
 
     public function editrequisitions(Request $request)
@@ -211,6 +207,29 @@ public function deleterequisitions(Request $request)
         return view('Employee.requisitions.view', ['requisition' => $requisition, 'requisitionItems' => $requisitionItems]);
 
 
+    }
+    public function pending(){
+        $requisitions = Requisition::where('status', 'pending')
+                                    ->where('user_id', session('user_id'))
+                                    ->get();
+
+        return view('Employee/requisition.pending', ['requisitions' => $requisitions]);
+    }
+    public function approved() {
+
+        $requisitions = Requisition::where('status', 'approved')
+                                    ->where('user_id', session('user_id'))
+                                    ->get();
+
+        return view('Employee/requisition.approved', ['requisitions' => $requisitions]);
+    }
+    public function disapproved() {
+
+        $requisitions = Requisition::where('status', 'disapproved')
+                                    ->where('user_id', session('user_id'))
+                                    ->get();
+
+        return view('Employee/requisition.disapproved', ['requisitions' => $requisitions]);
     }
 
 }

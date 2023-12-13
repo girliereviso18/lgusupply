@@ -251,18 +251,26 @@
                         <div class="collapse" id="requisitionsCollapse">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.requisitions.index') }}" class="nav-link nav-form" style="margin-left: 35px;">
+                                    <a href="{{ route('admin.requisitions.pending') }}" class="nav-link nav-form" style="margin-left: 35px;">
                                         <i class="fas fa-pencil-alt" style="margin-left: 10px;"></i>
                                         <p>
-                                            Requisition Form
+                                            Pending Requisition
                                         </p>
                                     </a>
                                 </li>
                                  <li class="nav-item">
-                                    <a href="{{ route('admin.approved.index') }}" class="nav-link" style="margin-left: 35px;">
+                                    <a href="{{ route('admin.requisitions.approved') }}" class="nav-link" style="margin-left: 35px;">
                                         <i class="fas fa-check" style="margin-left: 10px;"></i>
                                         <p>
                                             Approve Requisition
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.requisitions.disapproved') }}" class="nav-link" style="margin-left: 35px;">
+                                        <i class="fas fa-times" style="margin-left: 10px;"></i>
+                                        <p>
+                                            Disapprove Requisition
                                         </p>
                                     </a>
                                 </li>

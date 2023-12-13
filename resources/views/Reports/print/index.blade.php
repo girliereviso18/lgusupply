@@ -126,38 +126,34 @@
         <col class="col5">
         <col class="col6">
         <tbody>
+              <tr class="row0">
+              <td class="column0 style1 s style3" colspan="7">&nbsp;</td>
+          </tr>
           <tr class="row0">
-            <td class="column0 style1 s style3" colspan="7">STOCK CARD</td>
+              <td class="column0 style1 s style3" colspan="7" style="border-top: 1px solid black;">STOCK CARD</td>
           </tr>
           <tr class="row2">
-            <td class="column0 style6 s style8" colspan="7">LGU - Bontoc</td>
+              <td class="column0 style6 s style8" colspan="7">LGU - Bontoc</td>
           </tr>
           <tr class="row3">
-            <td class="column0 style9 s style11" colspan="7"><label>DEPARTMENT</label></td>
+              <td class="column0 style9 s style11" colspan="7"><label>DEPARTMENT</label></td>
           </tr>
-          <tr class="row4">
-          <td class="column0 style12 null">{{ $report->column0_value }}</td>
-          <td class="column1 style13 null">{{ $report->column1_value }}</td>
-          <td class="column2 style13 null">{{ $report->column2_value }}</td>
-          <td class="column3 style13 null">{{ $report->column3_value }}</td>
-          <td class="column4 style13 null">{{ $report->column4_value }}</td>
-          <td class="column5 style13 null">{{ $report->column5_value }}</td>
-          <td class="column6 style14 null">{{ $report->column6_value }}</td>
-          </tr>
+ 
           <tr class="row5">
-            <td class="column0 style15 s"><label>Item: </label></td>
-            <td class="column1 style16 null"></td>
-            <td class="column2 style17 null"></td>
-            <td class="column3 style15 s"><label>Description: </label></td>
-            <td class="column4 style17 null">{{ $report->column4_value }}</td>
-            <td class="column5 style15 s"><label>Stock no: </label>{{ $report->stock_no }}</td>
-            <td class="column6 style18 null"></td>
+              <td class="column0 style15 s" style="border-left: 1px solid black;"><label>Item: </label></td>
+              <td class="column1 style16 null"></td>
+              <td class="column2 style17 null"></td>
+              <td class="column3 style15 s"><label>Description: </label></td>
+              <td class="column4 style17 null">{{ $report->column4_value }}</td>
+              <td class="column5 style15 s"><label>Stock no: </label>{{ $report->stock_no }}</td>
+              <td class="column6 style18 null"></td>
           </tr>
+
           <tr class="row6">
             <td class="column0 style31 s style32" colspan="3">{{ $report->item }}</td>
-            <td class="column3 style30 s style32" colspan="2">{{ $report->description }}</td>
-            <td class="column5 style20 s">Re-Order Point</td>
-            <td class="column6 style21 null">{{ $report->column6_value }}</td>
+            <td class="column1 style30 s style32" colspan="2">{{ $report->description }}</td>
+            <td class="column2 style20 s">Re-Order Point</td>
+            <td class="column3 style21 null">{{ $report->column6_value }}</td>
           </tr>
           <tr class="row7">
             <td class="column0 style22 s style27" rowspan="2"><label>Date: 
@@ -178,19 +174,19 @@
           <tr class="row9">
             <td class="column0 style24 null">{{ $report->date }}</td>
             <td class="column1 style24 null">{{ $report->reference }}</td>
-            <td class="column2 style24 n">{{ $report->receipt_qty }}</td>
+            <td class="column2 style24 null">{{ $report->receipt_qty }}</td>
             <td class="column3 style24 null">{{ $report->receipt_qty }}</td>
             <td class="column4 style29 null">{{ $report->issuance_qty }}</td>
             <td class="column5 style29 null">{{ $report->balance }}</td>
             <td class="column6 style29 null">{{ $report->days_to_consume }}</td>
           </tr>
           <tr class="row10">
-            <td class="column0 style33 n"></td>
+            <td class="column0 style33 null"></td>
             <td class="column1 style29 null"></td>
             <td class="column2 style29 null"></td>
-            <td class="column3 style29 n"></td>
+            <td class="column3 style29 null"></td>
             <td class="column4 style29 null"></td>
-            <td class="column5 style29 n"></td>
+            <td class="column5 style29 null"></td>
             <td class="column6 style29 null"></td>
           </tr>
           <tr class="row11">

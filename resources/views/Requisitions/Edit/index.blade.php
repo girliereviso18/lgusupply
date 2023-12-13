@@ -14,8 +14,24 @@
                     <input type="hidden" name="id" value="{{ $requisition->id }}">
 
                     <div class="form-group">
-                        <label for="requested_designation">Designation:</label>
+                        <label for="requested_by">Requested by:</label>
                         <select type="" name="requested_by" class="form-control" required>
+                            <option value="" disabled selected>Select Department</option>
+                            @if($users = App\Models\User::get())
+                             @foreach($users as $user) 
+                                    @if($user->id == $requisition->requested_by)
+                                        <option value="{{ $user->id }}" selected> {{ $user->name }}</option>
+                                    @else
+                                        <option value="{{ $user->id }}"> {{ $user->name }}</option>
+                                    @endif
+                            @endforeach
+                          @endif
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requested_designation">Designation:</label>
+                        <select type="" name="requested_by" required="required" class="form-control" >
                             <option value="" disabled selected>Select Department</option>
                             @if($departments = App\Models\department::get())
                                 @foreach($departments as $department)
@@ -155,40 +171,86 @@
     <tbody id="requisition-items-container">
           @if(isset($requisition_items))
             @foreach($requisition_items as $value)
-        <tr>
-            <td> <select name="stock_no" class="form-control" required>
-                    <!-- <option value="" disabled selected>Select Stock No.</option> -->
-                    @if($supplies = App\Models\Supply::with('item')->get())
-                        @foreach($supplies as $supply)
-                            <option value="{{ $supply->id }}"> 
-                                {{ $supply->stock_number }} 
-                            </option>
-                        @endforeach
-                    @endif
-                </select>
-            </td>
-            <td><select name="unit" id="unit" class="form-control" required>
-                            <option value="" disabled selected>Select Unit Name</option>
-                            @if($units = App\Models\unit::get())
-                                @foreach($units as $unit)
-                                  <option value="{{ $unit->id }}"selected> {{ $unit->unit_name }}</option>
+                <tr>
+                    <td> <select name="stock_no" class="form-control" required>
+                            <!-- <option value="" disabled selected>Select Stock No.</option> -->
+                            @if($supplies = App\Models\Supply::with('item')->get())
+                                @foreach($supplies as $supply)
+                                    @if($supply->id == $value->stock_no)
+                                        <option value="{{ $supply->id }}" selected> 
+                                            {{ $supply->stock_number }} 
+                                        </option>
+                                    @else
+                                        <option value="{{ $supply->id }}"> 
+                                            {{ $supply->stock_number }} 
+                                        </option>
+                                    @endif
                                 @endforeach
                             @endif
-                        </select></td>
-            <td> <select type="" name="item" class="form-control" required>
-              @if($items = App\Models\Item::get())
-                  @foreach($items as $item)
-                      <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
-                  @endforeach
-              @endif
-          </select>
-            </td>
-            <td><input type="number" name="requisition_items[0][qty]" class="form-control" required></td>
-            <td><input type="number" name="requisition_items[0][isAvailable]" class="form-control" required></td>
-            <td><input type="number" name="requisition_items[0][issued_qty]" class="form-control" required></td>
-            <td><input type="text" name="requisition_items[0][remarks]" class="form-control" required></td>
-            <td><button type="button" class="btn btn-sm btn-danger delete-row-button">Delete</button></td>
+                        </select>
+                    </td>
+                    <td><select name="unit_id" id="unit" class="form-control" required>
+                                    <option value="" disabled selected>Select Unit Name</option>
+                                    @if($units = App\Models\unit::get())
+                                        @foreach($units as $unit)
+                                          <option value="{{ $unit->id }}"selected> {{ $unit->unit_name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select></td>
+                    <td> 
+                        <select type="" name="item_id" class="form-control" required>
+                            @if($items = App\Models\Item::get())
+                                @foreach($items as $item)
+                                    <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </td>
+                    <td><input type="number" name="requisition_items[0][qty]" class="form-control" required></td>
+                    <td><input type="number" name="requisition_items[0][isAvailable]" class="form-control" required></td>
+                    <td><input type="number" name="requisition_items[0][issued_qty]" class="form-control" required></td>
+                    <td><input type="text" name="requisition_items[0][remarks]" class="form-control" required></td>
+                    <td><button type="button" class="btn btn-sm btn-danger delete-row-button">Delete</button></td>
+                </tr>
             @endforeach
+        @else
+            <tr>
+                <td> <select name="stock_no" class="form-control" required>
+                        <!-- <option value="" disabled selected>Select Stock No.</option> -->
+                        @if($supplies = App\Models\Supply::with('item')->get())
+                            @foreach($supplies as $supply)
+                                <option value="{{ $supply->id }}"> 
+                                    {{ $supply->stock_number }} 
+                                </option>
+                            @endforeach
+                        @endif
+                    </select>
+                </td>
+                <td>
+                    <select name="unit_id" id="unit" class="form-control" required>
+                        <option value="" disabled selected>Select Unit Name</option>
+                            @if($units = App\Models\unit::get())
+                                @foreach($units as $unit)
+                                    <option value="{{ $unit->id }}"selected> {{ $unit->unit_name }}</option>
+                                @endforeach
+                            @endif
+                    </select>
+                </td>
+                <td> 
+                    <select type="" name="item_id" class="form-control" required>
+                        @if($items = App\Models\Item::get())
+                            @foreach($items as $item)
+                                <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                </td>
+                <td><input type="number" name="requisition_items[0][qty]" class="form-control" required></td>
+                <td><input type="number" name="requisition_items[0][isAvailable]" class="form-control" required></td>
+                <td><input type="number" name="requisition_items[0][issued_qty]" class="form-control" required></td>
+                <td><input type="text" name="requisition_items[0][remarks]" class="form-control" required></td>
+                <td><button type="button" class="btn btn-sm btn-danger delete-row-button">Delete</button></td>
+            </tr>
         @endif
     </tbody>
 </table>

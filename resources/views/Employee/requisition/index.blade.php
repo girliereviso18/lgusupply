@@ -8,7 +8,6 @@
                 <div class="card-header">
                     <h3 class="card-title">Requisition Lists</h3>
                     <div class="card-tools">
-                    <a href="{{route('employee.requisition.add')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Requisitions</a>
                 </div>
                 </div>
                 <div class="card-body">

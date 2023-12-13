@@ -1,9 +1,9 @@
 @extends('layouts.default')
 
 @section('content')
-<div class="container" style="margin-top: 52px;">
+<div class="container" style="margin-top: 52px; max-width: 14000px">
      @include('layouts.partials.messages')
-    <div class="row p-1"> 
+    <div class="row p-1" style="justify-content: center;"> 
         <div class="col-sm-15">
             <div class="card card-outline card-primary">
                 <div class="card-header">

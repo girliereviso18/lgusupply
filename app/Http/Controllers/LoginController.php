@@ -41,15 +41,22 @@ class LoginController extends Controller
 
         if (Auth::user() && Auth::user()->role == 1) {
             // Admin user
+            session(['user_id' => Auth::user()->id]);
+            session(['department' => Auth::user()->department_id]);
+
             return redirect('/admin');
         } elseif (Auth::user() && Auth::user()->role == 2) {
             // Regular user
+            session(['user_id' => Auth::user()->id]);
+            session(['department' => Auth::user()->department_id]);
+            
             return redirect('/employee');
         } else {
             // No role found, handle accordingly
             return redirect()->to('login')
                 ->withErrors(trans('auth.failed'));
         }
+
     }
 
     /**

@@ -98,12 +98,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/requisitions/view/{id}', 'RequisitionsController@viewrequisitions')->name('admin.requisitions.view');
         Route::post('/requisitions/view', 'RequisitionsController@dviewrequisitions')->name('admin.requisitions.edit.view');
         Route::get('/requisitions/print/{id}', 'RequisitionsController@requisitionsprint')->name('admin.requisition.print');
-        Route::get('/requisitions/approve/{id}', 'RequisitionsController@approve')->name('admin.requisitions.approve');
-        Route::get('/requisitions/disapprove/{id}', 'RequisitionsController@disapprove')->name('admin.requisitions.disapprove');;
+        Route::get('/requisitions', 'RequisitionsController@index')->name('admin.requisitions.index');
+        Route::get('/requisitions/approved', 'RequisitionsController@approvedRequisition')->name('admin.requisitions.approved');
+        Route::get('/requisitions/disapproved', 'RequisitionsController@disapprovedRequisition')->name('admin.requisitions.disapproved');;
+        Route::get('/requisitions/pending', 'RequisitionsController@pendingRequisition')->name('admin.requisitions.pending');;
+        //Route::get('/requisitions/stock', 'StockController@pendingRequisition')->name('admin.stock.get');
 
-        // Route::post('/requisitions-items/save', 'RequisitionsController@save')->name('requisitions_items.save');
-
-         Route::get('/approved-requisitions', 'ApprovedRequisitionsController@index')->name('admin.approved.index');
+        //requisitions views
+        Route::get('/approved-requisitions', 'RequisitionsController@approve')->name('admin.approved.index');
+        Route::get('/disapproved-requisitions', 'RequisitionsController@disapprove')->name('admin.disapprove.index');
 
 
         
@@ -174,9 +177,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
             //Requisitions
         
-       Route::get('/user/requisitions', 'User\RequisitionsController@index')->name('employee.requisition.index');
+        Route::get('/user/requisitions', 'User\RequisitionsController@index')->name('employee.requisition.index');
         Route::get('/user/requisitions/add', 'User\RequisitionsController@addrequisitions')->name('employee.requisition.add');
         Route::post('/user/requisitions/store', 'User\RequisitionsController@store')->name('employee.requisition.store');
+        Route::get('/user/requisitions/pending', 'User\RequisitionsController@pending')->name('employee.requisition.pending');
+        Route::get('/user/requisitions/approved', 'User\RequisitionsController@approved')->name('employee.requisition.approved');
+        Route::get('/user/requisitions/disapproved', 'User\RequisitionsController@disapproved')->name('employee.requisition.disapproved');
+
+        Route::get('/user/stockCard', 'User\StockCardController@index')->name('employee.stockCard.index');
 
         Route::get('/user/requisitions/edit/{id}', 'User\RequisitionsController@editrequisitions')->name('employee.requisition.edit');
         Route::post('/user/requisitions/edit/save', 'User\RequisitionsController@updaterequisitions')->name('employee.requisition.edit.save')

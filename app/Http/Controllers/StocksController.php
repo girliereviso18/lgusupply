@@ -77,4 +77,8 @@ class StocksController extends Controller
         }  
 
     }
+    public function getStock(Request $request){
+        $stocks=Supply::where('item_id',$request->id)->first();       
+        return views('Requisition/Store.index',['stock' => $stocks]);
+    }
 }

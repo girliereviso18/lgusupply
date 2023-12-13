@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller; // Make sure to import the correct base con
 use Illuminate\Http\Request;
 use App\Models\Requisition;
 use App\Models\Requisitions_item;
+use Auth;
 
 class RequisitionsController extends Controller
 {
@@ -16,6 +17,7 @@ class RequisitionsController extends Controller
 
     public function index()
     {
+        //$requisitions = Requisition::get();
         $requisitions = Requisition::get();
 
         return view('Requisitions.index', ['requisitions' => $requisitions]);
@@ -24,9 +26,9 @@ class RequisitionsController extends Controller
 
     public function store(Request $request)
     {
-
         // First, save the Requisition record
         $requisition = new Requisition();
+        $requisition->added_by = Auth::user()->id;
         $requisition->entity_name = $request->entity_name;
         $requisition->fund_cluster = $request->fund_cluster;
         $requisition->division_id = $request->division_id;
@@ -40,47 +42,45 @@ class RequisitionsController extends Controller
          $requisition->status = $request->status;
 
          // Add information for "Requested by:"
-        $requisition->requested_signature = $request->requested_signature;
         $requisition->requested_printed_name = $request->requested_printed_name;
         $requisition->requested_designation = $request->requested_designation;
         $requisition->requested_date = $request->requested_date;
 
         // Add information for "Approved by:"
-        $requisition->approved_signature = $request->approved_signature;
         $requisition->approved_printed_name = $request->approved_printed_name;
         $requisition->approved_designation = $request->approved_designation;
         $requisition->approved_date = $request->approved_date;
 
         // Add information for "Issued by:"
-        $requisition->issued_signature = $request->issued_signature;
         $requisition->issued_printed_name = $request->issued_printed_name;
         $requisition->issued_designation = $request->issued_designation;
         $requisition->issued_date = $request->issued_date;
 
         // Add information for "Received by:"
-        $requisition->received_signature = $request->received_signature;
         $requisition->received_printed_name = $request->received_printed_name;
         $requisition->received_designation = $request->received_designation;
         $requisition->received_date = $request->received_date;
+    
 
 
     if ($requisition->save()) {
-        $requisitionItemsData = $request->requisition_items;
 
-        foreach ($requisitionItemsData as $itemsData) {
+        $length = $request->index-1;
+        for($i = 0; $i <= $length; $i++){
             $requisitions_items = new Requisitions_item();
+
             $requisitions_items->requisitions_id = $requisition->id;
-            $requisitions_items->stock_no = $itemsData['stock_no'];
-            $requisitions_items->unit_id = $itemsData['unit_id'];
-            $requisitions_items->item_id = $itemsData['item_id'];
-            $requisitions_items->qty = $itemsData['qty'];
-            $requisitions_items->isavailable = $itemsData['isAvailable'];
-            $requisitions_items->issued_qty = $itemsData['issued_qty'];
-            $requisitions_items->remarks = $itemsData['remarks'];
+            $requisitions_items->stock_no = $request->stock_no[$i];
+            $requisitions_items->unit_id = $request->unit_id[$i];
+            $requisitions_items->item_id = $request->item_id[$i];
+            $requisitions_items->qty = $request->qty[$i];
+            $requisitions_items->isavailable = $request->isAvailable[$i];;
+            $requisitions_items->issued_qty = $request->issued_qty[$i];;
+            $requisitions_items->remarks = $request->remarks[$i];
 
             $requisitions_items->save();
         }
-
+        
         return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
     } else {
         return redirect()->route('admin.requisitions.index')->with('error', 'Failed to create requisition.');
@@ -212,25 +212,42 @@ public function deleterequisitions(Request $request)
 
 
     }
-    public function approve($id)
-{
-   $requisition = Requisition::find($id);
-        
-        $requisition->status = 'approved';
-        $requisition->save();
+    public function approve(Request $request)
+    {
+        $requisition = Requisition::find($request->id);
+            
+            $requisition->status = 'approved';
+            $requisition->save();
 
-    return redirect()->route('admin.approved.index', ['requisition_id' => $id])
-                     ->with('success', 'Requisition approved successfully.');
-}
+        return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
+    }
+    public function pendingRequisition(){
+        $requisitions = Requisition::where('status', 'pending')->get();
+
+        return view('Requisitions/pending.index', ['requisitions' => $requisitions]);
+    }
+    public function approvedRequisition(){
+        $requisitions = Requisition::where('status', 'approved')->get();
+
+        return view('Requisitions/approved.index', ['requisitions' => $requisitions]);
+    }
+
+    //disapprovedRequisition
    
-    public function disapprove($id) {
-        $requisition = Requisition::find($id);
+    public function disapprovedRequisition(){
+        $requisitions = Requisition::where('status', 'disapproved')->get();
 
-        // Assuming you have a 'status' column to track the approval status
-        $requisition->status = 'disapproved';
-        $requisition->save();
+        return view('Requisitions/disapproved.index', ['requisitions' => $requisitions]);
+    }
 
-        return redirect()->back()->with('success', 'Requisition Disapproved Successfully');
+    public function disapprove(Request $request) {
+
+        $requisition = Requisition::find($request->id);
+            
+            $requisition->status = 'disapproved';
+            $requisition->save();
+
+        return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
     }
 
 }
