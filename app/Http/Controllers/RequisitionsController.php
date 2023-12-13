@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller; // Make sure to import the correct base con
 use Illuminate\Http\Request;
 use App\Models\Requisition;
 use App\Models\Requisitions_item;
+use App\Models\Item;
+use App\Models\Supply;
 use Auth;
+use App\Models\Unit;
 
 class RequisitionsController extends Controller
 {
@@ -89,7 +92,14 @@ class RequisitionsController extends Controller
 
     public function addrequisitions()
     {
-        return view('Requisitions.Store.index');
+        $supplies = Supply::with('item')->get();
+        $units = Unit::get();
+        $items = Item::get();
+        return view('Requisitions.Store.index',[
+            'supplies'=> $supplies,
+            'units' => $units,
+            'items' => $items
+        ]);
     }
 
     public function editrequisitions(Request $request)
