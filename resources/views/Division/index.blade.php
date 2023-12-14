@@ -7,7 +7,7 @@
         <div class="col-sm-5">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add Division</h3>
+                    <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">Add Division</h3>
                 </div>
                 <div class="card-body">
                     <form action="{{route('admin.divisions.store')}}" method="POST">
@@ -30,7 +30,7 @@
         <div class="col-sm-7">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Division Lists</h3>
+                    <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">Division Lists</h3>
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">

@@ -5,7 +5,7 @@
               <div class="col-sm-12">
                 <div class="card card-outline card-primary">
                   <div class="card-header">
-                    <h3 class="card-title">Add Stocks</h3>
+                    <h3 class="card-title"style="color: #8a2be2; font-weight: bold;">Add Stocks</h3>
                   </div>
                   <div class="card-body">
                     <form action="{{ route('admin.stocks.store') }}" method="POST">

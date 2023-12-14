@@ -5,7 +5,7 @@
     <div class="col-sm-12">
         <div class="card card-outline card-primary">
             <div class="card-header">
-                <h3 class="card-title">Report Details</h3>
+                <h3 class="card-title"style="color: #8a2be2; font-weight: bold;">Report Details</h3>
             </div>
             <div class="card-body">
                 <table class="table">

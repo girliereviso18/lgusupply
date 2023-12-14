@@ -149,20 +149,27 @@
               <td class="column6 style18 null"></td>
           </tr>
 
-          <tr class="row6">
-            <td class="column0 style31 s style32" colspan="3">{{ $report->item }}</td>
-            <td class="column1 style30 s style32" colspan="2">{{ $report->description }}</td>
-            <td class="column2 style20 s">Re-Order Point</td>
-            <td class="column3 style21 null">{{ $report->column6_value }}</td>
+                    <tr class="row6">
+              <td class="column0 style31 s style32" colspan="3">
+                  @if(is_object($report->item))
+                      {{ $report->item->items_name }}
+                  @else
+                      {{ $report->item }}
+                  @endif
+              </td>
+              <td class="column1 style30 s style32" colspan="2">{{ $report->description }}</td>
+              <td class="column2 style20 s">Re-Order Point</td>
+              <td class="column3 style21 null">{{ $report->column6_value }}</td>
           </tr>
-          <tr class="row7">
-            <td class="column0 style22 s style27" rowspan="2"><label>Date: 
-            <td class="column1 style22 s style27" rowspan="2"><label>References: 
-            <td class="column2 style23 s"><label>Receipt:</label>
-            <td class="column3 style24 s style24" colspan="2"><label>Issuance:</label> 
-            <td class="column5 style25 s"><label>Balance: </label>
-            <td class="column6 style18 null"></td>
 
+          <tr class="row7">
+              <td class="column0 style22 s style27" rowspan="2"><label>Date:</label></td>
+              <td class="column1 style22 s style27" rowspan="2"><label>References:</label></td>
+              <td class="column2 style23 s"><label>Receipt:</label></td>
+              <td class="column3 style24 s style24" colspan="2"><label>Issuance:</label></td>
+              <td class="column5 style25 s"><label>Balance:</label></td>
+              <td class="column6 style18 null"></td>
+          </tr>
 
            <tr class="row8">
             <td class="column2 style24 s"><label>Qty:</label>

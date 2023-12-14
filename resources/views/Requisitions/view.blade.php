@@ -5,12 +5,12 @@
     <div class="col-sm-12">
         <div class="card card-outline card-primary">
             <div class="card-header">
-                <h3 class="card-title">Requisition Details</h3>
+                <h3 class="card-title"style="color: #ff0000; font-weight: bold;">Requisition Details</h3>
             </div>
             <div class="card-body">
                 <form>
                     @csrf
-                    <h1>Requisition Form</h1>
+                    <h1 style="color: #8a2be2; font-weight: bold;">Requisition Form</h1>
                     <div class="form-group">
                         <label for="entity_name">Entity Name:</label>
                         <p>{{ $requisition->entity_name }}</p>
@@ -30,49 +30,64 @@
                     </div>
                     <div class="form-group">
                         <label for="">Office:</label>
-                        <p>{{ $requisition->office_id }}</p>
+                        <p>{{ $requisition->office->department_user }}</p>
                     </div>
                     <div class="form-group">
                         <label for="purpose">Purpose:</label>
                         <p>{{ $requisition->purpose }}</p>
                     </div>
+                     <hr>
                    <div class="form-group">
-                        <label for="requested_by">Requested By:</label>
-                        <p>{{ $requisition->user->name }}</p>
-                    </div>
-                   <div class="form-group">
-                        <label for="date_requested">Date Requested:</label>
-                        <p>{{ $requisition->date_requested }}</p>
-                    </div>
-                   <div class="form-group">
-                        <label for="approved_by">Approved By:</label>
-                        <p>{{ $requisition->approved_by }}</p>
-                    </div>
-                   <div class="form-group">
-                        <label for="approved_date">Approved Date:</label>
-                        <p>{{ $requisition->approved_date }}</p>
+                        <label for="requested_by"style="color: #ff0000; font-weight: bold;">REQUESTED BY</label>
                     </div>
                     <div class="form-group">
-                        <label for="issued_by">Issued By:</label>
-                        <p>{{ $requisition->issued_by }}</p>
+                        <label for="requested_printed_name">Printed Name:</label>
+                        <p>{{$requisition->office->name }}</p>
                     </div>
                     <div class="form-group">
-                        <label for="issued_date">Issued Date:</label>
-                        <p>{{ $requisition->issued_date }}</p>
+                        <label for="requested_designation">Designation:</label>
+                        <p>{{$requisition->office->designation}}</p>
                     </div>
+                  </hr>
+                  <hr>
                    <div class="form-group">
-                        <label for="received_by">Receieved By:</label>
-                        <p>{{ $requisition->received_by }}</p>
+                        <label for="approved_by"style="color: #ff0000; font-weight: bold;">APPROVED BY</label>
                     </div>
                     <div class="form-group">
-                        <label for="received_date">Received Date:</label>
-                        <p>{{ $requisition->received_date }}</p>
+                        <label for="approved_printed_name">Printed Name:</label>
+                        <p>{{$requisition->office->name }}</p>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="isapproved">Is Approved:</label>
-                        <p>{{ $requisition->isapproved }}</p>                   
+                        <label for="approved_designation">Designation:</label>
+                        <p>{{$requisition->office->designation}}</p>
                     </div>
+                  </hr>
+                  <hr>
+                    <div class="form-group">
+                        <label for="issued_by" style="color: #ff0000; font-weight: bold;">ISSUED BY</label>
+                    </div>
+                     <div class="form-group">
+                        <label for="issued_printed_name">Printed Name:</label>
+                        <p>{{ $requisition->office->name }}</p>
+                    </div>
+                     <div class="form-group">
+                        <label for="issued_designation">Designation:</label>
+                        <p>{{$requisition->office->designation}}</p>
+                    </div>
+                </hr>
+                <hr>
+                   <div class="form-group">
+                        <label for="received_by"style="color: #ff0000; font-weight: bold;">RECEIVED BY</label>
+                    </div>
+                     <div class="form-group">
+                        <label for="received_printed_name">Printed Name:</label>
+                        <p>{{ $requisition->office->name }}</p>
+                    </div>
+                     <div class="form-group">
+                        <label for="received_designation">Designation:</label>
+                        <p>{{$requisition->office->designation}}</p>
+                    </div>
+                    </hr>
 
                      @if(isset($requisition_items))
                       @foreach($requisition_items as $value)
@@ -135,10 +150,10 @@
                 </form>
                 <a href="{{ route('admin.requisitions.index') }}" class="btn btn-primary">Back</a>
                 <a href="#" class="btn btn-success" onclick="print('{{ route('admin.requisition.print', ['id' => $requisition->id]) }}')">Print</a>
-                <a class="btn btn-sm btn-info" href="{{ route('admin.requisitions.approve', ['id' => $requisition->id]) }}">
+                <a class="btn btn-sm btn-info" href="{{ route('admin.requisitions.approved', ['id' => $requisition->id]) }}">
                     <i class="fa fa-check"></i> Approve</a>
 
-                <a class="btn btn-sm btn-warning" href="{{ route('admin.requisitions.disapprove', ['id' => $requisition->id]) }}">
+                <a class="btn btn-sm btn-warning" href="{{ route('admin.requisitions.disapproved', ['id' => $requisition->id]) }}">
                     <i class="fa fa-times"></i> Disapprove</a>
 
             </div>

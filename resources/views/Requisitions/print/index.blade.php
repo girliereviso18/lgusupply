@@ -1697,25 +1697,25 @@ td
    <tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
     <td class="xl122" height="37.50" style='height:22.50pt;' x:str>Signature :</td>
     <td class="xl123"></td>
-    <td class="xl124">{{$requisition->user->name }}</td>
-    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{ $department->designation }}</td>
-    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{ $department->department_user }}</td>
-   <td class="xl126" style="text-align: center;">{{$requisition->user->name }}</td>
+    <td class="xl124"></td>
+    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
+    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>dsadas{{ $department->department_user }}</td>
+   <td class="xl126" style="text-align: center;">{{$requisition->user->name }}22</td>
     <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="37.83" style='height:22.70pt;mso-height-source:userset;mso-height-alt:454;'>
     <td class="xl127" height="37.83" style='height:22.70pt;' x:str>Printed Name :</td>
     <td class="xl128"></td>
-    <td class="xl129"></td>
-    <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
-    <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
-    <td class="xl131"></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
+    <td class="xl129">{{$requisition->user->name }}</td>
+    <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>Noel Alinsub</td>
+    <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>ASD</td>
+    <td class="xl131">SDA</td>
+    <td class="xl65" colspan="2" style='mso-ignore:colspan;'>sad</td>
    </tr>
    <tr height="37.83" style='height:22.70pt;mso-height-source:userset;mso-height-alt:454;'>
     <td class="xl127" height="37.83" style='height:22.70pt;' x:str>Designation :</td>
     <td class="xl128"></td>
-    <td class="xl129"></td>
+    <td class="xl129">{{ $department->designation }}</td>
     <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
     <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
     <td class="xl131"></td>

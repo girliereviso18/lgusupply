@@ -5,7 +5,7 @@
     <div class="col-sm-12">
         <div class="card card-outline card-primary">
             <div class="card-header">
-                <h3 class="card-title">Update Department</h3> 
+                <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">Update Department</h3> 
             </div>
               <div class="card-body">
                 <form action="{{ route('admin.departments.edit.save') }}" method="POST">

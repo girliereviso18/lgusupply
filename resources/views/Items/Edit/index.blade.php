@@ -8,7 +8,7 @@
         <div class="col-sm-6">
             <div class="card card-outline card-primary">
                 <div class="card-header"><br>
-                    <p class="card-title">Edit Items</p></br>
+                    <p class="card-title"style="color: #00008b; font-weight: bold;">Edit Items</p></br>
                 </div>
                 <div class="card-body"> 
                     <form action="{{route('admin.items.edit.save')}}" method="POST">

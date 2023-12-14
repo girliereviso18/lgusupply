@@ -11,6 +11,11 @@ class Report extends Model
 
     public function item()
     {
-        return $this->belongsTo(Item::class, 'item_id');
+        return $this->belongsTo('\App\Models\Item', 'item_id','id');
     }
+     public function office()
+    {
+        return $this->belongsTo(Department::class, 'office_id','id');
+    }
+    
 }

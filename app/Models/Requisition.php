@@ -19,6 +19,7 @@ class Requisition extends Model
     {
         return $this->belongsTo(User::class, 'requested_by','id');
     }
+    
     public function office()
     {
         return $this->belongsTo(Department::class, 'office_id','id');

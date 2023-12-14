@@ -6,7 +6,7 @@
     <div class="col-sm-12">
         <div class="card card-outline card-primary">
             <div class="card-header">
-                <p class="card-title">Edit Requisition</p></br>
+                <p class="card-title"style="color: #8a2be2; font-weight: bold;">Edit Requisition</p></br>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.requisitions.edit.save') }}" method="POST">
@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="requested_by">Requested by:</label>
                         <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
+                            <option value="" disabled selected>Select Requested by</option>
                             @if($users = App\Models\User::get())
                              @foreach($users as $user) 
                                     @if($user->id == $requisition->requested_by)
@@ -29,23 +29,27 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                   <div class="form-group">
                         <label for="requested_designation">Designation:</label>
-                        <select type="" name="requested_by" required="required" class="form-control" >
+                        <select type="" name="requested_designation" required="required" class="form-control" >
                             <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
-                                    <option value="{{ $department->id }}">{{ $department->designation }}</option>
+                                    @if($department->id == $requisition->requested_designation)
+                                        <option value="{{ $department->id }}" selected> {{ $department->designation}}</option>
+                                    @else
+                                        <option value="{{ $department->id }}"> {{ $department->designation }}</option>
+                                    @endif
                                 @endforeach
                             @endif
-                        </select>
-                    </div>
+                    </select>
+                </div>
 
                     <div class="form-group">
                         <label for="approved_by">Approved by:</label>
                         <select type="" name="approved_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                            <!-- <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->department_user }}</option>
                                 @endforeach
@@ -56,8 +60,8 @@
                     <div class="form-group">
                         <label for="approved_printed_name">Printed Name:</label>
                         <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                           <!--  <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->name }}</option>
                                 @endforeach
@@ -68,8 +72,8 @@
                     <div class="form-group">
                         <label for="approved_designation">Designation:</label>
                         <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                            <!-- <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->designation }}</option>
                                 @endforeach
@@ -80,8 +84,8 @@
                     <div class="form-group">
                         <label for="issued_by">Issued by:</label>
                         <select type="" name="issued_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                            <!-- <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->department_user }}</option>
                                 @endforeach
@@ -91,9 +95,9 @@
 
                     <div class="form-group">
                         <label for="issued_printed_name">Printed Name:</label>
-                        <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                        <select type="" name="issued_printed_name" class="form-control" required>
+                            <!-- <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->name }}</option>
                                 @endforeach
@@ -103,9 +107,9 @@
 
                     <div class="form-group">
                         <label for="issued_designation">Designation:</label>
-                        <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                        <select type="" name="issued_designation" class="form-control" required>
+                            <!-- <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->designation }}</option>
                                 @endforeach
@@ -116,8 +120,8 @@
                     <div class="form-group">
                         <label for="received_by">Received by:</label>
                         <select type="" name="received_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                            <!-- <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->department_user }}</option>
                                 @endforeach
@@ -127,9 +131,9 @@
 
                     <div class="form-group">
                         <label for="received_printed_name">Printed Name:</label>
-                        <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                        <select type="" name="received_printed_name" class="form-control" required>
+                            <!-- <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->name }}</option>
                                 @endforeach
@@ -139,9 +143,9 @@
 
                     <div class="form-group">
                         <label for="received_designation">Designation:</label>
-                        <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Department</option>
-                            @if($departments = App\Models\department::get())
+                        <select type="" name="received_designation" class="form-control" required>
+                            <!-- <option value="" disabled selected>Select Department</option> -->
+                            @if($departments = App\Models\Department::get())
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->designation }}</option>
                                 @endforeach

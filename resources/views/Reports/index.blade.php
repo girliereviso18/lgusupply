@@ -6,7 +6,7 @@
         <div class="col-sm-12">
                <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Report Lists</h3>
+                    <h3 class="card-title"style="color: #8a2be2; font-weight: bold;">Report Lists</h3>
                     <div class="card-tools">
                     <a href="{{ route('admin.reports.addreports') }}" class="btn btn-flat btn-primary" target="_blank">
                         <span class="fas fa-plus"></span> Add Report
@@ -21,6 +21,7 @@
                                             <thead>
                                         <tr>
                                            <!--  <th>#</th> -->
+                                            <th>Department</th>
                                             <th>Item </th>
                                             <th>Description</th>
                                             <th>Stock no.</th>
@@ -40,16 +41,28 @@
                                             @foreach($reports as $report)
                                                  <tr>
                                                    <!-- <td>{{$count++}}</td> -->
-                                                   <td>{{ $report->item}}</td>
-                                                   <td>{{ $report->description}}</td>
-                                                   <td>{{ $report->stock_no }}</td>
-                                                   <td>{{ $report->date }}</td>
-                                                   <td>{{ $report->reference }}</td>
-                                                   <td>{{ $report->receipt_qty}}</td>
-                                                   <td>{{ $report->issuance_qty}}</td>
-                                                   <td>{{ $report->office }}</td>
-                                                   <td>{{ $report->balance }}</td>
+                                                   
+                                                       <td>
+                                                        @if(isset($report->office->department_user))
+                                                            {{ $report->office->department_user }}
+                                                        @endif
+                                                        </td>
+                                                
+                                                    <td>
+                                                        @if(isset($report->item->items_name))
+                                                            {{ $report->item->items_name }}
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $report->description }}</td>
+                                                    <td>{{ $report->stock_no }}</td>
+                                                    <td>{{ $report->date }}</td>
+                                                    <td>{{ $report->reference }}</td>
+                                                    <td>{{ $report->receipt_qty }}</td>
+                                                    <td>{{ $report->issuance_qty }}</td>
+                                                    <td>{{ $report->office }}</td>
+                                                    <td>{{ $report->balance }}</td>
                                                     <td>{{ $report->days_to_consume }}</td>
+
                                                   <td class="text-center">
                                                     <a class="btn btn-sm btn-success" href="{{ url('/admin/reports/edit').'/'.$report->id}}">
                                                         <i class="fa fa-edit"></i> Update

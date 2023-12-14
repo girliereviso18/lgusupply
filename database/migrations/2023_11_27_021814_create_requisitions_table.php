@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('purpose');
             
             // Requested by
-            $table->integer('requested_by');
+            $table->integer('requested_by')->nullable();
             $table->string('requested_signature')->nullable();
             $table->integer('requested_printed_name')->nullable();
             $table->integer('requested_designation')->nullable();

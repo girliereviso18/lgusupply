@@ -6,7 +6,7 @@
         <div class="col-sm-12">
                <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Item Lists</h3>
+                    <h3 class="card-title"style="color: #00008b; font-weight: bold;">Item Lists</h3>
                     <div class="card-tools">
                     <a href="{{route('admin.additem.index')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Items</a>
                 </div>

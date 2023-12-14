@@ -7,7 +7,7 @@
         <div class="col-sm-5">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add Suppliers</h3>
+                    <h3 class="card-title"style="color: #8a2be2; font-weight: bold;">Add Suppliers</h3>
                 </div>
                 <div class="card-body">
                     <form action="{{route('admin.suppliers.store')}}" method="POST">
@@ -43,7 +43,7 @@
         <div class="col-sm-7">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Supplier Lists</h3>
+                    <h3 class="card-title"style="color: #8a2be2; font-weight: bold;">Supplier Lists</h3>
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">

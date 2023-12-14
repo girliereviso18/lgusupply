@@ -6,39 +6,49 @@
   <div class="col-sm-12">
     <div class="card card-outline card-primary">
       <div class="card-header">
-        <h3 class="card-title">Reports</h3>
+        <h3 class="card-title"style="color: #8a2be2; font-weight: bold;">Reports</h3>
       </div>
 
       <div class="card-body">
         <form action="{{ route('admin.reports.store') }}" method="POST">
           @csrf
-           <input type="hidden" name="id" value="item">
-           <label for="item">Item</label>
-          <select type="" name="item" class="form-control" required>
-              @if($items = App\Models\Item::get())
-                  @foreach($items as $item)
-                      <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
+           <input type="hidden" name="id" value="department">
+            <label for="department">Department</label>
+          <select type="" name="department" class="form-control" required>
+              @if($departments = App\Models\Department::get())
+                  @foreach($departments as $department)
+                      <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
                   @endforeach
               @endif
           </select>
-            </div>
+      </div>
+        <div class="card-body">
+          <label for="item">Item</label>
+          <select type="" name="item" class="form-control" required>
+              @if($items = App\Models\Item::get())
+                  @foreach($items as $item)
+                      <option value="{{ $item->id }}"> {{ $item->items_name }}</option>
+                  @endforeach
+              @endif
+          </select>
+        </div>
           <div class="card-body">
             <label for="description">Description</label>
             <input type="text" id="description" name="description" class="form-control">
           </div>
 
-          <div class="card-body">
-    <label for="stock_no">Stock No.</label>
-    <select name="stock_no" class="form-control" required>
-        @if($supplies = App\Models\Supply::with('item')->get())
-            @foreach($supplies as $supply)
-                <option value="{{ $supply->id }}"> 
-                    {{ $supply->stock_number }} 
-                </option>
-            @endforeach
-        @endif
-    </select>
-</div>
+        <div class="card-body">
+                <label for="stock_no">Stock No.</label>
+                <select name="stock_no" class="form-control" required>
+                    @if($supplies = App\Models\Supply::with('item')->get())
+                        @foreach($supplies as $supply)
+                            <option value="{{ $supply->id }}"> 
+                                {{ $supply->stock_number }} 
+                            </option>
+                        @endforeach
+                    @endif
+                </select>
+            </div>
 
           <div class="card-body">
             <label for="date">Date</label>

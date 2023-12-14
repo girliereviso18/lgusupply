@@ -7,7 +7,7 @@
         <div class="col-sm-4">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add Users</h3>
+                    <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">Add Users</h3>
                 </div>
                 <div class="card-body">
                     <form action="{{route('register.perform')}}" method="POST">
@@ -57,7 +57,7 @@
         <div class="col-sm-8">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">User lists</h3>
+                    <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">User lists</h3>
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">

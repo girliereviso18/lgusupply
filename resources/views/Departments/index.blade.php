@@ -7,7 +7,7 @@
         <div class="col-sm-15">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add Department</h3>
+                    <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">Add Department</h3>
                 </div>
                 <div class="card-body">
                     <form action="{{route('admin.departments.store')}}" method="POST">
@@ -46,7 +46,7 @@
         <div class="col-sm-8">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Department Lists</h3>
+                    <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">Department Lists</h3>
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">

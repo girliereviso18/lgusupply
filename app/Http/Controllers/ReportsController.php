@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
+use App\Models\Item;
+use App\Models\Department;
+
 use Illuminate\Support\Facades\URL;
 
 class ReportsController extends Controller
@@ -15,7 +18,7 @@ class ReportsController extends Controller
 
     public function index()
     {
-        $reports = Report::get();
+         $reports = Report::with(['item', 'office'])->get();
 
         return view('Reports.index', ['reports' => $reports]);
     }
@@ -23,6 +26,7 @@ class ReportsController extends Controller
     public function store(Request $request)
     {
         $Reportsave = new Report();
+        $Reportsave->department= $request->department;
         $Reportsave->item = $request->item;
         $Reportsave->description = $request->description;
         $Reportsave->stock_no = $request->stock_no;
@@ -56,6 +60,7 @@ class ReportsController extends Controller
     public function updatereports(Request $request)
     {
         $Editsave = Report::where('id', $request->id)->first();
+        $Editsave->department = $request->department;
         $Editsave->item = $request->item;
         $Editsave->description = $request->description;
         $Editsave->stock_no = $request->stock_no;
