@@ -29,6 +29,7 @@ class RequisitionsController extends Controller
 
     public function store(Request $request)
     {
+
         // First, save the Requisition record
         $requisition = new Requisition();
         $requisition->added_by = Auth::user()->id;
@@ -63,32 +64,35 @@ class RequisitionsController extends Controller
         $requisition->received_printed_name = $request->received_printed_name;
         $requisition->received_designation = $request->received_designation;
         $requisition->received_date = $request->received_date;
-    
 
+        if ($requisition->save()) {
 
-    if ($requisition->save()) {
+            $requisitions = array($request->input('requisitions'));
+            $requisition_value = array();
 
-        $length = $request->index-1;
-        for($i = 0; $i <= $length; $i++){
-            $requisitions_items = new Requisitions_item();
+            foreach ($requisitions as $row) {
+                foreach ($row as $value) {
+                    $stockNo = $value[0];
+                    $unitId = $value[1];
+                    $itemId = $value[2];
+                    $qty = $value[3];
 
-            $requisitions_items->requisitions_id = $requisition->id;
-            $requisitions_items->stock_no = $request->stock_no[$i];
-            $requisitions_items->unit_id = $request->unit_id[$i];
-            $requisitions_items->item_id = $request->item_id[$i];
-            $requisitions_items->qty = $request->qty[$i];
-            $requisitions_items->isavailable = $request->isAvailable[$i];;
-            $requisitions_items->issued_qty = $request->issued_qty[$i];;
-            $requisitions_items->remarks = $request->remarks[$i];
+                    $requisitions_items = new Requisitions_item();
 
-            $requisitions_items->save();
+                    $requisitions_items->requisitions_id = $requisition->id;
+                    $requisitions_items->stock_no = $stockNo;
+                    $requisitions_items->unit_id = $unitId;
+                    $requisitions_items->item_id = $itemId;
+                    $requisitions_items->qty = $qty;
+                    
+                    $requisitions_items->save();
+                }
+            }
+            return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
+        } else {
+            return redirect()->route('admin.requisitions.index')->with('error', 'Failed to create requisition.');
         }
-        
-        return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
-    } else {
-        return redirect()->route('admin.requisitions.index')->with('error', 'Failed to create requisition.');
     }
-}
 
     public function addrequisitions()
     {
@@ -226,8 +230,8 @@ public function deleterequisitions(Request $request)
     {
         $requisition = Requisition::find($request->id);
             
-            $requisition->status = 'approved';
-            $requisition->save();
+        $requisition->status = 'approved';
+        $requisition->save();
 
         return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
     }

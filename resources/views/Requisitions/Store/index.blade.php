@@ -20,11 +20,12 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
+        var count=1;
         $('#myTable').on('click', '.delete-row-button', function() {
           $(this).closest('tr').remove();
         });
         $('#add-requisition-item-button').on('click', function(){
-            $('.requisitionfield').append('<tr><td><select name="stock_no[]" class="form-control" required>'
+            $('.requisitionfield').append('<tr><td><select name="requisitions['+ count +'][0]" class="form-control" required>'
                     +'@if(isset($supplies))'
                         +'@foreach($supplies as $supply)'
                             +'<option value="{{ $supply->id }}">'
@@ -34,7 +35,7 @@
                     +'@endif'
                 +'</select>'
                 +'</td>'
-                +'<td><select name="unit_id[]" id="unit" class="form-control" required>'
+                +'<td><select name="requisitions['+ count +'][1]" id="unit" class="form-control" required>'
                         +'<option value="" disabled selected>Select Unit Name</option>'
                             +'@if(isset($units))'
                                 +'@foreach($units as $unit)'
@@ -44,7 +45,7 @@
                     +'</select>'
                 +'</td>'
                 +'<td>'
-                    +'<select type="" name="item_id[]" class="form-control" required>'
+                    +'<select type="" name="requisitions['+ count +'][2]" class="form-control" required>'
                         +'@if(isset($items))'
                             +'@foreach($items as $item)'
                                 +'<option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>'
@@ -52,7 +53,7 @@
                         +'@endif'
                     +'</select>'
                 +'</td>'
-                +'<td><input type="number" name="qty[]" class="form-control" required></td>'
+                +'<td><input type="number" name="requisitions['+ count++ +'][3]" class="form-control" required></td>'
                 +'<td><a class="btn btn-sm btn-danger delete-row-button">Delete</a></td></tr>');
         });
     </script>

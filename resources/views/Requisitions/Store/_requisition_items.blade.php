@@ -11,7 +11,7 @@
     <tbody class="requisitionfield" id="requisition-items-container">
         <tr>
             <td> 
-                <select name="stock_no[]" class="form-control" required>
+                <select name="requisitions[0][0]" class="form-control" required>
                     <!-- <option value="" disabled selected>Select Stock No.</option> -->
                     @if($supplies = App\Models\Supply::with('item')->get())
                         @foreach($supplies as $supply)
@@ -23,7 +23,7 @@
                 </select>
             </td>
             <td>
-                <select name="unit_id[]" id="unit" class="form-control" required>
+                <select name="requisitions[0][1]" id="unit" class="form-control" required>
                     <option value="" disabled selected>Select Unit Name</option>
                         @if($units = App\Models\Unit::get())
                             @foreach($units as $unit)
@@ -33,7 +33,7 @@
                 </select>
             </td>
             <td> 
-                <select type="" name="item_id[]" class="form-control" required>
+                <select type="" name="requisitions[0][2]" class="form-control" required>
                     @if($items = App\Models\Item::get())
                         @foreach($items as $item)
                             <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
@@ -41,7 +41,7 @@
                     @endif
                 </select>
             </td>
-            <td><input type="number" name="qty[]" class="form-control" required></td>
+            <td><input type="number" name="requisitions[0][3]" class="form-control" required></td>
         </tr>
     </tbody>
 </table>

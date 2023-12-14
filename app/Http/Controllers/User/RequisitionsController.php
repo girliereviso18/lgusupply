@@ -38,7 +38,7 @@ class RequisitionsController extends Controller
         $requisition->approved_by = $request->approved_by;
         $requisition->issued_by = $request->issued_by;
         $requisition->received_by = $request->received_by;
-         $requisition->status = $request->status;
+         $requisition->status = "pending";
 
          // Add information for "Requested by:"
         $requisition->requested_printed_name = $request->requested_printed_name;
