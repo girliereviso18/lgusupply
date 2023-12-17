@@ -1,1752 +1,353 @@
 
-<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="ProgId" content="Excel.Sheet">
-  <meta name="Generator" content="WPS Office ET">
-  <title> Requisition and Issue Slip (RIS)</title>
-  <!--[if gte mso 9]>
-   <xml>
-    <o:DocumentProperties>
-     <title>Appendix 50 - Requisition and Issue Slip (RIS)</title>
-     <o:Author>Accountancy Office</o:Author>
-     <o:Company>Commission on Audit</o:Company>
-     <o:Created>2001-08-01T05:19:33</o:Created>
-     <o:LastAuthor>acer</o:LastAuthor>
-     <o:LastPrinted>2015-09-04T10:08:18</o:LastPrinted>
-     <o:LastSaved>2023-10-27T14:54:07</o:LastSaved>
-    </o:DocumentProperties>
-    <o:CustomDocumentProperties>
-     <o:ICV dt:dt="string">6132FF84DD744A7C8AD21A860605C26A_13</o:ICV>
-     <o:KSOProductBuildVer dt:dt="string">1033-12.2.0.13266</o:KSOProductBuildVer>
-    </o:CustomDocumentProperties>
-   </xml>
-  <![endif]-->
-  <style>
-<!-- @page
-	{mso-footer-data:"&C&\0022Times New Roman\,Regular\0022&14 157";
-	margin:0.75in 0.25in 0.75in 0.25in;
-	mso-header-margin:0.30in;
-	mso-footer-margin:0.30in;
-	mso-horizontal-page-align:center;
-	mso-page-orientation:landscape;
-	mso-page-numbers-start:272;}
-tr
-	{mso-height-source:auto;
-	mso-ruby-visibility:none;}
-col
-	{mso-width-source:auto;
-	mso-ruby-visibility:none;}
-br
-	{mso-data-placement:same-cell;}
-.font0
-	{color:windowtext;
-	font-size:10.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Arial";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font1
-	{color:windowtext;
-	font-size:10.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font2
-	{color:windowtext;
-	font-size:16.0pt;
-	font-weight:400;
-	font-style:italic;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font3
-	{color:windowtext;
-	font-size:14.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font4
-	{color:windowtext;
-	font-size:12.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font5
-	{color:windowtext;
-	font-size:12.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font6
-	{color:windowtext;
-	font-size:10.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font7
-	{color:windowtext;
-	font-size:14.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font8
-	{color:windowtext;
-	font-size:14.0pt;
-	font-weight:700;
-	font-style:italic;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font9
-	{color:#FFFFFF;
-	font-size:10.0pt;
-	font-weight:400;
-	font-style:italic;
-	text-decoration:none;
-	font-family:"Times New Roman";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font10
-	{color:#0000FF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:underline;
-	text-underline-style:single;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font11
-	{color:#800080;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:underline;
-	text-underline-style:single;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font12
-	{color:#FF0000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font13
-	{color:#1F497D;
-	font-size:18.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Cambria";
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.font14
-	{color:#7F7F7F;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:italic;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font15
-	{color:#1F497D;
-	font-size:15.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font16
-	{color:#1F497D;
-	font-size:13.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font17
-	{color:#1F497D;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font18
-	{color:#3F3F76;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font19
-	{color:#3F3F3F;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font20
-	{color:#FA7D00;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font21
-	{color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font22
-	{color:#FA7D00;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font23
-	{color:#000000;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font24
-	{color:#006100;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font25
-	{color:#9C0006;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font26
-	{color:#9C6500;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font27
-	{color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.font28
-	{color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Calibri";
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;}
-.style0
-	{mso-number-format:"General";
-	text-align:general;
-	vertical-align:bottom;
-	white-space:nowrap;
-	mso-rotate:0;
-	mso-pattern:auto;
-	mso-background-source:auto;
-	color:windowtext;
-	font-size:10.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Arial;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border:none;
-	mso-protection:locked visible;
-	mso-style-name:"Normal";
-	mso-style-id:0;}
-.style16
-	{mso-number-format:"_\(* \#\,\#\#0\.00_\)\;_\(* \\\(\#\,\#\#0\.00\\\)\;_\(* \0022-\0022??_\)\;_\(\@_\)";
-	mso-style-name:"Comma";
-	mso-style-id:3;}
-.style17
-	{mso-number-format:"_\(\0022$\0022* \#\,\#\#0\.00_\)\;_\(\0022$\0022* \\\(\#\,\#\#0\.00\\\)\;_\(\0022$\0022* \0022-\0022??_\)\;_\(\@_\)";
-	mso-style-name:"Currency";
-	mso-style-id:4;}
-.style18
-	{mso-number-format:"0%";
-	mso-style-name:"Percent";
-	mso-style-id:5;}
-.style19
-	{mso-number-format:"_\(* \#\,\#\#0_\)\;_\(* \\\(\#\,\#\#0\\\)\;_\(* \0022-\0022_\)\;_\(\@_\)";
-	mso-style-name:"Comma [0]";
-	mso-style-id:6;}
-.style20
-	{mso-number-format:"_\(\0022$\0022* \#\,\#\#0_\)\;_\(\0022$\0022* \\\(\#\,\#\#0\\\)\;_\(\0022$\0022* \0022-\0022_\)\;_\(\@_\)";
-	mso-style-name:"Currency [0]";
-	mso-style-id:7;}
-.style21
-	{color:#0000FF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:underline;
-	text-underline-style:single;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Hyperlink";
-	mso-style-id:8;}
-.style22
-	{color:#800080;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:underline;
-	text-underline-style:single;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Followed Hyperlink";
-	mso-style-id:9;}
-.style23
-	{mso-pattern:auto none;
-	background:#FFFFCC;
-	border:.5pt solid #B2B2B2;
-	mso-style-name:"Note";}
-.style24
-	{color:#FF0000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Warning Text";}
-.style25
-	{color:#1F497D;
-	font-size:18.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Cambria;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	mso-style-name:"Title";}
-.style26
-	{color:#7F7F7F;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:italic;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"CExplanatory Text";}
-.style27
-	{color:#1F497D;
-	font-size:15.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border-left:none;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.5pt solid #4F81BD;
-	mso-style-name:"Heading 1";}
-.style28
-	{color:#1F497D;
-	font-size:13.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border-left:none;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.5pt solid #A7BFDE;
-	mso-style-name:"Heading 2";}
-.style29
-	{color:#1F497D;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border-left:none;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid #95B3D7;
-	mso-style-name:"Heading 3";}
-.style30
-	{color:#1F497D;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Heading 4";}
-.style31
-	{mso-pattern:auto none;
-	background:#FFCC99;
-	color:#3F3F76;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border:.5pt solid #7F7F7F;
-	mso-style-name:"Input";}
-.style32
-	{mso-pattern:auto none;
-	background:#F2F2F2;
-	color:#3F3F3F;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border:.5pt solid #3F3F3F;
-	mso-style-name:"Output";}
-.style33
-	{mso-pattern:auto none;
-	background:#F2F2F2;
-	color:#FA7D00;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border:.5pt solid #7F7F7F;
-	mso-style-name:"Calculation";}
-.style34
-	{mso-pattern:auto none;
-	background:#A5A5A5;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border:2.0pt double #3F3F3F;
-	mso-style-name:"Check Cell";}
-.style35
-	{color:#FA7D00;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border-left:none;
-	border-top:none;
-	border-right:none;
-	border-bottom:2.0pt double #FF8001;
-	mso-style-name:"Linked Cell";}
-.style36
-	{color:#000000;
-	font-size:11.0pt;
-	font-weight:700;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border-left:none;
-	border-top:.5pt solid #4F81BD;
-	border-right:none;
-	border-bottom:2.0pt double #4F81BD;
-	mso-style-name:"Total";}
-.style37
-	{mso-pattern:auto none;
-	background:#C6EFCE;
-	color:#006100;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Good";}
-.style38
-	{mso-pattern:auto none;
-	background:#FFC7CE;
-	color:#9C0006;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Bad";}
-.style39
-	{mso-pattern:auto none;
-	background:#FFEB9C;
-	color:#9C6500;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Neutral";}
-.style40
-	{mso-pattern:auto none;
-	background:#4F81BD;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Accent1";}
-.style41
-	{mso-pattern:auto none;
-	background:#DCE6F1;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"20% - Accent1";}
-.style42
-	{mso-pattern:auto none;
-	background:#B8CCE4;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"40% - Accent1";}
-.style43
-	{mso-pattern:auto none;
-	background:#95B3D7;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"60% - Accent1";}
-.style44
-	{mso-pattern:auto none;
-	background:#C0504D;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Accent2";}
-.style45
-	{mso-pattern:auto none;
-	background:#F2DCDB;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"20% - Accent2";}
-.style46
-	{mso-pattern:auto none;
-	background:#E6B8B7;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"40% - Accent2";}
-.style47
-	{mso-pattern:auto none;
-	background:#DA9694;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"60% - Accent2";}
-.style48
-	{mso-pattern:auto none;
-	background:#9BBB59;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Accent3";}
-.style49
-	{mso-pattern:auto none;
-	background:#EBF1DE;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"20% - Accent3";}
-.style50
-	{mso-pattern:auto none;
-	background:#D8E4BC;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"40% - Accent3";}
-.style51
-	{mso-pattern:auto none;
-	background:#C4D79B;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"60% - Accent3";}
-.style52
-	{mso-pattern:auto none;
-	background:#8064A2;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Accent4";}
-.style53
-	{mso-pattern:auto none;
-	background:#E4DFEC;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"20% - Accent4";}
-.style54
-	{mso-pattern:auto none;
-	background:#CCC0DA;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"40% - Accent4";}
-.style55
-	{mso-pattern:auto none;
-	background:#B1A0C7;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"60% - Accent4";}
-.style56
-	{mso-pattern:auto none;
-	background:#4BACC6;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Accent5";}
-.style57
-	{mso-pattern:auto none;
-	background:#DAEEF3;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"20% - Accent5";}
-.style58
-	{mso-pattern:auto none;
-	background:#B7DEE8;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"40% - Accent5";}
-.style59
-	{mso-pattern:auto none;
-	background:#92CDDC;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"60% - Accent5";}
-.style60
-	{mso-pattern:auto none;
-	background:#F79646;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"Accent6";}
-.style61
-	{mso-pattern:auto none;
-	background:#FDE9D9;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"20% - Accent6";}
-.style62
-	{mso-pattern:auto none;
-	background:#FCD5B4;
-	color:#000000;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"40% - Accent6";}
-.style63
-	{mso-pattern:auto none;
-	background:#FABF8F;
-	color:#FFFFFF;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	mso-style-name:"60% - Accent6";}
-td
-	{mso-style-parent:style0;
-	padding-top:1px;
-	padding-right:1px;
-	padding-left:1px;
-	mso-ignore:padding;
-	mso-number-format:"General";
-	text-align:general;
-	vertical-align:bottom;
-	white-space:nowrap;
-	mso-rotate:0;
-	mso-pattern:auto;
-	mso-background-source:auto;
-	color:windowtext;
-	font-size:10.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Arial;
-	mso-generic-font-family:swiss;
-	mso-font-charset:0;
-	border:none;
-	mso-protection:locked visible;}
-.xl65
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.xl66
-	{mso-style-parent:style0;
-	text-align:right;
-	vertical-align:top;
-	white-space:normal;
-	font-size:16.0pt;
-	font-style:italic;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.xl67
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.xl68
-	{mso-style-parent:style0;
-	text-align:center;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.xl69
-	{mso-style-parent:style0;
-	font-size:12.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.xl70
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.xl71
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.xl72
-	{mso-style-parent:style0;
-	text-align:center;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;}
-.xl73
-	{mso-style-parent:style0;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-top:1.0pt solid windowtext;}
-.xl74
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;}
-.xl75
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;}
-.xl76
-	{mso-style-parent:style0;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;}
-.xl77
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;}
-.xl78
-	{mso-style-parent:style0;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl79
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-bottom:1.0pt solid windowtext;}
-.xl80
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-bottom:1.0pt solid windowtext;}
-.xl81
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl82
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl83
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-size:14.0pt;
-	font-weight:700;
-	font-style:italic;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl84
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-size:14.0pt;
-	font-weight:700;
-	font-style:italic;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl85
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-size:14.0pt;
-	font-weight:700;
-	font-style:italic;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl86
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl87
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl88
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl89
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl90
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl91
-	{mso-style-parent:style0;
-	text-align:center;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl92
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl93
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl94
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl95
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl96
-	{mso-style-parent:style0;
-	text-align:center;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl97
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl98
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl99
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-top:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl100
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border:.5pt solid windowtext;}
-.xl101
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl102
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:.5pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl103
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-top:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl104
-	{mso-style-parent:style0;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;}
-.xl105
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
-.xl106
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:.5pt solid windowtext;}
-.xl107
-	{mso-style-parent:style0;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-top:1.0pt solid windowtext;}
-.xl108
-	{mso-style-parent:style0;
-	text-align:center;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl109
-	{mso-style-parent:style0;
-	text-align:center;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl110
-	{mso-style-parent:style0;
-	text-align:left;
-	vertical-align:middle;
-	padding-left:216px;
-	mso-char-indent-count:8;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;}
-.xl111
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl112
-	{mso-style-parent:style0;
-	text-align:center;
-	vertical-align:middle;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:.5pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl113
-	{mso-style-parent:style0;
-	text-align:left;
-	vertical-align:middle;
-	padding-left:216px;
-	mso-char-indent-count:8;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl114
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-bottom:1.0pt solid windowtext;}
-.xl115
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl116
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-top:1.0pt solid windowtext;}
-.xl117
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;}
-.xl118
-	{mso-style-parent:style0;
-	vertical-align:middle;
-	font-size:12.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:1.0pt solid windowtext;}
-.xl119
-	{mso-style-parent:style0;
-	text-align:left;
-	vertical-align:middle;
-	font-size:12.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:1.0pt solid windowtext;}
-.xl120
-	{mso-style-parent:style0;
-	text-align:left;
-	vertical-align:middle;
-	font-size:12.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;}
-.xl121
-	{mso-style-parent:style0;
-	vertical-align:middle;
-	font-size:12.0pt;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;}
-.xl122
-	{mso-style-parent:style0;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl123
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl124
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl125
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl126
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl127
-	{mso-style-parent:style0;
-	font-size:12.0pt;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:1.0pt solid windowtext;
-	border-top:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl128
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl129
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-top:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl130
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl131
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-top:.5pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:.5pt solid windowtext;}
-.xl132
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl133
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-left:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl134
-	{mso-style-parent:style0;
-	text-align:center;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl135
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;}
-.xl136
-	{mso-style-parent:style0;
-	color:#FFFFFF;
-	font-style:italic;
-	font-family:Times New Roman;
-	mso-generic-font-family:roman;
-	mso-font-charset:0;}
- </style>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
- </head>
- <body link="blue" vlink="purple" class="xl65">
-  <table width="2086.42" border="0" cellpadding="0" cellspacing="0" style='width:1251.85pt;border-collapse:collapse;table-layout:fixed;'>
-   <col width="186.42" class="xl65" style='mso-width-source:userset;mso-width-alt:5453;'/>
-   <col width="184.75" class="xl65" style='mso-width-source:userset;mso-width-alt:5405;'/>
-   <col width="306.92" class="xl65" style='mso-width-source:userset;mso-width-alt:8979;'/>
-   <col width="208.92" class="xl65" style='mso-width-source:userset;mso-width-alt:6112;'/>
-   <col width="204.08" class="xl65" style='mso-width-source:userset;mso-width-alt:5970;'/>
-   <col width="213.75" class="xl65" style='mso-width-source:userset;mso-width-alt:6253;'/>
-   <col width="226.58" class="xl65" style='mso-width-source:userset;mso-width-alt:6628;'/>
-   <col width="390.50" class="xl65" style='mso-width-source:userset;mso-width-alt:11424;'/>
-   <col width="82.25" span="248" class="xl65" style='mso-width-source:userset;mso-width-alt:2406;'/>
-   <tr height="16.25" style='height:9.75pt;mso-height-source:userset;mso-height-alt:195;'>
-    <td class="xl65" height="16.25" width="186.42" style='height:9.75pt;width:111.85pt;'></td>
-    <td class="xl65" width="184.75" style='width:110.85pt;'></td>
-    <td class="xl65" width="306.92" style='width:184.15pt;'></td>
-    <td class="xl65" width="208.92" style='width:125.35pt;'></td>
-    <td class="xl65" width="204.08" style='width:122.45pt;'></td>
-    <td class="xl65" width="213.75" style='width:128.25pt;'></td>
-    <td class="xl65" width="226.58" style='width:135.95pt;'></td>
-    <td class="xl65" width="390.50" style='width:234.30pt;'></td>
-    <td class="xl65" width="82.25" style='width:49.35pt;'></td>
-    <td class="xl65" width="82.25" style='width:49.35pt;'></td>
-   </tr>
-  <tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
-    <td class="xl69" height="37.50" colspan="3" style='height:22.50pt;mso-ignore:colspan;' x:str>
-        <label>Entity Name :</label> 
-        <u>{{ $requisition->entity_name }}</u>
-    </td>
-    <td class="xl70" colspan="5"></td> <!-- Adjusted colspan to fill the missing cells -->
-    <td class="xl69" colspan="2" style='mso-ignore:colspan;border-right:none;border-bottom:none;' x:str>
-        <label>Fund Cluster :</label> 
-        <u>{{ $requisition->fund_cluster }}</u>
-    </td>
-</tr>
-<tr height="7.50" style='height:4.50pt;mso-height-source:userset;mso-height-alt:90;'>
-    <td class="xl72" height="7.50" style='height:4.50pt;'></td>
-    <td class="xl68" colspan="7" style='mso-ignore:colspan;'></td>
-    <td class="xl65" colspan="8" style='mso-ignore:colspan;'></td>
-</tr>
-<tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
-    <td class="xl73" height="37.50" colspan="3" style='height:22.50pt;mso-ignore:colspan;' x:str>
-        <label>Division :</label> 
-        <u>
-            @if($requisition->division)
-                {{ $requisition->division->division_name }}
-            @endif
-        </u>
-    </td>
-    <td class="xl70" colspan="6"></td> <!-- Adjusted colspan to fill the missing cells -->
-</tr>
+<html>
+<head>
+	
+	
+	<title>Appendix 50 - Requisition and Issue Slip (RIS)</title>
+	<meta name="generator" content="https://conversiontools.io" />
+	<meta name="author" content="Accountancy Office"/>
+	<meta name="created" content="2001-07-31T22:19:33"/>
+	<meta name="changedby" content="Girlie Reviso"/>
+	<meta name="changed" content="2023-10-20T07:21:17"/>
+	<meta name="ICV" content="9019654F6770425687F5ADAB40F56E42_12"/>
+	<meta name="KSOProductBuildVer" content="1033-12.2.0.13266"/>
+	
+	<style type="text/css">
+		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Arial"; font-size:x-small }
+		a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } 
+		a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
+		comment { display:none;  } 
+		.sorttable_sorted,.sorttable_sorted_reverse,table.sortable thead td:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort) { white-space: nowrap; cursor: pointer; }
+		 { content:" \25B4\25BE"; }
+	</style>
+	
+</head>
 
-
-
-    <td class="xl74"></td>
-    <td class="xl75"></td>
-    <td class="xl73" colspan="3" style='mso-ignore:colspan;border-right:1.0pt solid windowtext;border-bottom:none;' x:str>
-    	<label>Responsibility Center Code </label>
-    	<label id="department" name="department" style="display: inline-block;">
-            @if($departments = App\Models\Department::get())
-                @foreach($departments as $department)
-                    <option value="{{ $department->id }}">{{ $department->department_user }}-{{ $department->responsibility_code }}</option>
-                @endforeach
-            @endif
-        </label></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="31.25" style='height:18.75pt;'>
-    <td class="xl78" height="31.25" colspan="3" style='height:18.75pt;mso-ignore:colspan;' x:str>
-        <label for="department" style="display: inline-block; margin-right: 10px;">Office:</label>
-        <label id="department" name="department" style="display: inline-block;">
-            @if($departments = App\Models\Department::get())
-                @foreach($departments as $department)
-                    <option value="{{ $department->id }}">{{ $department->department_user }}</option>
-                @endforeach
-            @endif
-        </label>
-    </td>
-</tr>
-
-
-
-    <td class="xl80"></td>
-    <td class="xl81"></td>
-    <td class="xl78" colspan="3" style='mso-ignore:colspan;border-right:1.0pt solid windowtext;border-bottom:1.0pt solid windowtext;' x:str>RIS No. : <u>{{$requisition->rc_code }}</u></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
-    <td class="xl83" height="43.50" colspan="4" style='height:26.10pt;border-right:1.0pt solid windowtext;border-bottom:1.0pt solid windowtext;' x:str>Requisition</td>
-    <td class="xl83" colspan="2" style='border-right:1.0pt solid windowtext;border-bottom:1.0pt solid windowtext;' x:str>Stock Available?</td>
-    <td class="xl83" colspan="2" style='border-right:1.0pt solid windowtext;border-bottom:1.0pt solid windowtext;' x:str>Issue</td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-    <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
-    <td class="xl86" height="43.50" style='height:26.10pt;' x:str>Stock No.</td>
-    <td class="xl87" x:str>Unit</td>
-    <td class="xl87" x:str>Description</td>
-    <td class="xl88" x:str>Quantity</td>
-    <td class="xl86" x:str>Yes</td>
-    <td class="xl88" x:str>No</td>
-    <td class="xl86" x:str>Quantity</td>
-    <td class="xl88" x:str>Remarks</td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-     @foreach($requisitionitems as $requisitionitem)
-	   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
-	    <td class="xl89" height="43.50" style='height:26.10pt;'>{{$requisitionitem->stock_no }}</td>
-	    <td class="xl90">{{$requisitionitem->unit_id }}</td>
-	    <td class="xl91"></td>
-	    <td class="xl92">{{$requisitionitem->qty }}</td>
-	    <td class="xl93"></td>
-	    <td class="xl92"></td>
-	    <td class="xl93"></td>
-	    <td class="xl92">{{$requisition->remarks}}</td>
-	    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-	   </tr>
-   @endforeach
-   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
-    <td class="xl94" height="43.50" style='height:26.10pt;'></td>
-    <td class="xl95"></td>
-    <td class="xl96"></td>
-    <td class="xl97"></td>
-    <td class="xl98"></td>
-    <td class="xl97"></td>
-    <td class="xl98"></td>
-    <td class="xl97"></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
-    <td class="xl94" height="43.50" style='height:26.10pt;'></td>
-    <td class="xl95"></td>
-    <td class="xl96"></td>
-    <td class="xl97"></td>
-    <td class="xl98"></td>
-    <td class="xl97"></td>
-    <td class="xl98"></td>
-    <td class="xl97"></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   
-   <tr height="1.25" style='height:0.75pt;mso-height-source:userset;mso-height-alt:15;'>
-    <td class="xl104" height="1.25" style='height:0.75pt;'></td>
-    <td class="xl71" colspan="2" style='mso-ignore:colspan;'></td>
-    <td class="xl105" colspan="4" style='mso-ignore:colspan;'></td>
-    <td class="xl106"></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
-    <td class="xl107" height="43.50" style='height:26.10pt;' x:str><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>Purpose:</td>
-    <td class="xl108" colspan="7" style='border-right:1.0pt solid windowtext;border-bottom:.5pt solid windowtext;'>{{$requisition->purpose }}</td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
-    <td class="xl110" height="43.50" style='height:26.10pt;'></td>
-    <td class="xl111" colspan="7" style='border-right:1.0pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="43.50" style='height:26.10pt;mso-height-source:userset;mso-height-alt:522;'>
-    <td class="xl113" height="43.50" style='height:26.10pt;'></td>
-    <td class="xl114" colspan="7" style='border-right:1.0pt solid windowtext;border-bottom:1.0pt solid windowtext;'></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="48.50" style='height:29.10pt;mso-height-source:userset;mso-height-alt:582;'>
-    <td class="xl116" height="48.50" style='height:29.10pt;'></td>
-    <td class="xl117"></td>
-    <td class="xl118" x:str>Requested by: <span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span></td>
-    <td class="xl119" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:none;' x:str>Approved by: </td>
-    <td class="xl119" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:none;' x:str>Issued by: </td>
-    <td class="xl121" x:str>Received by: </td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="37.50" style='height:22.50pt;mso-height-source:userset;mso-height-alt:450;'>
-    <td class="xl122" height="37.50" style='height:22.50pt;' x:str>Signature :</td>
-    <td class="xl123"></td>
-    <td class="xl124"></td>
-    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
-    <td class="xl124" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>dsadas{{ $department->department_user }}</td>
-   <td class="xl126" style="text-align: center;">{{$requisition->user->name }}22</td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="37.83" style='height:22.70pt;mso-height-source:userset;mso-height-alt:454;'>
-    <td class="xl127" height="37.83" style='height:22.70pt;' x:str>Printed Name :</td>
-    <td class="xl128"></td>
-    <td class="xl129">{{$requisition->user->name }}</td>
-    <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>Noel Alinsub</td>
-    <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'>ASD</td>
-    <td class="xl131">SDA</td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'>sad</td>
-   </tr>
-   <tr height="37.83" style='height:22.70pt;mso-height-source:userset;mso-height-alt:454;'>
-    <td class="xl127" height="37.83" style='height:22.70pt;' x:str>Designation :</td>
-    <td class="xl128"></td>
-    <td class="xl129">{{ $department->designation }}</td>
-    <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
-    <td class="xl129" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
-    <td class="xl131"></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="37.83" style='height:22.70pt;mso-height-source:userset;mso-height-alt:454;'>
-    <td class="xl78" height="37.83" style='height:22.70pt;' x:str>Date :</td>
-    <td class="xl132"></td>
-    <td class="xl133"></td>
-    <td class="xl133" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:1.0pt solid windowtext;'></td>
-    <td class="xl133" colspan="2" style='border-right:.5pt solid windowtext;border-bottom:1.0pt solid windowtext;'></td>
-    <td class="xl135"></td>
-    <td class="xl65" colspan="2" style='mso-ignore:colspan;'></td>
-   </tr>
-   <tr height="25" style='height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
-    <td class="xl136" height="25" style='height:15.00pt;' x:str><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>AO 6/15/02</td>
-    <td class="xl65" colspan="9" style='mso-ignore:colspan;'></td>
-   </tr>
-   <![if supportMisalignedColumns]>
-    <tr width="0" style='display:none;'>
-     <td width="186" style='width:112;'></td>
-     <td width="185" style='width:111;'></td>
-     <td width="307" style='width:184;'></td>
-     <td width="209" style='width:125;'></td>
-     <td width="204" style='width:122;'></td>
-     <td width="214" style='width:128;'></td>
-     <td width="227" style='width:136;'></td>
-     <td width="391" style='width:234;'></td>
-     <td width="82" style='width:49;'></td>
+<body>
+<table cellspacing="0" border="0" class="sortable">
+    <colgroup width="88"></colgroup>
+    <colgroup width="48"></colgroup>
+    <colgroup width="183"></colgroup>
+    <colgroup width="101"></colgroup>
+    <colgroup width="99"></colgroup>
+    <colgroup width="101"></colgroup>
+    <colgroup width="104"></colgroup>
+    <colgroup width="223"></colgroup>
+    <tr>
+        <td colspan="8">
+            <hr>
+        </td>
     </tr>
-   <![endif]>
-  </table>
- </body>
+	<tr>
+
+		<td height="33" align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="right" valign=top><i><font face="Times New Roman" size=4>Appendix 63<br></font></i></td>
+	</tr>
+	<tr>
+		<td height="18" align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+	</tr>
+	<tr>
+		<td colspan=8 height="35" align="center" valign=middle><b><font face="Times New Roman" size=4>REQUISITION AND ISSUE SLIP </font></b></td>
+	</tr>
+
+	<tr>
+	    <td colspan=8 height="35" align="center" valign=middle>
+	        <font face="Times New Roman" size=4><u>Local Government Unit</u></font><br>
+	        <font face="Times New Roman" size=3>(Agency)</font>
+	    </td>
+	</tr>
+
+	
+
+	<tr>
+		<td height="19" align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+	</tr>
+	<tr>
+	<td height="25" align="left" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+    	<b><font face="Times New Roman" size=4>Entity Name :</font></b><font face="Times New Roman" size=4>{{$requisition->entity_name}}</font>
+	</td>
+
+
+		<td align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td height="30" align="left" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><b><font face="Times New Roman" size=4>Fund Cluster:</font></b></td>
+		<td align="left"><font face="Times New Roman" size="4">{{$requisition->fund_cluster}}<br></font></td>
+	</tr>
+	<tr>
+		<td style="border-left: 2px solid #000000" height="6" align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 2px solid #000000; border-left: 2px solid #000000" height="25" align="left">
+	        <font face="Times New Roman" size=3>Division :</font>
+	        <font face="Times New Roman" size=4>{{ $requisition->division->division_name }}</font>
+	    </td>
+		<td style="border-top: 2px solid #000000" align="left"></td>
+		<td style="border-top: 2px solid #000000" align="left"></td>
+		<td style="border-top: 2px solid #000000" align="left"></td>
+		<td style="border-top: 2px solid #000000; border-right: 2px solid #000000" align="left"></td>
+
+
+		<td style="border-top: 2px solid #000000; border-left: 2px solid #000000" align="left"><font face="Times New Roman" size=4>Responsibility Center Code : </font></td>
+		<td style="border-top: 2px solid #000000" align="left"><font face="Times New Roman" size=3>{{ $requisition->office->responsibility_code}}<br></font></td>
+		<td style="border-top: 2px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 2px solid #000000; border-left: 2px solid #000000" height="25" align="left"><font face="Times New Roman" size=3>Office : {{ $requisition->office->department_user }}</font></td>
+		<td style="border-bottom: 2px solid #000000" align="left"><font face="Times New Roman" size=4><br></font></td>
+		<td style="border-bottom: 2px solid #000000" align="left"><font face="Times New Roman" size=4><br></font></td>
+		<td style="border-bottom: 2px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-bottom: 2px solid #000000; border-left: 2px solid #000000" align="left"><font face="Times New Roman" size=3>RIS No. : </font></td>
+		<td style="border-bottom: 2px solid #000000" align="left"><font face="Times New Roman" size=4><br></font></td>
+		<td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan=4 height="35" align="center" valign=middle><b><i><font face="Times New Roman" size=4>Requisition</font></i></b></td>
+		<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan=2 align="center" valign=middle><b><i><font face="Times New Roman" size=4>Stock Available?</font></i></b></td>
+		<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan=2 align="center" valign=middle><b><i><font face="Times New Roman" size=4>Issue</font></i></b></td>
+		</tr>
+	  
+		<tr>
+			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="center" valign=middle><font face="Times New Roman" size=3>Stock No.</font></td>
+			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>Unit</font></td>
+			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>Description</font></td>
+			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>Quantity</font></td>
+			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>Yes</font></td>
+			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>No</font></td>
+			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>Quantity</font></td>
+			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>Remarks</font></td>
+		</tr>
+	
+      @foreach($requisitionitems as $requisitionitem)
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="center"><font face="Times New Roman">{{requisitionitem->stock_no}}<br></font></td>
+
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center">unit <font face="Times New Roman"><br></font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center">description<font face="Times New Roman"><br></font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center">qty<b><font face="Times New Roman"><br></font></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center">qty<b><font face="Times New Roman"><br></font></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center">remarks<b><font face="Times New Roman"><br></font></b></td>
+		</tr>
+	  @endforeach
+	 
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-left: 2px solid #000000" height="1" align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 2px solid #000000; border-left: 2px solid #000000" height="35" align="left"><font face="Times New Roman" size=3>   Purpose: </font></td>
+		<td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" colspan=7 align="left">{{$requisition->purpose}}<font face="Times New Roman"><br></font></td>
+		</tr>
+	<tr>
+		<td style="border-bottom: 2px solid #000000; border-left: 2px solid #000000" height="35" align="left" valign=middle><b><font face="Times New Roman" size=4><br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" colspan=7 align="center"><b><font face="Times New Roman"><br></font></b></td>
+		</tr>
+	<tr>
+		<td style="border-top: 2px solid #000000; border-left: 2px solid #000000" height="39" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 2px solid #000000; border-right: 1px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 2px solid #000000; border-left: 1px solid #000000" align="left" valign=middle><b><font face="Times New Roman" size=3>Requested by:  </font></b></td>
+		<td style="border-top: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><b><font face="Times New Roman" size=3>Approved by:</font></b></td>
+		<td style="border-top: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="left" valign=middle><b><font face="Times New Roman" size=3>Issued by:</font></b></td>
+		<td style="border-top: 2px solid #000000; border-right: 2px solid #000000" align="left" valign=middle><b><font face="Times New Roman" size=3>Received by:</font></b></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000" height="30" align="left"><font face="Times New Roman" size=3>Signature :</font></td>
+		<td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000" height="30" align="left"><font face="Times New Roman" size=3>Printed Name :</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-transform: uppercase;" align="center"><b><font face="Times New Roman">{{ $requisition->office->name }}<br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">NOEL E. ALINSUB<br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">OFELLE MARIE S. OLAYVAR<br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000" height="30" align="left"><font face="Times New Roman" size=3>Designation :</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center"><b><font face="Times New Roman">{{ $requisition->office->designation}}<br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">Municipal Mayor<br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">Supply Officer II<br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 2px solid #000000; border-left: 2px solid #000000" height="30" align="left"><font face="Times New Roman" size=3>Date :</font></td>
+		<td style="border-bottom: 2px solid #000000; border-right: 1px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><i><font face="Times New Roman" color="#FFFFFF">   AO 6/15/02</font></i></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+		<td align="left"><font face="Times New Roman"><br></font></td>
+	</tr>
+</table>
+<!-- ************************************************************************** -->
+<script>var stIsIE=!1;if(sorttable={init:function(){arguments.callee.done||(arguments.callee.done=!0,_timer&&clearInterval(_timer),document.createElement&&document.getElementsByTagName&&(sorttable.DATE_RE=/^(\d\d?)[\/\.-](\d\d?)[\/\.-]((\d\d)?\d\d)$/,forEach(document.getElementsByTagName("table"),function(t){-1!=t.className.search(/\bsortable\b/)&&sorttable.makeSortable(t)})))},makeSortable:function(t){if(0==t.getElementsByTagName("thead").length&&(the=document.createElement("thead"),the.appendChild(t.rows[0]),t.insertBefore(the,t.firstChild)),null==t.tHead&&(t.tHead=t.getElementsByTagName("thead")[0]),1==t.tHead.rows.length){sortbottomrows=[];for(var e=0;e<t.rows.length;e++)-1!=t.rows[e].className.search(/\bsortbottom\b/)&&(sortbottomrows[sortbottomrows.length]=t.rows[e]);if(sortbottomrows){null==t.tFoot&&(tfo=document.createElement("tfoot"),t.appendChild(tfo));for(e=0;e<sortbottomrows.length;e++)tfo.appendChild(sortbottomrows[e]);delete sortbottomrows}headrow=t.tHead.rows[0].cells;for(e=0;e<headrow.length;e++)headrow[e].className.match(/\bsorttable_nosort\b/)||(mtch=headrow[e].className.match(/\bsorttable_([a-z0-9]+)\b/),mtch&&(override=mtch[1]),mtch&&"function"==typeof sorttable["sort_"+override]?headrow[e].sorttable_sortfunction=sorttable["sort_"+override]:headrow[e].sorttable_sortfunction=sorttable.guessType(t,e),headrow[e].sorttable_columnindex=e,headrow[e].sorttable_tbody=t.tBodies[0],dean_addEvent(headrow[e],"click",sorttable.innerSortFunction=function(t){if(-1!=this.className.search(/\bsorttable_sorted\b/))return sorttable.reverse(this.sorttable_tbody),this.className=this.className.replace("sorttable_sorted","sorttable_sorted_reverse"),this.removeChild(document.getElementById("sorttable_sortfwdind")),sortrevind=document.createElement("span"),sortrevind.id="sorttable_sortrevind",sortrevind.innerHTML=stIsIE?'&nbsp<font face="webdings">5</font>':"&nbsp;&#x25B4;",void this.appendChild(sortrevind);if(-1!=this.className.search(/\bsorttable_sorted_reverse\b/))return sorttable.reverse(this.sorttable_tbody),this.className=this.className.replace("sorttable_sorted_reverse","sorttable_sorted"),this.removeChild(document.getElementById("sorttable_sortrevind")),sortfwdind=document.createElement("span"),sortfwdind.id="sorttable_sortfwdind",sortfwdind.innerHTML=stIsIE?'&nbsp<font face="webdings">6</font>':"&nbsp;&#x25BE;",void this.appendChild(sortfwdind);theadrow=this.parentNode,forEach(theadrow.childNodes,function(t){1==t.nodeType&&(t.className=t.className.replace("sorttable_sorted_reverse",""),t.className=t.className.replace("sorttable_sorted",""))}),sortfwdind=document.getElementById("sorttable_sortfwdind"),sortfwdind&&sortfwdind.parentNode.removeChild(sortfwdind),sortrevind=document.getElementById("sorttable_sortrevind"),sortrevind&&sortrevind.parentNode.removeChild(sortrevind),this.className+=" sorttable_sorted",sortfwdind=document.createElement("span"),sortfwdind.id="sorttable_sortfwdind",sortfwdind.innerHTML=stIsIE?'&nbsp<font face="webdings">6</font>':"&nbsp;&#x25BE;",this.appendChild(sortfwdind),row_array=[],col=this.sorttable_columnindex,rows=this.sorttable_tbody.rows;for(var e=0;e<rows.length;e++)row_array[row_array.length]=[sorttable.getInnerText(rows[e].cells[col]),rows[e]];row_array.sort(this.sorttable_sortfunction),tb=this.sorttable_tbody;for(e=0;e<row_array.length;e++)tb.appendChild(row_array[e][1]);delete row_array}))}},guessType:function(t,e){sortfn=sorttable.sort_alpha;for(var r=0;r<t.tBodies[0].rows.length;r++)if(text=sorttable.getInnerText(t.tBodies[0].rows[r].cells[e]),""!=text){if(text.match(/^-?[Â£$Â¤]?[\d,.]+%?$/))return sorttable.sort_numeric;if(possdate=text.match(sorttable.DATE_RE),possdate){if(first=parseInt(possdate[1]),second=parseInt(possdate[2]),first>12)return sorttable.sort_ddmm;if(second>12)return sorttable.sort_mmdd;sortfn=sorttable.sort_ddmm}}return sortfn},getInnerText:function(t){if(!t)return"";if(hasInputs="function"==typeof t.getElementsByTagName&&t.getElementsByTagName("input").length,null!=t.getAttribute("sorttable_customkey"))return t.getAttribute("sorttable_customkey");if(void 0!==t.textContent&&!hasInputs)return t.textContent.replace(/^\s+|\s+$/g,"");if(void 0!==t.innerText&&!hasInputs)return t.innerText.replace(/^\s+|\s+$/g,"");if(void 0!==t.text&&!hasInputs)return t.text.replace(/^\s+|\s+$/g,"");switch(t.nodeType){case 3:if("input"==t.nodeName.toLowerCase())return t.value.replace(/^\s+|\s+$/g,"");case 4:return t.nodeValue.replace(/^\s+|\s+$/g,"");case 1:case 11:for(var e="",r=0;r<t.childNodes.length;r++)e+=sorttable.getInnerText(t.childNodes[r]);return e.replace(/^\s+|\s+$/g,"");default:return""}},reverse:function(t){newrows=[];for(var e=0;e<t.rows.length;e++)newrows[newrows.length]=t.rows[e];for(e=newrows.length-1;e>=0;e--)t.appendChild(newrows[e]);delete newrows},sort_numeric:function(t,e){return aa=parseFloat(t[0].replace(/[^0-9.-]/g,"")),isNaN(aa)&&(aa=0),bb=parseFloat(e[0].replace(/[^0-9.-]/g,"")),isNaN(bb)&&(bb=0),aa-bb},sort_alpha:function(t,e){return t[0]==e[0]?0:t[0]<e[0]?-1:1},sort_ddmm:function(t,e){return mtch=t[0].match(sorttable.DATE_RE),y=mtch[3],m=mtch[2],d=mtch[1],1==m.length&&(m="0"+m),1==d.length&&(d="0"+d),dt1=y+m+d,mtch=e[0].match(sorttable.DATE_RE),y=mtch[3],m=mtch[2],d=mtch[1],1==m.length&&(m="0"+m),1==d.length&&(d="0"+d),dt2=y+m+d,dt1==dt2?0:dt1<dt2?-1:1},sort_mmdd:function(t,e){return mtch=t[0].match(sorttable.DATE_RE),y=mtch[3],d=mtch[2],m=mtch[1],1==m.length&&(m="0"+m),1==d.length&&(d="0"+d),dt1=y+m+d,mtch=e[0].match(sorttable.DATE_RE),y=mtch[3],d=mtch[2],m=mtch[1],1==m.length&&(m="0"+m),1==d.length&&(d="0"+d),dt2=y+m+d,dt1==dt2?0:dt1<dt2?-1:1},shaker_sort:function(t,e){for(var r=0,o=t.length-1,n=!0;n;){n=!1;for(var s=r;s<o;++s)if(e(t[s],t[s+1])>0){var a=t[s];t[s]=t[s+1],t[s+1]=a,n=!0}if(o--,!n)break;for(s=o;s>r;--s)if(e(t[s],t[s-1])<0){a=t[s];t[s]=t[s-1],t[s-1]=a,n=!0}r++}}},document.addEventListener&&document.addEventListener("DOMContentLoaded",sorttable.init,!1),/WebKit/i.test(navigator.userAgent))var _timer=setInterval(function(){/loaded|complete/.test(document.readyState)&&sorttable.init()},10);function dean_addEvent(t,e,r){if(t.addEventListener)t.addEventListener(e,r,!1);else{r.$$guid||(r.$$guid=dean_addEvent.guid++),t.events||(t.events={});var o=t.events[e];o||(o=t.events[e]={},t["on"+e]&&(o[0]=t["on"+e])),o[r.$$guid]=r,t["on"+e]=handleEvent}}function removeEvent(t,e,r){t.removeEventListener?t.removeEventListener(e,r,!1):t.events&&t.events[e]&&delete t.events[e][r.$$guid]}function handleEvent(t){var e=!0;t=t||fixEvent(((this.ownerDocument||this.document||this).parentWindow||window).event);var r=this.events[t.type];for(var o in r)this.$$handleEvent=r[o],!1===this.$$handleEvent(t)&&(e=!1);return e}function fixEvent(t){return t.preventDefault=fixEvent.preventDefault,t.stopPropagation=fixEvent.stopPropagation,t}window.onload=sorttable.init,dean_addEvent.guid=1,fixEvent.preventDefault=function(){this.returnValue=!1},fixEvent.stopPropagation=function(){this.cancelBubble=!0},Array.forEach||(Array.forEach=function(t,e,r){for(var o=0;o<t.length;o++)e.call(r,t[o],o,t)}),Function.prototype.forEach=function(t,e,r){for(var o in t)void 0===this.prototype[o]&&e.call(r,t[o],o,t)},String.forEach=function(t,e,r){Array.forEach(t.split(""),function(o,n){e.call(r,o,n,t)})};var forEach=function(t,e,r){if(t){var o=Object;if(t instanceof Function)o=Function;else{if(t.forEach instanceof Function)return void t.forEach(e,r);"string"==typeof t?o=String:"number"==typeof t.length&&(o=Array)}o.forEach(t,e,r)}};</script>
+</body>
+
 </html>

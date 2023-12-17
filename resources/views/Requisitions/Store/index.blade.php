@@ -11,7 +11,7 @@
                 <div class="col-sm-6">
                     @include('Requisitions.Store._requisition_items')
                     <div class="btn-group">
-                        <a class="btn btn-sm btn-outline-primary" id="add-requisition-item-button">Add Requisition Item</a>
+                        <a class="btn btn-sm btn-outline-primary" id="add-requisition-item-button"style="color: #8a2be2; font-weight: bold;">Add Requisition Item</a>
                         <button class="btn btn-sm btn-primary" style="background-color:forestgreen;">Save</button>
                     </div>
                 </div>

@@ -53,6 +53,7 @@
                                                             {{ $report->item->items_name }}
                                                         @endif
                                                     </td>
+                                                    
                                                     <td>{{ $report->description }}</td>
                                                     <td>{{ $report->stock_no }}</td>
                                                     <td>{{ $report->date }}</td>

@@ -87,7 +87,7 @@
             <div class="info-box bg-light shadow">
                 <span class="info-box-icon bg-cyan elevation-1"><i class="fas fa-file"></i></span>
                     <div class="info-box-content">
-                    <a href="{{ route('admin.requisitions.index') }}" target="_blank"><span class="info-box-text">Requisitions</span></a>
+                    <a href="{{ route('admin.requisitions.pending') }}" target="_blank"><span class="info-box-text">Requisitions</span></a>
                     @if($nOrequisition=App\Models\Requisition::count())
                     <span class="info-box-number">
                     {{ $nOrequisition }}
