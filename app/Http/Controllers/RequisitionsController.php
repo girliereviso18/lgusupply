@@ -176,7 +176,6 @@ class RequisitionsController extends Controller
             $requisition->received_designation = $request->received_designation;
             $requisition->received_date = $request->received_date;
 
-            $requisition->isApproved = $request->isapproved;
             if ($requisition->save()) {
                 // Update requisitions_items
                 $requisitionItemsData = $request->requisition_items;

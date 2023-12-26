@@ -16,7 +16,6 @@
                     <div class="form-group">
                         <label for="requested_by">Requested by:</label>
                         <select type="" name="requested_by" class="form-control" required>
-                            <option value="" disabled selected>Select Requested by</option>
                             @if($users = App\Models\User::get())
                              @foreach($users as $user) 
                                     @if($user->id == $requisition->requested_by)
@@ -151,11 +150,7 @@
                                 @endforeach
                             @endif
                         </select>
-                     
-                        <div class="form-group">
-                            <label for="isapproved">Is Approved:</label>
-                            <input type="number" name="isapproved" class="form-control">
-                        </div>
+                    
                     
 
 
