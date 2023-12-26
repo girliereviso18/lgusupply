@@ -11,9 +11,18 @@
                 <form action="{{ route('admin.reports.edit.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{ $report->id }}">
+                        <label for="department">Department</label>
+                      <select type="" name="department" class="form-control" required>
+                          @if($departments = App\Models\Department::get())
+                              @foreach($departments as $department)
+                                  <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+                              @endforeach
+                          @endif
+                      </select>
+                  </div>
 
                     <!-- Item Selection -->
-                     <div class="form-group">
+                     <div class="card-body">
                        <label for="item">Item</label>
                           <select type="" name="item" class="form-control" required>
                              @if($items = App\Models\Item::get())
@@ -26,13 +35,13 @@
                   
                     <!-- Description -->
                     <input type="hidden" name="description" value="">
-                    <div class="form-group">
+                    <div class="card-body">
                         <label for="description">Description</label>
                         <input type="text" id="description" name="description" class="form-control">
                     </div>
 
                     <!-- Stock Number Selection -->
-                     <div class="form-group">
+                     <div class="card-body">
                         <label for="stock_no">Stock No.</label>
                         <select name="stock_no" class="form-control" required>
                             @if($supplies = App\Models\Supply::with('item')->get())
@@ -46,31 +55,31 @@
                     </div>
 
                     <!-- Date -->
-                    <div class="form-group">
+                    <div class="card-body">
                         <label for="date">Date</label>
                         <input type="date" name="date" value="{{ $report->date }}" class="form-control" required="required">
                     </div>
 
                     <!-- Reference -->
-                    <div class="form-group">
+                    <div class="card-body">
                         <label for="reference">Reference</label>
                         <input type="text" name="reference" value="{{ $report->reference }}" class="form-control"required="required">
                     </div>
 
                     <!-- Receipt Quantity -->
-                    <div class="form-group">
+                    <div class="card-body">
                         <label for="receipt_qty">Receipt Qty</label>
                         <input type="number" name="receipt_qty" class="form-control" value="{{ $report->receipt_qty }}">
                     </div>
 
                     <!-- Issuance Quantity -->
-                    <div class="form-group">
+                    <div class="card-body">
                         <label for="issuance_qty">Issuance Qty</label>
                         <input type="number" name="issuance_qty" class="form-control" value="{{ $report->issuance_qty }}">
                     </div>
 
                     <!-- Office Selection -->
-                    <div class="form-group">
+                    <div class="card-body">
                         <label for="office">Office</label>
                         <select type="" name="office" class="form-control" required>
                             <option value="" disabled selected>Select Department</option>
@@ -83,13 +92,13 @@
                     </div>
 
                     <!-- Balance -->
-                    <div class="form-group">
+                    <div class="card-body">
                         <label for="balance">Balance</label>
                         <input type="number" name="balance" class="form-control" value="{{ $report->balance }}">
                     </div>
 
                     <!-- Days to Consume -->
-                    <div class="form-group">
+                    <div class="card-body">
                         <label for="days_to_consume">Days to Consume</label>
                         <input type="date" name="days_to_consume" class="form-control" value="{{ $report->days_to_consume }}">
                     </div>
