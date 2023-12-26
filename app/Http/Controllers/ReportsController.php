@@ -18,8 +18,13 @@ class ReportsController extends Controller
 
     public function index()
     {
-         $reports = Report::with(['item', 'office'])->get();
-
+        $reports = Report::with(['item', 'office'])->get();
+        foreach($reports as $val){
+            $depertment_name = Department::where('id', $val->department)->value('department_user');
+            $val->department = $depertment_name;
+            $item_name = Item::where('id', $val->item)->value('items_name');
+            $val->item = $item_name;
+        }
         return view('Reports.index', ['reports' => $reports]);
     }
 
@@ -98,10 +103,21 @@ class ReportsController extends Controller
     public function reportsprint(Request $request)
     {
         $report = Report::where('id', $request->id)->first();
+        if ($report) {
+            $department_name = Department::where('id', $report->department)->value('department_user');
+            $report->department = $department_name;
+        
+            $item_name = Item::where('id', $report->item)->value('items_name');
+            $report->item = $item_name;
 
-        return view('Reports.print.index', [
-            'report' => $report,
-        ]);
+            $office = Department::where('id', $report->office)->value('department_user');
+            $report->office = $office;
+        
+            return view('Reports.print.index', [
+                'report' => $report,
+            ]);
+        }
+        
     }
 
     public function show($id) {

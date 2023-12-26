@@ -149,21 +149,19 @@
 			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>Quantity</font></td>
 			<td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center" valign=middle><font face="Times New Roman" size=3>Remarks</font></td>
 		</tr>
-	
       @foreach($requisitionitems as $requisitionitem)
 		<tr>
-			<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="center"><font face="Times New Roman">{{requisitionitem->stock_no}}<br></font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="center"><font face="Times New Roman">{{$requisitionitem->stock_no}}<br></font></td>
 
-			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center">unit <font face="Times New Roman"><br></font></td>
-			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center">description<font face="Times New Roman"><br></font></td>
-			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center">qty<b><font face="Times New Roman"><br></font></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center">{{$requisitionitem->unit_id}} <font face="Times New Roman"><br></font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center">{{$requisitionitem->item_id}}<font face="Times New Roman"><br></font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center">{{$requisitionitem->qty}}<b><font face="Times New Roman"><br></font></b></td>
 			<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
 			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
-			<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center">qty<b><font face="Times New Roman"><br></font></b></td>
-			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center">remarks<b><font face="Times New Roman"><br></font></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000" align="center">{{$requisitionitem->remarks}}<b><font face="Times New Roman"><br></font></b></td>
 		</tr>
 	  @endforeach
-	 
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" height="35" align="left"><font face="Times New Roman"><br></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="Times New Roman"><br></font></td>

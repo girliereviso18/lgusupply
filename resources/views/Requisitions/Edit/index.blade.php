@@ -167,132 +167,113 @@
             <th>Unit ID</th>
             <th>Item ID</th>
             <th>Quantity</th>
-            <th>Is Available</th>
-            <th>Issued Quantity</th>
+            <th>Available</th>
             <th>Remarks</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody id="requisition-items-container">
           @if(isset($requisition_items))
+            <?php $count = 0; ?>
             @foreach($requisition_items as $value)
                 <tr>
-                    <td> <select name="stock_no" class="form-control" required>
-                            <!-- <option value="" disabled selected>Select Stock No.</option> -->
-                            @if($supplies = App\Models\Supply::with('item')->get())
-                                @foreach($supplies as $supply)
-                                    @if($supply->id == $value->stock_no)
-                                        <option value="{{ $supply->id }}" selected> 
-                                            {{ $supply->stock_number }} 
-                                        </option>
-                                    @else
-                                        <option value="{{ $supply->id }}"> 
-                                            {{ $supply->stock_number }} 
-                                        </option>
-                                    @endif
-                                @endforeach
-                            @endif
+                    <td style="width: 100px;">
+                        <input type="text" value="{{ $value->stock_no }}" id="stock_no<?php echo $count;?>" name="requisitions[<?php echo $count;?>][0]" class="form-control" readonly>
+                    </td>
+                    <td style="width: 140px">
+                        <select name="requisitions[<?php echo $count;?>][1]" id="unit<?php echo $count;?>" class="form-control" required>
+                                @if($units = App\Models\Unit::get())
+                                    @foreach($units as $unit)
+                                        @if($value->unit_id == $unit->id)
+                                            <option value="{{ $unit->id }}" selected> {{ $unit->unit_name }}</option>
+                                        @else
+                                            <option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>
+                                        @endif
+                                    @endforeach
+                                @endif
                         </select>
                     </td>
-                    <td><select name="unit_id" id="unit" class="form-control" required>
-                                    <option value="" disabled selected>Select Unit Name</option>
-                                    @if($units = App\Models\unit::get())
-                                        @foreach($units as $unit)
-                                          <option value="{{ $unit->id }}"selected> {{ $unit->unit_name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select></td>
                     <td> 
-                        <select type="" name="item_id" class="form-control" required>
+                        <select type="" id="item_name<?php echo $count;?>" name="requisitions[<?php echo $count;?>][2]" onchange="textFill(this)" data-id="<?php echo $count;?>" class="form-control" required>
+                            <option value="-1" disabled>Please Select</option>
                             @if($items = App\Models\Item::get())
                                 @foreach($items as $item)
-                                    <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
+                                    @if($value->item_id == $item->id)
+                                        <option value="{{ $item->id }}" selected> {{ $item->items_name }}</option>
+                                    @else
+                                        <option value="{{ $item->id }}"> {{ $item->items_name }}</option>
+                                    @endif
                                 @endforeach
                             @endif
+
                         </select>
                     </td>
-                    <td><input type="number" name="requisition_items[0][qty]" class="form-control" required></td>
-                    <td><input type="number" name="requisition_items[0][isAvailable]" class="form-control" required></td>
-                    <td><input type="number" name="requisition_items[0][issued_qty]" class="form-control" required></td>
-                    <td><input type="text" name="requisition_items[0][remarks]" class="form-control" required></td>
-                    <td><button type="button" class="btn btn-sm btn-danger delete-row-button">Delete</button></td>
+                    <td style="width: 80px"><input type="number" value="{{ $value->qty }}" id="quantity<?php echo $count;?>" name="requisitions[<?php echo $count;?>][3]" class="form-control" required></td>
+                    @if($supplies = App\Models\Supply::where('item_id',$value->item_id)->value('qty'))
+                    <td style="width: 80px"><input type="text" value="{{ $supplies }}" id="available<?php echo $count;?>" name="requisitions[<?php echo $count;?>][4]" class="form-control" readonly></td>
+                    @endif
+                    <td><input type="text" value="{{ $value->remarks }}" id="remarks<?php echo $count;?>" name="requisitions[<?php echo $count;?>][5]" class="form-control"></td>
+                    <td style="width: 80px"><input type="text" name="requisitions[<?php echo $count;?>][6]" class="form-control" readonly></td>
                 </tr>
+                <?php $count++;?>
             @endforeach
-        @else
-            <tr>
-                <td> <select name="stock_no" class="form-control" required>
-                        <!-- <option value="" disabled selected>Select Stock No.</option> -->
-                        @if($supplies = App\Models\Supply::with('item')->get())
-                            @foreach($supplies as $supply)
-                                <option value="{{ $supply->id }}"> 
-                                    {{ $supply->stock_number }} 
-                                </option>
-                            @endforeach
-                        @endif
-                    </select>
-                </td>
-                <td>
-                    <select name="unit_id" id="unit" class="form-control" required>
-                        <option value="" disabled selected>Select Unit Name</option>
-                            @if($units = App\Models\unit::get())
-                                @foreach($units as $unit)
-                                    <option value="{{ $unit->id }}"selected> {{ $unit->unit_name }}</option>
-                                @endforeach
-                            @endif
-                    </select>
-                </td>
-                <td> 
-                    <select type="" name="item_id" class="form-control" required>
-                        @if($items = App\Models\Item::get())
-                            @foreach($items as $item)
-                                <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
-                            @endforeach
-                        @endif
-                    </select>
-                </td>
-                <td><input type="number" name="requisition_items[0][qty]" class="form-control" required></td>
-                <td><input type="number" name="requisition_items[0][isAvailable]" class="form-control" required></td>
-                <td><input type="number" name="requisition_items[0][issued_qty]" class="form-control" required></td>
-                <td><input type="text" name="requisition_items[0][remarks]" class="form-control" required></td>
-                <td><button type="button" class="btn btn-sm btn-danger delete-row-button">Delete</button></td>
-            </tr>
+            <input type="hidden" id="count" value="<?php echo $count;?>">
         @endif
     </tbody>
 </table>
 
 <div class="btn-group">
-    <button class="btn btn-sm btn-outline-primary" id="add-requisition-item-button">Add Requisition Item</button>
+    <input type="button" value="Add Requisition Item" class="btn btn-sm btn-outline-primary" id="add-requisition-item-button">
     <button class="btn btn-sm btn-primary" style="background-color:forestgreen;">Save</button>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const container = document.getElementById("requisition-items-container");
-        const addButton = document.getElementById("add-requisition-item-button");
-
-        addButton.addEventListener("click", function () {
-            const newRow = container.insertRow();
-            const fields = ["stock_no", "unit_id", "item_id", "qty", "isAvailable", "issued_qty", "remarks"];
-            
-            fields.forEach((field) => {
-                const cell = newRow.insertCell();
-                const input = document.createElement("input");
-                input.type = "text";
-                input.name = `requisition_items[${container.rows.length - 1}][${field}]`;
-                input.className = "form-control";
-                input.required = true;
-                cell.appendChild(input);
-            });
-
-            const deleteButton = document.createElement("button");
-            deleteButton.type = "button";
-            deleteButton.className = "btn btn-sm btn-danger delete-row-button";
-            deleteButton.textContent = "Delete";
-            deleteButton.addEventListener("click", function () {
-                container.deleteRow(newRow.rowIndex - 1);
-            });
-
-            newRow.insertCell().appendChild(deleteButton);
+    var count = $('#count').val();
+    function textFill(select){
+        var supply = @JSON($supply);
+        var index = $(select).data("id");
+        var item_id = $(select).val();
+        for(var i = 0; i<supply.length; i++){
+            if(supply[i]['item_id'] == item_id){
+                $('#stock_no'+index).val(supply[i]['stock_number']);
+                $('#available'+index).val(supply[i]['qty']);
+                break;
+            }
+        }
+    }
+    $('#add-requisition-item-button').on('click', function(){
+            $('#requisition-items-container').append(
+                '<tr>'
+                    +'<td style="width: 100px;">'
+                        +'<input type="text" id="stock_no' + count + '" name="requisitions[' + count + '][0]" class="form-control" readonly>'
+                    +'</td>'
+                    +'<td style="width: 140px">'
+                        +'<select name="requisitions[' + count + '][1]" id="unit' + count + '" class="form-control" required>'
+                            +'<option value="" disabled selected>Select Unit Name</option>'
+                                +'@if($units = App\Models\Unit::get())'
+                                    +'@foreach($units as $unit)'
+                                        +'<option value="{{ $unit->id }}"selected> {{ $unit->unit_name }}</option>'
+                                    +'@endforeach'
+                                +'@endif'
+                        +'</select>'
+                    +'</td>'
+                    +'<td>' 
+                        +'<select type="" id="item_name' + count + '" name="requisitions[' + count + '][2]" onchange="textFill(this)" data-id="' + count + '" class="form-control" required>'
+                            +'<option value="-1" disabled selected>Please Select</option>'
+                            +'@if($items = App\Models\Item::get())'
+                                +'@foreach($items as $item)'
+                                    +'<option value="{{ $item->id }}"> {{ $item->items_name }}</option>'
+                                +'@endforeach'
+                            +'@endif'
+                        +'</select>'
+                    +'</td>'
+                    +'<td style="width: 80px"><input type="number" id="quantity' + count + '" name="requisitions[' + count + '][3]" class="form-control" required></td>'
+                    +'<td style="width: 80px"><input type="text" id="available' + count + '" name="requisitions[' + count + '][4]" class="form-control" readonly></td>'
+                    +'<td><input type="text" id="remarks' + count + '" name="requisitions[' + count + '][5]" class="form-control"></td>'
+                    +'<td><a class="btn btn-sm btn-danger delete-row-button">Delete</a></td></tr>'
+                +'</tr>'
+            );
+            count++;
         });
-    });
 </script>
 @endsection

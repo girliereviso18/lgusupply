@@ -39,21 +39,9 @@
                                     <tbody class="{{$count=1}}">
                                         @if(isset($reports))
                                             @foreach($reports as $report)
-                                                 <tr>
-                                                   <!-- <td>{{$count++}}</td> -->
-                                                   
-                                                       <td>
-                                                        @if(isset($report->office->department_user))
-                                                            {{ $report->office->department_user }}
-                                                        @endif
-                                                        </td>
-                                                
-                                                    <td>
-                                                        @if(isset($report->item->items_name))
-                                                            {{ $report->item->items_name }}
-                                                        @endif
-                                                    </td>
-                                                    
+                                                <tr>
+                                                    <td>{{ $report->department }}</td>
+                                                    <td>{{ $report->item }}</td>
                                                     <td>{{ $report->description }}</td>
                                                     <td>{{ $report->stock_no }}</td>
                                                     <td>{{ $report->date }}</td>
@@ -71,7 +59,7 @@
                                                     <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/reports/delete').'/'.$report->id}}">
                                                         <i class="fa fa-trash-alt"></i> Delete
                                                     </a>
-                                                   <a class="btn btn-sm btn-warning print_data" href="{{ url('/admin/reports/print').'/'.$report->id }}">
+                                                   <a class="btn btn-sm btn-warning print_data" onclick="customPrint('{{ route('admin.reports.print', ['id' => $report->id]) }}')" >
                                                     <i class="fa fa-print"></i> Print
                                                   </a>
                                                 </td>
@@ -91,7 +79,28 @@
  <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
 <script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script>
 <script>
+    function customPrint(url) {
+        fetch(url)
+        .then(function(response) {
+            return response.text();
+        })
+        .then(function(content) {
+            printContent(content);
+        })
+        .catch(function(error) {
+            console.error('Error fetching content:', error);
+        });
+    }
+    function printContent(content) {
+        const printWindow = window.open('', '');
+        printWindow.document.open();
+        printWindow.document.write(content);
+        printWindow.document.close();
+        printWindow.print();
+        printWindow.close();
+    }
     $(document).ready(function(){
+        
         $('.delete_data').click(function(e){
 
             e.preventDefault();

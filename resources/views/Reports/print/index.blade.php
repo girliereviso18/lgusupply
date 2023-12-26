@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
@@ -126,14 +124,12 @@
         <col class="col5">
         <col class="col6">
         <tbody>
-              <tr class="row0">
-              <td class="column0 style1 s style3" colspan="7">&nbsp;</td>
-          </tr>
+              
           <tr class="row0">
               <td class="column0 style1 s style3" colspan="7" style="border-top: 1px solid black;">STOCK CARD</td>
           </tr>
           <tr class="row2">
-              <td class="column0 style6 s style8" colspan="7">LGU - Bontoc</td>
+              <td class="column0 style6 s style8" colspan="7">{{ $report->department }}</td>
           </tr>
           <tr class="row3">
               <td class="column0 style9 s style11" colspan="7"><label>DEPARTMENT</label></td>
@@ -149,13 +145,9 @@
               <td class="column6 style18 null"></td>
           </tr>
 
-                    <tr class="row6">
-              <td class="column0 style31 s style32" colspan="3">
-                  @if(is_object($report->item))
-                      {{ $report->item->items_name }}
-                  @else
-                      {{ $report->item }}
-                  @endif
+              <tr class="row6">
+              <td class="column0 style30 s style32" colspan="3">
+                {{ $report->item }}
               </td>
               <td class="column1 style30 s style32" colspan="2">{{ $report->description }}</td>
               <td class="column2 style20 s">Re-Order Point</td>
@@ -168,7 +160,7 @@
               <td class="column2 style23 s"><label>Receipt:</label></td>
               <td class="column3 style24 s style24" colspan="2"><label>Issuance:</label></td>
               <td class="column5 style25 s"><label>Balance:</label></td>
-              <td class="column6 style18 null"></td>
+              <td class="column6 style18 null">{{ $report->balance }}</td>
           </tr>
 
            <tr class="row8">
@@ -176,14 +168,14 @@
             <td class="column3 style24 s"><label>Qty:</label>
             <td class="column4 style24 s"><label>Office:</label>
             <td class="column5 style24 s">Qty:</td>
-            <td class="column6 style28 s"><label>No. of Days to consume:</label>
+            <td class="column6 style24 s"><label>No. of Days to consume:</label>
           </tr>
           <tr class="row9">
             <td class="column0 style24 null">{{ $report->date }}</td>
             <td class="column1 style24 null">{{ $report->reference }}</td>
             <td class="column2 style24 null">{{ $report->receipt_qty }}</td>
             <td class="column3 style24 null">{{ $report->receipt_qty }}</td>
-            <td class="column4 style29 null">{{ $report->issuance_qty }}</td>
+            <td class="column4 style29 null">{{ $report->office }}</td>
             <td class="column5 style29 null">{{ $report->balance }}</td>
             <td class="column6 style29 null">{{ $report->days_to_consume }}</td>
           </tr>

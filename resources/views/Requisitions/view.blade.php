@@ -89,67 +89,38 @@
                     </div>
                     </hr>
 
-                     @if(isset($requisition_items))
-                      @foreach($requisition_items as $value)
+                    <table class="table table-bordered" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Stock No</th>
+                                <th>Unit ID</th>
+                                <th>Item ID</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody class="requisitionfield" id="requisition-items-container">
+                            @foreach($requisitionitems as $value)
+                            <tr>
+                                <td> 
+                                    <input type="text" name="stock_no" class="form-control" value="{{ $value->stock_no }}" readonly>
+                                </td>
+                                <td>
+                                    <input type="" name="unit" id="unit" class="form-control" value="{{ $value->unit_id }}" readonly>
+                                </td>
+                                <td> 
+                                    <input type="" name="item" class="form-control" readonly value="{{ $value->item_id }}">
 
-                     <div class="form-group">
-                        <label for="stock_no">Stock No:</label>
-                        <input type="text" name="stock_no" class="form-control" value="{{ $requisition_item->stock_no }}" readonly>
-                        @if($supplies = App\Models\Supply::get())
-                             @foreach($supplies as $supply)
-                              <option value="{{ $supply->id }}">{{ $supply->stock_number }}</option>
+                                </td>
+                                <td>
+                                    <input type="text" name="qty" class="form-control" value="{{ $value->qty }}" readonly>
+                                </td>
+                            </tr>
                             @endforeach
-                          @endif
-                      </label>
-                    </div>
-                   <div class="form-group">
-                        <label for="unit_id">Unit Id:</label>
-                        <input type=""> name="unit" id="unit" class="form-control" readonly>
-                            @if($units = App\Models\unit::get())
-                                @foreach($units as $unit)
-                                  <option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>
-                                @endforeach
-                            @endif> name="unit" id="unit" class="form-control" required>
-                            @if($units = App\Models\unit::get())
-                                @foreach($units as $unit)
-                                  <option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>
-                                @endforeach
-                            @endif
-                       </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="item_id">Item Id:</label>
-                        <input type="" name="item" class="form-control" readonly>
-                          @if($items = App\Models\Item::get())
-                              @foreach($items as $item)
-                                  <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
-                              @endforeach
-                          @endif
-                      </label>
-                    </div>
-                   <div class="form-group">
-                        <label for="qty">Quantity:</label>
-                        <input type="text" name="qty" class="form-control" value="{{ $requisition->qty }}" readonly>
-                    </div>
-                   <div class="form-group">
-                        <label for="isavailable">Is Available:</label>
-                        <input type="text" name="isavailable" class="form-control" value="{{ $requisition->isavailable }}" readonly>
-                    </div>
-                   <div class="form-group">
-                        <label for="issued_qty">Issued Qty:</label>
-                        <input type="text" name="issued_qty" class="form-control" value="{{ $requisition->issued_qty }}" readonly>
-                    </div>
-                   <div class="form-group">
-                        <label for="remarks">Remarks:</label>
-                        <input type="text" name="remarks" class="form-control" value="{{ $requisition->remarks }}" readonly>
-                    </div>
-                    @endforeach
-                      @endif
-
-                   
+                        </tbody>
+                    </table>
                 </form>
                 <a href="{{ route('admin.requisitions.index') }}" class="btn btn-primary">Back</a>
-                <a href="#" class="btn btn-success" onclick="print('{{ route('admin.requisition.print', ['id' => $requisition->id]) }}')">Print</a>
+                <a href="#" class="btn btn-success" onclick="customPrint('{{ route('admin.requisition.print', ['id' => $requisition->id]) }}')">Print</a>
                 <a class="btn btn-sm btn-info" href="{{ route('admin.requisitions.approved', ['id' => $requisition->id]) }}">
                     <i class="fa fa-check"></i> Approve</a>
 
@@ -162,7 +133,7 @@
 </div>
 
 <script type="text/javascript">
-    function print(url) {
+    function customPrint(url) {
         
          fetchAndPrintContent(url);
     }

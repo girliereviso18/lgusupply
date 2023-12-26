@@ -76,6 +76,8 @@ class RequisitionsController extends Controller
                     $unitId = $value[1];
                     $itemId = $value[2];
                     $qty = $value[3];
+                    $available = $value[4];
+                    $remarks = $value[5];
 
                     $requisitions_items = new Requisitions_item();
 
@@ -84,10 +86,28 @@ class RequisitionsController extends Controller
                     $requisitions_items->unit_id = $unitId;
                     $requisitions_items->item_id = $itemId;
                     $requisitions_items->qty = $qty;
+                    $requisitions_items->isavailable = $available;
+                    $requisitions_items->remarks = $remarks;
                     
                     $requisitions_items->save();
+
+                    //update the Available of the items
+                    $qnty = Supply::where('item_id', $itemId)->value('qty');
+
+                    if ($qnty !== null || $qnty !== 0) {
+                        $supplies = Supply::where('item_id', $itemId)->first();
+                        if ($supplies) {
+                            $res = $qnty - $qty;
+                            $supplies->qty = $res;
+                            $supplies->save();
+                        } else {
+                            echo "No matching supply record found for item_id: $itemId";
+                        }
+                    }
                 }
             }
+
+
             return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
         } else {
             return redirect()->route('admin.requisitions.index')->with('error', 'Failed to create requisition.');
@@ -109,12 +129,14 @@ class RequisitionsController extends Controller
     public function editrequisitions(Request $request)
     {
         $requisition = Requisition::find($request->id);
-        $requisition_items = Requisitions_item::where('requisitions_id', $request->id)
-                                            ->get();
+        $requisition_items = Requisitions_item::where('requisitions_id', $request->id)->get();
+
+        $supplies = Supply::with('item')->get();
 
         return view('Requisitions.Edit.index', [
             'requisition' => $requisition,
-            'requisition_items' => $requisition_items
+            'requisition_items' => $requisition_items,
+            'supply' => $supplies
         ]);
     }
 
@@ -202,16 +224,31 @@ public function deleterequisitions(Request $request)
      public function viewrequisitions(Request $request)
     {
         $requisition = Requisition::where('id', $request->id)->first();
-            
+        $requisitionitems = Requisitions_item::where('requisitions_id', $request->id)->get();
+        
+        foreach($requisitionitems as $val){
+            $unit_name = Unit::where('id', $val->unit_id)->value('unit_name');
+            $val->unit_id = $unit_name;
+            $item_name = Item::where('id', $val->item_id)->value('items_name');
+            $val->item_id = $item_name;
+        }
         return view('Requisitions.view', [
-            'requisition' => $requisition
+            'requisition' => $requisition,
+            'requisitionitems' => $requisitionitems
         ]);
     }
     
     public function requisitionsprint(Request $request)
     {
         $requisition = Requisition::where('id', $request->id)->first();
-        $requisitionitems = Requisitions_item::where('id', $request->id)->get();
+        $requisitionitems = Requisitions_item::where('requisitions_id', $request->id)->get();
+
+        foreach($requisitionitems as $val){
+            $unit_name = Unit::where('id', $val->unit_id)->value('unit_name');
+            $val->unit_id = $unit_name;
+            $item_name = Item::where('id', $val->item_id)->value('items_name');
+            $val->item_id = $item_name;
+        }
             
         return view('Requisitions.print.index', [
             'requisition' => $requisition,
