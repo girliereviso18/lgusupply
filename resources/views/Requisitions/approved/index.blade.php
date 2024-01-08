@@ -49,7 +49,10 @@
         </div>
     </div>
 </div>
- <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
-<script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script>
+<!-- <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
+<script 
+src="{{asset('modalalert/ jquery-ui.min.js')}}">
+
+</script> -->
 
 @endsection

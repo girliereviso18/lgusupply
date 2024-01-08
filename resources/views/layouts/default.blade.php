@@ -121,8 +121,12 @@
           <li class="nav-item">
             <div class="btn-group nav-link">
                   <button type="button" class="btn btn-rounded badge badge-light dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                    <span><img src="{{asset('adminassets/uploads/ggg.JPG?v=1635556826')}}" class="img-circle elevation-2 user-img" alt="User Image"></span>
-                    <span class="ml-3"> ADMINISTRATOR</span>
+                    <span style="margin-right: 10px;"><img src="{{asset('adminassets/uploads/ggg.JPG?v=1635556826')}}" class="img-circle elevation-2 user-img" alt="User Image"></span>
+                    <?php
+                      $userId = session('user_id');
+                      $username = App\Models\User::where('id', $userId)->value('name');
+                    ?>
+                    <span class="ml-3">{{ $username }}</span>
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" role="menu">
@@ -435,7 +439,7 @@
   })
 </script>
 <!-- <footer class="main-footer text-sm">
-        <strong>Copyright © 2023. 
+        <strong>Copyright 漏 2023. 
          <a href=""></a> -->
         <!-- /strong>
         All rights reserved.

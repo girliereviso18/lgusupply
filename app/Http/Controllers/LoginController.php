@@ -49,7 +49,7 @@ class LoginController extends Controller
             // Regular user
             session(['user_id' => Auth::user()->id]);
             session(['department' => Auth::user()->department_id]);
-            
+
             return redirect('/employee');
         } else {
             // No role found, handle accordingly

@@ -27,7 +27,6 @@
                                             <th>Office</th>
                                             <th>Balance</th>
                                              <th>Days to consume</th>
-                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
@@ -35,29 +34,17 @@
                                         @if(isset($reports))
                                             @foreach($reports as $report)
                                                  <tr>
-                                                   <!-- <td>{{$count++}}</td> -->
-                                                   <td>{{ $report->item}}</td>
-                                                   <td>{{ $report->description}}</td>
-                                                   <td>{{ $report->stock_no }}</td>
-                                                   <td>{{ $report->date }}</td>
-                                                   <td>{{ $report->reference }}</td>
-                                                   <td>{{ $report->receipt_qty}}</td>
-                                                   <td>{{ $report->issuance_qty}}</td>
-                                                   <td>{{ $report->office }}</td>
-                                                   <td>{{ $report->balance }}</td>
+                                                    <td>{{ $report->item}}</td>
+                                                    <td>{{ $report->description}}</td>
+                                                    <td>{{ $report->stock_no }}</td>
+                                                    <td>{{ $report->date }}</td>
+                                                    <td>{{ $report->reference }}</td>
+                                                    <td>{{ $report->receipt_qty}}</td>
+                                                    <td>{{ $report->issuance_qty}}</td>
+                                                    <td>{{ $report->office }}</td>
+                                                    <td>{{ $report->balance }}</td>
                                                     <td>{{ $report->days_to_consume }}</td>
-                                                  <td class="text-center">
-                                                    <a class="btn btn-sm btn-success" href="{{ url('/admin/reports/edit').'/'.$report->id}}">
-                                                        <i class="fa fa-edit"></i> Update
-                                                    </a>
-                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/reports/delete').'/'.$report->id}}">
-                                                        <i class="fa fa-trash-alt"></i> Delete
-                                                    </a>
-                                                   <a class="btn btn-sm btn-warning print_data" href="{{ url('/admin/reports/print').'/'.$report->id }}">
-                                                    <i class="fa fa-print"></i> Print
-                                                  </a>
                                                 </td>
-                                                  
                                                 </tr>
                                             @endforeach
                                         @endif

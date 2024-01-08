@@ -307,7 +307,7 @@
                 const cell = newRow.insertCell();
                 const input = document.createElement("input");
                 input.type = "text";
-                input.name = `requisition_items[${container.rows.length - 1}][${field}]`;
+                input.name = requisition_items[${container.rows.length - 1}][${field}];
                 input.className = "form-control";
                 input.required = true;
                 cell.appendChild(input);

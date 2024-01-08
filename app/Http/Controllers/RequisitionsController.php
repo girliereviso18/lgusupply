@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller; // Make sure to import the correct base controller
+use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Models\Requisition;
 use App\Models\Requisitions_item;
@@ -10,6 +11,9 @@ use App\Models\Item;
 use App\Models\Supply;
 use Auth;
 use App\Models\Unit;
+use App\Models\User;
+use Carbon\Carbon;
+
 
 class RequisitionsController extends Controller
 {
@@ -31,44 +35,40 @@ class RequisitionsController extends Controller
     {
 
         // First, save the Requisition record
+        
         $requisition = new Requisition();
-        $requisition->added_by = Auth::user()->id;
         $requisition->entity_name = $request->entity_name;
         $requisition->fund_cluster = $request->fund_cluster;
         $requisition->division_id = $request->division_id;
         $requisition->rc_code = $request->rc_code;
         $requisition->office_id = $request->office_id;
         $requisition->purpose = $request->purpose;
-        $requisition->requested_by = $request->requested_by;
-        $requisition->approved_by = $request->approved_by;
-        $requisition->issued_by = $request->issued_by;
-        $requisition->received_by = $request->received_by;
-         $requisition->status = $request->status;
 
          // Add information for "Requested by:"
+        $requisition->requested_by = $request->requested_by;
         $requisition->requested_printed_name = $request->requested_printed_name;
         $requisition->requested_designation = $request->requested_designation;
-        $requisition->requested_date = $request->requested_date;
-
-        // Add information for "Approved by:"
-        $requisition->approved_printed_name = $request->approved_printed_name;
-        $requisition->approved_designation = $request->approved_designation;
-        $requisition->approved_date = $request->approved_date;
+        $requisition->requested_date = $request->date;
 
         // Add information for "Issued by:"
-        $requisition->issued_printed_name = $request->issued_printed_name;
-        $requisition->issued_designation = $request->issued_designation;
-        $requisition->issued_date = $request->issued_date;
+        $userId = session('user_id');
+        $user = User::where('id', $userId)->first();
+        $requisition->issued_by = $userId;
+        $requisition->issued_printed_name = $user->name;
+        $requisition->issued_designation = $user->department_id;
+        $requisition->issued_date = $request->date;
 
         // Add information for "Received by:"
+        $requisition->received_by = $request->received_by;
         $requisition->received_printed_name = $request->received_printed_name;
         $requisition->received_designation = $request->received_designation;
-        $requisition->received_date = $request->received_date;
+        $requisition->received_date = $request->date;
+        $requisition->status = $request->status;
+
 
         if ($requisition->save()) {
 
             $requisitions = array($request->input('requisitions'));
-            $requisition_value = array();
 
             foreach ($requisitions as $row) {
                 foreach ($row as $value) {
@@ -108,9 +108,9 @@ class RequisitionsController extends Controller
             }
 
 
-            return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
+            return redirect()->route('admin.requisitions.pending')->with('success', 'Successfully added!');
         } else {
-            return redirect()->route('admin.requisitions.index')->with('error', 'Failed to create requisition.');
+            return redirect()->route('admin.requisitions.pending')->with('error', 'Failed to create requisition.');
         }
     }
 
@@ -119,10 +119,14 @@ class RequisitionsController extends Controller
         $supplies = Supply::with('item')->get();
         $units = Unit::get();
         $items = Item::get();
+        $department = Department::get();
+        $users = User::get();
         return view('Requisitions.Store.index',[
             'supplies'=> $supplies,
             'units' => $units,
-            'items' => $items
+            'items' => $items,
+            'departments' => $department,
+            'users' => $users
         ]);
     }
 
@@ -142,69 +146,105 @@ class RequisitionsController extends Controller
 
   public function updaterequisitions(Request $request)
 {
-            $requisition = Requisition::find($request->id);
-            $requisition->entity_name = $request->entity_name;
-            $requisition->fund_cluster = $request->fund_cluster;
-            $requisition->division_id = $request->division_id;
-            $requisition->rc_code = $request->rc_code;
-            $requisition->office_id = $request->office_id;
-            $requisition->purpose = $request->purpose;
-            //  resquestedby
+        $requisition = Requisition::find($request->id);
 
-            $requisition->requested_by = $request->requested_by;
-            $requisition->requested_signature= $request->requested_signature;
-            $requisition->requested_printed_name = $request->requested_printed_name;
-            $requisition->requested_designation= $request->requested_designation;
-            $requisition->requested_date= $request->requested_date;
-            
-            $requisition->approved_by = $request->approved_by;
-            $requisition->approved_signature= $request->approved_signature;
-            $requisition->approved_printed_name= $request->approved_printed_name;
-             $requisition->approved_designation= $request->approved_designation;
-              $requisition->approved_date= $request->approved_date;
-        
-            
-            $requisition->issued_by = $request->issued_by;
-            $requisition->issued_signature = $request->issued_signature;
-            $requisition->issued_printed_name = $request->issued_printed_name;
-            $requisition->issued_designation = $request->issued_designation;
-            $requisition->issued_date = $request->issued_date;
-            
-            $requisition->received_by = $request->received_by;
-            $requisition->received_signature = $request->received_signature;
-            $requisition->received_printed_name = $request->received_printed_name;
-            $requisition->received_designation = $request->received_designation;
-            $requisition->received_date = $request->received_date;
+        $requisition->entity_name = $request->entity_name;
+        $requisition->fund_cluster = $request->fund_cluster;
+        $requisition->division_id = $request->division_id;
+        $requisition->rc_code = $request->rc_code;
+        $requisition->office_id = $request->office_id;
+        $requisition->purpose = $request->purpose;
 
-            if ($requisition->save()) {
-                // Update requisitions_items
-                $requisitionItemsData = $request->requisition_items;
+         // Add information for "Requested by:"
+        $requisition->requested_by = $request->requested_by;
+        $requisition->requested_printed_name = $request->requested_printed_name;
+        $requisition->requested_designation = $request->requested_designation;
 
-                foreach ($requisitionItemsData as $itemsData) {
-                    $requisitions_items = Requisitions_item::find($itemsData['id']);
-                    // Check if the requisitions_items exists
-                    if (!$requisitions_items) {
-                        // Handle error, return response or redirect with error message
-                        return redirect()->route('requisitions.index')->with('error', 'Requisition item not found.');
+        // Add information for "Received by:"
+        $requisition->received_by = $request->received_by;
+        $requisition->received_printed_name = $request->received_printed_name;
+        $requisition->received_designation = $request->received_designation;
+
+        // //echo json_encode($requisition);
+
+        if ($requisition->save()) {
+
+            // $deleterequisition_item = Requisitions_item::where('requisition_id',$request->id);
+            // if ($deleterequisition_item) {
+            //     $deleterequisition_item->delete();
+            // }
+            // Update requisitions_items
+            $requisitions = array($request->input('requisitions'));
+
+            foreach ($requisitions as $row) {
+                foreach ($row as $value) {
+                    $stockNo = $value[0];
+                    $unitId = $value[1];
+                    $itemId = $value[2];
+                    $qty = $value[3];
+                    $available = $value[4];
+                    $remarks = $value[5];
+                    $item_id = $value[6];
+
+                    echo $remarks;
+                    if($item_id != ''){
+                        //update the Available of the items
+                        $qnty = Supply::where('item_id', $itemId)->value('qty');
+                        $q = Requisitions_item::where('id', $item_id)->value('qty');
+                        if ($qnty !== null || $qnty !== 0) {
+                            $supplies = Supply::where('item_id', $itemId)->first();
+                            if ($supplies) {
+                                $sum = $qnty+$q;
+                                $res = $sum - $qty;
+                                $supplies->qty = $res;
+                                $supplies->save();
+                            } else {
+                                echo "No matching supply record found for item_id: $itemId";
+                            }
+                        }
+                        Requisitions_item::where('id', $item_id)->update([
+                            'stock_no' => $stockNo,
+                            'unit_id' => $unitId,
+                            'item_id' => $itemId,
+                            'qty' => $qty,
+                            'isavailable' => $available,
+                            'remarks' => $remarks,
+                        ]);
+                        
+                    }else{
+                        $requisitions_items = new Requisitions_item();
+
+                        $requisitions_items->requisitions_id = $requisition->id;
+                        $requisitions_items->stock_no = $stockNo;
+                        $requisitions_items->unit_id = $unitId;
+                        $requisitions_items->item_id = $itemId;
+                        $requisitions_items->qty = $qty;
+                        $requisitions_items->isavailable = $available;
+                        $requisitions_items->remarks = $remarks;
+                        
+                        $requisitions_items->save();
+    
+                        //update the Available of the items
+                        $qnty = Supply::where('item_id', $itemId)->value('qty');
+    
+                        if ($qnty !== null || $qnty !== 0) {
+                            $supplies = Supply::where('item_id', $itemId)->first();
+                            if ($supplies) {
+                                $res = $qnty - $qty;
+                                $supplies->qty = $res;
+                                $supplies->save();
+                            } else {
+                                echo "No matching supply record found for item_id: $itemId";
+                            }
+                        }
+                    }
+                }
             }
 
-            // Update requisitions_items fields
-            $requisitions_items->stock_no = $itemsData['stock_no'];
-            $requisitions_items->unit_id = $itemsData['unit_id'];
-            $requisitions_items->item_id = $itemsData['item_id'];
-            $requisitions_items->qty = $itemsData['qty'];
-            $requisitions_items->isavailable = $itemsData['isAvailable'];
-            $requisitions_items->issued_qty = $itemsData['issued_qty'];
-            $requisitions_items->remarks = $itemsData['remarks'];
-
-            // Save the updated requisitions_items
-            $requisitions_items->save();
+            return redirect()->route('admin.requisitions.pending')->with('success', 'Updated!');
+        } else {
+            return redirect()->route('admin.requisitions.pending')->with('error', 'Failed to update requisition.');
         }
-
-        return redirect()->route('admin.requisitions.index')->with('success', 'Updated!');
-    } else {
-        return redirect()->route('admin.requisitions.index')->with('error', 'Failed to update requisition.');
-    }
 }
 
 public function deleterequisitions(Request $request)
@@ -218,13 +258,27 @@ public function deleterequisitions(Request $request)
         return redirect()->back()->with('error', 'Requisition not found.');
     }
 }
+public function deleteRequisitionItem(Request $request)
+{
+    $requisition_item = Requisitions_item::find($request->id);
 
-
+    if ($requisition_item) {
+        $qty = $requisition_item->qty;
+        $item_id = $requisition_item->item_id;
+        // Use the increment method to add $qty to the current value of 'qty' in the Supply table
+        Supply::where('item_id', $item_id)->increment('qty', $qty);
+    }
+    
+    $deleteItem = Requisitions_item::find($request->id);
+    if ($deleteItem) {
+        $deleteItem->delete();
+    }
+}
      public function viewrequisitions(Request $request)
     {
         $requisition = Requisition::where('id', $request->id)->first();
         $requisitionitems = Requisitions_item::where('requisitions_id', $request->id)->get();
-        
+
         foreach($requisitionitems as $val){
             $unit_name = Unit::where('id', $val->unit_id)->value('unit_name');
             $val->unit_id = $unit_name;
@@ -242,6 +296,15 @@ public function deleterequisitions(Request $request)
         $requisition = Requisition::where('id', $request->id)->first();
         $requisitionitems = Requisitions_item::where('requisitions_id', $request->id)->get();
 
+        if($requisition){
+            $dep = Department::where('id', $requisition->received_designation)->value('department_user');
+            $requisition->received_designation = $dep;
+            $requisition->requested_date = Carbon::parse($requisition->received_date)->format('Y-m-d');
+            $requisition->issued_date = Carbon::parse($requisition->issued_date)->format('Y-m-d');
+            $requisition->received_date = Carbon::parse($requisition->received_date)->format('Y-m-d');
+
+        }
+
         foreach($requisitionitems as $val){
             $unit_name = Unit::where('id', $val->unit_id)->value('unit_name');
             $val->unit_id = $unit_name;
@@ -257,6 +320,8 @@ public function deleterequisitions(Request $request)
     public function show($id) {
         $requisition = Requisition::find($id);
         $requisitionItems = $requisition->requisitionItems; 
+        $dep = Department::where('id', $requisition->received_designation);
+        $requisition->received_designation = $dep;
 
         return view('Requisitions.view', ['requisition' => $requisition, 'requisitionItems' => $requisitionItems]);
 
@@ -265,16 +330,34 @@ public function deleterequisitions(Request $request)
     public function approve(Request $request)
     {
         $requisition = Requisition::find($request->id);
-            
-        $requisition->status = 'approved';
-        $requisition->save();
 
-        return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
+        $requisition->approved_printed_name = 'Noel E. Alinsub';
+        $requisition->approved_date = $request->current_date;
+        $requisition->status = 'approved';
+        
+
+        if($requisition->issued_by == null){
+            // Add information for "Issued by:"
+            $userId = Auth::user()->id;
+            $user = User::where('id', $userId)->first();
+            $requisition->issued_by = $userId;
+            $requisition->issued_printed_name = $user->name;
+            $requisition->issued_designation = $user->department_id;
+            $requisition->issued_date = $request->current_date;
+        }
+
+        if($requisition->received_by == null){
+            $requisition->received_by = 0;
+            $requisition->received_printed_name = $request->received_printed_name;
+            $requisition->received_designation = $request->received_designation;
+            $requisition->received_date = $request->current_date;
+        }
+        $requisition->save();
     }
     public function pendingRequisition(){
-        $requisitions = Requisition::where('status', 'pending')->get();
-
-        return view('Requisitions/pending.index', ['requisitions' => $requisitions]);
+        $requisitions = Requisition::where('status', 'pending')->orderBy('created_at', 'desc')->get();
+        //echo json_encode($requisitions);
+         return view('Requisitions/pending.index', ['requisitions' => $requisitions]);
     }
     public function approvedRequisition(){
         $requisitions = Requisition::where('status', 'approved')->get();

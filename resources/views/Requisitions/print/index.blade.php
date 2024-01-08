@@ -88,8 +88,6 @@
 	<td height="25" align="left" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
     	<b><font face="Times New Roman" size=4>Entity Name :</font></b><font face="Times New Roman" size=4>{{$requisition->entity_name}}</font>
 	</td>
-
-
 		<td align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
 		<td align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
 		<td align="left"><b><font face="Times New Roman" size=4><br></font></b></td>
@@ -99,7 +97,6 @@
 		<td align="left"><font face="Times New Roman" size="4">{{$requisition->fund_cluster}}<br></font></td>
 	</tr>
 	<tr>
-		<td style="border-left: 2px solid #000000" height="6" align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
 		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
 		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
 		<td align="center"><b><font face="Times New Roman" size=4><br></font></b></td>
@@ -313,8 +310,8 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-transform: uppercase;" align="center"><b><font face="Times New Roman">{{ $requisition->office->name }}<br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">NOEL E. ALINSUB<br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">OFELLE MARIE S. OLAYVAR<br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">{{ $requisition->issued_printed_name }}<br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman">{{ $requisition->received_printed_name }}<br></font></b></td>
 	</tr>
 
 	<tr>
@@ -323,15 +320,15 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center"><b><font face="Times New Roman">{{ $requisition->office->designation}}<br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">Municipal Mayor<br></font></b></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">Supply Officer II<br></font></b></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman">{{ $requisition->received_designation }}<br></font></b></td>
 	</tr>
 	<tr>
 		<td style="border-bottom: 2px solid #000000; border-left: 2px solid #000000" height="30" align="left"><font face="Times New Roman" size=3>Date :</font></td>
 		<td style="border-bottom: 2px solid #000000; border-right: 1px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
-		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000" align="center"><b><font face="Times New Roman"><br></font></b></td>
-		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman"><br></font></b></td>
-		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman"><br></font></b></td>
-		<td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" align="left"><b><font face="Times New Roman"><br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000" align="center"><b><font face="Times New Roman">{{ $requisition->requested_date}}<br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">{{ $requisition->approved_date}}<br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center"><b><font face="Times New Roman">{{ $requisition->issued_date}}<br></font></b></td>
+		<td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" align="center"><b><font face="Times New Roman">{{ $requisition->received_date}}<br></font></b></td>
 	</tr>
 	<tr>
 		<td height="20" align="left"><i><font face="Times New Roman" color="#FFFFFF">   AO 6/15/02</font></i></td>

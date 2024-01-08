@@ -36,15 +36,13 @@
                                                    <td>{{ $requisition->office_id }}</td>
                                                    <td>{{ $requisition->purpose}}</td>
                                                   <td class="text-center">
-                                                    <a class="btn btn-sm btn-success" href="{{ url('/employee/requisition/edit').'/'.$requisition->id}}">
+                                                    <a class="btn btn-sm btn-success" href="{{ url('/user/requisitions/edit').'/'.$requisition->id}}">
                                                         <i class="fa fa-edit"></i> Update
                                                     </a>
                                                     <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('employee/requisition/delete').'/'.$requisition->id}}">
                                                         <i class="fa fa-trash-alt"></i> Delete
                                                     </a>
-                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('employee/requisition/view').'/'.$requisition->id}}">
-                                                        <i class="fa fa-eye"></i> View
-                                                    </a>
+                                                    
                                                 </td>
                                                 </tr>
                                             @endforeach
@@ -113,28 +111,6 @@
         $('.table').dataTable();
     })
 
-    // function delete_receiving($id){
-    //     start_loader();
-    //     $.ajax({
-    //         url:_base_url_+"classes/Master.php?f=delete_receiving",
-    //         method:"POST",
-    //         data:{id: $id},
-    //         dataType:"json",
-    //         error:err=>{
-    //             console.log(err)
-    //             alert_toast("An error occured.",'error');
-    //             end_loader();
-    //         },
-    //         success:function(resp){
-    //             if(typeof resp== 'object' && resp.status == 'success'){
-    //                 location.reload();
-    //             }else{
-    //                 alert_toast("An error occured.",'error');
-    //                 end_loader();
-    //             }
-    //         }
-    //     })
-    // }
 </script>
 
 @endsection

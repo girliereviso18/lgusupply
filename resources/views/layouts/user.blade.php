@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="content dashboard-background" style="height: auto;">
 <head>
     <meta charset="utf-8">
@@ -50,7 +49,7 @@
     <!-- Toastr -->
     <script src="{{asset('adminassets/plugins/toastr/toastr.min.j')}}"></script>
     <script>
-        var _base_url_ = 'http://localhost/bontoc-supply-management system/';
+        var base_url = 'http://localhost/bontoc-supply-management system/';
     </script>
     <script src="{{asset('adminassets/dist/js/script.js')}}"></script>
 
@@ -76,11 +75,13 @@
 }
 
 
-@media (min-width: 1000px)
-.col-md-3 {
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 65%;
+@media (min-width: 1000px){
+  /* .col-md-3 {
+      -ms-flex: 0 0 25%;
+      flex: 0 0 25%;
+      max-width: 65%;
+  } */
+}
 </style>
 <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-green border border-light border-top-0  border-left-0 border-right-0 navbar-light text-sm green">
@@ -121,8 +122,8 @@
           <li class="nav-item">
             <div class="btn-group nav-link">
                   <button type="button" class="btn btn-rounded badge badge-light dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                    <span><img src="{{asset('adminassets/uploads/ggg.JPG?v=1635556826')}}" class="img-circle elevation-2 user-img" alt="User Image"></span>
-                    <span class="ml-3"> USER</span>
+                    <span style="margin-right: 10px;"><img src="{{asset('adminassets/uploads/ggg.JPG?v=1635556826')}}" class="img-circle elevation-2 user-img" alt="User Image"></span>
+                    <span class="ml-3">{{ $username = App\Models\User::where('id',session('user_id'))->value('name') }}</span>
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" role="menu">

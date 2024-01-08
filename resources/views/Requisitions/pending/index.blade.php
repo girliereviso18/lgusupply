@@ -8,14 +8,14 @@
                 <div class="card-header">
                     <h3 class="card-title" style="color: #8a2be2; font-weight: bold;">Requisition Pending Lists</h3>
                     <div class="card-tools">
-                    <a href="{{route('admin.requisitions.addrequisitions')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Requisitions</a>
-                </div>
+                        <a href="{{route('admin.requisitions.addrequisitions')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Requisitions</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">
                         <div class="container-fluid">
                             <table class="table table-bordered table-stripped"> 
-                                            <thead>
+                                    <thead>
                                         <tr>
                                             <th>Entity Name</th>
                                             <th>Fund Cluster </th>
@@ -49,9 +49,15 @@
                                                     <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/requisitions/view').'/'.$requisition->id}}">
                                                         <i class="fa fa-eye"></i> View
                                                      </a>
-                                                         <a class="btn btn-sm btn-info" href="{{ route('admin.approved.index', ['id' => $requisition->id]) }}">
-                                                            <i class="fa fa-check"></i> Approve
-                                                        </a>
+                                                     <a class="btn btn-sm approved btn-info"
+                                                        data-toggle="modal"
+                                                        data-target="#approvedModal"
+                                                        data-received="{{ $requisition->received_by }}"
+                                                        data-id="{{ $requisition->id }}"
+                                                        data-url="{{ route('admin.approved.index', ['id' => $requisition->id]) }}"
+                                                        href="#">
+                                                        <i class="fa fa-check"></i> Approve
+                                                    </a>
                                                         
                                                         <a class="btn btn-sm btn-warning" href="{{ route('admin.disapprove.index', ['id' => $requisition->id]) }}">
                                                             <i class="fa fa-times"></i> Disapprove
@@ -70,8 +76,11 @@
         </div>
     </div>
 </div>
- <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
-<script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script>
+
+@include('Requisitions.approved_modal')
+
+<!-- <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
+<script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script> -->
 <script>
     $(document).ready(function(){
         $('.delete_data').click(function(e){
@@ -96,13 +105,13 @@
                         url: _thisUrl,
                         method:"GET",
                         error:err=>{
-                            console.log(err)
-                            alert_toast("An error occured.",'error');
-                        },
-                        success:function(resp){
-                            location.reload();
-                        }
-                    })
+                                console.log(err)
+                                alert_toast("An error occured.",'error');
+                            },
+                            success:function(resp){
+                                location.reload();
+                            }
+                        })
 
                       // $('body').append('<h1>Confirm Dialog Result: <i>Yes</i></h1>');
                       $(this).dialog("close");
@@ -125,28 +134,38 @@
         $('.table').dataTable();
     })
 
-    // function delete_receiving($id){
-    //     start_loader();
-    //     $.ajax({
-    //         url:_base_url_+"classes/Master.php?f=delete_receiving",
-    //         method:"POST",
-    //         data:{id: $id},
-    //         dataType:"json",
-    //         error:err=>{
-    //             console.log(err)
-    //             alert_toast("An error occured.",'error');
-    //             end_loader();
-    //         },
-    //         success:function(resp){
-    //             if(typeof resp== 'object' && resp.status == 'success'){
-    //                 location.reload();
-    //             }else{
-    //                 alert_toast("An error occured.",'error');
-    //                 end_loader();
-    //             }
-    //         }
-    //     })
-    // }
+    $('#approvedModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); 
+        $('#id').val(button.data('id'));
+        console.log(button.data('received'));
+        if(button.data('received') == ""){
+            $('.received-by').show();
+        }
+
+    });
+    $()
+    
+    $('.btnApproved').on('click', function() {
+    
+        var formData = $('#approved').serialize();
+        $.ajax({
+            url: "{{ route('admin.approved.index') }}",
+            method: "POST",
+            cache: false,
+            data: formData,
+            error: function(err) {
+                console.log(err);
+                alert_toast("An error occurred.", 'error');
+            },
+            success: function(resp) {
+                alert_toast("Approved!", 'success');
+                setTimeout(function(){
+                    location.reload()
+                },2000)
+            }
+        });
+    });
+    console.log()
 </script>
 
 @endsection

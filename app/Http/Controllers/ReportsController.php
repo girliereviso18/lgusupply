@@ -18,12 +18,12 @@ class ReportsController extends Controller
 
     public function index()
     {
-        $reports = Report::with(['item', 'office'])->get();
-        foreach($reports as $val){
-            $depertment_name = Department::where('id', $val->department)->value('department_user');
-            $val->department = $depertment_name;
-            $item_name = Item::where('id', $val->item)->value('items_name');
-            $val->item = $item_name;
+        $reports = Report::get();
+        foreach ($reports as $row) {
+            $dep = Department::where('id', $row->department)->value('department_user');
+            $row->department = $dep;
+            $item = Item::where('id', $row->item)->value('items_name');
+            $row->item = $item;
         }
         return view('Reports.index', ['reports' => $reports]);
     }

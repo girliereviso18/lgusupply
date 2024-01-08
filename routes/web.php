@@ -91,10 +91,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/requisitions/store', 'RequisitionsController@store')->name('admin.requisitions.store');
 
         Route::get('/requisitions/edit/{id}', 'RequisitionsController@editrequisitions')->name('admin.requisitions.edit');
-        Route::post('/requisitions/edit/save', 'RequisitionsController@updaterequisitions')->name('admin.requisitions.edit.save')
-        ;
+        Route::post('/requisitions/edit/save', 'RequisitionsController@updaterequisitions')->name('admin.requisitions.edit.save');
 
         Route::get('/requisitions/delete/{id}', 'RequisitionsController@deleterequisitions')->name('admin.requisitions.delete');
+        Route::get('/requisitions/delete/item/{id}', 'RequisitionsController@deleteRequisitionItem')->name('admin.requisitions.delete.item');
+        
         Route::get('/requisitions/view/{id}', 'RequisitionsController@viewrequisitions')->name('admin.requisitions.view');
         Route::post('/requisitions/view', 'RequisitionsController@dviewrequisitions')->name('admin.requisitions.edit.view');
         Route::get('/requisitions/print/{id}', 'RequisitionsController@requisitionsprint')->name('admin.requisition.print');
@@ -105,7 +106,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         //Route::get('/requisitions/stock', 'StockController@pendingRequisition')->name('admin.stock.get');
 
         //requisitions views
-        Route::get('/approved-requisitions', 'RequisitionsController@approve')->name('admin.approved.index');
+        Route::post('/approved-requisitions', 'RequisitionsController@approve')->name('admin.approved.index');
         Route::get('/disapproved-requisitions', 'RequisitionsController@disapprove')->name('admin.disapprove.index');
 
 
@@ -187,10 +188,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/user/stockCard', 'User\StockCardController@index')->name('employee.stockCard.index');
 
         Route::get('/user/requisitions/edit/{id}', 'User\RequisitionsController@editrequisitions')->name('employee.requisition.edit');
-        Route::post('/user/requisitions/edit/save', 'User\RequisitionsController@updaterequisitions')->name('employee.requisition.edit.save')
-        ;
+        Route::post('/user/requisitions/edit/save', 'User\RequisitionsController@updaterequisitions')->name('employee.requisition.edit.save');
 
-        Route::get('/user/requisitions/delete/{id}', 'User\RequisitionsController@deleterequisitions')->name('employee.requisition.delete');
+        Route::get('/employee/requisitions/delete/{id}', 'User\RequisitionsController@deleterequisitions')->name('employee.requisition.delete');
+        Route::get('/employee/requisitions/delete/item/{id}', 'User\RequisitionsController@deleteRequisitionItem')->name('employee.requisitions.delete.item');
+
         Route::get('/user/requisitions/view/{id}', 'User\RequisitionsController@viewrequisitions')->name('employee.requisition.view');
         Route::post('/user/requisitions/view', 'User\RequisitionsController@viewrequisitions')->name('employee.requisition.edit.view');
         Route::get('/user/requisitions/print/{id}', 'User\RequisitionsController@requisitionsprint')->name('employee.requisition.print');
@@ -205,4 +207,5 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/user/pendings/save', 'PendingsController@updatependings')->name('employee.pendings.edit.save');
 
         Route::get('/user/pendings/delete/{id}', 'PendingsController@deletependings')->name('employee.pendings.delete');
-}); 
+
+});

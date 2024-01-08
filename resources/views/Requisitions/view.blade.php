@@ -46,46 +46,23 @@
                     </div>
                     <div class="form-group">
                         <label for="requested_designation">Designation:</label>
-                        <p>{{$requisition->office->designation}}</p>
+                        <?php
+                            $dep = App\Models\Department::where('id', $requisition->received_designation)->value('department_user');
+                        ?>
+                        <p>{{ $dep }}</p>
                     </div>
                   </hr>
-                  <hr>
-                   <div class="form-group">
-                        <label for="approved_by"style="color: #ff0000; font-weight: bold;">APPROVED BY</label>
-                    </div>
-                    <div class="form-group">
-                        <label for="approved_printed_name">Printed Name:</label>
-                        <p>{{$requisition->office->name }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="approved_designation">Designation:</label>
-                        <p>{{$requisition->office->designation}}</p>
-                    </div>
-                  </hr>
-                  <hr>
-                    <div class="form-group">
-                        <label for="issued_by" style="color: #ff0000; font-weight: bold;">ISSUED BY</label>
-                    </div>
-                     <div class="form-group">
-                        <label for="issued_printed_name">Printed Name:</label>
-                        <p>{{ $requisition->office->name }}</p>
-                    </div>
-                     <div class="form-group">
-                        <label for="issued_designation">Designation:</label>
-                        <p>{{$requisition->office->designation}}</p>
-                    </div>
-                </hr>
                 <hr>
                    <div class="form-group">
                         <label for="received_by"style="color: #ff0000; font-weight: bold;">RECEIVED BY</label>
                     </div>
                      <div class="form-group">
                         <label for="received_printed_name">Printed Name:</label>
-                        <p>{{ $requisition->office->name }}</p>
+                        <p>{{ $requisition->received_printed_name }}</p>
                     </div>
                      <div class="form-group">
                         <label for="received_designation">Designation:</label>
-                        <p>{{$requisition->office->designation}}</p>
+                        <p>{{ $dep }}</p>
                     </div>
                     </hr>
 
@@ -121,9 +98,9 @@
                 </form>
                 <a href="{{ route('admin.requisitions.index') }}" class="btn btn-primary">Back</a>
                 <a href="#" class="btn btn-success" onclick="customPrint('{{ route('admin.requisition.print', ['id' => $requisition->id]) }}')">Print</a>
-                <a class="btn btn-sm btn-info" href="{{ route('admin.requisitions.approved', ['id' => $requisition->id]) }}">
-                    <i class="fa fa-check"></i> Approve</a>
-
+                <a class="btn btn-sm approved btn-info"  data-toggle="modal" data-target="#approvedModal" data-url="{{ route('admin.approved.index', ['id' => $requisition->id]) }}" href="">
+                    <i class="fa fa-check"></i> Approve
+                </a>
                 <a class="btn btn-sm btn-warning" href="{{ route('admin.requisitions.disapproved', ['id' => $requisition->id]) }}">
                     <i class="fa fa-times"></i> Disapprove</a>
 
@@ -131,6 +108,8 @@
         </div>
     </div>
 </div>
+
+@include('Requisitions.approved_modal')
 
 <script type="text/javascript">
     function customPrint(url) {
@@ -158,5 +137,12 @@
       printWindow.print();
       printWindow.close();
     }
+
+    $('#approvedModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var url = button.data('url'); // Extract info from data-* attributes
+        $('#approveLink').attr('href', url); // Set the href of the modal button
+    });
+
 </script>
 @endsection

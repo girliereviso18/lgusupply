@@ -18,86 +18,12 @@
                 <span class="info-box-icon bg-red elevation-1"><i class="fas fa-file"></i></span>
                     <div class="info-box-content">
                     <a href="{{ route('employee.requisition.index') }}" target="_blank"><span class="info-box-text">Requisitions</span></a>
-                    @if($nOrequisition=App\Models\Requisition::count())
                     <span class="info-box-number">
-                    {{ $nOrequisition }}
+                      {{ $no_requisition = App\Models\Requisition::where('user_id', session('user_id'))->count() }}
                     </span>
-                    @endif
                 </div>
             </div>
         </div>
-  
-
-            
-  
-          <!--   <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box bg-light shadow">
-                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-exchange-alt"></i></span>
-
-                    <div class="info-box-content">
-                    <span class="info-box-text">BO Records</span>
-                    <span class="info-box-number text-right">
-                        4            </span>
-                    </div> -->
-                    <!-- /.info-box-content -->
-        <!--     </div>
-            
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box bg-light shadow">
-                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-undo"></i></span>
-
-                    <div class="info-box-content">
-                    <span class="info-box-text">Return Records</span>
-                    <span class="info-box-number text-right">
-                        1            </span>
-                    </div>
-                     /.info-box-content -->
-              
-                <!-- /.info-box -->
-           <!--  </div> -->
-            <!-- <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box bg-light shadow">
-                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-file-invoice-dollar"></i></span>
-
-                    <div class="info-box-content">
-                    <span class="info-box-text">Sales Records</span>
-                    <span class="info-box-number text-right">
-                        1            </span>
-                    </div> --> 
-                    <!-- /.info-box-content -->
-              <!--   </div> -->
-                <!-- /.info-box -->
-           <!--  </div>
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box bg-light shadow">
-                    <span class="info-box-icon bg-navy elevation-1"><i class="fas fa-truck-loading"></i></span>
-
-                    <div class="info-box-content">
-                    <span class="info-box-text">Suppliers</span>
-                    <span class="info-box-number text-right">
-                        2            </span>
-                    </div> -->
-          
-                    <!-- /.info-box-content -->
-               <!--  </div> -->
-                <!-- /.info-box -->
-           <!--  </div>
-                <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box bg-light shadow">
-                    <span class="info-box-icon bg-teal elevation-1"><i class="fas fa-users"></i></span>
-
-                    <div class="info-box-content">
-                    <span class="info-box-text">Users</span>
-                    <span class="info-box-number text-right">
-                        2            </span>
-                    </div> -->
-                    <!-- /.info-box-content -->
-               <!--  </div> -->
-                <!-- /.info-box -->
-          <!--   </div>
-            </div>          </div>
-                </section> --> 
-                <!-- /.content -->
           <div class="modal fade" id="confirm_modal" role='dialog'>
             <div class="modal-dialog modal-md modal-dialog-centered" role="document">
               <div class="modal-content">

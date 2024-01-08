@@ -19,15 +19,15 @@
                             <label>Department</label>
                              <select type="" name="department_id" class="form-control" required>
                                     <option value="" disabled selected>Select Department</option>
-                                     @if($departments = App\Models\Department::get())
-                                         @foreach($departments as $department)
-                                          <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-
-                                          @if($department->id==$user->department_id)
-                                            <option value="{{ $department->id }}" selected> {{ $department->department_user }}</option>
-                                          @endif
+                                    @if($departments = App\Models\Department::get())
+                                        @foreach($departments as $department)
+                                            @if($department->id==$user->department_id)
+                                                <option value="{{ $department->id }}"selected> {{ $department->department_user }}</option>
+                                            @else
+                                                <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+                                            @endif
                                         @endforeach
-                                      @endif
+                                    @endif
                            </select>
                        </div>
                     <div class="form-group">

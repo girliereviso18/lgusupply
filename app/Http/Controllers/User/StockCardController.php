@@ -14,7 +14,7 @@ class StockCardController extends Controller
     }
     public function index()
     {
-        $reports = Report::where('office', session("department"))->get();
+        $reports = Report::where('department', session("department"))->get();
         return view('Employee.stockCard.index',[
             'reports' => $reports
         ]);
