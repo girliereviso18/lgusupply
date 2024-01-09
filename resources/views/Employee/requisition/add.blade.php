@@ -16,7 +16,7 @@
                                 <div class="col-md-12 row">
                                     <div class="col-md-4 form-group">
                                         <label for="entity_name">Entity Name:</label>
-                                        <input type="text" name="entity_name" value="{{ $username }}" class="form-control" required>
+                                        <input type="text" name="entity_name" value="" class="form-control" required>
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="fund_cluster">Fund Cluster:</label>
@@ -59,35 +59,6 @@
                                         <label for="purpose">Purpose:</label>
                                         <textarea name="purpose" class="form-control" rows="4" required></textarea>
                                     </div>
-                                </div>
-                                <div class="col-md-12 row">
-                                    <div class="col-md-12 form-group">
-                                        <label for="requested_by">REQUESTED BY</label>  
-                                    </div>
-                                    <div class="col-md-4 form-group">
-                                        <label for="requested_printed_name">Printed Name:</label>
-                                        <input type="hidden" id="requested_by" name="requested_printed_name">
-                                        <select type="" name="requested_by" class="form-control requested_by" required>
-                                            <option value="" disabled selected>Select Name</option>
-                                            @if($departments = App\Models\Department::get())
-                                                @foreach($departments as $department)
-                                                    <option value="{{ $department->id }}"> {{ $department->name }}</option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                    </div>
-                                    <div class=" col-md-4 form-group">
-                                        <label for="requested_designation">Designation:</label>
-                                        <select type="" name="requested_designation" class="form-control" required>
-                                            <option value="" disabled selected>Select Designation</option>
-                                            @if($departments = App\Models\Department::get())
-                                            @foreach($departments as $department)
-                                                <option value="{{ $department->id }}"> {{ $department->designation }}</option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                    </div>
-                                    <input type="hidden" name="status" value="pending">
                                 </div>
                             </div>
                         </div>
@@ -152,10 +123,10 @@
                 </div>
             </div>
         </div>
+        <?php date_default_timezone_set('Asia/Manila');
+            $currentDate = date('Y-m-d H:i:s'); ?>
         <input type="hidden" name="date" value="<?php
-            date_default_timezone_set('Asia/Manila');
-            $currentDate = date('Y-m-d H:i:s');
-            
+            echo $currentDate;
         ?>">
     </form>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -172,16 +143,6 @@
                 }
             }
         }
-        $('.requested_by').on('change', function(){
-            $('#requested_by').val($(this).find('option:selected').text());
-        });
-        $('.issued_by').on('change', function(){
-            $('#issued_by').val($(this).find('option:selected').text());
-        });
-        $('.received_by').on('change', function(){
-            $('#received_by').val($(this).find('option:selected').text());
-        });
-
         var count=1;
         $('#myTable').on('click', '.delete-row-button', function() {
           $(this).closest('tr').remove();

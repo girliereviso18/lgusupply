@@ -87,14 +87,7 @@
                 </div>
                 <div class="col-md-4 form-group">
                     <label for="received_designation">Designation:</label>
-                    <select type="" name="received_designation" class="form-control" required>
-                        <option value="" disabled selected>Select Designation</option>
-                        @if($departments = App\Models\Department::get())
-                        @foreach($departments as $department)
-                        <option value="{{ $department->id }}"> {{ $department->designation }}</option>
-                            @endforeach
-                    @endif
-                    </select>
+                    <input type="text" class="form-control" name="received_designation" value="">
                 </div>
                 <input type="hidden" name="status" value="pending">
             </div>

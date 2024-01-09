@@ -72,42 +72,6 @@
                                     <textarea name="purpose" class="form-control" rows="4" required>{{ $requisition->purpose }}</textarea>
                                 </div>
                             </div>
-                            <div class="col-md-12 row">
-                                <div class="col-md-12 form-group">
-                                    <label for="requested_by">REQUESTED BY</label>  
-                                </div>
-                                <div class="col-md-4 form-group">
-                                    <label for="requested_printed_name">Printed Name:</label>
-                                    <input type="hidden" id="requested_by" name="requested_printed_name" value="{{ $requisition->requested_printed_name }}">
-                                    <select type="" name="requested_by" class="form-control requested_by" required>
-                                        <option value="" disabled selected>Select Name</option>
-                                        @if($departments = App\Models\Department::get())
-                                            @foreach($departments as $department)
-                                                @if($department->id == $requisition->requested_by)
-                                                    <option value="{{ $department->id }}" selected> {{ $department->name }}</option>
-                                                @else
-                                                    <option value="{{ $department->id }}"> {{ $department->name }}</option>
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                <div class=" col-md-4 form-group">
-                                    <label for="requested_designation">Designation:</label>
-                                    <select type="" name="requested_designation" class="form-control" required>
-                                        <option value="" disabled selected>Select Designation</option>
-                                        @if($departments = App\Models\Department::get())
-                                            @foreach($departments as $department)
-                                                @if($department->id == $requisition->requested_designation)
-                                                    <option value="{{ $department->id }}" selected> {{ $department->designation }}</option>
-                                                @else
-                                                    <option value="{{ $department->id }}"> {{ $department->designation }}</option>
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -164,7 +128,7 @@
                                     </td>
                                     <td style="width: 80px"><input type="number" value="{{ $value->qty }}" id="quantity<?php echo $count;?>" min="1" name="requisitions[<?php echo $count;?>][3]" class="form-control" required></td>
                                     <?php
-                                        $supplies = App\Models\Report::where('item', $value->item_id)->value('issuance_qty');
+                                        $supplies = App\Models\Report::where('item', $value->item_id)->value('balance');
                                     ?>
                                     <td style="width: 80px"><input type="text" value="{{ $supplies }}" id="available<?php echo $count;?>" name="requisitions[<?php echo $count;?>][4]" class="form-control" readonly></td>
                                     <td><input type="text" value="{{ $value->remarks }}" id="remarks<?php echo $count;?>" name="requisitions[<?php echo $count;?>][5]" class="form-control"></td>

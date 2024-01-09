@@ -53,6 +53,7 @@ class RequisitionsController extends Controller
         // Add information for "Issued by:"
         $userId = session('user_id');
         $user = User::where('id', $userId)->first();
+        echo json_encode($user);
         $requisition->issued_by = $userId;
         $requisition->issued_printed_name = $user->name;
         $requisition->issued_designation = $user->department_id;
@@ -338,7 +339,7 @@ public function deleteRequisitionItem(Request $request)
 
         if($requisition->issued_by == null){
             // Add information for "Issued by:"
-            $userId = Auth::user()->id;
+            $userId = session('user_id');
             $user = User::where('id', $userId)->first();
             $requisition->issued_by = $userId;
             $requisition->issued_printed_name = $user->name;
@@ -384,4 +385,3 @@ public function deleteRequisitionItem(Request $request)
     }
 
 }
-

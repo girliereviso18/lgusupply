@@ -96,14 +96,8 @@
                         </tbody>
                     </table>
                 </form>
-                <a href="{{ route('admin.requisitions.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('admin.requisitions.approved') }}" class="btn btn-primary">Back</a>
                 <a href="#" class="btn btn-success" onclick="customPrint('{{ route('admin.requisition.print', ['id' => $requisition->id]) }}')">Print</a>
-                <a class="btn btn-sm approved btn-info"  data-toggle="modal" data-target="#approvedModal" data-url="{{ route('admin.approved.index', ['id' => $requisition->id]) }}" href="">
-                    <i class="fa fa-check"></i> Approve
-                </a>
-                <a class="btn btn-sm btn-warning" href="{{ route('admin.requisitions.disapproved', ['id' => $requisition->id]) }}">
-                    <i class="fa fa-times"></i> Disapprove</a>
-
             </div>
         </div>
     </div>

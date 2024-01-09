@@ -23,29 +23,29 @@ return new class extends Migration
             // Requested by
             $table->integer('requested_by')->nullable();
             $table->string('requested_signature')->nullable();
-            $table->integer('requested_printed_name')->nullable();
+            $table->varchar('requested_printed_name')->nullable();
             $table->integer('requested_designation')->nullable();
             $table->date('requested_date')->nullable();
 
             // Approved by
             $table->integer('approved_by')->nullable();
             $table->string('approved_signature')->nullable();
-            $table->integer('approved_printed_name')->nullable();
+            $table->varchar('approved_printed_name')->nullable();
             $table->integer('approved_designation')->nullable();
             $table->date('approved_date')->nullable();
 
             // Issued by
             $table->integer('issued_by')->nullable();
             $table->string('issued_signature')->nullable();
-            $table->integer('issued_printed_name')->nullable();
+            $table->varchar('issued_printed_name')->nullable();
             $table->integer('issued_designation')->nullable();
             $table->date('issued_date')->nullable();
 
             // Received by
             $table->integer('received_by')->nullable();
             $table->string('received_signature')->nullable();
-            $table->integer('received_printed_name')->nullable();
-            $table->integer('received_designation')->nullable();
+            $table->varchar('received_printed_name')->nullable();
+            $table->varchar('received_designation')->nullable();
             $table->date('received_date')->nullable();
 
             $table->enum('status', ['approved', 'disapproved', 'pending'])->default('pending');

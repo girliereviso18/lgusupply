@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller; // Make sure to import the correct base controller
+use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Models\Requisition;
 use App\Models\Requisitions_item;
@@ -22,7 +23,7 @@ class RequisitionsController extends Controller
 
     public function index()
     {
-        $requisitions = Requisition::where('user_id', session('user_id'))->get();
+        $requisitions = Requisition::where('requested_by', session('user_id'))->get();
 
         return view('Employee.requisition.index', ['requisitions' => $requisitions]);
     }
@@ -33,7 +34,6 @@ class RequisitionsController extends Controller
 
         // First, save the Requisition record
         $requisition = new Requisition();
-        $requisition->user_id = session('user_id');
         $requisition->entity_name = $request->entity_name;
         $requisition->fund_cluster = $request->fund_cluster;
         $requisition->division_id = $request->division_id;
@@ -42,14 +42,15 @@ class RequisitionsController extends Controller
         $requisition->purpose = $request->purpose;
 
          // Add information for "Requested by:"
-        $requisition->requested_by = $request->requested_by;
-        $requisition->requested_printed_name = $request->requested_printed_name;
-        $requisition->requested_designation = $request->requested_designation;
+        $requisition->requested_by = session('user_id');
+        $username = User::where('id',session('user_id'))->value('name');
+        $requisition->requested_printed_name = $username;
+        $requisition->requested_designation = session('department');
         $requisition->requested_date = $request->date;
 
         // Add information for "Issued by:"
         
-        $requisition->status = $request->status;
+        $requisition->status = "pending";
         
         if ($requisition->save()) {
 
@@ -103,12 +104,15 @@ class RequisitionsController extends Controller
         $supplies = Supply::with('item')->get();
         $units = Unit::get();
         $reports = Report::where('department', session('department'))->get();
+        $department = Department::where('id',session('department'))->value('department_user');
 
+        //echo json_encode($department);
         return view('Employee.requisition.add',[
             'supplies'=> $supplies,
             'units' => $units,
             'reports' => $reports,
-            'username' => $username
+            'username' => $username,
+            'department' => $department
         ]);
     }
 
@@ -138,11 +142,6 @@ class RequisitionsController extends Controller
         $requisition->rc_code = $request->rc_code;
         $requisition->office_id = $request->office_id;
         $requisition->purpose = $request->purpose;
-
-         // Add information for "Requested by:"
-        $requisition->requested_by = $request->requested_by;
-        $requisition->requested_printed_name = $request->requested_printed_name;
-        $requisition->requested_designation = $request->requested_designation;
 
 
         if ($requisition->save()) {
@@ -279,7 +278,7 @@ public function deleteRequisitionItem(Request $request)
 
     }
     public function pending(){ 
-        $requisitions = Requisition::where('user_id', session('user_id'))
+        $requisitions = Requisition::where('requested_by', session('user_id'))
                                     ->where('status', 'pending')
                                     ->get();
 
@@ -288,7 +287,7 @@ public function deleteRequisitionItem(Request $request)
     public function approved() {
 
         $requisitions = Requisition::where('status', 'approved')
-                                    ->where('user_id', session('user_id'))
+                                    ->where('requested_by', session('user_id'))
                                     ->get();
 
         return view('Employee/requisition.approved', ['requisitions' => $requisitions]);
@@ -296,11 +295,10 @@ public function deleteRequisitionItem(Request $request)
     public function disapproved() {
 
         $requisitions = Requisition::where('status', 'disapproved')
-                                    ->where('user_id', session('user_id'))
+                                    ->where('requested_by', session('user_id'))
                                     ->get();
 
         return view('Employee/requisition.disapproved', ['requisitions' => $requisitions]);
     }
 
 }
-

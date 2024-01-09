@@ -19,7 +19,7 @@
                     <div class="info-box-content">
                     <a href="{{ route('employee.requisition.index') }}" target="_blank"><span class="info-box-text">Requisitions</span></a>
                     <span class="info-box-number">
-                      {{ $no_requisition = App\Models\Requisition::where('user_id', session('user_id'))->count() }}
+                      {{ $no_requisition = App\Models\Requisition::where('requested_by', session('user_id'))->count() }}
                     </span>
                 </div>
             </div>
