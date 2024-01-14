@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group">
                             <label>Barcode</label>
-                            <input type="text" class="form-control" name="barcode" value="{{ $item->barcode}}" required="required">
+                            <input type="text" class="form-control" name="barcode" value="{{ $item->barcode}}">
                         </div>
                          <div class="form-group">
                             <label>Category </label>
@@ -39,7 +39,7 @@
                         </div>
                           <div class="form-group">
                             <label>Description (optional)</label>
-                            <textarea type="text" class="form-control" name="description" value="{{ $item->description}}" required="required">{{ $item->description}}</textarea>
+                            <textarea type="text" class="form-control" name="description" value="{{ $item->description}}">{{ $item->description}}</textarea>
                          </div>
                          <button class="btn btn-flat btn-primary" type="submit">Save</button>
                     </form>

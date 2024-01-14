@@ -60,16 +60,16 @@
                       </div>
                          <div class="form-group">
                             <label>Price per Unit</label>
-                            <input type="text" name="price_per_unit" class="form-control" required="required">
+                            <input type="text" name="price_per_unit" class="form-control">
                         </div>
 
                         <div class="form-group">
                         <label for="date_of_purchase">Date of Purcahse</label>
-                        <input type="date" id="date_of_purchase" name="date_of_purchase" class="form-control" required="required">
+                        <input type="date" id="date_of_purchase" name="date_of_purchase" class="form-control">
 
                       <div class="form-group">
                         <label for="expiration_date">Expiration Date</label>
-                        <input type="date" id="expiration_date" name="expiration_date" class="form-control" required="required">
+                        <input type="date" id="expiration_date" name="expiration_date" class="form-control">
                       </div>
 
                       <!-- <div class="form-group">

@@ -104,6 +104,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/requisitions/disapproved', 'RequisitionsController@disapprovedRequisition')->name('admin.requisitions.disapproved');;
         Route::get('/requisitions/pending', 'RequisitionsController@pendingRequisition')->name('admin.requisitions.pending');;
         //Route::get('/requisitions/stock', 'StockController@pendingRequisition')->name('admin.stock.get');
+        Route::get('/requisitions/reports', 'RequisitionsController@reports')->name('admin.requisition.reports');
 
         //requisitions views
         Route::post('/approved-requisitions', 'RequisitionsController@approve')->name('admin.approved.index');

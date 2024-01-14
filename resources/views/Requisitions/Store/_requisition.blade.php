@@ -63,9 +63,9 @@
                 <div class="col-md-4 form-group">
                     <label for="requested_printed_name">Printed Name:</label>
                     <input type="hidden" id="requested_by" name="requested_printed_name">
-                    <select type="" name="requested_by" class="form-control requested_by" required>
+                    <select id="requested_name" name="requested_by" class="form-control requested_by" required>
                         <option value="" disabled selected>Select Name</option>
-                        @if($users = App\Models\User::get())
+                        @if($users = App\Models\User::where('role',2)->get())
                             @foreach($users as $user)
                                 <option value="{{ $user->id }}" data-des="{{ $user->department_id}}"> {{ $user->name }}</option>
                             @endforeach
@@ -74,7 +74,7 @@
                 </div>
                 <div class=" col-md-4 form-group">
                     <label for="requested_designation">Designation:</label>
-                    <input class="form-control" type="text" id="requested_designation"  value="" required>
+                    <input class="form-control" type="text" id="requested_designation" readonly  value="" required>
                     <input type="hidden" id="requested_designation_id" name="requested_designation" value="">
                 </div>
                 <div class="col-md-12 form-group">

@@ -23,12 +23,6 @@
                     <td> 
                         <select type="" id="item_name0" name="requisitions[0][2]" onchange="textFill(this)" data-id="0" class="form-control" required>
                             <option value="-1" disabled selected>Please Select</option>
-                            @if($items = App\Models\Item::get())
-                                @foreach($items as $item)
-                                    <option value="{{ $item->id }}"> {{ $item->items_name }}</option>
-                                @endforeach
-                            @endif
-
                         </select>
                     </td>
                     <td style="width: 140px">

@@ -9,6 +9,7 @@ use App\Models\Requisition;
 use App\Models\Requisitions_item;
 use App\Models\Item;
 use App\Models\Supply;
+use App\Models\Report;
 use Auth;
 use App\Models\Unit;
 use App\Models\User;
@@ -382,6 +383,10 @@ public function deleteRequisitionItem(Request $request)
             $requisition->save();
 
         return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
+    }
+    public function reports(Request $request){
+        $Items = Report::where('department', $request->id)->get();
+        return response()->json(['items' => $Items]);
     }
 
 }

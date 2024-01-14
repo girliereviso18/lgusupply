@@ -36,6 +36,8 @@
                     break;
                 }
             }
+            console.log(index);
+            console.log(item_id);
         }
         $('.requested_by').on('change', function(){
             $('#requested_by').val($(this).find('option:selected').text());
@@ -50,9 +52,33 @@
                 }
             }
         });
-        $('.issued_by').on('change', function(){
-            $('#issued_by').val($(this).find('option:selected').text());
+        $("#requested_name").on("change", function(){
+            var depId = $('#requested_designation_id').val();
+            var items = @JSON($items);
+            $.ajax({
+                url: "{{ route('admin.requisition.reports') }}",
+                method: "GET",
+                cache: false,
+                data: { id: depId },
+                error: function(err) {
+                    console.log(err);
+                    alert_toast("An error occurred.", 'error');
+                },
+                success: function(resp) {
+                    var html = "";
+                    for(var i=0; i<resp.items.length; i++){
+                        for(var j=0; j<items.length; j++){
+                            if(resp.items[i]['item'] == items[j]['id']){
+                                html += '<option value="'+items[j]['id']+'">'+items[j]['items_name']+'</option>'
+                                break;
+                            }
+                        }
+                    }
+                    $('#item_name0').append(html);
+                }
+            });
         });
+
         $('.received_by').on('change', function(){
             $('#received_by').val($(this).find('option:selected').text());
         });
@@ -63,38 +89,61 @@
 
         });
         $('#add-requisition-item-button').on('click', function(){
-            $('.requisitionfield').append(
-                '<tr>'
-                    +'<td style="width: 100px;">'
-                        +'<input type="text" id="stock_no' + count + '" name="requisitions[' + count + '][0]" class="form-control" readonly>'
-                    +'</td>'
-                    +'<td>' 
-                        +'<select type="" id="item_name' + count + '" name="requisitions[' + count + '][2]" onchange="textFill(this)" data-id="' + count + '" class="form-control" required>'
-                            +'<option value="-1" disabled selected>Please Select</option>'
-                            +'@if($items = App\Models\Item::get())'
-                                +'@foreach($items as $item)'
-                                    +'<option value="{{ $item->id }}"> {{ $item->items_name }}</option>'
-                                +'@endforeach'
-                            +'@endif'
-                        +'</select>'
-                    +'</td>'
-                    +'<td style="width: 140px">'
-                        +'<select name="requisitions[' + count + '][1]" id="unit' + count + '" class="form-control" required>'
-                            +'<option value="" disabled selected>Select Unit Name</option>'
-                                +'@if($units = App\Models\Unit::get())'
-                                    +'@foreach($units as $unit)'
-                                        +'<option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>'
-                                    +'@endforeach'
-                                +'@endif'
-                        +'</select>'
-                    +'</td>'
-                    +'<td style="width: 80px"><input type="number" id="quantity' + count + '" min="1" name="requisitions[' + count + '][3]" class="form-control" required></td>'
-                    +'<td style="width: 80px"><input type="text" id="available' + count + '" name="requisitions[' + count + '][4]" class="form-control" readonly></td>'
-                    +'<td><input type="text" id="remarks' + count + '" name="requisitions[' + count + '][5]" class="form-control"></td>'
-                    +'<td><a class="btn btn-sm btn-danger delete-row-button">Delete</a></td>'
-                +'</tr>'
-            );
-            count++;
+            var depId = $('#requested_designation_id').val();
+            var items = @JSON($items);
+            if(depId == ""){
+                return;
+            }
+            $.ajax({
+                url: "{{ route('admin.requisition.reports') }}",
+                method: "GET",
+                cache: false,
+                data: { id: depId },
+                error: function(err) {
+                    console.log(err);
+                    alert_toast("An error occurred.", 'error');
+                },
+                success: function(resp) {
+                    var html = "";
+                    html +='<tr>'
+                            +'<td style="width: 100px;">'
+                                +'<input type="text" id="stock_no' + count + '" name="requisitions[' + count + '][0]" class="form-control" readonly>'
+                            +'</td>'
+                            +'<td>' 
+                                +'<select type="" id="item_name' + count + '" name="requisitions[' + count + '][2]" onchange="textFill(this)" data-id="' + count + '" class="form-control" required>'
+                                    +'<option value="-1" disabled selected>Please Select</option>';
+                                    for(var i=0; i<resp.items.length; i++){
+                                        for(var j=0; j<items.length; j++){
+                                            if(resp.items[i]['item'] == items[j]['id']){
+                                                html += '<option value="'+items[j]['id']+'">'+items[j]['items_name']+'</option>';
+                                                break;
+                                            }
+                                        }
+                                    }
+                    html        +='</select>'
+                            +'</td>'
+                            +'<td style="width: 140px">'
+                                +'<select name="requisitions[' + count + '][1]" id="unit' + count + '" class="form-control" required>'
+                                    +'<option value="" disabled selected>Select Unit Name</option>'
+                                        +'@if($units = App\Models\Unit::get())'
+                                            +'@foreach($units as $unit)'
+                                                +'<option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>'
+                                            +'@endforeach'
+                                        +'@endif'
+                                +'</select>'
+                            +'</td>'
+                            +'<td style="width: 80px"><input type="number" id="quantity' + count + '" min="1" name="requisitions[' + count + '][3]" class="form-control" required></td>'
+                            +'<td style="width: 80px"><input type="text" id="available' + count + '" name="requisitions[' + count + '][4]" class="form-control" readonly></td>'
+                            +'<td><input type="text" id="remarks' + count + '" name="requisitions[' + count + '][5]" class="form-control"></td>'
+                            +'<td><a class="btn btn-sm btn-danger delete-row-button">Delete</a></td>'
+                        +'</tr>';
+                    $('.requisitionfield').append(
+                        html
+                    );
+                    count++;
+                }
+            });
+            
         });
     </script>
 @endsection
