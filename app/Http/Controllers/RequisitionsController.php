@@ -94,18 +94,9 @@ class RequisitionsController extends Controller
                     $requisitions_items->save();
 
                     //update the Available of the items
-                    $qnty = Supply::where('item_id', $itemId)->value('qty');
-
-                    if ($qnty !== null || $qnty !== 0) {
-                        $supplies = Supply::where('item_id', $itemId)->first();
-                        if ($supplies) {
-                            $res = $qnty - $qty;
-                            $supplies->qty = $res;
-                            $supplies->save();
-                        } else {
-                            echo "No matching supply record found for item_id: $itemId";
-                        }
-                    }
+                    Report::where('department', $request->requested_designation)
+                    ->where('item',$itemId)->decrement('balance', $qty);
+                    
                 }
             }
 
@@ -191,18 +182,15 @@ class RequisitionsController extends Controller
                     echo $remarks;
                     if($item_id != ''){
                         //update the Available of the items
-                        $qnty = Supply::where('item_id', $itemId)->value('qty');
                         $q = Requisitions_item::where('id', $item_id)->value('qty');
-                        if ($qnty !== null || $qnty !== 0) {
-                            $supplies = Supply::where('item_id', $itemId)->first();
-                            if ($supplies) {
-                                $sum = $qnty+$q;
-                                $res = $sum - $qty;
-                                $supplies->qty = $res;
-                                $supplies->save();
-                            } else {
-                                echo "No matching supply record found for item_id: $itemId";
-                            }
+                        if($q > $qty){
+                            $res = $q - $qty;
+                            Report::where('department', $request->requested_designation)
+                            ->where('item',$itemId)->increment('balance', $res);
+                        }else{
+                            $res = $qty - $q;
+                            Report::where('department', $request->requested_designation)
+                            ->where('item',$itemId)->decrement('balance', $res);
                         }
                         Requisitions_item::where('id', $item_id)->update([
                             'stock_no' => $stockNo,
@@ -227,18 +215,8 @@ class RequisitionsController extends Controller
                         $requisitions_items->save();
     
                         //update the Available of the items
-                        $qnty = Supply::where('item_id', $itemId)->value('qty');
-    
-                        if ($qnty !== null || $qnty !== 0) {
-                            $supplies = Supply::where('item_id', $itemId)->first();
-                            if ($supplies) {
-                                $res = $qnty - $qty;
-                                $supplies->qty = $res;
-                                $supplies->save();
-                            } else {
-                                echo "No matching supply record found for item_id: $itemId";
-                            }
-                        }
+                        Report::where('department', $request->requested_designation)
+                        ->where('item',$itemId)->decrement('balance', $qty);
                     }
                 }
             }

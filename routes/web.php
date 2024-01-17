@@ -105,7 +105,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/requisitions/pending', 'RequisitionsController@pendingRequisition')->name('admin.requisitions.pending');;
         //Route::get('/requisitions/stock', 'StockController@pendingRequisition')->name('admin.stock.get');
         Route::get('/requisitions/reports', 'RequisitionsController@reports')->name('admin.requisition.reports');
-
         //requisitions views
         Route::post('/approved-requisitions', 'RequisitionsController@approve')->name('admin.approved.index');
         Route::get('/disapproved-requisitions', 'RequisitionsController@disapprove')->name('admin.disapprove.index');
@@ -156,6 +155,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/reports/view/{id}', 'ReportsController@viewreports')->name('admin.reports.view');
         Route::post('/reports/view', 'ReportsController@viewreports')->name('admin.reports.edit.view');
         Route::get('/reports/print/{id}', 'ReportsController@reportsprint')->name('admin.reports.print');
+        Route::get('/reports/department', 'ReportsController@department')->name('admin.reports.department');
 
 
          Route::get('/divisions', 'DivisionsController@index')->name('admin.divisions.index');

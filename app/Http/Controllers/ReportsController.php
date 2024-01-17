@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Report;
 use App\Models\Item;
 use App\Models\Department;
-
+use App\Models\Supply;
 use Illuminate\Support\Facades\URL;
 
 class ReportsController extends Controller
@@ -38,10 +38,13 @@ class ReportsController extends Controller
         $Reportsave->date = $request->date;
         $Reportsave->reference = $request->reference;
         $Reportsave->receipt_qty = $request->receipt_qty;
-        $Reportsave->issuance_qty = $request->issuance_qty;
         $Reportsave->office = $request->office;
-        $Reportsave->balance = $request->balance;
+        $Reportsave->balance = $request->receipt_qty;
         $Reportsave->days_to_consume = $request->days_to_consume;
+
+        Supply::where('item_id', $request->item)
+        ->where('qty', '>=', $request->receipt_qty)
+        ->decrement('qty', $request->receipt_qty);
 
         if ($Reportsave->save()) {
             return redirect()->route('admin.reports.index')->withErrors('Successfully added!');
@@ -50,7 +53,12 @@ class ReportsController extends Controller
 
     public function addreports()
     {
-        return view('Reports.Store.index', []);
+        $supplies = Supply::get();
+        $department = Department::get();
+        return view('Reports.Store.index', [
+            'supplies' => $supplies,
+            'departments' => $department
+        ]);
     }
 
     public function editreports(Request $request)
@@ -124,5 +132,45 @@ class ReportsController extends Controller
         $report = Report::find($id); 
 
         return view('Reports.view', ['reports' => $report]);
+    }
+
+    public function department(Request $request){
+        //return $request->id;
+        $reports = Report::where('department', $request->id)->get();
+        $supplies = Supply::get();
+
+
+
+        $reportsItem = array();
+        foreach ($reports as $report) {
+            $reportsItem[] = (int)$report->item;
+        }
+        
+        $suppliesItem = array();
+        foreach ($supplies as $supply) {
+            $suppliesItem[] = (int)$supply->item_id;
+        }
+        
+        // Find values unique to each array
+        $uniqueReports = array_values(array_diff($reportsItem, $suppliesItem));
+        $uniqueSupplies = array_values(array_diff($suppliesItem, $reportsItem));
+        
+        // Combine the unique values
+        $getItems = array_merge($uniqueReports, $uniqueSupplies);
+        
+
+        $items = array();
+        foreach($getItems as $item){
+            $data = Item::where('id', $item)->first();
+            if ($data) {
+                $items[] = array(
+                    'id'          => $item,
+                    'item'        => $data->items_name,
+                    'description' => $data->description
+                );
+            }
+        }
+        
+        return response()->json(['items' => $items]);
     }
 }

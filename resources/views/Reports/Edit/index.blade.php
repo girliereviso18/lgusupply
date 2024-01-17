@@ -27,7 +27,7 @@
                           <select type="" name="item" class="form-control" required>
                              @if($items = App\Models\Item::get())
                                   @foreach($items as $item)
-                                   <option value="{{ $item->id }}"> {{ $item->items_name }} - {{ $item->id }}</option>
+                                   <option value="{{ $item->id }}"> {{ $item->items_name }}</option>
                                  @endforeach
                              @endif
                         </select>
@@ -57,25 +57,19 @@
                     <!-- Date -->
                     <div class="card-body">
                         <label for="date">Date</label>
-                        <input type="date" name="date" value="{{ $report->date }}" class="form-control" required="required">
+                        <input type="date" name="date" value="{{ $report->date }}" class="form-control">
                     </div>
 
                     <!-- Reference -->
                     <div class="card-body">
                         <label for="reference">Reference</label>
-                        <input type="text" name="reference" value="{{ $report->reference }}" class="form-control"required="required">
+                        <input type="text" name="reference" value="{{ $report->reference }}" class="form-control">
                     </div>
 
                     <!-- Receipt Quantity -->
                     <div class="card-body">
                         <label for="receipt_qty">Receipt Qty</label>
                         <input type="number" name="receipt_qty" class="form-control" value="{{ $report->receipt_qty }}">
-                    </div>
-
-                    <!-- Issuance Quantity -->
-                    <div class="card-body">
-                        <label for="issuance_qty">Issuance Qty</label>
-                        <input type="number" name="issuance_qty" class="form-control" value="{{ $report->issuance_qty }}">
                     </div>
 
                     <!-- Office Selection -->

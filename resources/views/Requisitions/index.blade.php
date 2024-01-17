@@ -2,130 +2,148 @@
 
 @section('content')
 
-  <div class="container" style="margin-top: 52px;">
+    <form action="{{ route('admin.requisitions.store') }}" method="POST">
         <div class="col-sm-12">
-               <div class="card card-outline card-primary">
-                <div class="card-header">
-                    <h3 class="card-title"style="color: #8a2be2; font-weight: bold;">Requisition Lists</h3>
-                    <div class="card-tools">
-                    <a href="{{route('admin.requisitions.addrequisitions')}}"class="btn btn-flat btn-primary" target="_blank"><span class="fas fa-plus"></span> Add Requisitions</a>
+            <div class="row" style="flex-direction: column;">
+                <div class="col-sm-12">
+                    @include('Requisitions.Store._requisition')
                 </div>
-                </div>
-                <div class="card-body">
-                    <div class="container-fluid">
-                        <div class="container-fluid">
-                            <table class="table table-bordered table-stripped"> 
-                                            <thead>
-                                        <tr>
-                                            <th>Entity Name</th>
-                                            <th>Fund Cluster </th>
-                                            <th>Divison Id</th>
-                                            <th>RC Code</th>
-                                            <th>Office</th>
-                                            <th>Purpose</th>
-                                            <th>Actions</th>
-                                           
-                                        </tr> @if(isset($supply->supplier->suppliers_name))
-                                                    {{ $supply->supplier->suppliers_name}}
-                                                @endif
-                                    </thead>
-                                    <tbody>
-                                        @if(isset($requisitions))
-                                            @foreach($requisitions as $requisition)
-                                                 <tr>
-                                                   <td>{{ $requisition->entity_name }}</td>
-                                                   <td>{{ $requisition->fund_cluster}}</td>
-                                                   <td>{{ $requisition->division->division_name }}</td>
-                                                   <td>{{ $requisition->office->responsibility_code}}</td>
-                                                   <td>{{ $requisition->office->department_user }}</td>
-                                                   <td>{{ $requisition->purpose}}</td>
-                                                   <td class="text-center">
-                                                    <a class="btn btn-sm btn-success" href="{{ url('/admin/requisitions/edit').'/'.$requisition->id}}">
-                                                        <i class="fa fa-edit"></i> Update
-                                                    </a>
-                                                    <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/requisitions/delete').'/'.$requisition->id}}">
-                                                        <i class="fa fa-trash-alt"></i> Delete
-                                                    </a>
-                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/requisitions/view').'/'.$requisition->id}}">
-                                                        <i class="fa fa-eye"></i> View
-                                                     </a>
-                                                         <a class="btn btn-sm btn-info" href="{{ route('admin.approved.index', ['id' => $requisition->id]) }}">
-                                                            <i class="fa fa-check"></i> Approve
-                                                        </a>
-                                                        
-                                                        <a class="btn btn-sm btn-warning" href="{{ url('/admin/requisitions/disapprove').'/'.$requisition->id }}">
-                                                            <i class="fa fa-times"></i> Disapprove
-                                                        </a>
-                                                    </td>
-                                                </td>
-                                                </tr>
-                                            @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
-                        </div>
+                <div class="col-sm-12">
+                    @include('Requisitions.Store._requisition_items')
+                    <div class="btn-group" style="margin-bottom: 10px;">
+                        <a class="btn btn-sm btn-outline-primary" id="add-requisition-item-button"style="color: #8a2be2; font-weight: bold;">Add Requisition Item</a>
+                        <button class="btn btn-sm btn-primary" style="background-color:forestgreen;">Save</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
- <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
-<script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script>
-<script>
-    $(document).ready(function(){
-        $('.delete_data').click(function(e){
+        <input type="hidden" name="date" value="<?php
+            date_default_timezone_set('Asia/Manila');
+            $currentDate = date('Y-m-d H:i:s');
+            echo $currentDate;
+        ?>">
+    </form>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function textFill(select){
+            var supplies = @JSON($supplies);
+            var index = $(select).data("id");
+            var item_id = $(select).val();
+            for(var i = 0; i<supplies.length; i++){
+                if(supplies[i]['item_id'] == item_id){
+                    $('#stock_no'+index).val(supplies[i]['stock_number']);
+                    $('#available'+index).val(supplies[i]['qty']);
+                    break;
+                }
+            }
+            
+        }
+        $('.requested_by').on('change', function(){
+            $('#requested_by').val($(this).find('option:selected').text());
 
-            e.preventDefault();
-            var _thisUrl =$(this).attr('data-url');
-            var message = "Are you sure you want to delete?"
-              $('<div></div>').appendTo('body')
-                .html('<div><h6>' + message + '?</h6></div>')
-                .dialog({
-                  modal: true,
-                  title: 'Delete message',
-                  zIndex: 10000,
-                  autoOpen: true,
-                  width: 'auto',
-                  resizable: false,
-                  buttons: {
-                    Yes: function() {
-                      // $(obj).removeAttr('onclick');                                
-                      // $(obj).parents('.Parent').remove();
-                       $.ajax({
-                        url: _thisUrl,
-                        method:"GET",
-                        error:err=>{
-                            console.log(err)
-                            alert_toast("An error occured.",'error');
-                        },
-                        success:function(resp){
-                            location.reload();
+            var dprt_id = $(this).find('option:selected').data('des');
+            var departments = @JSON($departments);
+            
+            for(var i=0; i<departments.length; i++){
+                if(departments[i]['id'] == dprt_id){
+                    $('#requested_designation').val(departments[i]['department_user']);
+                    $('#requested_designation_id').val(departments[i]['id']);
+                }
+            }
+        });
+        $("#requested_name").on("change", function(){
+            var depId = $('#requested_designation_id').val();
+            var items = @JSON($items);
+            $('#item_name0 option:not([value="-1"])').remove();
+            $.ajax({
+                url: "{{ route('admin.requisition.reports') }}",
+                method: "GET",
+                cache: false,
+                data: { id: depId },
+                error: function(err) {
+                    console.log(err);
+                    alert_toast("An error occurred.", 'error');
+                },
+                success: function(resp) {
+                    var html = "";
+                    for(var i=0; i<resp.items.length; i++){
+                        for(var j=0; j<items.length; j++){
+                            if(resp.items[i]['item'] == items[j]['id']){
+                                html += '<option value="'+items[j]['id']+'">'+items[j]['items_name']+'</option>'
+                                break;
+                            }
                         }
-                    })
-
-                      // $('body').append('<h1>Confirm Dialog Result: <i>Yes</i></h1>');
-                      $(this).dialog("close");
-                    },
-                    No: function() {
-                      $('body').append('<h1>Confirm Dialog Result: <i>No</i></h1>');
-
-                      $(this).dialog("close");
                     }
-                  },
-                  close: function(event, ui) {
-                    $(this).remove();
-                  }
-                });
-        })
-        $('.view_details').click(function(){
-            uni_modal("Receiving Details","receiving/view_receiving.php?id="+$(this).attr('data-id'),'mid-large')
-        })
-        $('.table td,.table th').addClass('py-1 px-2 align-middle')
-        $('.table').dataTable();
-    })
+                    $('#item_name0').append(html);
+                }
+            });
+        });
 
-    
-</script>
+        $('.received_by').on('change', function(){
+            $('#received_by').val($(this).find('option:selected').text());
+        });
 
+        var count=1;
+        $('#myTable').on('click', '.delete-row-button', function() {
+          $(this).closest('tr').remove();
+
+        });
+        $('#add-requisition-item-button').on('click', function(){
+            var depId = $('#requested_designation_id').val();
+            var items = @JSON($items);
+            if(depId == ""){
+                return;
+            }
+            $.ajax({
+                url: "{{ route('admin.requisition.reports') }}",
+                method: "GET",
+                cache: false,
+                data: { id: depId },
+                error: function(err) {
+                    console.log(err);
+                    alert_toast("An error occurred.", 'error');
+                },
+                success: function(resp) {
+                    var html = "";
+                    html +='<tr>'
+                            +'<td style="width: 100px;">'
+                                +'<input type="text" id="stock_no' + count + '" name="requisitions[' + count + '][0]" class="form-control" readonly>'
+                            +'</td>'
+                            +'<td>' 
+                                +'<select type="" id="item_name' + count + '" name="requisitions[' + count + '][2]" onchange="textFill(this)" data-id="' + count + '" class="form-control" required>'
+                                    +'<option value="-1" disabled selected>Please Select</option>';
+                                    for(var i=0; i<resp.items.length; i++){
+                                        for(var j=0; j<items.length; j++){
+                                            if(resp.items[i]['item'] == items[j]['id']){
+                                                html += '<option value="'+items[j]['id']+'">'+items[j]['items_name']+'</option>';
+                                                break;
+                                            }
+                                        }
+                                    }
+                    html        +='</select>'
+                            +'</td>'
+                            +'<td style="width: 140px">'
+                                +'<select name="requisitions[' + count + '][1]" id="unit' + count + '" class="form-control" required>'
+                                    +'<option value="" disabled selected>Select Unit Name</option>'
+                                        +'@if($units = App\Models\Unit::get())'
+                                            +'@foreach($units as $unit)'
+                                                +'<option value="{{ $unit->id }}"> {{ $unit->unit_name }}</option>'
+                                            +'@endforeach'
+                                        +'@endif'
+                                +'</select>'
+                            +'</td>'
+                            +'<td style="width: 80px"><input type="number" id="quantity' + count + '" min="1" name="requisitions[' + count + '][3]" class="form-control" required></td>'
+                            +'<td style="width: 80px"><input type="text" id="available' + count + '" name="requisitions[' + count + '][4]" class="form-control" readonly></td>'
+                            +'<td><input type="text" id="remarks' + count + '" name="requisitions[' + count + '][5]" class="form-control"></td>'
+                            +'<td><a class="btn btn-sm btn-danger delete-row-button">Delete</a></td>'
+                        +'</tr>';
+                    $('.requisitionfield').append(
+                        html
+                    );
+                    count++;
+                }
+            });
+            
+        });
+    </script>
 @endsection

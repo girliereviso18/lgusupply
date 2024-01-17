@@ -19,7 +19,7 @@
                                         <tr>
                                             <th>Entity Name</th>
                                             <th>Fund Cluster </th>
-                                            <th>Divison Id</th>
+                                            <th>Divison </th>
                                             <th>RC Code</th>
                                             <th>Office</th>
                                             <th>Purpose</th>
