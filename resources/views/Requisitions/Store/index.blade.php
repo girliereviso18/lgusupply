@@ -92,7 +92,7 @@
 
         });
         $('#add-requisition-item-button').on('click', function(){
-            var depId = $('#requested_designation_id').val();
+            var depId = $('#idDepartment').val();
             var items = @JSON($items);
             if(depId == ""){
                 return;
@@ -118,7 +118,7 @@
                                     for(var i=0; i<resp.items.length; i++){
                                         for(var j=0; j<items.length; j++){
                                             if(resp.items[i]['item'] == items[j]['id']){
-                                                html += '<option value="'+items[j]['id']+'">'+items[j]['items_name']+'</option>';
+                                                html += '<option value="'+items[j]['id']+'" data-qnty="'+resp.items[i]['balance']+'">'+items[j]['items_name']+'</option>';
                                                 break;
                                             }
                                         }
