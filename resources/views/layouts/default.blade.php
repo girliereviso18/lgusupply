@@ -74,13 +74,23 @@
     background-size: cover;
     background-position: center;
 }
+#notif{
+    font-size: 9px;
+    padding: 3px 8px;
+    background-color: #cc1414;
+    color: #fff;
+    border-radius: 20px;
+    margin-left: 5px;
+    padding-bottom: 5px;
+}
 
-
-@media (min-width: 1000px)
+@media (min-width: 1000px){
 .col-md-3 {
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
     max-width: 65%;
+  }
+}
 </style>
 <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-green border border-light border-top-0  border-left-0 border-right-0 navbar-light text-sm green">
@@ -245,11 +255,17 @@
                         </li>
                     </li>
                      <li class="nav-item">
-                        <a href="#requisitionsCollapse" class="nav-link nav-requisitions" data-toggle="collapse" aria-expanded="false">
+                        <a href="#requisitionsCollapse" class="nav-link nav-requisitions" onclick="readNotif()" data-toggle="collapse" aria-expanded="false">
                             <i class="nav-icon fas fa-file"></i>
                             <p>
                                 Requisitions
                                 <i class="fas fa-caret-down"></i>
+                                <?php 
+                                $countOfNewItems = App\Models\Requisition::where('is_new', 1)->count();
+                                if($countOfNewItems > 0){
+                                ?>
+                                  <span id="notif">New <?php echo $countOfNewItems;?></span>
+                                <?php } ?>
                             </p>
                         </a>
                         <div class="collapse" id="requisitionsCollapse">
@@ -383,6 +399,7 @@
 
 <script>
   $(document).ready(function(){
+    
      window.viewer_modal = function($src = ''){
       start_loader()
       var t = $src.split('.')
@@ -437,9 +454,24 @@
        $('#confirm_modal').modal('show')
     }
   })
+  function readNotif(){
+    $.ajax({
+        url: "{{ route('admin.requisition.markAsRead') }}",
+        method: "GET",
+        cache: false,
+        error: function(err) {
+            console.log(err);
+            alert_toast("An error occurred.", 'error');
+        },
+        success: function() {
+          // console.log(resp);
+          $('#notif').hide(300);
+        }
+    });
+  }
 </script>
 <!-- <footer class="main-footer text-sm">
-        <strong>Copyright 漏 2023. 
+        <strong>Copyright © 2023. 
          <a href=""></a> -->
         <!-- /strong>
         All rights reserved.

@@ -108,6 +108,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         //requisitions views
         Route::post('/approved-requisitions', 'RequisitionsController@approve')->name('admin.approved.index');
         Route::get('/disapproved-requisitions', 'RequisitionsController@disapprove')->name('admin.disapprove.index');
+        Route::get('/requisitions/readnotif', 'RequisitionsController@markAsRead')->name('admin.requisition.markAsRead');
 
 
         

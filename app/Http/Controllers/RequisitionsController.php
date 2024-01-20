@@ -378,5 +378,12 @@ public function deleteRequisitionItem(Request $request)
         $Items = Report::where('department', $request->id)->get();
         return response()->json(['items' => $Items]);
     }
+    public function markAsRead(){
+        $requisitions = Requisition::where('is_new', 1)->get();
+        foreach ($requisitions as $requisition) {
+            $requisition->is_new = 0;
+            $requisition->save();
+        }
+    }
 
 }
