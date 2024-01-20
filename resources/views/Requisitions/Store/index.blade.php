@@ -36,25 +36,23 @@
                     break;
                 }
             }
-            console.log(index);
-            console.log(item_id);
+            
         }
         $('.requested_by').on('change', function(){
             $('#requested_by').val($(this).find('option:selected').text());
 
             var dprt_id = $(this).find('option:selected').data('des');
             var departments = @JSON($departments);
-            
+            var depId = 0;
             for(var i=0; i<departments.length; i++){
                 if(departments[i]['id'] == dprt_id){
-                    $('#requested_designation').val(departments[i]['department_user']);
-                    $('#requested_designation_id').val(departments[i]['id']);
+                    // $('#requested_designation').val(departments[i]['department_user']);
+                    depId = departments[i]['id'];
+                    break
                 }
             }
-        });
-        $("#requested_name").on("change", function(){
-            var depId = $('#requested_designation_id').val();
             var items = @JSON($items);
+            $('#item_name0 option:not([value="-1"])').remove();
             $.ajax({
                 url: "{{ route('admin.requisition.reports') }}",
                 method: "GET",
@@ -77,8 +75,9 @@
                     $('#item_name0').append(html);
                 }
             });
-        });
 
+        });
+        
         $('.received_by').on('change', function(){
             $('#received_by').val($(this).find('option:selected').text());
         });
