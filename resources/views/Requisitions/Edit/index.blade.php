@@ -81,7 +81,7 @@
                                     <input type="hidden" id="requested_by" name="requested_printed_name" value="{{ $requisition->requested_printed_name }}">
                                     <select type="" name="requested_by" class="form-control requested_by" required>
                                         <option value="" disabled selected>Select Name</option>
-                                        @if($departments = App\Models\Department::get())
+                                        @if($departments = App\Models\User::where('role',2)->get())
                                             @foreach($departments as $department)
                                                 @if($department->id == $requisition->requested_by)
                                                     <option value="{{ $department->id }}" selected> {{ $department->name }}</option>
@@ -186,9 +186,9 @@
                                     </td>
                                     <td style="width: 80px"><input type="number" value="{{ $value->qty }}" id="quantity<?php echo $count;?>" min="1" name="requisitions[<?php echo $count;?>][3]" class="form-control" required></td>
                                     <?php
-                                        $supplies = App\Models\Supply::where('item_id', $value->item_id)->value('qty');
+                                        $qnty = App\Models\Report::where('item', $value->item_id)->value('balance');
                                     ?>
-                                    <td style="width: 80px"><input type="text" value="{{ $supplies }}" id="available<?php echo $count;?>" name="requisitions[<?php echo $count;?>][4]" class="form-control" readonly></td>
+                                    <td style="width: 80px"><input type="text" value="{{ $qnty }}" id="available<?php echo $count;?>" name="requisitions[<?php echo $count;?>][4]" class="form-control" readonly></td>
                                     <td><input type="text" value="{{ $value->remarks }}" id="remarks<?php echo $count;?>" name="requisitions[<?php echo $count;?>][5]" class="form-control"></td>
                                     <td style="width: 80px"><a class="btn btn-sm delete_item btn-danger" data-toggle="modal" data-target="#deleteModal" data-url="{{ url('/admin/requisitions/delete/item').'/'.$value->id }}">Delete</a></td>
                                     <input type="hidden" name="requisitions[<?php echo $count;?>][6]" value="{{ $value->id }}">

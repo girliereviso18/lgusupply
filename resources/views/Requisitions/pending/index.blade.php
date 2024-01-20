@@ -1,7 +1,11 @@
 @extends('layouts.default')
 
 @section('content')
-
+<style>
+    .btndisapproved:hover{
+        background-color: #bd9b02 !important;
+    }
+</style>
   <div class="container" style="margin-top: 52px; max-width: 1400px;">
         <div class="col-sm-12">
                <div class="card card-outline card-primary">
@@ -19,7 +23,7 @@
                                         <tr>
                                             <th>Entity Name</th>
                                             <th>Fund Cluster </th>
-                                            <th>Divison </th>
+                                            <th>Divison Id</th>
                                             <th>RC Code</th>
                                             <th>Office</th>
                                             <th>Purpose</th>
@@ -58,10 +62,11 @@
                                                         href="#">
                                                         <i class="fa fa-check"></i> Approve
                                                     </a>
-                                                        
-                                                        <a class="btn btn-sm btn-warning" href="{{ route('admin.disapprove.index', ['id' => $requisition->id]) }}">
+                                                        <span class=" btn btn-sm btn-warning btndisapproved" onclick="disapproved('{{ route('admin.disapprove.index', ['id' => $requisition->id]) }}')" style="cursor:pointer;">
                                                             <i class="fa fa-times"></i> Disapprove
-                                                        </a>
+                                                        </span>
+                                                        <!-- <a class="btn btn-sm btn-warning btndisapproved" href="{{ route('admin.disapprove.index', ['id' => $requisition->id]) }}">
+                                                        </a> -->
                                                     </td>
                                                 </td>
                                                 </tr>
@@ -77,55 +82,67 @@
     </div>
 </div>
 
+
 @include('Requisitions.approved_modal')
 
 <!-- <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
 <script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script> -->
 <script>
+    function disapproved(url){
+        Swal.fire({
+            title: "Are you sure you want to DISAPPROVED this?",
+            showDenyButton: false,
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            confirmButtonColor: "#e02f2f"
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire("Disapproved!", "", "success");
+                $.ajax({
+                    url: url,
+                    method: "GET",
+                    cache: false,
+                    error: function(err) {
+                        console.log(err);
+                        alert_toast("An error occurred.", 'error');
+                    },
+                    success: function(resp) {
+                        location.reload();
+                    }
+                });
+            } 
+        });
+    }
     $(document).ready(function(){
         $('.delete_data').click(function(e){
-
             e.preventDefault();
             var _thisUrl =$(this).attr('data-url');
-            var message = "Are you sure you want to delete?"
-              $('<div></div>').appendTo('body')
-                .html('<div><h6>' + message + '?</h6></div>')
-                .dialog({
-                  modal: true,
-                  title: 'Delete message',
-                  zIndex: 10000,
-                  autoOpen: true,
-                  width: 'auto',
-                  resizable: false,
-                  buttons: {
-                    Yes: function() {
-                      // $(obj).removeAttr('onclick');                                
-                      // $(obj).parents('.Parent').remove();
-                       $.ajax({
+
+            Swal.fire({
+                title: "Are you sure you want to DELETE this?",
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                confirmButtonColor: "#e02f2f"
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire("Disapproved!", "", "success");
+                    $.ajax({
                         url: _thisUrl,
-                        method:"GET",
-                        error:err=>{
-                                console.log(err)
-                                alert_toast("An error occured.",'error');
-                            },
-                            success:function(resp){
-                                location.reload();
-                            }
-                        })
-
-                      // $('body').append('<h1>Confirm Dialog Result: <i>Yes</i></h1>');
-                      $(this).dialog("close");
-                    },
-                    No: function() {
-                      $('body').append('<h1>Confirm Dialog Result: <i>No</i></h1>');
-
-                      $(this).dialog("close");
-                    }
-                  },
-                  close: function(event, ui) {
-                    $(this).remove();
-                  }
-                });
+                        method: "GET",
+                        cache: false,
+                        error: function(err) {
+                            console.log(err);
+                            alert_toast("An error occurred.", 'error');
+                        },
+                        success: function(resp) {
+                            location.reload();
+                        }
+                    });
+                } 
+            });
         })
         $('.view_details').click(function(){
             uni_modal("Receiving Details","receiving/view_receiving.php?id="+$(this).attr('data-id'),'mid-large')
@@ -145,6 +162,11 @@
     });
     $()
     
+    $('.btnDisapproved').on('click',function(){
+        
+    })
+
+
     $('.btnApproved').on('click', function() {
     
         var formData = $('#approved').serialize();

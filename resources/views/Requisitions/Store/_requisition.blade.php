@@ -74,7 +74,7 @@
                 </div>
                 <div class=" col-md-4 form-group">
                     <label for="requested_designation">Designation:</label>
-                    <select name="requested_designation" class="form-control requested_by" required>
+                    <select name="requested_designation" class="form-control" required>
                         <option value="" disabled selected>Select Designation</option>
                         @if($designations = App\Models\Department::get())
                             @foreach($designations as $designation)
@@ -82,6 +82,7 @@
                             @endforeach
                         @endif
                     </select>
+                    <input type="hidden" id="idDepartment" name="department">
                 </div>
                 <div class="col-md-12 form-group">
                     <label for="received_by">RECEIVED BY</label>

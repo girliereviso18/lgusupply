@@ -94,7 +94,7 @@ class RequisitionsController extends Controller
                     $requisitions_items->save();
 
                     //update the Available of the items
-                    Report::where('department', $request->requested_designation)
+                    Report::where('department', $request->department)
                     ->where('item',$itemId)->decrement('balance', $qty);
                     
                 }
@@ -229,24 +229,30 @@ class RequisitionsController extends Controller
 
 public function deleterequisitions(Request $request)
 {
-    $deleterequisition = Requisition::find($request->id);
+    $requisition = Requisition::find($request->id);
+    
+    $idDepartment = User::where('id',$requisition->requested_by)->value('department_id');
+    $requisition_items = Requisitions_item::where('requisitions_id',$request->id)->get();
 
-    if ($deleterequisition) {
-        $deleterequisition->delete();
-        return redirect()->back()->with('success', 'Deleted!');
-    } else {
-        return redirect()->back()->with('error', 'Requisition not found.');
+    foreach($requisition_items as $item){
+        Report::where('department',$idDepartment)->where('item',$item->item_id)->increment('balance', $item->qty);
     }
+
+    $deleteItem = Requisitions_item::find($request->id);
+    if ($deleteItem) {
+        $deleteItem->delete();
+    }
+    $requisition->delete();
 }
 public function deleteRequisitionItem(Request $request)
 {
-    $requisition_item = Requisitions_item::find($request->id);
+    $requisition = Requisition::find($request->id);
 
-    if ($requisition_item) {
-        $qty = $requisition_item->qty;
-        $item_id = $requisition_item->item_id;
-        // Use the increment method to add $qty to the current value of 'qty' in the Supply table
-        Supply::where('item_id', $item_id)->increment('qty', $qty);
+    $idDepartment = User::where('id',$requisition->requested_by)->value('department_id');
+    $requisition_items = Requisitions_item::where('requisitions_id',$request->id)->get();
+
+    foreach($requisition_items as $item){
+        Report::where('department',$idDepartment)->where('item',$item->item_id)->increment('balance', $item->qty);
     }
     
     $deleteItem = Requisitions_item::find($request->id);
@@ -356,11 +362,17 @@ public function deleteRequisitionItem(Request $request)
     public function disapprove(Request $request) {
 
         $requisition = Requisition::find($request->id);
-            
-            $requisition->status = 'disapproved';
-            $requisition->save();
+        
+        $requisition->status = 'disapproved';
+        $requisition->save();
+        
+        $idDepartment = User::where('id',$requisition->requested_by)->value('department_id');
+        $requisition_items = Requisitions_item::where('requisitions_id',$request->id)->get();
 
-        return redirect()->route('admin.requisitions.index')->with('success', 'Successfully added!');
+        foreach($requisition_items as $item){
+            Report::where('department',$idDepartment)->where('item',$item->item_id)->increment('balance', $item->qty);
+        }
+        //return redirect()->route('admin.requisitions.pending')->with('success', 'Successfully added!');
     }
     public function reports(Request $request){
         $Items = Report::where('department', $request->id)->get();

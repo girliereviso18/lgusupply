@@ -25,14 +25,17 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
+        var qnty = [];
         function textFill(select){
             var supplies = @JSON($supplies);
             var index = $(select).data("id");
             var item_id = $(select).val();
+            var qnty = $(select).find('option:selected').data('qnty')
+
             for(var i = 0; i<supplies.length; i++){
                 if(supplies[i]['item_id'] == item_id){
                     $('#stock_no'+index).val(supplies[i]['stock_number']);
-                    $('#available'+index).val(supplies[i]['qty']);
+                    $('#available'+index).val(qnty);
                     break;
                 }
             }
@@ -48,6 +51,7 @@
                 if(departments[i]['id'] == dprt_id){
                     // $('#requested_designation').val(departments[i]['department_user']);
                     depId = departments[i]['id'];
+                    $('#idDepartment').val(depId);
                     break
                 }
             }
@@ -67,7 +71,7 @@
                     for(var i=0; i<resp.items.length; i++){
                         for(var j=0; j<items.length; j++){
                             if(resp.items[i]['item'] == items[j]['id']){
-                                html += '<option value="'+items[j]['id']+'">'+items[j]['items_name']+'</option>'
+                                html += '<option value="'+items[j]['id']+'" data-qnty="'+resp.items[i]['balance']+'">'+items[j]['items_name']+'</option>'
                                 break;
                             }
                         }
