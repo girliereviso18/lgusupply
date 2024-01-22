@@ -34,7 +34,7 @@
                         <label for="unit">Unit</label>
                         <select name="unit" id="unit" class="form-control" required>
                             <option value="" disabled selected>Select Unit Name</option>
-                            @if($units = App\Models\unit::get())
+                            @if($units = App\Models\Unit::get())
                                 @foreach($units as $unit)
                                   <option value="{{ $unit->id }}"selected> {{ $unit->unit_name }}</option>
                                 @endforeach
@@ -56,7 +56,7 @@
                       </div>
                     <div class="form-group">
                         <label for="price">Price per unit</label>
-                        <input type="number" name="price_per_unit" value="{{ $stock->price_per_unit }}" class="form-control"required="required">
+                        <input type="number" name="price_per_unit" value="{{ $stock->price_per_unit }}" class="form-control">
                     </div>
     
 
