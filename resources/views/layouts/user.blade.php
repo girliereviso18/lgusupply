@@ -228,7 +228,7 @@
                           <a href="{{ route('employee.stockCard.index')}}" style="padding: 0;" class="nav-link nav-form">
                             <i class="fas fa-archive" style="margin-left: 10px;"></i>
                               <p>
-                               Stock List
+                               Reports
                              </p>
                           </a>
                         </li>
