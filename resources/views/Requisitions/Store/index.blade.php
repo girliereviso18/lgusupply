@@ -135,7 +135,7 @@
                                         +'@endif'
                                 +'</select>'
                             +'</td>'
-                            +'<td style="width: 80px"><input type="number" id="quantity' + count + '" min="1" name="requisitions[' + count + '][3]" class="form-control" required></td>'
+                            +'<td style="width: 80px"><input type="number" oninput="validate(this)" data-id="'+count+'" id="quantity' + count + '" min="1" name="requisitions[' + count + '][3]" class="form-control" required></td>'
                             +'<td style="width: 80px"><input type="text" id="available' + count + '" name="requisitions[' + count + '][4]" class="form-control" readonly></td>'
                             +'<td><input type="text" id="remarks' + count + '" name="requisitions[' + count + '][5]" class="form-control"></td>'
                             +'<td><a class="btn btn-sm btn-danger delete-row-button">Delete</a></td>'
@@ -148,5 +148,19 @@
             });
             
         });
+        function validate(element){
+            console.log();
+            var index = $(element).data('id');
+            var val = 0, available = 0;
+            if($('#available'+index).val() != ""){
+                val = parseInt($(element).val());
+                available = parseInt($('#available'+index).val());
+                if(val > available){
+                    $(element).val($('#available'+index).val());
+                }
+            }else{
+                $(element).val("");
+            }
+        }
     </script>
 @endsection

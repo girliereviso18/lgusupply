@@ -35,7 +35,7 @@
                                 @endif
                         </select>
                     </td>
-                    <td style="width: 80px"><input type="number" id="quantity0" name="requisitions[0][3]" min="1" class="form-control" required></td>
+                    <td style="width: 80px"><input type="number" oninput="validate(this)" data-id="0" id="quantity0"  name="requisitions[0][3]" min="1" class="form-control" required></td>
                     <td style="width: 80px"><input type="text" id="available0" name="requisitions[0][4]" class="form-control" readonly></td>
                     <td><input type="text" id="remarks0" name="requisitions[0][5]" class="form-control"></td>
                     <td style="width: 80px"><input type="text" name="requisitions[0][6]" class="form-control" readonly></td>
