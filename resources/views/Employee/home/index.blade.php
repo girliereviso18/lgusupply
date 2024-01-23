@@ -8,7 +8,7 @@
             <div>
             <br>
             <br>
-            <h1 style="text-align: center;">Welcome to Supply Management System </h1> 
+            <h1 style="color: #8a2be2; font-weight: bold; font-size: 30px; text-align:center ;font-style: oblique;">Welcome to Supply Management System </h1>  
         </br>
         <hr>
         <div class="row">

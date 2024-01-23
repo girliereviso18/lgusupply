@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-md-4 form-group">
                     <label for="rc_code">RC Code:</label>
-                    <select type="" name="rc_code" class="form-control" required>
+                    <select type="" name="rc_code" class="form-control">
                         <option value="" disabled selected>Select Department</option>
                         @if($departments = App\Models\Department::get())
                         @foreach($departments as $department)

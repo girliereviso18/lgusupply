@@ -22,20 +22,20 @@
                     </div>
                      <div class="form-group">
                         <label for="responsibility_code">Responsibility Code</label>
-                        <input type="text" name="responsibility_code" value="{{ $department->responsibility_code}}" required="required" class="form-control" >                 
+                        <input type="text" name="responsibility_code" value="{{ $department->responsibility_code}}"class="form-control" >                 
                     </div>
                      <div class="form-group">
                         <label for="contact_number">Designation</label>
-                        <input type="text" name="designation" value="{{ $department->designation}}" required="required" class="form-control" >                 
+                        <input type="text" name="designation" value="{{ $department->designation}}"  class="form-control" >                 
                     </div>
 
                     <div class="form-group">
                         <label for="contact_number">Contact No.</label>
-                        <input type="text" name="contact_number" value="{{ $department->contact_number}}" required="required" class="form-control" >                  
+                        <input type="text" name="contact_number" value="{{ $department->contact_number}}" class="form-control" >                  
                     </div>
                      <div class="form-group">
                         <label for="email_address">Email Address</label>
-                        <input type="text" name="email_address" value="{{ $department->email_address}}" required="required" class="form-control" >                 
+                        <input type="text" name="email_address" value="{{ $department->email_address}}" class="form-control" >                 
                     </div>
 
                     <div class="card-footer py-1 text-center">

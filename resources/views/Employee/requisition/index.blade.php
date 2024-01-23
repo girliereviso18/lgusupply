@@ -42,10 +42,7 @@
                                                     </a>
                                                     <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('employee/requisitions/delete').'/'.$requisition->id}}">
                                                         <i class="fa fa-trash-alt"></i> Delete
-                                                    </a>
-                                                    <a class="btn btn-sm btn-primary view_data" href="{{ url('employee/requisition/view').'/'.$requisition->id}}">
-                                                        <i class="fa fa-eye"></i> View
-                                                    </a>
+                                        
                                                 </td>
                                                 </tr>
                                             @endforeach

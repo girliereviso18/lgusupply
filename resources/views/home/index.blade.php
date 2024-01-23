@@ -8,7 +8,7 @@
             <div>
             <br>
             <br>
-            <h1 style="text-align: center;">Welcome to Supply Management System </h1> 
+            <h1 style="color: #8a2be2; font-weight: bold; font-size: 30px; text-align:center ;font-style: oblique;">Welcome to Supply Management System </h1> 
         </br>
         <hr>
         <div class="row">
@@ -120,6 +120,19 @@
                     @if($nOdepartment=App\Models\Department::count())
                     <span class="info-box-number">
                     {{ $nOdepartment }}
+                    </span>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-4 col-sm-4 col-md-3">
+            <div class="info-box bg-light shadow">
+                <span class="info-box-icon bg-orange elevation-1"><i class="fas fa-users"></i></span>
+                    <div class="info-box-content">
+                    <a href="{{ route('admin.divisions.index') }}" target="_blank"><span class="info-box-text">Divisions</span></a>
+                    @if($nOdivision=App\Models\Division::count())
+                    <span class="info-box-number">
+                    {{ $nOdivision}}
                     </span>
                     @endif
                 </div>

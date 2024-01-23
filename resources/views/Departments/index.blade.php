@@ -22,19 +22,19 @@
                         </div>
                          <div class="form-group">
                             <label>Responsibility Code</label>
-                            <input type="text" name="responsibility_code" class="form-control" required="required">
+                            <input type="text" name="responsibility_code" class="form-control">
                         </div>
                          <div class="form-group">
                             <label>Designation</label>
-                            <input type="text" name="designation" class="form-control" required="required">
+                            <input type="text" name="designation" class="form-control">
                         </div>
                          <div class="form-group">
                             <label>Contact No.</label>
-                            <input type="text" name="contact_number" class="form-control" required="required">
+                            <input type="text" name="contact_number" class="form-control">
                         </div>
                          <div class="form-group">
                             <label>Email Address</label>
-                            <input type="text" name="email_address" class="form-control" required="required">
+                            <input type="text" name="email_address" class="form-control">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-sm btn-outline-primary" type="submit">Save</button>

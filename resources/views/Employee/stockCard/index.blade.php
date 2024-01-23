@@ -6,7 +6,7 @@
         <div class="col-sm-12">
                <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Stock Card Report</h3>
+                    <h3 class="card-title">Stock List</h3>
                     <div class="card-tools">
                 </div>
                 </div>
@@ -34,7 +34,8 @@
                                         @if(isset($reports))
                                             @foreach($reports as $report)
                                                  <tr>
-                                                    <td>{{ $report->item}}</td>
+                                                    <?php $item_name = App\Models\Item::where('id', $report->item)->value('items_name') ?>
+                                                    <td>{{ $item_name}}</td>
                                                     <td>{{ $report->description}}</td>
                                                     <td>{{ $report->stock_no }}</td>
                                                     <td>{{ $report->date }}</td>
@@ -60,7 +61,10 @@
  <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
 <script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script>
 <script>
-
+    $(document).ready(function(){
+        $('.table td,.table th').addClass('py-1 px-2 align-middle')
+        $('.table').dataTable();
+    })
 </script>
 
 @endsection

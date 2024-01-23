@@ -271,7 +271,7 @@
           </tr>
           <tr class="row20">
             <td class="column0 style29 null"></td>
-            <td class="column1 style29 s">;</td>
+            <td class="column1 style29 s"></td>
             <td class="column2 style29 null"></td>
             <td class="column3 style29 null"></td>
             <td class="column4 style29 null"></td>

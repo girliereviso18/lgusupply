@@ -51,5 +51,14 @@
 </div>
  <link href="{{asset('modalalert/jquery-ui.css')}}" rel="stylesheet" />
 <script src="{{asset('modalalert/ jquery-ui.min.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $('.view_details').click(function(){
+            uni_modal("Receiving Details","receiving/view_receiving.php?id="+$(this).attr('data-id'),'mid-large')
+        })
+        $('.table td,.table th').addClass('py-1 px-2 align-middle')
+        $('.table').dataTable();
+    })
+</script>
 
 @endsection

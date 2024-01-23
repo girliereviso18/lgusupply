@@ -91,7 +91,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="" class="nav-link" style="font-weight: bold;">Municipality of Bontoc Supply Management System-USER</a>
+            <a href="" class="nav-link" style="font-weight: bold;">Municipality of Bontoc Supply Management System-User</a>
 </li>
 
         </ul>
@@ -167,7 +167,7 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-4">
                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-compact nav-flat nav-child-indent nav-collapse-hide-child" data-widget="treeview" role="menu" data-accordion="false">
-                    <div> <li class="nav-item dropdown">
+                    <div> <li class="nav-item dropdown"style="color:white;font-weight: bold; font-size: 18px;">
                       <a href="{{ route('home.index')}}" class="nav-link nav-home">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -176,10 +176,10 @@
                       </a>
                     </li>
                    </div>
-                   <br></br>
-              
+                   <br>
                      <div>
-                        <li class="nav-header" margin-buttom: 10px;>Requisition</li>
+                       <a href="#requisitionsCollapse" class="nav-link nav-requisitions" onclick="readNotif()" data-toggle="collapse" aria-expanded="false">
+                        <li class="nav-header" style="color:white;font-weight: bold; font-size: 18px;">Requisition</li>
                          <li class="nav-form dropdown">
                           <li class="nav-form">
                             <a href="{{ route('employee.requisition.add')}}" class="nav-link nav-form">
@@ -224,7 +224,7 @@
                         </li>
                       </div>
                       <div>
-                        <li class="nav-header" style="padding: 0;margin-top: 10px;">
+                        <li class="nav-header" style="color:white;font-weight: bold; font-size: 18px;"style="padding: 0;margin-top: 10px;">
                           <a href="{{ route('employee.stockCard.index')}}" style="padding: 0;" class="nav-link nav-form">
                             <i class="fas fa-archive" style="margin-left: 10px;"></i>
                               <p>

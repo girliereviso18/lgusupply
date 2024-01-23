@@ -131,7 +131,7 @@
           <li class="nav-item">
             <div class="btn-group nav-link">
                   <button type="button" class="btn btn-rounded badge badge-light dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                    <span style="margin-right: 10px;"><img src="{{asset('adminassets/uploads/ggg.JPG?v=1635556826')}}" class="img-circle elevation-2 user-img" alt="User Image"></span>
+                    <span style="margin-right: 10px;"><img src="" class="img-circle elevation-2 user-img" alt="User Image"></span>
                     <?php
                       $userId = session('user_id');
                       $username = App\Models\User::where('id', $userId)->value('name');
@@ -181,7 +181,7 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-4">
                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-compact nav-flat nav-child-indent nav-collapse-hide-child" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown"style="color:white;font-weight: bold; font-size: 18px;">
                       <a href="{{ route('home.index')}}" class="nav-link nav-home">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -190,7 +190,7 @@
                       </a>
                     </li>
                    
-                     <li class="nav-item">
+                     <li class="nav-item"style="color:white;font-weight: bold; font-size: 18px;">
                         <a href="#stocksCollapse" class="nav-link nav-stocks" data-toggle="collapse" aria-expanded="false">
                         <i class="nav-icon fas fa-chart-line"></i>
                         <p>
@@ -198,6 +198,7 @@
                           <i class="fas fa-caret-down"></i>
                         </p>
                       </a>
+                    </li>
                       <div class="collapse" id="stocksCollapse">
                         <ul class="nav flex-column">
                           <li class="nav-item ">
@@ -217,7 +218,7 @@
                       </ul>
                     </div>
                     </li>
-                    <li class="nav-header">Maintenance</li>
+                    <li class="nav-header"style="color:white;font-weight: bold; font-size: 18px;">Maintenance</li>
                     <li class="nav-item dropdown">
                         <li class="nav-item">
                           <a href="{{ route('admin.items.index')}}" class="nav-link nav-items">
@@ -254,11 +255,11 @@
                           </a>
                         </li>
                     </li>
-                     <li class="nav-item">
+                     <li class="nav-item"style="color: #8a2be2; font-weight: bold; font-size: 18px; margin-bottom: 10px;">
                         <a href="#requisitionsCollapse" class="nav-link nav-requisitions" onclick="readNotif()" data-toggle="collapse" aria-expanded="false">
                             <i class="nav-icon fas fa-file"></i>
                             <p>
-                                Requisitions
+                                Requisition
                                 <i class="fas fa-caret-down"></i>
                                 <?php 
                                 $countOfNewItems = App\Models\Requisition::where('is_new', 1)->count();
@@ -267,6 +268,8 @@
                                   <span id="notif">New <?php echo $countOfNewItems;?></span>
                                 <?php } ?>
                             </p>
+                          </a>
+                        </li>
                         </a>
                         <div class="collapse" id="requisitionsCollapse">
                             <ul class="nav flex-column">
@@ -297,7 +300,7 @@
                             </ul>
                         </div>
                     </li>
-                        <li class="nav-header">Users</li>
+                        <li class="nav-header"style="color:white;font-weight: bold; font-size: 18px;">Users</li>
                         <li class="nav-form">
                           <a href="{{ route('admin.users.index')}}" class="nav-link nav-form">
                            <i class="fas fa-user" style="margin-left: 10px;"></i>
