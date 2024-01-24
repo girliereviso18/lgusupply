@@ -101,7 +101,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="" class="nav-link" style="font-weight: bold;">Municipality of Bontoc Supply Management System-USER</a>
+            <a href="" class="nav-link" style="font-weight: bold;">Municipality of Bontoc Supply Management System-User</a>
 </li>
 
         </ul>
