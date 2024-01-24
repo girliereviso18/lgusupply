@@ -109,8 +109,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/approved-requisitions', 'RequisitionsController@approve')->name('admin.approved.index');
         Route::get('/disapproved-requisitions', 'RequisitionsController@disapprove')->name('admin.disapprove.index');
         Route::get('/requisitions/readnotif', 'RequisitionsController@markAsRead')->name('admin.requisition.markAsRead');
-
-
         
         //suppliers 
 
@@ -198,6 +196,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/user/requisitions/view/{id}', 'User\RequisitionsController@viewrequisitions')->name('employee.requisition.view');
         Route::post('/user/requisitions/view', 'User\RequisitionsController@viewrequisitions')->name('employee.requisition.edit.view');
         Route::get('/user/requisitions/print/{id}', 'User\RequisitionsController@requisitionsprint')->name('employee.requisition.print');
+        
+        Route::get('/user/approved/notification/{id}', 'User\RequisitionsController@approvedNotif')->name('employee.approved.notification');
+        Route::get('/user/disapproved/notification/{id}', 'User\RequisitionsController@disapprovedNotif')->name('employee.disapproved.notification');
+
 
         // PENDING
 
@@ -209,5 +211,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/user/pendings/save', 'PendingsController@updatependings')->name('employee.pendings.edit.save');
 
         Route::get('/user/pendings/delete/{id}', 'PendingsController@deletependings')->name('employee.pendings.delete');
+
+
 
 });

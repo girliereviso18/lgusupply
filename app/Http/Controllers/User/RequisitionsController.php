@@ -105,14 +105,15 @@ class RequisitionsController extends Controller
         $units = Unit::get();
         $reports = Report::where('department', session('department'))->get();
         $department = Department::where('id',session('department'))->value('department_user');
-
+        $departments = Department::get();
         //echo json_encode($department);
         return view('Employee.requisition.add',[
             'supplies'=> $supplies,
             'units' => $units,
             'reports' => $reports,
             'username' => $username,
-            'department' => $department
+            'department' => $department,
+            'departments' => $departments
         ]);
     }
 
@@ -299,6 +300,20 @@ public function deleteRequisitionItem(Request $request)
                                     ->get();
 
         return view('Employee/requisition.disapproved', ['requisitions' => $requisitions]);
+    }
+    public function approvedNotif($id){
+        $requisitions = Requisition::where('requested_by', $id)->where('employee_new_approved',1)->get();
+        foreach ($requisitions as $requisition) {
+            $requisition->employee_new_approved = 0;
+            $requisition->save();
+        }
+    }
+    public function disapprovedNotif($id){
+        $requisitions = Requisition::where('requested_by', $id)->where('employee_new_disapproved',1)->get();
+        foreach ($requisitions as $requisition) {
+            $requisition->employee_new_disapproved = 0;
+            $requisition->save();
+        }
     }
 
 }

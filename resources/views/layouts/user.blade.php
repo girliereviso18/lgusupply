@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="en" class="content dashboard-background" style="height: auto;">
 <head>
     <meta charset="utf-8">
@@ -49,7 +50,7 @@
     <!-- Toastr -->
     <script src="{{asset('adminassets/plugins/toastr/toastr.min.j')}}"></script>
     <script>
-        var base_url = 'http://localhost/bontoc-supply-management system/';
+        var _base_url_ = 'http://localhost/bontoc-supply-management system/';
     </script>
     <script src="{{asset('adminassets/dist/js/script.js')}}"></script>
 
@@ -73,6 +74,15 @@
     background-size: cover;
     background-position: center;
 }
+.notif{
+    font-size: 9px;
+    padding: 3px 8px;
+    background-color: #cc1414;
+    color: #fff;
+    border-radius: 20px;
+    margin-left: 5px;
+    padding-bottom: 5px;
+}
 
 
 @media (min-width: 1000px){
@@ -91,7 +101,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="" class="nav-link" style="font-weight: bold;">Municipality of Bontoc Supply Management System-User</a>
+            <a href="" class="nav-link" style="font-weight: bold;">Municipality of Bontoc Supply Management System-USER</a>
 </li>
 
         </ul>
@@ -176,10 +186,9 @@
                       </a>
                     </li>
                    </div>
-                   <br>
+              
                      <div>
-                       <a href="#requisitionsCollapse" class="nav-link nav-requisitions" onclick="readNotif()" data-toggle="collapse" aria-expanded="false">
-                        <li class="nav-header" style="color:white;font-weight: bold; font-size: 18px;">Requisition</li>
+                        <li class="nav-header"style="color:white;font-weight: bold; font-size: 18px;" margin-buttom: 10px;>Requisition</li>
                          <li class="nav-form dropdown">
                           <li class="nav-form">
                             <a href="{{ route('employee.requisition.add')}}" class="nav-link nav-form">
@@ -204,10 +213,16 @@
                       <div>
                          <li class="nav-form dropdown">
                           <li class="nav-form">
-                            <a href="{{ route('employee.requisition.approved')}}" class="nav-link nav-form">
+                            <a href="{{ route('employee.requisition.approved')}}" onclick="approvedNotif()" class="nav-link nav-form">
                             <i class="fas fa-check" style="margin-left: 10px;"></i>
                               <p>
                                 Approved
+                                <?php 
+                                $countOfNewApproved = App\Models\Requisition::where('requested_by', session('user_id'))->where('status','approved')->where('employee_new_approved',1)->count();
+                                if($countOfNewApproved > 0){
+                                ?>
+                                  <span class="notif" id="newApproved">New <?php echo $countOfNewApproved;?></span>
+                                <?php } ?>
                              </p>
                           </a>
                         </li>
@@ -215,10 +230,16 @@
                       <div>
                          <li class="nav-form dropdown">
                           <li class="nav-form">
-                            <a href="{{ route('employee.requisition.disapproved')}}" class="nav-link nav-form">
+                            <a href="{{ route('employee.requisition.disapproved')}}" onclick="disapprovedNotif()" class="nav-link nav-form">
                             <i class="fas fa-times" style="margin-left: 10px;"></i>
                               <p>
                                 Disapproved
+                                <?php 
+                                $countOfNewdisapproved = App\Models\Requisition::where('requested_by', session('user_id'))->where('status','disapproved')->where('employee_new_disapproved',1)->count();
+                                if($countOfNewdisapproved > 0){
+                                ?>
+                                  <span class="notif" id="newDisapproved">New <?php echo $countOfNewdisapproved;?></span>
+                                <?php } ?>
                              </p>
                           </a>
                         </li>
@@ -313,7 +334,38 @@
        $('#confirm_modal .modal-body').html($msg)
        $('#confirm_modal').modal('show')
     }
+    
   })
+  function approvedNotif(){
+      $.ajax({
+          url: "{{ route('employee.approved.notification', ['id' => session('user_id')]) }}",
+          method: "GET",
+          cache: false,
+          error: function(err) {
+              console.log(err);
+              alert_toast("An error occurred.", 'error');
+          },
+          success: function() {
+            // console.log(resp);
+            $('#newApproved').hide(300);
+          }
+      });
+    }
+    function disapprovedNotif(){
+      $.ajax({
+          url: "{{ route('employee.disapproved.notification', ['id' => session('user_id')]) }}",
+          method: "GET",
+          cache: false,
+          error: function(err) {
+              console.log(err);
+              alert_toast("An error occurred.", 'error');
+          },
+          success: function() {
+            // console.log(resp);
+            $('#newDisapproved').hide(300);
+          }
+      });
+    }
 </script>
 <!-- <footer class="main-footer text-sm">
         <strong>Copyright © 2023. 
@@ -382,3 +434,4 @@
     </div>
     <div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>  </body>
 </html>
+
