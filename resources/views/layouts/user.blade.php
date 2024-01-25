@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="content dashboard-background" style="height: auto;">
 <head>
     <meta charset="utf-8">
@@ -218,7 +217,7 @@
                               <p>
                                 Approved
                                 <?php 
-                                $countOfNewApproved = App\Models\Requisition::where('requested_by', session('user_id'))->where('status','approved')->where('employee_new_approved',1)->count();
+                                $countOfNewApproved = App\Models\Requisition::where('requested_by', session('user_id'))->where('status','approved')->where('employee_new_approved',3)->count();
                                 if($countOfNewApproved > 0){
                                 ?>
                                   <span class="notif" id="newApproved">New <?php echo $countOfNewApproved;?></span>
@@ -235,7 +234,7 @@
                               <p>
                                 Disapproved
                                 <?php 
-                                $countOfNewdisapproved = App\Models\Requisition::where('requested_by', session('user_id'))->where('status','disapproved')->where('employee_new_disapproved',1)->count();
+                                $countOfNewdisapproved = App\Models\Requisition::where('requested_by', session('user_id'))->where('status','disapproved')->where('employee_new_disapproved',3)->count();
                                 if($countOfNewdisapproved > 0){
                                 ?>
                                   <span class="notif" id="newDisapproved">New <?php echo $countOfNewdisapproved;?></span>
@@ -368,7 +367,7 @@
     }
 </script>
 <!-- <footer class="main-footer text-sm">
-        <strong>Copyright © 2023. 
+        <strong>Copyright 漏 2023. 
          <a href=""></a> -->
         <!-- /strong>
         All rights reserved.
@@ -434,4 +433,3 @@
     </div>
     <div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>  </body>
 </html>
-

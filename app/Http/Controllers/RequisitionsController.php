@@ -320,7 +320,7 @@ public function deleteRequisitionItem(Request $request)
         $requisition->approved_printed_name = 'Noel E. Alinsub';
         $requisition->approved_date = $request->current_date;
         $requisition->status = 'approved';
-        
+        $requisition->employee_new_approved = 3;
 
         if($requisition->issued_by == null){
             // Add information for "Issued by:"
@@ -364,6 +364,7 @@ public function deleteRequisitionItem(Request $request)
         $requisition = Requisition::find($request->id);
         
         $requisition->status = 'disapproved';
+        $requisition->employee_new_disapproved = 3;
         $requisition->save();
         
         $idDepartment = User::where('id',$requisition->requested_by)->value('department_id');

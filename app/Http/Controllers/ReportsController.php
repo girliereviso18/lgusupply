@@ -24,6 +24,7 @@ class ReportsController extends Controller
             $row->department = $dep;
             $item = Item::where('id', $row->item)->value('items_name');
             $row->item = $item;
+            $row->office = $dep;
         }
         return view('Reports.index', ['reports' => $reports]);
     }
@@ -73,6 +74,17 @@ class ReportsController extends Controller
     public function updatereports(Request $request)
     {
         $Editsave = Report::where('id', $request->id)->first();
+
+        if($Editsave->receipt_qty > $request->receipt_qty){
+            $q = $Editsave->receipt_qty - $request->receipt_qty;
+            Supply::where('item_id',$Editsave->item)
+            ->increment('qty', $q);
+        }else if($Editsave->receipt_qty < $request->receipt_qty){
+            $q = $request->receipt_qty - $Editsave->receipt_qty;
+            Supply::where('item_id',$Editsave->item)
+            ->decrement('qty', $q);
+        }
+
         $Editsave->department = $request->department;
         $Editsave->item = $request->item;
         $Editsave->description = $request->description;
@@ -82,9 +94,8 @@ class ReportsController extends Controller
         $Editsave->receipt_qty = $request->receipt_qty;
         $Editsave->issuance_qty = $request->issuance_qty;
         $Editsave->office = $request->office;
-        $Editsave->balance = $request->balance;
         $Editsave->days_to_consume = $request->days_to_consume;
-
+        
         if ($Editsave->update()) {
             return redirect()->route('admin.reports.index')->withErrors('Updated!');
         }

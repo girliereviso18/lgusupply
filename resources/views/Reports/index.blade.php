@@ -28,8 +28,6 @@
                                             <th>Date</th>
                                             <th>Reference</th>
                                             <th>Receipt qty</th>
-                                            <th>Issuance qty</th>
-                                            <th>Office</th>
                                             <th>Balance</th>
                                              <th>Days to consume</th>
                                             <th>Action</th>
@@ -47,8 +45,6 @@
                                                     <td>{{ $report->date }}</td>
                                                     <td>{{ $report->reference }}</td>
                                                     <td>{{ $report->receipt_qty }}</td>
-                                                    <td>{{ $report->issuance_qty }}</td>
-                                                    <td>{{ $report->office }}</td>
                                                     <td>{{ $report->balance }}</td>
                                                     <td>{{ $report->days_to_consume }}</td>
 

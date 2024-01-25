@@ -14,9 +14,13 @@
                         <label for="department">Department</label>
                       <select type="" name="department" class="form-control" required>
                           @if($departments = App\Models\Department::get())
-                              @foreach($departments as $department)
-                                  <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                              @endforeach
+                                @foreach($departments as $department)
+                                    @if($department->id == $report->id)
+                                        <option value="{{ $department->id }}" selected> {{ $department->department_user }}</option>
+                                    @else
+                                        <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+                                    @endif
+                                @endforeach
                           @endif
                       </select>
                   </div>
@@ -27,7 +31,11 @@
                           <select type="" name="item" class="form-control" required>
                              @if($items = App\Models\Item::get())
                                   @foreach($items as $item)
-                                   <option value="{{ $item->id }}"> {{ $item->items_name }}</option>
+                                    @if($item->id == $report->item)
+                                        <option value="{{ $item->id }}" selected> {{ $item->items_name }}</option>
+                                    @else
+                                        <option value="{{ $item->id }}"> {{ $item->items_name }}</option>
+                                    @endif
                                  @endforeach
                              @endif
                         </select>
@@ -37,7 +45,7 @@
                     <input type="hidden" name="description" value="">
                     <div class="card-body">
                         <label for="description">Description</label>
-                        <input type="text" id="description" name="description" class="form-control">
+                        <input type="text" id="description" value="{{ $report->description }}" name="description" class="form-control">
                     </div>
 
                     <!-- Stock Number Selection -->
@@ -46,9 +54,11 @@
                         <select name="stock_no" class="form-control" required>
                             @if($supplies = App\Models\Supply::with('item')->get())
                                 @foreach($supplies as $supply)
-                                    <option value="{{ $supply->id }}"> 
-                                        {{ $supply->stock_number }} 
-                                    </option>
+                                    @if($supply->stock_number == $report->stock_no)
+                                        <option value="{{ $supply->id }}" selected>{{ $supply->stock_number }}</option>
+                                    @else
+                                        <option value="{{ $supply->id }}">{{ $supply->stock_number }}</option>
+                                    @endif                             
                                 @endforeach
                             @endif
                         </select>
@@ -57,7 +67,7 @@
                     <!-- Date -->
                     <div class="card-body">
                         <label for="date">Date</label>
-                        <input type="date" name="date" value="{{ $report->date }}" class="form-control">
+                        <input type="date" name="date" value="{{ date('Y-m-d', strtotime($report->created_at)) }}" class="form-control">
                     </div>
 
                     <!-- Reference -->
@@ -67,28 +77,27 @@
                     </div>
 
                     <!-- Receipt Quantity -->
-                    <div class="card-body">
-                        <label for="receipt_qty">Receipt Qty</label>
-                        <input type="number" name="receipt_qty" class="form-control" value="{{ $report->receipt_qty }}">
-                    </div>
-
                     <!-- Office Selection -->
                     <div class="card-body">
                         <label for="office">Office</label>
                         <select type="" name="office" class="form-control" required>
                             <option value="" disabled selected>Select Department</option>
                              @if($departments = App\Models\Department::get())
-                             @foreach($departments as $department)
-                              <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
-                            @endforeach
-                          @endif
-                      </select>
+                                @foreach($departments as $department)
+                                    @if($department->id == $report->department)
+                                        <option value="{{ $department->id }}" selected> {{ $department->department_user }}</option>
+                                        @else
+                                            <option value="{{ $department->id }}"> {{ $department->department_user }}</option>
+                                        @endif
+                                @endforeach
+                            @endif
+                        </select>
                     </div>
 
                     <!-- Balance -->
                     <div class="card-body">
-                        <label for="balance">Balance</label>
-                        <input type="number" name="balance" class="form-control" value="{{ $report->balance }}">
+                        <label for="balance">Receipt Quantity</label>
+                        <input type="number" name="receipt_qty" class="form-control" value="{{ $report->receipt_qty }}">
                     </div>
 
                     <!-- Days to Consume -->
