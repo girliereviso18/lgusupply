@@ -24,9 +24,9 @@
                                             <th>Stock Number</th>
                                             <th>Item </th>
                                             <th>Quantity</th>
-                                            <th>Unit_of Measurement</th>
-                                            <th>Supplier_Id</th>
-                                            <th>Price_per_Unit</th>
+                                            <th>Unit of Measurement</th>
+                                            <th>Supplier</th>
+                                            <th>Price per unit</th>
                                             <th>Date of Purchase</th>
                                             <th>Expiration Date</th>
                                             <th>Action</th>

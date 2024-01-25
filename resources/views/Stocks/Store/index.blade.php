@@ -17,7 +17,7 @@
                       </div>
     
                       <div class="form-group">
-                        <label for="item_id">Item Name</label>
+                        <label for="item_id">Item</label>
                         <datalist id="item_id" >
                              <!-- <option value="" disabled selected>Select Item name</option> -->
                              @if($items = App\Models\Item::get())
@@ -46,7 +46,7 @@
                         </select>
                         </div>
                         <div class="form-group">
-                        <label for="suppliers_name">Supplier ID</label>
+                        <label for="suppliers_name">Supplier</label>
                         <datalist id="suppliers_name" >
                              <!-- <option value="" disabled selected>Select Supplier</option> -->
                              @if($suppliers = App\Models\Supplier::get())

@@ -12,7 +12,7 @@
                     @csrf
                     <input type="hidden" name="id" value="{{ $stock->id }}">
                     <div class="form-group">
-                        <label for="item_id">Item Code</label>
+                        <label for="item_id">Item</label>
                         <select name="item_id" required="required" class="form-control">
                             <option value="" disabled selected>Select Item code</option>
                             @if($items = App\Models\Item::get())
@@ -42,7 +42,7 @@
                         </select>
                     </div>
                      <div class="form-group">
-                        <label for="suppliers_name">Supplier ID</label>
+                        <label for="suppliers_name">Supplier</label>
                         <datalist id="suppliers_name" >
                              <!-- <option value="" disabled selected>Select Supplier</option> -->
                              @if($suppliers = App\Models\Supplier::get())

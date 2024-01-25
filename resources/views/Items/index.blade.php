@@ -20,7 +20,7 @@
                                             <th>#</th>
                                             <th>Item Name and Brand</th>
                                             <th>Barcode</th>
-                                            <th>Category_name</th>
+                                            <th>Category</th>
                                             <th>Description</th>
                                             <th>Action</th>
 
