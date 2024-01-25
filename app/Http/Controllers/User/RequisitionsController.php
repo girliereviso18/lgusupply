@@ -315,5 +315,17 @@ public function deleteRequisitionItem(Request $request)
             $requisition->save();
         }
     }
+    public function requisition_items($id){
+        $requisition_items = Requisitions_item::where('requisitions_id',$id)->get();
+        foreach($requisition_items as $requisition_item){
+            $item_name = Item::where('id',$requisition_item->item_id)->value('items_name');
+            $unit_name = Unit::where('id',$requisition_item->unit_id)->value('unit_name');
+            $balance = Report::where('department',session('department'))->where('item',$requisition_item->item_id)->value('balance');
+            $requisition_item->item_id = $item_name;
+            $requisition_item->unit_id = $unit_name;
+            $requisition_item->balance = $balance;
+        }
+        return $requisition_items;
+    }
 
 }

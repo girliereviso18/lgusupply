@@ -199,6 +199,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         
         Route::get('/user/approved/notification/{id}', 'User\RequisitionsController@approvedNotif')->name('employee.approved.notification');
         Route::get('/user/disapproved/notification/{id}', 'User\RequisitionsController@disapprovedNotif')->name('employee.disapproved.notification');
+        Route::get('/user/requisitions/items/{id}', 'User\RequisitionsController@requisition_items')->name('employee.requisition.items');
 
 
         // PENDING
