@@ -79,10 +79,12 @@ class ReportsController extends Controller
             $q = $Editsave->receipt_qty - $request->receipt_qty;
             Supply::where('item_id',$Editsave->item)
             ->increment('qty', $q);
+            $Editsave->balance = $Editsave->balance - $q;
         }else if($Editsave->receipt_qty < $request->receipt_qty){
             $q = $request->receipt_qty - $Editsave->receipt_qty;
             Supply::where('item_id',$Editsave->item)
             ->decrement('qty', $q);
+            $Editsave->balance = $Editsave->balance + $q;
         }
 
         $Editsave->department = $request->department;

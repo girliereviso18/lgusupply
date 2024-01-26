@@ -174,7 +174,7 @@
             <td class="column0 style24 null">{{ $report->date }}</td>
             <td class="column1 style24 null">{{ $report->reference }}</td>
             <td class="column2 style24 null">{{ $report->receipt_qty }}</td>
-            <td class="column3 style24 null">{{ $report->receipt_qty }}</td>
+            <td class="column3 style24 null">{{ $report->issuance_qty }}</td>
             <td class="column4 style29 null">{{ $report->office }}</td>
             <td class="column5 style29 null">{{ $report->balance }}</td>
             <td class="column6 style29 null">{{ $report->days_to_consume }}</td>
