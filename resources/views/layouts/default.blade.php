@@ -472,16 +472,20 @@
         }
     });
   }
+
 </script>
-<!-- <footer class="main-footer text-sm">
-        <strong>Copyright © 2023. 
-         <a href=""></a> -->
-        <!-- /strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-        </div>
-      </footer> --> 
-    </div>
+<br> </br>
+        <br> </br>
+        <br> </br>
+        <br> </br>
+        <br> </br>
+ <footer class="text-center mt-5">
+        <p>Bontoc Information Technology  Society &copy; {{ date('Y') }}</p>
+        <br> </br>
+        
+      
+       <p>Developed by:<a href="https://www.facebook.com/girliesiervoflorida.reviso/">ガーリー・レヴィソ</a></p>
+    </footer>
     <!-- ./wrapper -->
    
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
