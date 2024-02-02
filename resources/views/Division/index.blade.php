@@ -4,7 +4,7 @@
 <div class="container" style="margin-top: 52px;">
      @include('layouts.partials.messages')
     <div class="row p-1"> 
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">Add Division</h3>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-8">
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <h3 class="card-title"style="color: #ff69b4; font-weight: bold;">Division Lists</h3>
