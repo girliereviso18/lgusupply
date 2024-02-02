@@ -52,7 +52,7 @@
                                                    <td>{{ $division->division_name }}</td>
                                                    <td>{{ $division->description }}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-sm btn-success" href="{{ url('/admin/divisions/edit').'/'.$division->id}}" ><i class="fa fa-edit"></i> Update</a>
+                                                        <a class="btn btn-sm btn-success" href="{{ url('/admin/divisions/edit').'/'.$division->id}}" ><i class="fa fa-edit"></i>Edit</a>
                                                         <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/divisions/delete').'/'.$division->id}})"><i class="fa fa-trash-alt"></i> Delete</a>
                                                         <a class="btn btn-sm btn-primary view_data" href="{{ url('/admin/divisions/view').'/'.$division->id}}">
                                                         <i class="fa fa-eye"></i> View

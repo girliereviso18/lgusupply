@@ -8,7 +8,7 @@
         <div class="col-sm-6">
             <div class="card card-outline card-primary">
                 <div class="card-header"><br>
-                    <p class="card-title"style="color: #00008b; font-weight: bold;">Edit Items</p></br>
+                    <p class="card-title"style="color: #00008b; font-weight: bold;">Update Item</p></br>
                 </div>
                 <div class="card-body"> 
                     <form action="{{route('admin.items.edit.save')}}" method="POST">
@@ -41,7 +41,7 @@
                             <label>Description (optional)</label>
                             <textarea type="text" class="form-control" name="description" value="{{ $item->description}}">{{ $item->description}}</textarea>
                          </div>
-                         <button class="btn btn-flat btn-primary" type="submit">Save</button>
+                         <button class="btn btn-flat btn-primary" type="submit">Update</button>
                     </form>
                 </div>
             </div>

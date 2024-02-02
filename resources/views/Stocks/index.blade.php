@@ -52,7 +52,7 @@
                                                    <td>{{ $supply->expiration_date }}</td>
                                                     <td class="text-center">
                                           <a class="btn btn-sm btn-success" href="{{ url('/admin/stocks/edit').'/'.$supply->id}}" ><i
-                                         class="fa fa-edit"></i> Update</a>
+                                         class="fa fa-edit"></i> Edit</a>
                                          <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/stocks/delete').'/'.$supply->id}})"><i
                                          class="fa fa-trash-alt"></i> Delete</a></td>
                                                   

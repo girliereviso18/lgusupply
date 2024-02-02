@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="card-footer py-1 text-center">
-                        <button class="btn btn-flat btn-primary" type="submit" style="background-color: green">Save</button>
+                        <button class="btn btn-flat btn-primary" type="submit" style="background-color: green">Update</button>
                     </div>
                 </form>
               </div>

@@ -45,7 +45,7 @@
                                                    <td>{{ $requisition->purpose}}</td>
                                                    <td class="text-center">
                                                     <a class="btn btn-sm btn-success" href="{{ url('/admin/requisitions/edit').'/'.$requisition->id}}">
-                                                        <i class="fa fa-edit"></i> Update
+                                                        <i class="fa fa-edit"></i> Edit
                                                     </a>
                                                     <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/requisitions/delete').'/'.$requisition->id}}">
                                                         <i class="fa fa-trash-alt"></i> Delete

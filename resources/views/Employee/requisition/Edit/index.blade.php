@@ -143,7 +143,7 @@
                 </table>
                 <div class="btn-group" style="margin-bottom: 10px;">
                     <input type="button" value="Add Requisition Item" class="btn btn-sm btn-outline-primary" id="add-requisition-item-button">
-                    <button class="btn btn-sm btn-primary" style="background-color:forestgreen;">Save</button>
+                    <button class="btn btn-sm btn-primary" style="background-color:forestgreen;">Update</button>
                 </div>
             </div>
         </div>

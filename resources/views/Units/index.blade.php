@@ -46,7 +46,7 @@
                                                    <td>{{$count++}}</td>
                                                    <td>{{ $unit->unit_name }}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-sm btn-success" href="{{ url('/admin/units/edit').'/'.$unit->id}}" ><i class="fa fa-edit"></i> Update</a>
+                                                        <a class="btn btn-sm btn-success" href="{{ url('/admin/units/edit').'/'.$unit->id}}" ><i class="fa fa-edit"></i> Edit</a>
                                                         <a class="btn btn-sm btn-danger delete_data" href="" data-url="{{ url('/admin/units/delete').'/'.$unit->id}})"><i class="fa fa-trash-alt"></i> Delete</a></td>
                                                 </tr>
                                             @endforeach
