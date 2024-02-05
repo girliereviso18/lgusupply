@@ -232,7 +232,7 @@
                           <a href="{{ route('admin.units.index')}}" class="nav-link nav-items">
                             <i class="nav-icon fas fa-ruler"></i>
                             <p>
-                              Unit
+                              Units
                             </p>
                           </a>
                         </li>
@@ -250,7 +250,7 @@
                           <a href="{{ route('admin.suppliers.index')}}" class="nav-link nav-items">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
-                              Supplier
+                              Suppliers
                             </p>
                           </a>
                         </li>
@@ -259,7 +259,7 @@
                         <a href="#requisitionsCollapse" class="nav-link nav-requisitions" onclick="readNotif()" data-toggle="collapse" aria-expanded="false">
                             <i class="nav-icon fas fa-file"></i>
                             <p>
-                                Requisition
+                                Requisitions
                                 <i class="fas fa-caret-down"></i>
                                 <?php 
                                 $countOfNewItems = App\Models\Requisition::where('is_new', 1)->count();
@@ -277,7 +277,7 @@
                                     <a href="{{ route('admin.requisitions.pending') }}" class="nav-link nav-form" style="margin-left: 35px;">
                                         <i class="fas fa-pencil-alt" style="margin-left: 10px;"></i>
                                         <p>
-                                            Pending Requisition
+                                            Pending Requisitions
                                         </p>
                                     </a>
                                 </li>
@@ -285,7 +285,7 @@
                                     <a href="{{ route('admin.requisitions.approved') }}" class="nav-link" style="margin-left: 35px;">
                                         <i class="fas fa-check" style="margin-left: 10px;"></i>
                                         <p>
-                                            Approve Requisition
+                                            Approve Requisitions
                                         </p>
                                     </a>
                                 </li>
@@ -293,7 +293,7 @@
                                     <a href="{{ route('admin.requisitions.disapproved') }}" class="nav-link" style="margin-left: 35px;">
                                         <i class="fas fa-times" style="margin-left: 10px;"></i>
                                         <p>
-                                            Disapprove Requisition
+                                            Disapprove Requisitions
                                         </p>
                                     </a>
                                 </li>
