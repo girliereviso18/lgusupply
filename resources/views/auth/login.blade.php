@@ -56,9 +56,9 @@
   </div>
   <script src="{{asset('adminassets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <footer class="text-center mt-5">
-        <p>Bontoc Information Technology  Society &copy; {{ date('Y') }}</p>
+        <p>BITS &copy; {{ date('Y') }}</p>
         <br> </br>
-       <p>Developed by:<a href="https://www.facebook.com/girliesiervoflorida.reviso/">ガーリー・レヴィソ</a></p>
+       <p>Developed by <a href="https://www.facebook.com/girliesiervoflorida.reviso/">ガーリー・レヴィソ</a></p>
     </footer>
 
     <!-- Your existing scripts, if any -->
